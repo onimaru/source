@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Distribuições de probabilidade &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Entropia e informação mútua" href="information-theory.html" />
+    <link rel="prev" title="1. Theoretical minimum" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   This is mostly for fun
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math and Machine Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Distribuições de probabilidade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="information-theory.html">
+   3. Entropia e informação mútua
+   <a class="anchor" id="3">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eigen-decomposition.html">
+   4. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lagrange-multipliers.html">
+   5. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="method-of-kernels.html">
+   6. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+   7. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+   8. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="counter-factual-model.html">
+   9. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-manifold.html">
+   11. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="multidimensional-scaling.html">
+   12. Manifold Learning - Multidimensional Scaling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variational-autoencoder.html">
+   13. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/math/probability-distributions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/math/probability-distributions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/onimaru/source/master?urlpath=tree/docs/content/math/probability-distributions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regras-da-probabilidade">
+   2.1. Regras da probabilidade
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemplos-de-distribuicoes">
+   2.2. Exemplos de Distribuições
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribuicao-gamma">
+     2.2.1. Distribuição Gamma
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribuicao-beta">
+     2.2.2. Distribuição Beta
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribuicao-de-poisson-a-class-anchor-id-1-1-a">
+     2.2.3. Distribuição de Poisson
+     <a class="anchor" id="1-1">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribuicao-multinomial-a-class-anchor-id-1-2-a">
+     2.2.4. Distribuição Multinomial
+     <a class="anchor" id="1-2">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribuicao-de-dirichlet-a-class-anchor-id-1-3-a">
+     2.2.5. Distribuição de Dirichlet
+     <a class="anchor" id="1-3">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="distribuicoes-de-probabilidade">
+<h1><span class="section-number">2. </span>Distribuições de probabilidade<a class="headerlink" href="#distribuicoes-de-probabilidade" title="Permalink to this headline">¶</a></h1>
+<p>Glossário:</p>
+<ul class="simple">
+<li><p><strong>Função de distribuição cumulativa (Cumulative distribution function - <code class="docutils literal notranslate"><span class="pre">CDF</span></code></strong>): é a funcão <span class="math notranslate nohighlight">\(F: \mathbb{R} \rightarrow \left[ 0,1 \right]\)</span> definida por</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[F(x) = \mathbb{P}(X \le x),\]</div>
+<p>onde <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> representa a probabilidade. A função CDF precisa ser sempre crescente e normalizada.</p>
+<ul class="simple">
+<li><p><strong>Função de probabilidade (Probability mass function - <code class="docutils literal notranslate"><span class="pre">PMF</span></code></strong>): para uma variável discreta <span class="math notranslate nohighlight">\(X\)</span>, é dada por <span class="math notranslate nohighlight">\(p = \mathbb{P}(X = x)\)</span> e atende as propriedades: <span class="math notranslate nohighlight">\(p \ge 0 \forall x \in \mathbb{R}\)</span> e <span class="math notranslate nohighlight">\(\sum_{i}p(x_{i}) = 1\)</span>.</p></li>
+</ul>
+<p>A relação entre <span class="math notranslate nohighlight">\(F\)</span> e <span class="math notranslate nohighlight">\(p\)</span> é dada por:</p>
+<div class="math notranslate nohighlight">
+\[F(x) = \mathbb{P}(X \le x) = \sum_{x_{i} \le x}p(x_{i})\]</div>
+<ul class="simple">
+<li><p><strong>Função densidade de probabilidade (Probability density function - <code class="docutils literal notranslate"><span class="pre">PDF</span></code></strong>): se <span class="math notranslate nohighlight">\(X\)</span> é uma variável contínua, atende às propriedades: <span class="math notranslate nohighlight">\(p(x) \ge 0 \forall x \in \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(\int_{-\infty}^{+\infty}p(x_{i}) = 1\)</span> e para todo intervalo <span class="math notranslate nohighlight">\(a \le b\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(a &lt; X &lt; b) = \int_{a}^{b}p(x)dx\]</div>
+<div class="section" id="regras-da-probabilidade">
+<h2><span class="section-number">2.1. </span>Regras da probabilidade<a class="headerlink" href="#regras-da-probabilidade" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Regra da soma</strong>: <span class="math notranslate nohighlight">\(p(X) = \sum_{Y}p(X,Y)\)</span> ou <span class="math notranslate nohighlight">\(p(X) = \int{Y}p(X,Y)dy\)</span> para variáveis contínuas.</p></li>
+<li><p><strong>Regra do produto</strong>: <span class="math notranslate nohighlight">\(p(X,Y) = p(Y \vert X)p(X)\)</span>.</p></li>
+<li><p><strong>Teorema de Bayes</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[p(Y \vert X) = \frac{p(X \vert Y) p(Y)}{p(X)}\]</div>
+<ul class="simple">
+<li><p><strong>Marginalização</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[p(X) = \sum_{Y}p(X \vert Y)p(Y)\]</div>
+</div>
+<div class="section" id="exemplos-de-distribuicoes">
+<h2><span class="section-number">2.2. </span>Exemplos de Distribuições<a class="headerlink" href="#exemplos-de-distribuicoes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">beta</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">gamma</span> <span class="k">as</span> <span class="n">gamma_func</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Função Gamma</strong> (não confundir com a distribuição de mesmo nome)</p>
+<div class="math notranslate nohighlight">
+\[\Gamma(a) = \int_{0}^{\infty}e^{-x}x^{a-1}dx\]</div>
+<p>Se <span class="math notranslate nohighlight">\(a\)</span> é um positivo inteiro, então <span class="math notranslate nohighlight">\(\Gamma(a) = (a-1)!\)</span>.</p>
+<div class="section" id="distribuicao-gamma">
+<h3><span class="section-number">2.2.1. </span>Distribuição Gamma<a class="headerlink" href="#distribuicao-gamma" title="Permalink to this headline">¶</a></h3>
+<p>PDF:</p>
+<div class="math notranslate nohighlight">
+\[Gamma(x \vert k,\theta) = \frac{\theta^{-k}}{\Gamma(k)}x^{k-1}e^{-\frac{x}{\theta}}\]</div>
+<p>Parâmetros:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k &gt; 0\)</span> shape - número de eventos que desejamos esperar</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta &gt; 0\)</span> scale - <span class="math notranslate nohighlight">\(\frac{1}{\theta}\)</span>: taxa de eventos por unidade de tempo</p></li>
+</ul>
+<p>ou ainda</p>
+<div class="math notranslate nohighlight">
+\[Gamma(x \vert a,b) = \frac{b^{a}}{\Gamma(a)}x^{a-1}e^{-xb}\]</div>
+<p>Suporte: <span class="math notranslate nohighlight">\(x \in (0,\infty)\)</span></p>
+<p>Média: <span class="math notranslate nohighlight">\(\mathbb{E}\left[ x \right] = \frac{a}{b}\)</span></p>
+<p>Variância: <span class="math notranslate nohighlight">\(var \left[ x \right] = \frac{a}{b^{2}}\)</span></p>
+<p>Mode: <span class="math notranslate nohighlight">\(moda \left[ x \right] = \frac{a-1}{b} \forall a \ge 1\)</span></p>
+<p>Outras quantidades: <span class="math notranslate nohighlight">\(\mathbb{E}\left[ \ln{x} \right] = \psi(a) - \ln{b},\)</span></p>
+<p>onde <span class="math notranslate nohighlight">\(\psi(a)\)</span> é da função digamma: <span class="math notranslate nohighlight">\(\psi(a) = \frac{d}{da}\ln{\Gamma(a)}\)</span>. Para saber mais sobre a função digamma veja <a class="reference external" href="http://scipp.ucsc.edu/~haber/archives/physics116A10/psifun_10.pdf">aqui</a>.</p>
+<div class="math notranslate nohighlight">
+\[H\left[ x \right] = \ln{\Gamma(a)} - (a-1)\psi(a) - \ln{b} +a\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.7</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.4</span><span class="o">*</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5599999999999999, 0.2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">gamma</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;a=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1"> | b=</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/probability-distributions_6_0.png" src="../../_images/probability-distributions_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">gamma</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;a=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1"> | b=</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/probability-distributions_7_0.png" src="../../_images/probability-distributions_7_0.png" />
+</div>
+</div>
+<p><strong>Exemplo de teoria de filas</strong>: Você está em uma fila com duas pessoa na sua frente, uma sendo atendida e a outra na sua frente esperando. O tempo médio de espera entre dois serviços independente é de 2 minutos. Isso quer dizer que a taxa de servições por minuto é 0.5/minuto.</p>
+<p>Qual é a probabilidade de você esperar mais do que 5 minutos na fila?</p>
+<p><span class="math notranslate nohighlight">\(\theta = 2\)</span> ou <span class="math notranslate nohighlight">\(b = 0.5\)</span> e <span class="math notranslate nohighlight">\(a = k = 2\)</span> (precisamos esperar por dois eventos).</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{P}(X \ge 5) = 1 - \mathbb{P}(X &lt; 5) = 1 - \int_{0}^{5}Gamma(x \vert 2, 0.5)dx\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de esperar mais do que 5 minutos é </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilidade de esperar mais do que 5 minutos é 28.7%
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="distribuicao-beta">
+<h3><span class="section-number">2.2.2. </span>Distribuição Beta<a class="headerlink" href="#distribuicao-beta" title="Permalink to this headline">¶</a></h3>
+<p>É uma distribuição sobre uma variável contínua entre <span class="math notranslate nohighlight">\([0,1]\)</span>. É normalmente usada para representar a probabilidade de algum evento binário.</p>
+<p>PDF:</p>
+<div class="math notranslate nohighlight">
+\[Beta(x \vert a,b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}x^{a-1}(1-x)^{b-1}\]</div>
+<p>Parâmetros:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a - 1 \)</span>: número de sucessos</p></li>
+<li><p><span class="math notranslate nohighlight">\(b - 1 \)</span>: número de falhas</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(x\)</span> é a probabilidade de sucesso em um experimento de Bernoulli.</p>
+<p>Média: <span class="math notranslate nohighlight">\(\mathbb{E}\left[ x \right] = \frac{a}{a+b}\)</span></p>
+<p>Variância: <span class="math notranslate nohighlight">\(var \left[ x \right] = \frac{ab}{(a+b)^{2}(a+b+1)}\)</span></p>
+<p>Mode: <span class="math notranslate nohighlight">\(moda \left[ x \right] = \frac{a-1}{a+b-2}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_suc</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num_fail</span><span class="o">=</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">num_suc</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">num_fail</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="p">(</span><span class="n">gamma_func</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">gamma_func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">gamma_func</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28125
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28125000000000006
+</pre></div>
+</div>
+</div>
+</div>
+<p>Qual é a probabilidade de obter mais de 50% de sucesso?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de obter mais de 50% de sucesso é </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilidade de obter mais de 50% de sucesso é 1.95%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Qual é a probabilidade de obter menos de 50% de sucesso?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de obter menos de 50% de sucesso é </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilidade de obter menos de 50% de sucesso é 98.05%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;a=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> | b=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/probability-distributions_17_0.png" src="../../_images/probability-distributions_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="distribuicao-de-poisson-a-class-anchor-id-1-1-a">
+<h3><span class="section-number">2.2.3. </span>Distribuição de Poisson <a class="anchor" id="1-1"></a><a class="headerlink" href="#distribuicao-de-poisson-a-class-anchor-id-1-1-a" title="Permalink to this headline">¶</a></h3>
+<p>Esta é uma distribuição discreta que expressa a probabilidade de um determinado número de eventos ocorrer em um intervalo fixo (o mais comum é usar para eventos que ocorrem com o tempo), desde que a taxa média de ocorrência seja constante e os eventos sejam independentes do tempo.</p>
+<p>Seja <span class="math notranslate nohighlight">\(\lambda\)</span> o número médio eventos por unidade de tempo, podemos escrever a probabilidade de ocorrerem <span class="math notranslate nohighlight">\(k\)</span> eventos em um intervalo <span class="math notranslate nohighlight">\(t\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[P(X=k;t) = \frac{(\lambda t)^{k} e^{-\lambda t}}{k!}\]</div>
+<p>O valor real positivo <span class="math notranslate nohighlight">\(\lambda t\)</span> é igual ao valor esperado de <span class="math notranslate nohighlight">\(X\)</span> e também igual a variância de <span class="math notranslate nohighlight">\(X\)</span>: <span class="math notranslate nohighlight">\(\lambda t = \mathbb{E}(X) = Var(X)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos a distribuição para algum λ:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">λ</span> <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># nesse caso t=1</span>
+<span class="n">poi</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">λ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos fazer uma amostragem dessa distribuição:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">poi</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  5,  3,  8,  8,  9,  3,  7,  6,  6,  5,  5, 10,  7,  6,  7,
+        5,  5,  5,  4,  3,  1,  3,  4,  3,  7,  5, 10,  4])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.366666666666666, 4.765555555555555)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Probabilidade de ocorrer k eventos por unidade de tempo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> eventos por unidade de tempo é: </span><span class="si">{</span><span class="n">poi</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilidade de 3 eventos por unidade de tempo é: 14.04%
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="distribuicao-multinomial-a-class-anchor-id-1-2-a">
+<h3><span class="section-number">2.2.4. </span>Distribuição Multinomial <a class="anchor" id="1-2"></a><a class="headerlink" href="#distribuicao-multinomial-a-class-anchor-id-1-2-a" title="Permalink to this headline">¶</a></h3>
+<p>Seja um vetor <span class="math notranslate nohighlight">\(\textbf{x}\)</span> de <span class="math notranslate nohighlight">\(K\)</span> dimensões, sendo que cada elemento <span class="math notranslate nohighlight">\(x_{k}\)</span> é uma variável aleatória binária e o vetor obedece o esquema <span class="math notranslate nohighlight">\(1\ de\ K\)</span>: um de seus elementos é <span class="math notranslate nohighlight">\(x_{k}=1\)</span> e os demais iguais a <span class="math notranslate nohighlight">\(0\)</span>. Exemplo:</p>
+<p><span class="math notranslate nohighlight">\(\textbf{x} = \langle 0,0,1,0,0 \rangle\)</span></p>
+<p>Apenas o elemento <span class="math notranslate nohighlight">\(x_{3}=1\)</span>. Note que esse vetor é unitário, <span class="math notranslate nohighlight">\(\sum_{k=1}^{K}x_{k}=1\)</span>.</p>
+<p>Representamos a probabilidade de <span class="math notranslate nohighlight">\(x_{k}=1\)</span> usando o parâmetro <span class="math notranslate nohighlight">\(\mu_{k}\)</span> e podemos usar o vetor <span class="math notranslate nohighlight">\(\mu=\left( \mu_{1},\mu_{2},...,\mu_{K} \right)\)</span>. Assim a distribuição de <span class="math notranslate nohighlight">\(\textbf{x}\)</span> é</p>
+<div class="math notranslate nohighlight">
+\[p(\textbf{x} \vert \mu) = \prod_{k=1}^{K} \mu_{k}^{x_{k}}\]</div>
+<p>Com valor esperado</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}\left[\textbf{x} \vert \mu \right] = \sum_{\textbf{x}} \textbf{x}p(\textbf{x} \vert \mu) = \mu\]</div>
+<p>Note ainda que <span class="math notranslate nohighlight">\(\sum_{k=1}^{K}\mu_{k}=1\)</span> e <span class="math notranslate nohighlight">\(\mu_{k} \in [0,1]\)</span>, pois eles representam probabilidades.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">multinomial</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Methods</span>
+<span class="o">-------</span>
+  <span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">Probability</span> <span class="n">mass</span> <span class="n">function</span><span class="o">.</span>
+  <span class="n">logpmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">Log</span> <span class="n">of</span> <span class="n">the</span> <span class="n">probability</span> <span class="n">mass</span> <span class="n">function</span><span class="o">.</span>
+  <span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">Draw</span> <span class="n">random</span> <span class="n">samples</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">multinomial</span> <span class="n">distribution</span><span class="o">.</span>
+  <span class="n">entropy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">Compute</span> <span class="n">the</span> <span class="n">entropy</span> <span class="n">of</span> <span class="n">the</span> <span class="n">multinomial</span> <span class="n">distribution</span><span class="o">.</span>
+  <span class="n">cov</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">Compute</span> <span class="n">the</span> <span class="n">covariance</span> <span class="n">matrix</span> <span class="n">of</span> <span class="n">the</span> <span class="n">multinomial</span> <span class="n">distribution</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">μ</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]</span>
+<span class="n">mult</span> <span class="o">=</span> <span class="n">multinomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="n">μ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mult</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.5, 0.3, 0.1, 0.1])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">mult</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 1, 0],
+       [0, 1, 0, 0],
+       [1, 0, 0, 0],
+       [1, 0, 0, 0],
+       [0, 1, 0, 0],
+       [0, 1, 0, 0],
+       [0, 1, 0, 0],
+       [1, 0, 0, 0],
+       [0, 0, 1, 0],
+       [1, 0, 0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Considere um dataset <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> com <span class="math notranslate nohighlight">\(N\)</span> observações independentes <span class="math notranslate nohighlight">\(\textbf{x}_{1},...,\textbf{x}_{N}\)</span>. A função de likelihood é</p>
+<div class="math notranslate nohighlight">
+\[p\left( \mathcal{D} \vert \mu \right) = \prod_{k=1}^{K} \mu_{k}^{m_{k}}\]</div>
+<p>onde <span class="math notranslate nohighlight">\(m_{k} = \sum_{n} x_{nk}\)</span> representa o número de observações em que <span class="math notranslate nohighlight">\(x_{k}=1\)</span>.</p>
+<p>Dessa maneira, o valor de <span class="math notranslate nohighlight">\(\mu\)</span> que maximiza a likelihood é</p>
+<div class="math notranslate nohighlight">
+\[\mu_{k}^{ML} = \frac{m_{k}}{N}\]</div>
+<p>que é simplesmente a fração das <span class="math notranslate nohighlight">\(N\)</span> observações em que <span class="math notranslate nohighlight">\(x_{k}=1\)</span>. As variáveis <span class="math notranslate nohighlight">\(m_{k}\)</span> estão sujeitas à <span class="math notranslate nohighlight">\(\sum_{k=1}^{K}m_{k}=N\)</span>.</p>
+<p>A distribuição multinomial é a distribuição conjunta das quantidades <span class="math notranslate nohighlight">\(m_{1},...,m_{K}\)</span> condicionadas ao parâmetro <span class="math notranslate nohighlight">\(\mu\)</span> e ao número total de observações <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[Mult \left( m_{1},m_{2},...,m_{K} \vert \mu,N \right) = \frac{N!}{m_{1}!m_{2}!...m_{K}!}\prod_{k=1}^{K} \mu_{k}^{m_{k}}\]</div>
+<p>Exemplo: dado um vetor <span class="math notranslate nohighlight">\(\mu = (0.5,0.2,0.3)\)</span>, qual é a probabilidade de em 10 observações obtermos <span class="math notranslate nohighlight">\(m_{1}=5,m_{2}=4,m_{3}=1\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalization_f_multi</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">))])</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="n">prod</span> <span class="o">*=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">prod</span>
+
+<span class="k">def</span> <span class="nf">mult_prod</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="mf">1.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)):</span>
+        <span class="n">prod</span> <span class="o">*=</span> <span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">prod</span>
+
+<span class="k">def</span> <span class="nf">mult_joint_prob</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">normalization_f_multi</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">mult_prod</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">]</span>
+<span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">mult</span> <span class="o">=</span> <span class="n">multinomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="n">mu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalization_f_multi</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="n">mult_prod</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2520.0, 3.375e-05)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nossa função:&quot;</span><span class="p">,</span><span class="n">mult_joint_prob</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scipy       :&quot;</span><span class="p">,</span><span class="n">mult</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nossa função: 0.08505
+Scipy       : 0.08504999999999999
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="distribuicao-de-dirichlet-a-class-anchor-id-1-3-a">
+<h3><span class="section-number">2.2.5. </span>Distribuição de Dirichlet <a class="anchor" id="1-3"></a><a class="headerlink" href="#distribuicao-de-dirichlet-a-class-anchor-id-1-3-a" title="Permalink to this headline">¶</a></h3>
+<p>A distribuição de Dirichlet pode ser usada para estimar a probabilidade de observarmos o vetor <span class="math notranslate nohighlight">\(\mu\)</span> condicionado a outro parâmetro, o vetor <span class="math notranslate nohighlight">\(\alpha_{k}\)</span>, chamado de parâmetro de concentração. A definição geral da distribuição de Dirichlet é</p>
+<div class="math notranslate nohighlight">
+\[Dir\left( \mu \vert \alpha \right) = \frac{\Gamma(\alpha_{0})}{\Gamma(\alpha_{1})...\Gamma(\alpha_{K})} \prod_{k=1}^{K}\mu_{k}^{\alpha_{k}-1}\]</div>
+<p>onde <span class="math notranslate nohighlight">\(\alpha_{0} = \sum_{k=1}^{K}\alpha_{k}\)</span> (<span class="math notranslate nohighlight">\(n\)</span> nosso caso coincide com o número total de observações) e <span class="math notranslate nohighlight">\(\Gamma(x)\)</span> é a função gama dada por:</p>
+<div class="math notranslate nohighlight">
+\[\Gamma(x) = \int_{0}^{\infty}u^{x-1}e^{-u}du\]</div>
+<p>que tem as propriedades: <span class="math notranslate nohighlight">\(\Gamma(x+1)=x\Gamma(x)\)</span>; <span class="math notranslate nohighlight">\(\Gamma(1)=1\)</span>; e se <span class="math notranslate nohighlight">\(x\)</span> é um número inteiro positivo <span class="math notranslate nohighlight">\(\Gamma(x+1)=x!\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">dirichlet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="n">diric</span> <span class="o">=</span> <span class="n">dirichlet</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diric</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.33333333, 0.33333333, 0.33333333])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">diric</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.44768796, 0.11341967, 0.43889237],
+       [0.39948539, 0.40157839, 0.19893622],
+       [0.42829741, 0.24121481, 0.33048778],
+       ...,
+       [0.05170347, 0.06424674, 0.88404979],
+       [0.15836702, 0.54272232, 0.29891066],
+       [0.51332955, 0.44655238, 0.04011807]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.34076155, 0.3172583 , 0.34198015])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diric</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/math"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Theoretical minimum</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="information-theory.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Entropia e informação mútua <a class="anchor" id="3"></a></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

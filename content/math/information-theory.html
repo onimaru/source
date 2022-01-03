@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Information Theory &#8212; Disorder Transform</title>
+    <title>3. Entropia e informação mútua &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="11. Variational AutoEncoder" href="variational-autoencoder.html" />
-    <link rel="prev" title="9. Introdução ao Manifold Learning" href="intro-manifold.html" />
+    <link rel="next" title="4. Decomposição de matrizes" href="eigen-decomposition.html" />
+    <link rel="prev" title="2. Distribuições de probabilidade" href="probability-distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,48 +110,60 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="eigen-decomposition.html">
-   2. Decomposição de matrizes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lagrange-multipliers.html">
-   3. Multiplicadores de Lagrange
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="method-of-kernels.html">
-   4. Method of kernels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
-   5. Simple example of maximum likelihood
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="computing-hessian-and-jacobian.html">
-   6. Computing Hessian and Jacobian
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="counter-factual-model.html">
-   7. Counter Factual Model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="intro-manifold.html">
-   9. Introdução ao Manifold Learning
+  <a class="reference internal" href="probability-distributions.html">
+   2. Distribuições de probabilidade
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   10. Information Theory
+   3. Entropia e informação mútua
+   <a class="anchor" id="3">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eigen-decomposition.html">
+   4. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lagrange-multipliers.html">
+   5. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="method-of-kernels.html">
+   6. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+   7. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+   8. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="counter-factual-model.html">
+   9. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-manifold.html">
+   11. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="multidimensional-scaling.html">
+   12. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="variational-autoencoder.html">
-   11. Variational AutoEncoder
+   13. Variational AutoEncoder
   </a>
  </li>
 </ul>
@@ -256,9 +268,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/math/information-theory.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/math/information-theory.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -292,6 +304,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/onimaru/source/master?urlpath=tree/docs/content/math/information-theory.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -303,31 +332,85 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differential-entropy">
-   10.1. Differential Entropy
+  <a class="reference internal nav-link" href="#informacao">
+   3.1. Informação
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conditional-entropy">
-   10.2. Conditional Entropy
+  <a class="reference internal nav-link" href="#entropia-diferencial-a-class-anchor-id-3-1-a">
+   3.2. Entropia diferencial
+   <a class="anchor" id="3-1">
+   </a>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kullback-leibler-divergence">
-   10.3. Kullback-Leibler Divergence
+  <a class="reference internal nav-link" href="#entropia-condicional-a-class-anchor-id-3-2-a">
+   3.3. Entropia condicional
+   <a class="anchor" id="3-2">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#divergencia-de-kullback-leibler-a-class-anchor-id-3-3-a">
+   3.4. Divergência de Kullback-Leibler
+   <a class="anchor" id="3-3">
+   </a>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#f-divergence">
-     10.3.1. f-Divergence
+    <a class="reference internal nav-link" href="#f-divergence-a-class-anchor-id-3-4-a">
+     3.4.1. f-Divergence
+     <a class="anchor" id="3-4">
+     </a>
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mutual-information">
-   10.4. Mutual Information
+  <a class="reference internal nav-link" href="#informacao-mutua-a-class-anchor-id-3-5-a">
+   3.5. Informação mútua
+   <a class="anchor" id="3-5">
+   </a>
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#medindo-entropia">
+   3.6. Medindo entropia
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-distribuicao-que-maximiza-a-entropia-a-class-anchor-id-8-1-a">
+     3.6.1. A distribuição que maximiza a entropia
+     <a class="anchor" id="8-1">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-kl-left-p-x-vert-vert-q-x-right-entre-duas-distribuicoes-normais-a-class-anchor-id-8-2-a">
+     3.6.2.
+     <span class="math notranslate nohighlight">
+      \(D_{KL} \left( p(x) \vert \vert q(x) \right)\)
+     </span>
+     entre duas distribuições Normais
+     <a class="anchor" id="8-2">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pointwise-mutual-information-a-class-anchor-id-4-1-a">
+     3.6.3. Pointwise Mutual Information
+     <a class="anchor" id="4-1">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#likelihood-ratio-a-class-anchor-id-4-2-a">
+     3.6.4. Likelihood ratio
+     <a class="anchor" id="4-2">
+     </a>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -340,114 +423,215 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="information-theory">
-<h1><span class="section-number">10. </span>Information Theory<a class="headerlink" href="#information-theory" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<p>Suppose we have a random variable <span class="math notranslate nohighlight">\(x\)</span> and we are interested in how much information we get when <span class="math notranslate nohighlight">\(x\)</span> is measured. If the event is highly improbable we have more information than if it is highly probable. Information is given by a quantity <span class="math notranslate nohighlight">\(h(x)\)</span> that is a function of the probability distribution <span class="math notranslate nohighlight">\(p(x)\)</span>. If two events are observed and unrelated the total information will be the sum of information in both events:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="entropia-e-informacao-mutua-a-class-anchor-id-3-a">
+<h1><span class="section-number">3. </span>Entropia e informação mútua <a class="anchor" id="3"></a><a class="headerlink" href="#entropia-e-informacao-mutua-a-class-anchor-id-3-a" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="informacao">
+<h2><span class="section-number">3.1. </span>Informação<a class="headerlink" href="#informacao" title="Permalink to this headline">¶</a></h2>
+<p>Teoria da informação é uma área muito interessante que nos forneceu métodos para medir coisas relacionadas à ignorância que temos sobre uma hipótese. Sua compreenssão é fundamental para que possamos criar e compreender diversas métricas usadas em machine learning, como a entropia, e também para desenvolver modelo probabilísticos.</p>
+<p>Suponha que temos uma variável aleatória <span class="math notranslate nohighlight">\(x\)</span> e estamos interessados na quantidade de informação que obteremos ao medir algum valor de <span class="math notranslate nohighlight">\(x\)</span>. Se o evento (resultado de uma medição é <span class="math notranslate nohighlight">\(x\)</span>) é altamente improvável, ao medí-lo obteremos mais informação do que se ele for altamente provável. Se você tem certeza de que algo irá acontecer, não terá nada novo (nenhuma informação extra) quando observar esse evento.</p>
+<p>A informação é portanto, dada por uma quantidade <span class="math notranslate nohighlight">\(h(x)\)</span> que é uma função da distribuição de probabilidade <span class="math notranslate nohighlight">\(p(x)\)</span>. Se observarmos dois eventos, <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span>, e eles não estiverem relacionados a quantidade total de informação obtida será simplemente a soma da informação dos dois eventos:</p>
 <div class="math notranslate nohighlight">
 \[h(x,y) = h(x) + h(y)\ \iff \ p(x,y) = p(x)p(y)\]</div>
-<p>We see that information depends on the logarithm of the probability distribution. For a discrete <span class="math notranslate nohighlight">\(x\)</span> we have</p>
+<p>Obs: <span class="math notranslate nohighlight">\(\iff\)</span> lê-se “se e somente se”.</p>
+<p>Como é costume, descrevemos a informação com o logarítmo da distribuição de probabilidade. Se <span class="math notranslate nohighlight">\(x\)</span> for uma variável discreta podemos usar a base <span class="math notranslate nohighlight">\(2\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[h(x) = - log_{2}p(x).\]</div>
-<p>The expectation of this quantity is what we call <code class="docutils literal notranslate"><span class="pre">entropy</span></code> of the variable <span class="math notranslate nohighlight">\(x\)</span>,</p>
+<p>O valor esperado (expectation em inglês, ou esperança se você foi aluno de uma universidade chique) desta quantidade é o que chamamos de <code class="docutils literal notranslate"><span class="pre">entropia</span></code> da variável <span class="math notranslate nohighlight">\(x\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[H[x] = -  \sum_{x} p(x) log_{2}p(x)\]</div>
-<p>If there’s no chance o observing <span class="math notranslate nohighlight">\(x\)</span>, i.e. <span class="math notranslate nohighlight">\(p(x)=0\)</span>, then we get no information <span class="math notranslate nohighlight">\(H[x]=0\)</span>.</p>
-<p>As an example, suppose we observe the throw of a fair 8-sided dice and we want to transmit the information about the expectation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<p>Obs: <em>valor esperado</em> é o termo utilizado na Física.</p>
+<p>Se a chance de observarmos <span class="math notranslate nohighlight">\(x\)</span> é nula, <span class="math notranslate nohighlight">\(p(x)=0\)</span>, não obteremos informação alguma, <span class="math notranslate nohighlight">\(H[x]=0\)</span>.</p>
+<p>Tomemos um exemplo, suponha que observamos a rolagem de um dado não enviesado de oito faces e queremos transmitir a alguém a informação sobre o valor esperado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">H</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mf">3.0</span>
 </pre></div>
 </div>
-<p>This is measured in <code class="docutils literal notranslate"><span class="pre">bits</span></code>. In this case we need at least a 3 <code class="docutils literal notranslate"><span class="pre">bits</span></code> number to transmit the information, no less than that. When <span class="math notranslate nohighlight">\(x\)</span> is continuous it is common to use the natural logarithm and the unit becomes <code class="docutils literal notranslate"><span class="pre">nats</span></code> instead of bits.</p>
-<p>Let us see an example of three distributions with the same mean but different standard deviation.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Essa quantidade é medida em <code class="docutils literal notranslate"><span class="pre">bits</span></code> e nesse caso precisamos de um número de pelo menos 3 <code class="docutils literal notranslate"><span class="pre">bits</span></code> para transmitir essa informação. Caso <span class="math notranslate nohighlight">\(x\)</span> seja contínuo é comum usar o logarítmo natural e a unidade de medida passa a ser <code class="docutils literal notranslate"><span class="pre">nats</span></code>.</p>
+<p>Vejamos um exemplo com três distribuições com a mesma média, mas com diferentes desvios padrões.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
 <span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Define a function to compute entropy:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">H</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">p1</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.24</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">p2</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.24</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">p3</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.24</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/information-theory_4_0.png" src="../../_images/information-theory_4_0.png" />
+</div>
+</div>
+<p>Definimos uma função para calcular a entropia:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">H</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="o">-</span><span class="n">val</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">p</span><span class="p">])</span>
 
 <span class="n">H</span><span class="p">(</span><span class="n">p1</span><span class="p">),</span><span class="n">H</span><span class="p">(</span><span class="n">p2</span><span class="p">),</span><span class="n">H</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
-<span class="p">(</span><span class="mf">1.6094</span><span class="p">,</span> <span class="mf">1.3762</span><span class="p">,</span> <span class="mf">0.0629</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The narrower distribution has a smaller entropy. This is because the uncertainty about its expectation is smaller. If some <span class="math notranslate nohighlight">\( p(x_{i})=1 \)</span> all other <span class="math notranslate nohighlight">\(p(x_{j \ne i})=0\)</span>, uncertainty is zero and we get no information <span class="math notranslate nohighlight">\(H(x_{i})=0\)</span>.</p>
-<div class="section" id="differential-entropy">
-<h2><span class="section-number">10.1. </span>Differential Entropy<a class="headerlink" href="#differential-entropy" title="Permalink to this headline">¶</a></h2>
-<p>We can use a continuous distribution, <span class="math notranslate nohighlight">\(p(x)\)</span> and the discrete sum becomes an integral and the entropy is usually called <code class="docutils literal notranslate"><span class="pre">differential</span> <span class="pre">entropy</span></code>:</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.6094379124341005, 1.376226604344546, 0.06293300616044681)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A distribuição mais estreita tem menor entropia. Isso ocorre pois a incerteza que temos sobre seu valor esperado é menor. Novamente, se alguma distribuição é <span class="math notranslate nohighlight">\( p(x_{i})=1 \)</span> o resto todo será <span class="math notranslate nohighlight">\(p(x_{j \ne i})=0\)</span>, ou seja, incerteza nula e informação <span class="math notranslate nohighlight">\(H(x_{i})=0\)</span>.</p>
+</div>
+<div class="section" id="entropia-diferencial-a-class-anchor-id-3-1-a">
+<h2><span class="section-number">3.2. </span>Entropia diferencial <a class="anchor" id="3-1"></a><a class="headerlink" href="#entropia-diferencial-a-class-anchor-id-3-1-a" title="Permalink to this headline">¶</a></h2>
+<p>Podemos também usar uma distribuição <span class="math notranslate nohighlight">\(p(x)\)</span> contínua e assim a soma discreta se torna uma integral. Neste caso é comum chamar a entropia de <code class="docutils literal notranslate"><span class="pre">entropia</span> <span class="pre">diferencial</span></code>:</p>
 <div class="math notranslate nohighlight">
 \[H[x] = -\int p(x) \ln p(x) dx.\]</div>
-<p>We can now use <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multipliers</span></code> to find a distribution which maximizes the differential entropy. To do that we need to constrain the first and second moments of <span class="math notranslate nohighlight">\(p(x)\)</span>:</p>
+<p>Algo que acho muito interessante é responder a pergunta <em>Qual é a distribuição de probabilidade que maximiza a entropia?</em></p>
+<p>A distribuição Gaussiana é aquela que maximiza a entropia diferencial (isso faz sentido, pois é a distribuição favorita da natureza):</p>
+<div class="math notranslate nohighlight">
+\[H[x] =  -\int_{-\infty}^{+\infty} \mathcal{N}(x\vert \mu, \sigma^{2}) \ln \mathcal{N}(x\vert \mu, \sigma^{2}) dx = \frac{1}{2}(1 + \ln{2 \pi \sigma^{2}}).\]</div>
+<p>Este resultado concorda com o exemplo visto anteriormente, a entropia aumenta conforme a distribuição se torna mais larga, ou seja, <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> aumenta. No fim dessa lição há mais detalhes sobre esse desenvolvimento.</p>
+</div>
+<div class="section" id="entropia-condicional-a-class-anchor-id-3-2-a">
+<h2><span class="section-number">3.3. </span>Entropia condicional <a class="anchor" id="3-2"></a><a class="headerlink" href="#entropia-condicional-a-class-anchor-id-3-2-a" title="Permalink to this headline">¶</a></h2>
+<p>Mudamos agora para o caso em que temos uma distribuição conjunta, digamos <span class="math notranslate nohighlight">\(p(x,y)\)</span> e temos uma observação de <span class="math notranslate nohighlight">\(x\)</span>. Como as duas variáveis estão ligadas de alguma forma é possível calcular a quantidade de informação necessária para especificar a observação correspondente de <span class="math notranslate nohighlight">\(y\)</span> com <span class="math notranslate nohighlight">\(- \ln p(y\vert x)\)</span>. Assim, o valor esperado de informação adicional para espeficicar <span class="math notranslate nohighlight">\(y\)</span>, chamada de <code class="docutils literal notranslate"><span class="pre">entropia</span> <span class="pre">condicional</span></code> de <span class="math notranslate nohighlight">\(y\)</span> dado <span class="math notranslate nohighlight">\(x\)</span> é:</p>
+<div class="math notranslate nohighlight">
+\[H[y\vert x] = -\int \int p(y,x) \ln{ p(y\vert x)}dydx\]</div>
+<p>Usando <span class="math notranslate nohighlight">\(p(y\vert x) = \frac{p(y,x)}{p(x)}\)</span> temos:</p>
+<div class="math notranslate nohighlight">
+\[H[y\vert x] = H[y,x] - H[x].\]</div>
+</div>
+<div class="section" id="divergencia-de-kullback-leibler-a-class-anchor-id-3-3-a">
+<h2><span class="section-number">3.4. </span>Divergência de Kullback-Leibler <a class="anchor" id="3-3"></a><a class="headerlink" href="#divergencia-de-kullback-leibler-a-class-anchor-id-3-3-a" title="Permalink to this headline">¶</a></h2>
+<p>A classe de métricas conhecidas como divergências são usadas para medir distância entre distribuições de probabilidade, uma das mais famosas é a divergência de Kullback-Liebler (divergência KL ou apenas <span class="math notranslate nohighlight">\(D_{KL}\)</span>). Vamos ver como construí-la usando os conceitos de entropia.</p>
+<p>Suponha que temos uma distribuição desconhecida <span class="math notranslate nohighlight">\(p(x)\)</span> e nós estamos usando outra distribuição <span class="math notranslate nohighlight">\(q(x)\)</span> para modelar a anterior, ou seja, queremos que <span class="math notranslate nohighlight">\(q\)</span> igual a <span class="math notranslate nohighlight">\(p\)</span>. Podemos calcular a quantidade de informação adicional necessária para especificar <span class="math notranslate nohighlight">\(x \sim p(x)\)</span> ao observar <span class="math notranslate nohighlight">\(x \sim q(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[D_{KL} \left( p \vert \vert q \right) = -\int p(x) \ln q(x) dx + \int p(x) \ln p(x) dx = -\int p(x) \ln{\left(\frac{q(x)}{p(x)} \right)}dx.\]</div>
+<p>Essa <code class="docutils literal notranslate"><span class="pre">entropia</span> <span class="pre">relativa</span></code> entre as duas distribuição é a <code class="docutils literal notranslate"><span class="pre">Divergência</span> <span class="pre">KL</span></code> e é a medida de dissimilaridade entre duas distribuições. Devemos notar que ela é antissimétrica,</p>
+<div class="math notranslate nohighlight">
+\[D_{KL} \left( p \vert \vert q \right) \ne D_{KL}(q\vert \vert p).\]</div>
+<p>Para aproximar <span class="math notranslate nohighlight">\(q(x)\)</span> de <span class="math notranslate nohighlight">\(p(x)\)</span> podemos obvservar <span class="math notranslate nohighlight">\(x \sim p(x)\)</span> um número finito de vezes, <span class="math notranslate nohighlight">\(N\)</span>, usar <span class="math notranslate nohighlight">\(q\)</span> como uma função paramétrica, <span class="math notranslate nohighlight">\(q(x \vert \theta)\)</span> e usar o valor esperado de <span class="math notranslate nohighlight">\(D_{KL}(p \vert \vert q)\)</span> como função de perda dentro da estratégia de otimização escolhida.</p>
+<p>O valor esperado de uma função da variável aleatória <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(f(x)\)</span>, é dada por <span class="math notranslate nohighlight">\(\mathbb{E}[f] = \int p(x) f(x)dx\)</span> e para um número finito de observações <span class="math notranslate nohighlight">\(N\)</span> e integral se torna uma soma finita:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}[f] \approx \frac{1}{N} \sum_{n=1}^{N} f(x_{n}).\]</div>
+<p>Fazemos isso para obter o valor esperado de <span class="math notranslate nohighlight">\(D_{KL}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[D_{KL}(p \vert \vert q) \approx \frac{1}{N} \sum_{n=1}^{N}(-\ln q(x_{n} \vert \theta) + \ln p(x_{n})).\]</div>
+<p>O primeiro termo é o negativo do log da verossimilhança (<em><code class="docutils literal notranslate"><span class="pre">negative</span> <span class="pre">log</span> <span class="pre">likelihood</span></code></em>) da distribuição <span class="math notranslate nohighlight">\(q(x\vert \theta)\)</span> usando um conjunto de parâmetros <span class="math notranslate nohighlight">\(\theta\)</span>. É por esse motivo que costuma-se dizer <em>minimizar a <span class="math notranslate nohighlight">\(D_{KL}\)</span> é equivalente a maximizar a função de verossimilhança</em>.</p>
+<p>Como um exemplo podemos supor as duas distribuições normais:</p>
+<div class="math notranslate nohighlight">
+\[p(x)=\mathcal{N}(x\vert \mu, \sigma^{2}) \text{ e } q(x)=\mathcal{N}(x\vert m, s^{2})\]</div>
+<p>para encontrar <span class="math notranslate nohighlight">\(D_{KL} \left( p \vert \vert q \right)\)</span> (o desenvolvimento está no final do post):</p>
+<div class="math notranslate nohighlight">
+\[D_{KL} \left( p \vert \vert q \right) = \ln{\frac{s}{\sigma}} - \frac{1}{2} + + \frac{\sigma^{2}}{2s^{2}}+ \frac{(\mu - m)^{2}}{2s^{2}}\]</div>
+<p>onde <span class="math notranslate nohighlight">\((\langle x \rangle -m)^{2} -\langle x \rangle^{2} = -2 \langle x \rangle m + m^{2}\)</span>. Se as variâncias <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> e <span class="math notranslate nohighlight">\(s^{2}\)</span> forem iguais os três primeiros termos se anulam, já se as médias forem iguais o último termo se anula. Isso pode ser usado para saber o quanto uma distribuição se afasta da normal “pela direita” ou “pela esquerda”, devido a propriedade de antissimetria.</p>
+<div class="section" id="f-divergence-a-class-anchor-id-3-4-a">
+<h3><span class="section-number">3.4.1. </span>f-Divergence <a class="anchor" id="3-4"></a><a class="headerlink" href="#f-divergence-a-class-anchor-id-3-4-a" title="Permalink to this headline">¶</a></h3>
+<p>Como dito antes, a divergência KL é a mais famosa de uma grande família conhecida como <span class="math notranslate nohighlight">\(f\)</span>-divergências, definidas de maneira mais geral como:</p>
+<div class="math notranslate nohighlight">
+\[D_{f}(p \vert \vert q) \equiv \frac{4}{1 - f^{2}} \left( 1 - \int p(x)^{\left(\frac{1 + f}{2} \right)} q(x)^{\left(\frac{1 - f}{2} \right)}dx \right)\]</div>
+<p>onde <span class="math notranslate nohighlight">\(f\)</span> é um parâmetro contínuo, <span class="math notranslate nohighlight">\(-\infty \le f \le + \infty\)</span>. Alguns casos especiais são:</p>
+<div class="math notranslate nohighlight">
+\[D_{KL} \left( p \vert \vert q \right) = \lim_{f \rightarrow 1} D_{f}(p \vert \vert q),\]</div>
+<div class="math notranslate nohighlight">
+\[D_{KL} \left( q\vert \vert p \right) = \lim_{f \rightarrow -1} D_{f}(p \vert \vert q)\]</div>
+<p>e a <code class="docutils literal notranslate"><span class="pre">distância</span> <span class="pre">de</span> <span class="pre">Hellinger</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[D_{H}(p \vert \vert q) = \lim_{f \rightarrow 0}  D_{f}(p \vert \vert q) = \int \left( p(x)^{2} - q(x)^{2} \right)^{2}dx.\]</div>
+<p>Como as distribuições de probabilidade tem <a class="reference external" href="https://pt.qwe.wiki/wiki/Support_(mathematics)">suporte compacto</a> <span class="math notranslate nohighlight">\(D_{f}(p \vert \vert q) \ge 0\)</span>, novamente, a divergência é zero se e somente se <span class="math notranslate nohighlight">\(p(x) = q(x)\)</span>.</p>
+</div>
+</div>
+<div class="section" id="informacao-mutua-a-class-anchor-id-3-5-a">
+<h2><span class="section-number">3.5. </span>Informação mútua  <a class="anchor" id="3-5"></a><a class="headerlink" href="#informacao-mutua-a-class-anchor-id-3-5-a" title="Permalink to this headline">¶</a></h2>
+<p>Para um distribuição conjunta <span class="math notranslate nohighlight">\(p(y,x)\)</span> a <span class="math notranslate nohighlight">\(D_{KL}\)</span> pode ser usada para quantificar o quão próximas duas variáveis estão de serem independentes, ou seja, <span class="math notranslate nohighlight">\(p(y,x) = p(y)p(x)\)</span>. Isso é chamado de <code class="docutils literal notranslate"><span class="pre">informação</span> <span class="pre">mútua</span></code> entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[I[y,x] = D_{KL}\left( p(y,x)\vert \vert p(y)p(x) \right) = -\int \int p(y,x) \ln \frac{p(y)p(x)}{p(y,x)}dydx.\]</div>
+<p><span class="math notranslate nohighlight">\(I[y,x] \ge 0\)</span> e <span class="math notranslate nohighlight">\(I[y,x] = 0 \iff\)</span> <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> são independentes.</p>
+<p>Por fim a informação mútua pode ser escrita em termos da entropia condicional:</p>
+<div class="math notranslate nohighlight">
+\[I[y,x] = H[y] - H[y\vert x] = H[x] - H[x\vert y].\]</div>
+</div>
+<div class="section" id="medindo-entropia">
+<h2><span class="section-number">3.6. </span>Medindo entropia<a class="headerlink" href="#medindo-entropia" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-distribuicao-que-maximiza-a-entropia-a-class-anchor-id-8-1-a">
+<h3><span class="section-number">3.6.1. </span>A distribuição que maximiza a entropia <a class="anchor" id="8-1"></a><a class="headerlink" href="#a-distribuicao-que-maximiza-a-entropia-a-class-anchor-id-8-1-a" title="Permalink to this headline">¶</a></h3>
+<p>Como discutido anteriormente, vamos responder: <strong>Qual é a distribuição de probabilidade que maximiza a entropia?</strong></p>
+<p>Podemos fazer isso usando a técnica de <a class="reference external" href="https://pt.wikipedia.org/wiki/Multiplicadores_de_Lagrange"><code class="docutils literal notranslate"><span class="pre">multiplicadores</span> <span class="pre">de</span> <span class="pre">Lagrange</span></code></a> restringindo o primeiro e segundo momentos de <span class="math notranslate nohighlight">\(p(x)\)</span> juntamente com sua normalização:</p>
 <div class="math notranslate nohighlight">
 \[\int_{-\infty}^{+\infty}p(x)dx = 1,\]</div>
 <div class="math notranslate nohighlight">
 \[\int_{-\infty}^{+\infty} x p(x)dx = \mu,\]</div>
 <div class="math notranslate nohighlight">
 \[\int_{-\infty}^{+\infty} (x- \mu)^{2} p(x)dx = \sigma^{2}.\]</div>
-<p>Setting the <code class="docutils literal notranslate"><span class="pre">variational</span> <span class="pre">derivative</span></code> to zero we get as solution <span class="math notranslate nohighlight">\(p(x) = \exp{(-1 + \lambda_{1} + \lambda_{2} x + \lambda_{3} (x - \mu)^{2})}\)</span>. Using substitution we get:</p>
-<p><span class="math notranslate nohighlight">\(p(x) = \frac{1}{\sqrt{2 \pi \sigma^{2}}}\exp{\left(-\frac{(x - \mu)^{2}}{2 \sigma^{2}}\right)}\)</span></p>
-<p>The Gaussian distribution is the one that maximizes differential entropy which is:</p>
+<p>Ao fazer a <a class="reference external" href="https://pt.wikipedia.org/wiki/C%C3%A1lculo_variacional">derivada variacional</a> ir a zero encontraremos a solução <span class="math notranslate nohighlight">\(p(x) = \exp{(-1 + \lambda_{1} + \lambda_{2} x + \lambda_{3} (x - \mu)^{2})}\)</span>. Ao substituir a solução nas equações acima encontraremos:</p>
 <div class="math notranslate nohighlight">
-\[H[x] =  -\int_{-\infty}^{+\infty} \mathcal{N}(x\vert \mu, \sigma^{2}) \ln \mathcal{N}(x\vert \mu, \sigma^{2}) dx = \frac{1}{2}(1 + \ln{2 \pi \sigma^{2}})\]</div>
-<p>This result agrees with what we found earlier, the entropy increases as the distribution becomes broader, i.e., <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> increases.</p>
+\[p(x) = \frac{1}{\sqrt{2 \pi \sigma^{2}}}\exp{\left(-\frac{(x - \mu)^{2}}{2 \sigma^{2}}\right)}\]</div>
 </div>
-<div class="section" id="conditional-entropy">
-<h2><span class="section-number">10.2. </span>Conditional Entropy<a class="headerlink" href="#conditional-entropy" title="Permalink to this headline">¶</a></h2>
-<p>Suppose now we have a joint distribution <span class="math notranslate nohighlight">\(p(x,y)\)</span> and have an observation of <span class="math notranslate nohighlight">\(x\)</span>. It is possible to compute the additional information needed to specify the corresponding observation of <span class="math notranslate nohighlight">\(y\)</span> with <span class="math notranslate nohighlight">\(- \ln p(y\vert x).\)</span> Thus the average additional information to specify <span class="math notranslate nohighlight">\(y\)</span>, called <code class="docutils literal notranslate"><span class="pre">conditional</span> <span class="pre">entropy</span></code> of <span class="math notranslate nohighlight">\(y\)</span> given <span class="math notranslate nohighlight">\(x\)</span>, is:</p>
-<div class="math notranslate nohighlight">
-\[H[y\vert x] = -\int \int p(y,x) \ln{ p(y\vert x)}dydx\]</div>
-<p>Using <span class="math notranslate nohighlight">\(p(y\vert x) = \frac{p(y,x)}{p(x)}\)</span> we get:</p>
-<div class="math notranslate nohighlight">
-\[H[y\vert x] = H[y,x] - H[x].\]</div>
+<div class="section" id="d-kl-left-p-x-vert-vert-q-x-right-entre-duas-distribuicoes-normais-a-class-anchor-id-8-2-a">
+<h3><span class="section-number">3.6.2. </span><span class="math notranslate nohighlight">\(D_{KL} \left( p(x) \vert \vert q(x) \right)\)</span> entre duas distribuições Normais  <a class="anchor" id="8-2"></a><a class="headerlink" href="#d-kl-left-p-x-vert-vert-q-x-right-entre-duas-distribuicoes-normais-a-class-anchor-id-8-2-a" title="Permalink to this headline">¶</a></h3>
+<p>É possível encontrar uma forma fechada para a divergência <span class="math notranslate nohighlight">\(KL\)</span> entre duas distribuições Normais. Vejamos a seguir o desenvolvimento para isso.</p>
+<p><strong>Objetivo</strong>: Calcular <span class="math notranslate nohighlight">\(D_{KL} \left( p(x) \vert \vert q(x) \right)\)</span> para <span class="math notranslate nohighlight">\(p(x)=\mathcal{N}(x\vert \mu, \sigma^{2})\)</span> e <span class="math notranslate nohighlight">\(q(x)=\mathcal{N}(x\vert m, s^{2})\)</span></p>
+<p><span class="math notranslate nohighlight">\(D_{KL} \left( p \vert \vert q \right) = -\int p(x) \ln{\frac{q(x)}{p(x)}}dx\)</span><br />
+<span class="math notranslate nohighlight">\(D_{KL} \left( p \vert \vert q \right) = -\int p(x) \ln{q(x)}dx + \int p(x) \ln{p(x)}dx\)</span><br />
+<span class="math notranslate nohighlight">\(D_{KL} \left( p \vert \vert q \right) = \frac{1}{2}\int p(x) \ln{2 \pi s^{2}}dx + \frac{1}{2s^{2}}\int p(x)(x-m)^{2}dx - \frac{1}{2}(1+\ln{2 \pi \sigma^{2}})\)</span><br />
+<span class="math notranslate nohighlight">\(D_{KL} \left( p \vert \vert q \right) = \frac{1}{2}\ln{2 \pi s^{2}} - \frac{1}{2}(1+\ln{2 \pi \sigma^{2}})+ \frac{1}{2s^{2}}(\langle x \rangle^{2} -2m \langle x \rangle + m^{2})\)</span><br />
+<span class="math notranslate nohighlight">\(D_{KL} \left( p \vert \vert q \right) = \frac{1}{2} \ln{\frac{s^{2}}{\sigma^{2}}} - \frac{1}{2} + \frac{\sigma^{2}+(\mu - m)^{2}}{2s^{2}}\)</span><br />
+<span class="math notranslate nohighlight">\(D_{KL} \left( p \vert \vert q \right) = \ln{\frac{s}{\sigma}} - \frac{1}{2} + \frac{\sigma^{2}+(\mu - m)^{2}}{2s^{2}}\)</span></p>
 </div>
-<div class="section" id="kullback-leibler-divergence">
-<h2><span class="section-number">10.3. </span>Kullback-Leibler Divergence<a class="headerlink" href="#kullback-leibler-divergence" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we have an unknown distribution <span class="math notranslate nohighlight">\(p(x)\)</span> and we are using another distribution <span class="math notranslate nohighlight">\(q(x)\)</span> to model it. We can compute the additional amount of information needed to specify <span class="math notranslate nohighlight">\(x \sim p(x)\)</span> when we observe <span class="math notranslate nohighlight">\(x \sim q(x)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[KL(p\vert \vert q) = -\int p(x) \ln q(x) dx + \int p(x) \ln p(x) dx = -\int p(x) \ln{\left(\frac{q(x)}{p(x)} \right)}dx.\]</div>
-<p>This <code class="docutils literal notranslate"><span class="pre">relative</span> <span class="pre">entropy</span></code> is called <code class="docutils literal notranslate"><span class="pre">Kullback-Leibler</span> <span class="pre">Divergence</span></code> or simply <code class="docutils literal notranslate"><span class="pre">KL</span> <span class="pre">Divergence</span></code> and is a measure of dissimilarity between two distributions. Note that it is anti-symmetric,</p>
-<div class="math notranslate nohighlight">
-\[KL(p\vert \vert q) \ne KL(q\vert \vert p).\]</div>
-<p>To accomplish the task of approximating <span class="math notranslate nohighlight">\(q(x)\)</span> to <span class="math notranslate nohighlight">\(p(x)\)</span> we may observe <span class="math notranslate nohighlight">\(x \sim p(x)\)</span> a finite number of times, <span class="math notranslate nohighlight">\(N\)</span>, use <span class="math notranslate nohighlight">\(q\)</span> as a parametric function, <span class="math notranslate nohighlight">\(q(x \vert \theta)\)</span> and use the expectation of <span class="math notranslate nohighlight">\(KL(p \vert \vert q).\)</span></p>
-<p>For a function <span class="math notranslate nohighlight">\(f(x)\)</span> its expectation is <span class="math notranslate nohighlight">\(\mathbb{E}[f] = \int p(x) f(x)dx\)</span> and for a <span class="math notranslate nohighlight">\(N\)</span> number of observations it becomes a finite sum:</p>
-<div class="math notranslate nohighlight">
-\[\mathbb{E}[f] \approx \frac{1}{N} \sum_{n=1}^{N} f(x_{n}).\]</div>
-<p>For the KL divergence we have:</p>
-<div class="math notranslate nohighlight">
-\[KL(p \vert \vert q) \approx \frac{1}{N} \sum_{n=1}^{N}(-\ln q(x_{n} \vert \theta) + \ln p(x_{n})).\]</div>
-<p>The first therm is the <code class="docutils literal notranslate"><span class="pre">negative</span> <span class="pre">log</span> <span class="pre">likelihood</span></code> for <span class="math notranslate nohighlight">\(\theta\)</span> under distribution <span class="math notranslate nohighlight">\(q(x\vert \theta)\)</span>. Because of that people usually say that <code class="docutils literal notranslate"><span class="pre">minimizing</span> <span class="pre">the</span> <span class="pre">KL</span> <span class="pre">divergence</span> <span class="pre">is</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">maximizing</span> <span class="pre">the</span> <span class="pre">likelihood</span> <span class="pre">function</span></code>.</p>
-<p>As an exercise we can find <span class="math notranslate nohighlight">\(KL(p\vert \vert q)\)</span> where <span class="math notranslate nohighlight">\(p(x)=\mathcal{N}(x\vert \mu, \sigma^{2})\)</span> and <span class="math notranslate nohighlight">\(q(x)=\mathcal{N}(x\vert m, s^{2})\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(KL(p\vert \vert q) = -\int p(x) \ln{\frac{q(x)}{p(x)}}dx\)</span><br />
-<span class="math notranslate nohighlight">\(KL(p\vert \vert q) = -\int p(x) \ln{q(x)}dx + \int p(x) \ln{p(x)}dx\)</span><br />
-<span class="math notranslate nohighlight">\(KL(p\vert \vert q) = \frac{1}{2}\int p(x) \ln{2 \pi s^{2}}dx + \frac{1}{2s^{2}}\int p(x)(x-m)^{2}dx - \frac{1}{2}(1+\ln{2 \pi \sigma^{2}})\)</span><br />
-<span class="math notranslate nohighlight">\(KL(p\vert \vert q) = \frac{1}{2}\ln{2 \pi s^{2}} - \frac{1}{2}(1+\ln{2 \pi \sigma^{2}})+ \frac{1}{2s^{2}}(\langle x \rangle^{2} -2m \langle x \rangle + m^{2})\)</span><br />
-<span class="math notranslate nohighlight">\(KL(p\vert \vert q) = \frac{1}{2} \ln{\frac{s^{2}}{\sigma^{2}}} - \frac{1}{2} + \frac{\sigma^{2}+(\mu - m)^{2}}{2s^{2}}\)</span><br />
-<span class="math notranslate nohighlight">\(KL(p\vert \vert q) = \ln{\frac{s}{\sigma}} - \frac{1}{2} + \frac{\sigma^{2}+(\mu - m)^{2}}{2s^{2}},\)</span><br />
-where <span class="math notranslate nohighlight">\((\langle x \rangle -m)^{2} -\langle x \rangle^{2} = -2 \langle x \rangle m + m^{2}\)</span>.</p>
-<div class="section" id="f-divergence">
-<h3><span class="section-number">10.3.1. </span>f-Divergence<a class="headerlink" href="#f-divergence" title="Permalink to this headline">¶</a></h3>
-<p>The KL divergence is the most famous function of a broader family called <code class="docutils literal notranslate"><span class="pre">f-Divergences</span></code>, more generally defined as:</p>
-<p><span class="math notranslate nohighlight">\(D_{f}(p \vert \vert q) \equiv \frac{4}{1 - f^{2}} \left( 1 - \int p(x)^{\left(\frac{1 + f}{2} \right)} q(x)^{\left(\frac{1 - f}{2} \right)}dx \right)\)</span></p>
-<p>where <span class="math notranslate nohighlight">\(f\)</span> is a continuous real parameter, <span class="math notranslate nohighlight">\(-\infty \le f \le + \infty\)</span>. Some special cases are:</p>
-<p><span class="math notranslate nohighlight">\(KL(p\vert \vert q) = \lim_{f \rightarrow 1} D_{f}(p \vert \vert q),\)</span></p>
-<p><span class="math notranslate nohighlight">\(KL(q\vert \vert p) = \lim_{f \rightarrow -1} D_{f}(p \vert \vert q)\)</span></p>
-<p>and the <code class="docutils literal notranslate"><span class="pre">Hellinger</span> <span class="pre">distance</span></code></p>
-<p><span class="math notranslate nohighlight">\(D_{H}(p \vert \vert q) = \lim_{f \rightarrow 0}  D_{f}(p \vert \vert q) = \int \left( p(x)^{2} - q(x)^{2} \right)^{2}dx.\)</span></p>
-<p>Since we only work with distributions with compact support <span class="math notranslate nohighlight">\(D_{f}(p \vert \vert q) \ge 0\)</span>, again it is zero if and only if <span class="math notranslate nohighlight">\(p(x) = q(x)\)</span>.</p>
+<div class="section" id="pointwise-mutual-information-a-class-anchor-id-4-1-a">
+<h3><span class="section-number">3.6.3. </span>Pointwise Mutual Information <a class="anchor" id="4-1"></a><a class="headerlink" href="#pointwise-mutual-information-a-class-anchor-id-4-1-a" title="Permalink to this headline">¶</a></h3>
+<p>A PMI é uma medida de associação entre a ocorrência de dois eventos. No nosso caso os eventos são a ocorrência ou não de tokens pertencentes ao corpus.
+Sejam duas variáveis aleatórias discretas <span class="math notranslate nohighlight">\(x \sim X\)</span> e <span class="math notranslate nohighlight">\(y \sim Y\)</span>. A PMI é a distância, no espaço de log, entre as probabilidades conjunta e disjunta destas duas variáveis, em outras palavras, ela mede o quão distante os dois eventos estão de serem independentes. A PMI é máxima se o pair <span class="math notranslate nohighlight">\(x,y\)</span> sempre ocorre junto.</p>
+<p><span class="math notranslate nohighlight">\(PMI(x,y) \equiv \log{\frac{p(x,y)}{p(x)p(y)}}\)</span></p>
 </div>
+<div class="section" id="likelihood-ratio-a-class-anchor-id-4-2-a">
+<h3><span class="section-number">3.6.4. </span>Likelihood ratio <a class="anchor" id="4-2"></a><a class="headerlink" href="#likelihood-ratio-a-class-anchor-id-4-2-a" title="Permalink to this headline">¶</a></h3>
+<p>Dado que estamos interessados em identificar uma collocation (bi-grama) composta pelos tokens <span class="math notranslate nohighlight">\(w^1 w^2\)</span>, podemos ter duas hipóteses:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_{1}\)</span>(Independência): <span class="math notranslate nohighlight">\(P(w^{2} \vert w^{1}) = p = P(w^{2} \vert \neg w^{1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(H_{2}\)</span>(Dependência): <span class="math notranslate nohighlight">\(P(w^{2} \vert w^{1}) = p_{1} \neq p_{2} = P(w^{2} \vert \neg w^{1})\)</span></p></li>
+</ul>
+<p>Sejam <span class="math notranslate nohighlight">\(c_{1}\)</span> as ocorrências de <span class="math notranslate nohighlight">\(w^{1}\)</span>,<span class="math notranslate nohighlight">\(c_{2}\)</span> de <span class="math notranslate nohighlight">\(w^{2}\)</span>, <span class="math notranslate nohighlight">\(c_{12}\)</span> de <span class="math notranslate nohighlight">\(w^{1}w^{2}\)</span> e <span class="math notranslate nohighlight">\(N\)</span> o número total de observações. Temos:</p>
+<p><span class="math notranslate nohighlight">\(p=\frac{c_{2}}{N},\ p_{1}=\frac{c_{12}}{c_{1}},\ p_{2}=\frac{c_{2}-c_{12}}{N-c_{1}}\)</span></p>
+<p>A ocorrência de um evento deste tipo é dada por uma distribuição binomial (probabilidade de conseguir <span class="math notranslate nohighlight">\(k\)</span> sucessos em <span class="math notranslate nohighlight">\(n\)</span> experimentos de Bernoulli, sendo que a chance de sucesso em cada é <span class="math notranslate nohighlight">\(p\)</span>):</p>
+<p><span class="math notranslate nohighlight">\(B(k;n,p) = \frac{n!}{k!(n-k)!} p^{k}(1-p)^{n-k}\)</span></p>
+<p>Assim a likelihood das hipóteses 1 e 2 são:</p>
+<p><span class="math notranslate nohighlight">\(L(H_{1})=B(c_{12};c_{1},p)B(c_{2}-c_{12};N-c_{1},p)\)</span></p>
+<p><span class="math notranslate nohighlight">\(L(H_{2})=B(c_{12};c_{1},p_{1})B(c_{2}-c_{12};N-c_{1},p_{2})\)</span></p>
+<p>No fim das contas, a razão entre as likelihoods é outra maneira de medir o quanto a ocorrência entre os dois tokens estão de ser independentes:</p>
+<p><span class="math notranslate nohighlight">\(\lambda=\frac{L(H_{1})}{L(H_{2})}\)</span>.</p>
+<p>Um valor <span class="math notranslate nohighlight">\(\lambda=1\)</span> significa que as duas hipóteses são igualmente prováveis, já <span class="math notranslate nohighlight">\(\lambda &lt; 1\)</span> indica que a hipótese 2 (dependência) é a mais provável.</p>
 </div>
-<div class="section" id="mutual-information">
-<h2><span class="section-number">10.4. </span>Mutual Information<a class="headerlink" href="#mutual-information" title="Permalink to this headline">¶</a></h2>
-<p>For a joint distribution <span class="math notranslate nohighlight">\(p(y,x)\)</span> the KL divergence can be used to quantify how close the two variables are to be independent, i.e., <span class="math notranslate nohighlight">\(p(y,x) = p(y)p(x)\)</span>, this is called <code class="docutils literal notranslate"><span class="pre">mutual</span> <span class="pre">information</span></code> between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(I[y,x] = KL(p(y,x)\vert \vert p(y)p(x)) = -\int \int p(y,x) \ln \frac{p(y)p(x)}{p(y,x)}dydx\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(I[y,x] \ge 0\)</span> and <span class="math notranslate nohighlight">\(I[y,x] = 0 \iff\)</span> <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are independent.</p>
-<p>Mutual information can be written with conditional entropy:</p>
-<p><span class="math notranslate nohighlight">\(I[y,x] = H[y] - H[y\vert x] = H[x] - H[x\vert y]\)</span>.</p>
 </div>
 </div>
 
@@ -476,17 +660,17 @@ where <span class="math notranslate nohighlight">\((\langle x \rangle -m)^{2} -\
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro-manifold.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="probability-distributions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">9. </span>Introdução ao Manifold Learning</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Distribuições de probabilidade</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="variational-autoencoder.html" title="next page">
+    <a class='right-next' id="next-link" href="eigen-decomposition.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Variational AutoEncoder</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Decomposição de matrizes</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
