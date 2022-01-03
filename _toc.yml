@@ -10,6 +10,8 @@ parts:
   numbered: True
   chapters:
   - file: content/math/intro
+  - file: content/math/probability-distributions
+  - file: content/math/information-theory
   - file: content/math/eigen-decomposition
   - file: content/math/lagrange-multipliers
   - file: content/math/method-of-kernels
@@ -17,7 +19,7 @@ parts:
   - file: content/math/computing-hessian-and-jacobian
   - file: content/math/counter-factual-model
   - file: content/math/intro-manifold
-  - file: content/math/information-theory
+  - file: content/math/multidimensional-scaling
   - file: content/math/variational-autoencoder
 - caption: Reinforcement Learning
   numbered: True
