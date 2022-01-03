@@ -1,0 +1,37 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+options:
+  numbered: true
+parts:
+- caption: Math and Machine Learning
+  numbered: True
+  chapters:
+  - file: content/math/intro
+  - file: content/math/eigen-decomposition
+  - file: content/math/lagrange-multipliers
+  - file: content/math/method-of-kernels
+  - file: content/math/simple-example-of-maximum-likelihood
+  - file: content/math/computing-hessian-and-jacobian
+  - file: content/math/counter-factual-model
+  - file: content/math/intro-manifold
+  - file: content/math/information-theory
+  - file: content/math/variational-autoencoder
+- caption: Reinforcement Learning
+  numbered: True
+  chapters:
+  - file: content/reinforcement-learning/intro
+- caption: Differential Geometry
+  numbered: True
+  chapters:
+  - file: content/differential-geometry/intro
+  - file: content/differential-geometry/maps
+  - file: content/differential-geometry/vector-spaces
+  - file: content/differential-geometry/algebras
+  - file: content/differential-geometry/metric-tensor-fields
+- caption: Extra content
+  chapters:
+  - file: content/extra/definitions
+  - file: content/extra/symbol-index
