@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manifold Learning - Multidimensional Scaling &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   This is mostly for fun
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math and Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eigen-decomposition.html">
+   2. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lagrange-multipliers.html">
+   3. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="method-of-kernels.html">
+   4. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+   5. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+   6. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="counter-factual-model.html">
+   7. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-manifold.html">
+   9. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="information-theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variational-autoencoder.html">
+   11. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/math/muldimensional-scaling.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/math/muldimensional-scaling.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matriz-de-distancia">
+   Matriz de distância
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decomposicao-espectral">
+   Decomposição espectral
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplo">
+     Exemplo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="manifold-learning-multidimensional-scaling">
+<h1>Manifold Learning - Multidimensional Scaling<a class="headerlink" href="#manifold-learning-multidimensional-scaling" title="Permalink to this headline">¶</a></h1>
+<p>Seguindo com o assunto de Manifold Learning vamos ver como funciona a técnica chamada <strong>Isometric map</strong>, mas um dos passos dela é uma técnica chamada <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling">Multidimensional Scaling (MDS)</a></strong>, por isso primeiro vamos ver como MDS funciona.</p>
+<div class="section" id="matriz-de-distancia">
+<h2>Matriz de distância<a class="headerlink" href="#matriz-de-distancia" title="Permalink to this headline">¶</a></h2>
+<p>Dado um dataset $<span class="math notranslate nohighlight">\(X\)</span><span class="math notranslate nohighlight">\( com \)</span><span class="math notranslate nohighlight">\(n\)</span><span class="math notranslate nohighlight">\( observações e \)</span><span class="math notranslate nohighlight">\(D\)</span><span class="math notranslate nohighlight">\( dimensões, precisamos de uma matriz de distância \)</span><span class="math notranslate nohighlight">\(\mathcal{d} \in \mathbb{R}^{n \times n}\)</span><span class="math notranslate nohighlight">\(, ou seja, uma matriz em que cada elemento \)</span><span class="math notranslate nohighlight">\(d_{ij}\)</span><span class="math notranslate nohighlight">\( representa um tipo de distância da observação \)</span><span class="math notranslate nohighlight">\(x_{i}\)</span><span class="math notranslate nohighlight">\( até a observação \)</span><span class="math notranslate nohighlight">\(x_{j}\)</span><span class="math notranslate nohighlight">\(, desse modo, \)</span><span class="math notranslate nohighlight">\(d_{ii}\)</span>$ (os elementos da diagonal principal) são sempre iguais a zero. A distância escolhida em princípio pode ser qualquer uma, mas é usual utilizar a distância euclidiana:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{D}_{ij} = \vert \vert x_{i} - x_{j} \vert \vert^{2}\]</div>
+<p>Assim, devemos encontrar uma representação $<span class="math notranslate nohighlight">\(\hat{X}\)</span><span class="math notranslate nohighlight">\( de dimensão \)</span><span class="math notranslate nohighlight">\(d\)</span><span class="math notranslate nohighlight">\( dos dados tal que a matriz de distância \)</span><span class="math notranslate nohighlight">\(\hat{\mathcal{D}}\)</span>$ seja solução de</p>
+<div class="math notranslate nohighlight">
+\[min\ \sum_{i}\sum_{j} \left( \mathcal{D}_{ij} - \hat{\mathcal{D}}_{ij}  \right)^{2}\]</div>
+<p><strong>Novamente</strong>: nosso objetivo é encontrar uma representação dos dados de dimensão diferente de $<span class="math notranslate nohighlight">\(D\)</span>$, geralmente menor, e que mantenha as distâncias relativas entre os pares de pontos o mais próximas possíveis das originais.</p>
+<p>Se a distância for euclidiana podemos usar o produto interno de $<span class="math notranslate nohighlight">\(X\)</span><span class="math notranslate nohighlight">\( com sua transposta, \)</span><span class="math notranslate nohighlight">\(X^{T}\)</span>$ para produzir:</p>
+<div class="math notranslate nohighlight">
+\[ X^{T}X = -\frac{1}{2}J \cdot \mathcal{D} \cdot J\]</div>
+<p>onde $<span class="math notranslate nohighlight">\(J_{n} = \mathbb{I}_{n}- \frac{1}{n}\mathbb{O}_{n}\)</span><span class="math notranslate nohighlight">\( é a [matriz centralizadora](https://en.wikipedia.org/wiki/Centering_matrix) e \)</span><span class="math notranslate nohighlight">\(\mathbb{O}_{n}\)</span><span class="math notranslate nohighlight">\( é a matriz \)</span><span class="math notranslate nohighlight">\(n \times n\)</span><span class="math notranslate nohighlight">\( com todos os elementos 1. Essa transformação de \)</span><span class="math notranslate nohighlight">\(\mathcal{D}\)</span>$ no produto interno de uma matriz com sua transposta é as vezes chamada de <em>Gram matrix</em> e é válida para qualquer matriz simétrica não negativa com zeros na diagonal.</p>
+<p>Isso serve apenas para dizer que podemos fazer uma decomposição de $<span class="math notranslate nohighlight">\(X^{T}X\)</span><span class="math notranslate nohighlight">\( em autovetores e usá-los em uma nova representação. No caso de redução de dimensionalidade, como em outras técnicas, escolhemos os \)</span><span class="math notranslate nohighlight">\(k\)</span>$ autovetores com maior módulo.</p>
+</div>
+<div class="section" id="decomposicao-espectral">
+<h2>Decomposição espectral<a class="headerlink" href="#decomposicao-espectral" title="Permalink to this headline">¶</a></h2>
+<p>Fazemos agora um procedimento típico, encontrar:</p>
+<div class="math notranslate nohighlight">
+\[ X^{T}X = U \Lambda U^{T}\]</div>
+<p>em que $<span class="math notranslate nohighlight">\(\Lambda\)</span><span class="math notranslate nohighlight">\( é a matriz diagonal de autovalores e \)</span><span class="math notranslate nohighlight">\(U\)</span><span class="math notranslate nohighlight">\( é a matriz \)</span><span class="math notranslate nohighlight">\(n \times n\)</span><span class="math notranslate nohighlight">\( cuja \)</span><span class="math notranslate nohighlight">\(i\)</span><span class="math notranslate nohighlight">\(-ésima coluna é o \)</span><span class="math notranslate nohighlight">\(u_{i}\)</span><span class="math notranslate nohighlight">\( autovetor de \)</span><span class="math notranslate nohighlight">\(X^{T}X\)</span>$. O objetivo se torna minimizar</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} = \vert \vert U \Lambda U^{T} - \hat{X}^{T}X \vert \vert = \vert \vert X^{T}X - \hat{X}^{T}X \vert \vert\]</div>
+<p>que é resolvida por $<span class="math notranslate nohighlight">\(\hat{X} = U \Lambda^{1/2}\)</span><span class="math notranslate nohighlight">\(. Se quisermos uma representação \)</span><span class="math notranslate nohighlight">\(k\)</span><span class="math notranslate nohighlight">\(-dimensional escolhemos os \)</span><span class="math notranslate nohighlight">\(k\)</span><span class="math notranslate nohighlight">\( maiores valores de \)</span><span class="math notranslate nohighlight">\(\Lambda\)</span><span class="math notranslate nohighlight">\(, os autovalores, e construímos a nova representação (o embedding) calculando os autovetores correspondentes. Os vetores de \)</span><span class="math notranslate nohighlight">\(\hat{X}\)</span>$ podem ser usados para projetar os vetores originais do dataset na nova representação.</p>
+<div class="section" id="exemplo">
+<h3>Exemplo<a class="headerlink" href="#exemplo" title="Permalink to this headline">¶</a></h3>
+<p>Vejamos um exemplo simples, vamos gerar um dataset com valores quaisquer com $<span class="math notranslate nohighlight">\(3\)</span><span class="math notranslate nohighlight">\( dimensões e vamos usar os princípios vistos acima para reduzir para \)</span><span class="math notranslate nohighlight">\(k=2\)</span>$ dimensões. Para facilitar o cálculo dos autovalores e autovetores faremos com o Tensorflow:</p>
+<img src="../assets/img/mds_01.png" style="float: left; margin-right: 10px;" />
+<p>Chamamos o método <em>linalg.eigh</em> que recebe a matriz $<span class="math notranslate nohighlight">\(T\)</span><span class="math notranslate nohighlight">\( e retorna um array com os autovalores em ordem crescente e a matriz de autovetores, \)</span><span class="math notranslate nohighlight">\(U\)</span>$.</p>
+<p><img src="../assets/img/mds_02.png" style="float: left; margin-right: 10px;" /></p><br>  
+<p>Note que para $<span class="math notranslate nohighlight">\(k=2\)</span><span class="math notranslate nohighlight">\( vamos usar apenas os \)</span><span class="math notranslate nohighlight">\(2\)</span><span class="math notranslate nohighlight">\( maiores valores de *eigenvals*. Podemos calcular a matriz erro \)</span><span class="math notranslate nohighlight">\(T - U \Lambda U^{T}\)</span>$, cujos valores devem ser próximos de zero.</p>
+<img src="../assets/img/mds_03.png" style="float: left; margin-right: 10px;" />
+<p>Agora calculamos os autovetores de $<span class="math notranslate nohighlight">\(k=2\)</span><span class="math notranslate nohighlight">\( e projetamos \)</span><span class="math notranslate nohighlight">\(X\)</span>$ nessas direções:</p>
+<img src="../assets/img/mds_04.png" style="float: left; margin-right: 10px;" />
+<p>Feito isso estamos prontos para compreender a técnica chamada Isometric map. Se você conhece a técnica Principal Component Analysis (PCA) deve ter percebido alguma similaridades. Há várias técnicas que utulizam essas matrizes de distâncias ou algum outro tipo de métrica, como a covariância. O ponto importante é que PCA é uma técnica linear e portanto está limitada aos casos em que as observações pertencem a uma variedade sem curvatura, já as técnicas de Manifold Learning podem ser vistas como uma generalização não-linear de PCA.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/math"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

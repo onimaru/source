@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Multiplicadores de Lagrange &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Method of kernels" href="method-of-kernels.html" />
+    <link rel="prev" title="2. Decomposição de matrizes" href="eigen-decomposition.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   This is mostly for fun
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math and Machine Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eigen-decomposition.html">
+   2. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="method-of-kernels.html">
+   4. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+   5. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+   6. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="counter-factual-model.html">
+   7. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-manifold.html">
+   9. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="information-theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variational-autoencoder.html">
+   11. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/math/lagrange-multipliers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/math/lagrange-multipliers.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/onimaru/source/master?urlpath=tree/docs/content/math/lagrange-multipliers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="multiplicadores-de-lagrange">
+<h1><span class="section-number">3. </span>Multiplicadores de Lagrange<a class="headerlink" href="#multiplicadores-de-lagrange" title="Permalink to this headline">¶</a></h1>
+<p>Em machine learning vemos constantemente funções de perda com restrições, normalmente em forma de uma regularização. Por exemplo, digamos que você esteja fazendo uma regressão linear de modo a minimizar a quantidade</p>
+<div class="math notranslate nohighlight">
+\[argmin_{\mathbf{w}} \frac{1}{N}\sum_{i=1}^{N}\vert y_{i} - \mathbf{w}^{T}x_{i} \vert^{2},\]</div>
+<p>onde <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> é o seu vetor com os parâmetros do modelo. Isso poderia bastar para seu modelo, mas pode ser também que você entende que existe uma restrição para o vetor de parâmetros do seu modelo, digamos <span class="math notranslate nohighlight">\(\mathbf{w}^{T}\mathbf{w}=1\)</span>. Com isso você inclui uma restrição à otimização que deseja realizar. Restrições como essa aparecem em vários casos em machine learning, física, matemática, etc.
+Para resolver esse tipo de <em>Otimização restrita</em>, existe um famoso método que podemos usar chamado, Multiplicadores de Lagrange.</p>
+<p>O problema envolve querer maximizar ou minimizar uma função de várias variáveis <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>, sujeita à restrição da forma <span class="math notranslate nohighlight">\(g(\mathbf{x})=0\)</span>. Note que <span class="math notranslate nohighlight">\(\mathbf{x} = (x_{1},x_{2}, ..., x_{n})\)</span>. Se <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> for <span class="math notranslate nohighlight">\(D\)</span>-dimensional, a restrição corresponde a um subespaço <span class="math notranslate nohighlight">\((D-1)\)</span>-dimensional. Se <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> tiver 2 dimensões a restrição vai corresponder a uma curva no plano.</p>
+<p>Consideremos o caso de maximizar <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>. Ao calcular <span class="math notranslate nohighlight">\(\nabla f(\mathbf{x})\)</span> obtemos o vetor que informa a direção que função <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> mais cresce (se não houver nenhum tipo de restrição, o máximo da função pode ser infinito), podemos entender isso como uma força empurrando a função para seu valor máximo. Quando há uma restrição, outra força similar a essa aparece na direção oposta, <span class="math notranslate nohighlight">\(\nabla g(\mathbf{x})\)</span>. A otimização ocorre até um ponto que há um equilíbrio de forças, ou seja,</p>
+<div class="math notranslate nohighlight">
+\[\nabla f(\mathbf{x}) + \lambda \nabla g(\mathbf{x}) = 0,\]</div>
+<p>onde <span class="math notranslate nohighlight">\(\lambda\)</span> é um fator de escala diferente de zero chamado de multiplicador de Lagrange. Se considerarmos que a soma de <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> com sua restrição é a nova função que desejamos maximizar, podemos escrever a função de Lagrange:</p>
+<div class="math notranslate nohighlight">
+\[\text{Maximizar: }\mathcal{L}(\mathbf{x},\lambda) = f(\mathbf{x}) + \lambda g(\mathbf{x})\]</div>
+<p>e agora queremos encontrar a solução de:</p>
+<div class="math notranslate nohighlight">
+\[\nabla \mathcal{L}(\mathbf{x},\lambda) = 0\]</div>
+<p>Ou seja, isso nos dará um sistema de equações cuja solução fornecerá o máximo da função <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> quando sujeita a restrição <span class="math notranslate nohighlight">\(g(\mathbf{x})\)</span>.</p>
+<p>Caso nosso objetivo seja minimizar <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>, apenas modificamos o sinal da restrição na função de Lagrange:</p>
+<div class="math notranslate nohighlight">
+\[\text{Minimizar: }\mathcal{L}(\mathbf{x},\lambda) = f(\mathbf{x}) - \lambda g(\mathbf{x})\]</div>
+<p>As restrições podem aparecer no formato de desigualdades, não há problema nisso, precisamos apenas modificá-las, se necessário para atender os requisitos:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(g(\mathbf{x}) \ge 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda \ge 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda g(\mathbf{x}) = 0\)</span></p></li>
+</ul>
+<p>Observe que podemos ter mais de uma restrição no problema, nesse caso cada restrição recebe um multiplicador de Lagrange diferente e todas são somadas na função de Lagrange.</p>
+<p>Vejamos alguns exemplos simples:</p>
+<!-- <img src="../../images/mult_lagrange_ex_1.png" style="float: left; margin-right: 3px; width: 1000px;"> -->
+<a class="reference internal image-reference" href="../../_images/mult_lagrange_ex_1.png"><img alt="mult_lagrange_ex_1" class="align-center" src="../../_images/mult_lagrange_ex_1.png" style="width: 800px;" /></a>
+<!-- <img src="../../images/mult_lagrange_ex_2.png" style="float: left; margin-right: 3px; width: 1000px;"> -->
+<a class="reference internal image-reference" href="../../_images/mult_lagrange_ex_2.png"><img alt="mult_lagrange_ex_2" class="align-center" src="../../_images/mult_lagrange_ex_2.png" style="width: 800px;" /></a>
+<!-- <img src="../../images/mult_lagrange_ex_3.png" style="float: left; margin-right: 3px; width: 1000px;"> -->
+<a class="reference internal image-reference" href="../../_images/mult_lagrange_ex_3.png"><img alt="mult_lagrange_ex_3" class="align-center" src="../../_images/mult_lagrange_ex_3.png" style="width: 800px;" /></a>
+<p>Podemos ainda mostrar com esse método que a distribuição normal é aquela de maximiza e entropia de Shanon:</p>
+<!-- <img src="../../images/mult_lagrange_ex_4.png" style="float: left; margin-right: 3px; width: 1000px;"> -->
+<a class="reference internal image-reference" href="../../_images/mult_lagrange_ex_4.png"><img alt="mult_lagrange_ex_4" class="align-center" src="../../_images/mult_lagrange_ex_4.png" style="width: 800px;" /></a>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/math"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="eigen-decomposition.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Decomposição de matrizes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="method-of-kernels.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Method of kernels</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Definições &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lista de símbolos" href="symbol-index.html" />
+    <link rel="prev" title="5. Campos Tensoriais Métricos" href="../differential-geometry/metric-tensor-fields.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   This is mostly for fun
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math and Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/eigen-decomposition.html">
+   2. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/lagrange-multipliers.html">
+   3. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/method-of-kernels.html">
+   4. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/simple-example-of-maximum-likelihood.html">
+   5. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/computing-hessian-and-jacobian.html">
+   6. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/counter-factual-model.html">
+   7. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/intro-manifold.html">
+   9. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/information-theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/variational-autoencoder.html">
+   11. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/extra/definitions.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/extra/definitions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mapas">
+   Mapas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#espacos-vetoriais">
+   Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algebras">
+   Álgebras
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variedades-diferenciaveis">
+   Variedades diferenciaveis
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="definicoes">
+<span id="definitions"></span><h1>Definições<a class="headerlink" href="#definicoes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mapas">
+<h2>Mapas<a class="headerlink" href="#mapas" title="Permalink to this headline">¶</a></h2>
+<p><strong>Mapa</strong>: um mapa <span class="math notranslate nohighlight">\(\phi\)</span> é uma regra que atribui para cada <span class="math notranslate nohighlight">\(y \in Y\)</span> um <span class="math notranslate nohighlight">\(x \in X\)</span>, denotado por <span class="math notranslate nohighlight">\(\phi: X \rightarrow Y\)</span>.
+O conjunto <span class="math notranslate nohighlight">\(Y\)</span> é chamado de <strong>alcance</strong> (range) do mapa, o conjunto <span class="math notranslate nohighlight">\(X\)</span> é chamado de <strong>domínio</strong> de <span class="math notranslate nohighlight">\(\phi\)</span> e a <strong>imagem</strong> de <span class="math notranslate nohighlight">\(\phi\)</span> é o conjunto <span class="math notranslate nohighlight">\(\phi(x) = \lbrace y \in Y | \phi(x) = y,\ \forall x \in X \rbrace\)</span>.</p>
+<p><strong>Um-a-um</strong> ou <strong>injetivo</strong>: um mapa é chamado de um-a-um (1-1) se para cada <span class="math notranslate nohighlight">\(y \in Y\)</span> existe somente um <span class="math notranslate nohighlight">\(x \in X\)</span> tal que para <span class="math notranslate nohighlight">\(x, x' \in X, x \ne x' \Longrightarrow f(x) \ne f(x')\)</span>.</p>
+<p><strong>Sobrejetivo</strong>: um mapa é chamado de sobrejetivo (onto) se para cada <span class="math notranslate nohighlight">\(y \in Y\)</span> existe pelo menos um <span class="math notranslate nohighlight">\(x \in X\)</span>. É comum
+dizer apenas ”<span class="math notranslate nohighlight">\(\phi\)</span> é um mapa de <span class="math notranslate nohighlight">\(X\)</span> sobre <span class="math notranslate nohighlight">\(Y\)</span>.”</p>
+<p><strong>Bijetivo</strong>: um mapa é dito bijetivo ou que é uma bijeção se é tanto 1-1 quanto sobrejetivo.</p>
+<p><strong>Correspondência 1-1</strong>: se existe uma bijeção entre dois conjuntos é dito que estes possuem uma correnpondência 1-1.</p>
+<p><strong>Mapa constante</strong>: um mapa é chamado de constante se existe um <span class="math notranslate nohighlight">\(y_{0} \in Y\)</span> ﬁxo para um <span class="math notranslate nohighlight">\(x \in X\)</span> arbitrário, <span class="math notranslate nohighlight">\(\phi(x) = y_{0}\)</span>.</p>
+<p><strong>Restrição</strong>: dado um subconjunto <span class="math notranslate nohighlight">\(A \subset X\)</span>, uma restrição de um mapa <span class="math notranslate nohighlight">\(\phi: X \rightarrow Y\)</span> é <span class="math notranslate nohighlight">\(\phi|_{A}: A \rightarrow Y\)</span> .</p>
+<p><strong>Mapa composto</strong>: dados os mapas <span class="math notranslate nohighlight">\(\phi: X \rightarrow Y\)</span> e <span class="math notranslate nohighlight">\(\psi: Y \rightarrow Z\)</span>, o mapa composto é <span class="math notranslate nohighlight">\(\psi \circ \phi : X \rightarrow Z\)</span>, também denotado como <span class="math notranslate nohighlight">\(\psi(\phi(x)) = z\)</span>.</p>
+<p><strong>Diagrama comutativo</strong>: se os mapas <span class="math notranslate nohighlight">\(\lambda \circ \phi : X \rightarrow E\)</span> e <span class="math notranslate nohighlight">\(\mu \circ \psi : X \rightarrow E\)</span> são equivalentes se existe um mapa
+<span class="math notranslate nohighlight">\(\rho : X \rightarrow E\)</span>, então dizemos que o diagrama representando estes mapeamentos comutam.</p>
+<p><strong>Mapa de inclusão</strong>: dado um subconjunto <span class="math notranslate nohighlight">\(A \subset X\)</span>, o mapa <span class="math notranslate nohighlight">\(i : A \rightarrow X\)</span> deﬁnido como <span class="math notranslate nohighlight">\(i(a) = a\ \forall a \in A\)</span> é
+chamado de mapa de inclusão, também denotado como <span class="math notranslate nohighlight">\(i : A \xhookrightarrow{} X\)</span>.</p>
+<p><strong>Mapa identidade</strong>: dado o mapa de inclusão, se <span class="math notranslate nohighlight">\(A = X\)</span> o mapa é chamado de mapa identidade (ou mapa de identidade), <span class="math notranslate nohighlight">\(id_{X} : X \rightarrow X\)</span>.</p>
+<p><strong>Mapa inverso</strong>: se um mapa <span class="math notranslate nohighlight">\(\phi : X \rightarrow Y\)</span> é bijetivo existe um mapa inverso, <span class="math notranslate nohighlight">\(\phi^{-1} : Y \rightarrow X\)</span>, tal que <span class="math notranslate nohighlight">\(\phi^{-1} : \phi(x) \rightarrow x\)</span> é também bijetivo. Como consequência <span class="math notranslate nohighlight">\(\phi^{-1} \circ \phi = id_{X}\)</span> e <span class="math notranslate nohighlight">\(\phi \circ \phi^{-1} = id_{Y}\)</span>.</p>
+<p><strong>Mapa n-ário</strong>: é o mapa <span class="math notranslate nohighlight">\(\phi : X^{n} \rightarrow Y\)</span>, deﬁnido como <span class="math notranslate nohighlight">\(\phi : (x_{1}, x_{2}, ..., x_{n}) \rightarrow y\)</span>.</p>
+<p><strong>Mapa de projeção</strong>: é um mapa n-ário <span class="math notranslate nohighlight">\(pr_{i} : X_{1} \times X_{2} \times ... \times X_{n} \rightarrow X_{i}\)</span> , deﬁnido como <span class="math notranslate nohighlight">\(pr_{i} : (x_{1}, ..., x_{n}) \rightarrow x_{i}\)</span>.</p>
+<p><strong>Mapa característico</strong>: dado um subconjunto <span class="math notranslate nohighlight">\(A \subset X\)</span>, um mapa <span class="math notranslate nohighlight">\(\chi_{A} : X \rightarrow {0, 1}\)</span> é dito característico de <span class="math notranslate nohighlight">\(A\)</span>, deﬁnido como <span class="math notranslate nohighlight">\(\chi_{A} (x) = 0\)</span> se <span class="math notranslate nohighlight">\(x \notin A\)</span> e <span class="math notranslate nohighlight">\(\chi_{A} (x) = 1\)</span> se <span class="math notranslate nohighlight">\(x \in A\)</span>.</p>
+</div>
+<div class="section" id="espacos-vetoriais">
+<h2>Espaços Vetoriais<a class="headerlink" href="#espacos-vetoriais" title="Permalink to this headline">¶</a></h2>
+<p><strong>Anel</strong>: <a class="reference external" href="https://pt.wikipedia.org/wiki/Anel_(matem%C3%A1tica)">wikipedia</a></p>
+<p><strong>Corpo (Field)</strong>: <a class="reference external" href="https://pt.wikipedia.org/wiki/Corpo_(matem%C3%A1tica)">wikipedia</a></p>
+<p><strong>Espaço vetorial ou espaço linear</strong>: um espaço vetorial <span class="math notranslate nohighlight">\(V\)</span> sobre o campo (ou corpo) <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> é um conjunto que possui deﬁnidas as operações de adição e multiplicação por um elemento de <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>.</p>
+<p><strong>Escalar</strong>: é um elemento de um campo <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>, usualmente os campos dos <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> ou <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> são os mais utilizados na física.</p>
+<p><strong>Vetores</strong>: são elementos de um campo vetorial <span class="math notranslate nohighlight">\(V\)</span> satisfazendo as seguintes condições:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(u + v = v + u\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\((u + v) + w = u + (v + w)\)</span>;</p></li>
+<li><p>Existe um vetor nulo <span class="math notranslate nohighlight">\(0\)</span> tal que <span class="math notranslate nohighlight">\(v + 0 = v\)</span>;</p></li>
+<li><p>Para todo <span class="math notranslate nohighlight">\(u\)</span> existe a inversa <span class="math notranslate nohighlight">\(−u\)</span> tal que <span class="math notranslate nohighlight">\(u + (−u) = −u + u = 0\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(c(u + v) = cu + cv\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\((c + d)u = cu + du\)</span>;</p></li>
+<li><p>(<span class="math notranslate nohighlight">\(cd)u = c(du)\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(1u = u\)</span>;</p></li>
+</ol>
+<p>onde <span class="math notranslate nohighlight">\(u, v, w \in V\)</span>, <span class="math notranslate nohighlight">\(c, d \in K\)</span> e <span class="math notranslate nohighlight">\(1\)</span> é o elemento unitário de <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>.</p>
+<p><strong>Dependência linear</strong>: para <span class="math notranslate nohighlight">\(x_{i} \in \mathbb{K}\)</span>, <span class="math notranslate nohighlight">\(v_{i} \in V\)</span> e <span class="math notranslate nohighlight">\(x_{i} v_{i} = 0\)</span>. Se existe uma solução não-trivial, <span class="math notranslate nohighlight">\(x_{i} \ne 0\)</span>, então o conjunto de todos <span class="math notranslate nohighlight">\(\lbrace v_{i} \rbrace\)</span> são linearmente independentes. Se existe somente uma solução trivial, <span class="math notranslate nohighlight">\(x_{i} = 0\)</span>, então o conjunto de todos <span class="math notranslate nohighlight">\(\lbrace v_{i} \rbrace\)</span> são linearmente independentes.</p>
+<p><strong>Base</strong>: um conjunto de vetores linearmente independentes <span class="math notranslate nohighlight">\(\lbrace e_{i} \rbrace\)</span> é dito ser uma base de um espeço vetorial <span class="math notranslate nohighlight">\(V\)</span> se qualquer <span class="math notranslate nohighlight">\(v \in V\)</span> pode ser escrito como uma combinação linear de <span class="math notranslate nohighlight">\(\lbrace e_{i} \rbrace\)</span>, <span class="math notranslate nohighlight">\(v = v_{i} e_{i}\)</span>.</p>
+<p><strong>Componentes</strong>: dado <span class="math notranslate nohighlight">\(v \in V\)</span> e seja <span class="math notranslate nohighlight">\(\lbrace e_{i} \rbrace\)</span> a base de <span class="math notranslate nohighlight">\(V\)</span>. Os elementos <span class="math notranslate nohighlight">\(v_{i} \in v\)</span> são ditos ser os componentes de <span class="math notranslate nohighlight">\(v\)</span> com respeito a base <span class="math notranslate nohighlight">\(\lbrace e_{i} \rbrace\)</span>.</p>
+<p><strong>Dimensão</strong>: a dimensão de um espaço vetorial <span class="math notranslate nohighlight">\(dimV\)</span> é o número de elementos que compõem a base do espaço vetorial <span class="math notranslate nohighlight">\(V\)</span>, usualmente denotado como <span class="math notranslate nohighlight">\(V = V(n, \mathbb{K})\)</span>.</p>
+<p><strong>Mapa linear</strong>: dados dois espaços vetoriais <span class="math notranslate nohighlight">\(V\)</span> e <span class="math notranslate nohighlight">\(W\)</span> . Um mapa <span class="math notranslate nohighlight">\(\phi: V \rightarrow W\)</span> é dito linear se satisfaz:</p>
+<div class="math notranslate nohighlight">
+\[\phi(a_{1} v_{1} + a_{2} v_{2} ) = a_{1} \phi(v_{1} ) + a_{2} \phi(v_{2} ), \forall a_{1} , a_{2} \in \mathbb{K} \text{ e } v_{1} , v_{2} \in V.\]</div>
+<p><strong>Isomorﬁsmo</strong>: um mapa <span class="math notranslate nohighlight">\(\phi: V \rightarrow W\)</span> é chamado de isomorﬁsmo se admite inversa.</p>
+<p><strong>Endomorﬁsmo</strong>: um mapa <span class="math notranslate nohighlight">\(\phi: V \rightarrow V\)</span> é chamado de endomorﬁsmo.</p>
+<p><strong>Automorﬁsmo</strong>: um isomorﬁsmo de um espaço vetorial sobre si mesmo é chamado de automorﬁsmo, ou seja, é um endomorﬁsmo que admite inversa.</p>
+<p><strong>Imagem</strong>: o subconjunto <span class="math notranslate nohighlight">\(\phi(V) \subset W\)</span> é dito ser a imagem de <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(Im phi\)</span>.</p>
+<p><strong>Kernel</strong>: o kernel do mapa <span class="math notranslate nohighlight">\(\phi : V → W\)</span>, denotado como <span class="math notranslate nohighlight">\(ker(\phi)\)</span>, é o conjunto <span class="math notranslate nohighlight">\(\lbrace v \in V \vert \phi(v) = 0 \rbrace\)</span>, onde <span class="math notranslate nohighlight">\(0\)</span> é o
+elemento neutro de <span class="math notranslate nohighlight">\(W\)</span>.</p>
+<p><strong>Espaço vetorial dual</strong>: seja <span class="math notranslate nohighlight">\(\phi : V \rightarrow \mathbb{K}\)</span>, onde <span class="math notranslate nohighlight">\(V(n, \mathbb{K})\)</span> tem uma base <span class="math notranslate nohighlight">\(\lbrace e_{i} \rbrace\)</span>. Temos que para qualquer <span class="math notranslate nohighlight">\(v = v^{i} e_{i}\)</span> e <span class="math notranslate nohighlight">\(\phi(v^{i} ) = v^{i} \phi(e_{i} )\)</span> devido a linearidade do mapa. O espaço vetorial <span class="math notranslate nohighlight">\(\phi(v)\)</span> é chamado de espaço vetorial dual a <span class="math notranslate nohighlight">\(V (n, \mathbb{K})\)</span>, denotado como <span class="math notranslate nohighlight">\(V^{∗} = V^{∗} (n, \mathbb{K})\)</span>.</p>
+<p><strong>Base dual</strong>: é a base que gera <span class="math notranslate nohighlight">\(V^{∗}\)</span> , denotada como <span class="math notranslate nohighlight">\(\lbrace e^{∗i} \rbrace\)</span>. É uma função linear de <span class="math notranslate nohighlight">\(\lbrace e_{i} \rbrace\)</span>, <span class="math notranslate nohighlight">\(e^{∗i} (e_{j} ) = \delta_{j}^{i}\)</span>.</p>
+<p><strong>Vetor dual</strong>: é o componente de <span class="math notranslate nohighlight">\(V^{∗}\)</span>, <span class="math notranslate nohighlight">\(\phi = \phi_{i} e^{∗i}\)</span>.</p>
+<p><strong>Produto interno 1</strong>: a ação de um vetor dual sobre um vetor é chamada de produto interno, <span class="math notranslate nohighlight">\(\phi(v) = \phi_{i} e^{∗i} v^{j} e_{j} = \phi_{i} v^{j} (e^{∗i} e_{j}) = \phi_{i} v^{i}\)</span>. Este também é denotado como <span class="math notranslate nohighlight">\(&lt;,&gt; : V^{∗} \times V \rightarrow \mathbb{K}\)</span>.</p>
+<p><strong>Pullback de um mapa</strong>: sejam <span class="math notranslate nohighlight">\(\phi\)</span> e <span class="math notranslate nohighlight">\(g\)</span> os mapas tais que <span class="math notranslate nohighlight">\(\phi : V \rightarrow W\)</span> e <span class="math notranslate nohighlight">\(g : W \rightarrow \mathbb{K}\)</span>, onde <span class="math notranslate nohighlight">\(g \in W^{∗}\)</span>. Então o mapa de composição <span class="math notranslate nohighlight">\(g \circ \phi = h\)</span>, onde <span class="math notranslate nohighlight">\(h \in V^{∗}\)</span>, ou <span class="math notranslate nohighlight">\(h(v) = g(\phi(v))\)</span>, onde <span class="math notranslate nohighlight">\(v \in V\)</span>. Disso temos <span class="math notranslate nohighlight">\(\phi^{∗} : W^{∗} \rightarrow V^{∗}\)</span> deﬁnido por <span class="math notranslate nohighlight">\(\phi^{∗} : g \mapsto h = \phi^{∗} (g)\)</span>. O mapa <span class="math notranslate nohighlight">\(h\)</span> é chamado de pullback de <span class="math notranslate nohighlight">\(g\)</span> por <span class="math notranslate nohighlight">\(\phi^{∗}\)</span>.</p>
+</div>
+<div class="section" id="algebras">
+<h2>Álgebras<a class="headerlink" href="#algebras" title="Permalink to this headline">¶</a></h2>
+<p><strong>Álgebra</strong>: consiste de um espaço vetorial <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> sobre um campo (ou corpo) <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> junto com uma lei de composição
+ou produto de vetores, <span class="math notranslate nohighlight">\(\mathcal{A} \times \mathcal{A} → \mathcal{A}\)</span>, denotado por</p>
+<div class="math notranslate nohighlight">
+\[(A, B) \rightarrow AB \in \mathcal{A}\ \ \  (A, B \in \mathcal{A}),\]</div>
+<p>que satisfaz um par de leis distributivas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A(aB + bC) = aAB + bAC,\\
+(aA + bB)C = aAC + bBC\end{split}\]</div>
+<p>para todos os escalares <span class="math notranslate nohighlight">\(a, b \in \mathbb{K}\)</span> e vetores, <span class="math notranslate nohighlight">\(A, B\)</span> e <span class="math notranslate nohighlight">\(C\)</span>. Sendo <span class="math notranslate nohighlight">\(O\)</span> o vetor zero e <span class="math notranslate nohighlight">\(0\)</span> o zero escalar tem-se</p>
+<div class="math notranslate nohighlight">
+\[OA = (0A)A = 0(AA) = O \text{ e } AO = A(0A) = 0AA = O.\]</div>
+<p><strong>Derivação em uma álgebra</strong>: uma derivação em uma álgebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> é um mapa <span class="math notranslate nohighlight">\(\theta : \mathcal{A} \rightarrow \mathcal{A}\)</span> satisfazendo</p>
+<div class="math notranslate nohighlight">
+\[\theta(AB) = \theta(A)B + A \theta(B).\]</div>
+<p><strong>Homomorﬁsmo de uma álgebra</strong>: sejam <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> e <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> qualquer par de álgebras. Um mapa linear <span class="math notranslate nohighlight">\(\phi : \mathcal{A} \rightarrow \mathcal{B}\)</span>
+é chamado de homomorﬁsmo de álgebra se preserva os produtos,</p>
+<div class="math notranslate nohighlight">
+\[\phi(AB) = \phi(A)\phi(B),\]</div>
+<p>onde <span class="math notranslate nohighlight">\(A,B \in \mathcal{A}\)</span> e <span class="math notranslate nohighlight">\(\phi(A), \phi(B) \in \mathcal{B}\)</span>.</p>
+<p><strong>Derivação de um homomorﬁsmo</strong>: seja <span class="math notranslate nohighlight">\(\phi : \mathcal{A} \rightarrow \mathcal{B}\)</span> um hohomorﬁsmo de álgebras. Então uma
+derivação-<span class="math notranslate nohighlight">\(\phi\)</span> ou simplesmente <span class="math notranslate nohighlight">\(\phi_{∗}\)</span> é um mapa linear <span class="math notranslate nohighlight">\(\theta : \mathcal{A} \rightarrow \mathcal{B}\)</span> que satisfaz <span class="math notranslate nohighlight">\(\theta(AB) = \theta(A)\phi(B) + \phi(A)\theta(B)\)</span>.</p>
+<p><strong>Álgebra graduada</strong>: uma álgebra graduada <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> sobre <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> é um espaço vetorial graduado <span class="math notranslate nohighlight">\(A = \sum_{p \ge 0}A^{p}\)</span> (soma direta), junto com uma estrutura algébrica, tal que <span class="math notranslate nohighlight">\(A^{p} \cdot A^{q} \subset A^{p+q}\)</span>.</p>
+<p><strong>Álgebra associativa</strong>: se <span class="math notranslate nohighlight">\(A(BC) = (AB)C\)</span> para todos <span class="math notranslate nohighlight">\(A, B, C \in \mathcal{A}\)</span> a álgebra é dita associativa.</p>
+<p><strong>Álgebra comutativa</strong>: se <span class="math notranslate nohighlight">\(AB = BA\)</span> para todos <span class="math notranslate nohighlight">\(A, B \in \mathcal{A}\)</span> a álgebra é dita comutativa.</p>
+<p><strong>Álgebra anti-comutativa</strong>: se <span class="math notranslate nohighlight">\(u \in A^{p}\)</span>, <span class="math notranslate nohighlight">\(v \in A^{q}\)</span> e <span class="math notranslate nohighlight">\(uv = (−1)^{pq} vu\)</span>, então a álgebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> é dita anti-comutativa.
+Se a existe uma identidade e <span class="math notranslate nohighlight">\(dim A^{0} = 1\)</span>, então <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> é chamada de conexa.</p>
+<p><strong>Álgebra dos operadores lineares</strong>: o espaço vetorial <span class="math notranslate nohighlight">\(L(V, V)\)</span> dos operadores lineares sobre um espaço vetorial <span class="math notranslate nohighlight">\(V\)</span> forma uma álgebra associativa na qual o produto <span class="math notranslate nohighlight">\(AB\)</span> é deﬁnido de maneira usual <span class="math notranslate nohighlight">\((AB)u = A(Bu)\)</span>. Entretanto esta álgebra não é necessariamente comutativa.</p>
+<p><strong>Álgebra das matrizes n × n reais ou complexas</strong>: o conjunto de todas as matrizes <span class="math notranslate nohighlight">\(\mathcal{M}_{n}(\mathbb{K})\)</span>, onde o campo pode ser o dos reais ou dos complexos, forma uma álgebra com respeito a multiplicação matricial. Pode-se pensa nesta álgebra como <span class="math notranslate nohighlight">\(L(\mathbb{K}_{n}, \mathbb{K}_{n})\)</span> onde <span class="math notranslate nohighlight">\(\mathbb{K}_{n}\)</span> é o espaço vetorial dos vetores coluna <span class="math notranslate nohighlight">\(n \times 1\)</span>.</p>
+<p><strong>Constante de estrutura</strong>: se <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> é uma álgebra de dimensão ﬁnita e <span class="math notranslate nohighlight">\(E_{1}, E_{2}, ..., E{n}\)</span> é qualquer base, então seja <span class="math notranslate nohighlight">\(C_{ij}^{k}\)</span> um conjunto de escalares deﬁnido por</p>
+<div class="math notranslate nohighlight">
+\[E_{i} E_{j} = C_{ij}^{k}E_{k}.\]</div>
+<p>Os escalares <span class="math notranslate nohighlight">\(C_{ij}^{k} \in \mathbb{K}\)</span>, unicamente deﬁnidos como os componentes do vetor <span class="math notranslate nohighlight">\(E_{i} E_{j}\)</span> com respeito a base dada
+são chamados de constantes de estrutura da álgebra com respeito a base {<span class="math notranslate nohighlight">\(E_{i}\)</span>}.</p>
+<p><strong>Produto tensorial canônico</strong>: se <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> e <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> são duas álgebras graduadas, então <span class="math notranslate nohighlight">\(\mathcal{A} \otimes \mathcal{B}\)</span> pode ser uma álgebra graduada da forma <span class="math notranslate nohighlight">\((u_{1} \otimes v_{1} )(u_{2} \otimes v_{2} ) = u_{1} u_{2} \otimes v_{1} v_{2}\)</span> para <span class="math notranslate nohighlight">\(u_{1} , u_{2} \in \mathcal{A}\)</span> e <span class="math notranslate nohighlight">\(v_{1}, v_{2} \in \mathcal{B}\)</span>. Esta álgebra é chamada de produto tensorial canônico.</p>
+<p><strong>Produto tensorial antissimétrico</strong>: para as mesmas deﬁnições anteriores outra álgebra possível é
+<span class="math notranslate nohighlight">\((u_{1} \otimes v_{1} )(u_{2} \otimes v_{2} ) = (−1)^{q_{1} q_{2}} u_{1} u_{2} \otimes v_{1} v_{2}\)</span>, chamada produto tensorial antissimétrico.</p>
+</div>
+<div class="section" id="variedades-diferenciaveis">
+<h2>Variedades diferenciaveis<a class="headerlink" href="#variedades-diferenciaveis" title="Permalink to this headline">¶</a></h2>
+<p>Let Φ : M → N be a C ∞ map. A point p ∈ M is said to be a
+critical point of Φ if Φ ∗ : T p M → T Φ(p) N is not surjective. A point q ∈ N is said
+to be a critical value of Φ if the set Φ −1 (q) contains a critical point of Φ.
+Let f ∈ C ∞ M. A point p ∈ M is called a critical point of f if f ∗p = 0. If we
+choose a coordinate system (U, x 1 , … , x n ) around p ∈ M, this means that∂f
+∂f
+(p) = · · · = n (p) = 0.
+1
+∂x
+∂x
+The real number f (p) is then called a critical value of f . A critical point is called
+non-degenerate if the matrix
+∂ 2 f
+(p)
+∂x i ∂x j
+is non-singular. Non-degeneracy does not depend on the choice of coordinate sys-
+tem.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/extra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../differential-geometry/metric-tensor-fields.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Campos Tensoriais Métricos</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="symbol-index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lista de símbolos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

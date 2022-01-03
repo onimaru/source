@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. Introdução ao Manifold Learning &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10. Information Theory" href="information-theory.html" />
+    <link rel="prev" title="7. Counter Factual Model" href="counter-factual-model.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   This is mostly for fun
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math and Machine Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eigen-decomposition.html">
+   2. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lagrange-multipliers.html">
+   3. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="method-of-kernels.html">
+   4. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+   5. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+   6. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="counter-factual-model.html">
+   7. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="information-theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variational-autoencoder.html">
+   11. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/math/intro-manifold.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/math/intro-manifold.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geometria-dos-dados">
+   9.1. Geometria dos dados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algumas-definicoes">
+   9.2. Algumas definições
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivo-de-manifold-learning">
+   9.3. Objetivo de Manifold Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#e-agora">
+   9.4. E agora?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introducao-ao-manifold-learning">
+<h1><span class="section-number">9. </span>Introdução ao Manifold Learning<a class="headerlink" href="#introducao-ao-manifold-learning" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="geometria-dos-dados">
+<h2><span class="section-number">9.1. </span>Geometria dos dados<a class="headerlink" href="#geometria-dos-dados" title="Permalink to this headline">¶</a></h2>
+<p>Muito do trabalhado de um Cientista de Dados não está apenas em criar sistemas de classificação, regressão ou recomendação. Aliás, estes são normalmente o resultado do fim de uma grande jornada aplicando diversas técnicas em cima dos dados coletados. Uma importante parte dessa jornada está em descobrir maneiras de compreender e utilizar a estrutura dos dados.</p>
+<p>Eu tenho um carinho especial por esse tipo de abordagem. Minha formação é como físico e boa parte da compreensão que temos do Universo veio através dessa estrutura dos dados observados. Vou dar um exemplo: compreendemos o Universo como uma espécie de superfície (uma superfície complicada, mas ainda sim uma superfície), nós vivemos sobre ela e qualquer coisa que possamos fazer deve obedecer um conjunto de regras (Leis Físicas) que são determinadas, a grosso modo, pelo formato da superfície, ou seja, pela geometria. Se há uma estrela em determinado lugar, a massa dela curva o espaço e a regra a que estamos submetidos é ser atraído para a estrela.</p>
+<p>O conjunto gigante de dados que observamos todos os dias pertence a algum universo próprio, com regras próprias e entender as regras desse ambiente nos permite entender como obter melhores respostas através dos dados. Temos hoje diversas maneiras de realizar este tipo de tarefa e aqui vou falar sobre uma chamada Manifold Learning ou Aprendizagem de Variedade. Primeiro precisamos entender o que é uma Variedade (Manifold em inglês).</p>
+</div>
+<div class="section" id="algumas-definicoes">
+<h2><span class="section-number">9.2. </span>Algumas definições<a class="headerlink" href="#algumas-definicoes" title="Permalink to this headline">¶</a></h2>
+<p>Essa parte pode parecer chata se você não gosta de matemática, mas é essencial definirmos alguns termos para compreender o que há pela frente.</p>
+<p>Primeiro precisamos do conceito de <strong>mapa diferenciável</strong> (Um <strong>mapa</strong> é apenas uma definição mais abrangente de função):<br />
+Seja um mapa <span class="math notranslate nohighlight">\(f:U \rightarrow V\)</span>, onde <span class="math notranslate nohighlight">\(U \subset \mathbb{R}^{n}\)</span> e <span class="math notranslate nohighlight">\(V \subset \mathbb{R}^{k}\)</span>. Cada um deles, <span class="math notranslate nohighlight">\(U\)</span> e <span class="math notranslate nohighlight">\(V\)</span>, é um subconjunto de algum espaço Euclidiano (dois espaços com dimensões não necessariamente iguais). Dizemos que o mapa <span class="math notranslate nohighlight">\(f\)</span> é suave ou diferenciável se para qualquer <span class="math notranslate nohighlight">\(m\)</span> as derivadas</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^{m}f}{\partial x_{i}...\partial x_{m}}\]</div>
+<p>formam um mapa suave, ou seja, se as derivadas existem em todos os pontos (não há divisões por zero ou descontinuidades).</p>
+<p>Sejam <span class="math notranslate nohighlight">\(X \subset \mathbb{R}^{n}\)</span> e <span class="math notranslate nohighlight">\(Y \subset \mathbb{R}^{k}\)</span> subconjuntos quaisquer. O mapa <span class="math notranslate nohighlight">\(f: X \rightarrow Y\)</span> é suave se para cada <span class="math notranslate nohighlight">\(x\in X\)</span> existe uma vizinhança aberta <span class="math notranslate nohighlight">\(U \subset \mathbb{R}^{n}\)</span> (uma região de pontos vizinhos a <span class="math notranslate nohighlight">\(x\)</span> que não é um intervalo fechado) e um mapa suave <span class="math notranslate nohighlight">\(g: U \rightarrow \mathbb{R}^{k}\)</span> que coincida com <span class="math notranslate nohighlight">\(f\)</span> na intersecção <span class="math notranslate nohighlight">\(U \cap X\)</span>. Isso basicamente quer dizer que pode não existir um único mapa que mapeie todos os pontos de <span class="math notranslate nohighlight">\(X\)</span> para <span class="math notranslate nohighlight">\(Y\)</span>, mas se existir um conjunto de mapas que façam isso, então o conjunto é equivalente a um mapa suave.</p>
+<p>Dizemos que um mapa <span class="math notranslate nohighlight">\(f: X \rightarrow Y\)</span> é um <strong>homeomorfismo</strong> se é uma <a class="reference external" href="https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_bijectiva">bijeção</a> com <span class="math notranslate nohighlight">\(f\)</span> e sua inversa <span class="math notranslate nohighlight">\(f^{-1}\)</span> <strong>contínuas</strong>. No caso de <span class="math notranslate nohighlight">\(f\)</span> e <span class="math notranslate nohighlight">\(f^{-1}\)</span> serem ambas suaves, dizemos que o homeomorfismo é um <strong>difeomorfismo</strong>.</p>
+<p>Agora, uma variedade é um espaço topológico (basicamente um espaço em que conseguimos medir a distância entre dois pontos, pense em uma superfície qualquer) que localmente é difeomórfico a algum espaço Euclidiano, ou seja, há um conjunto de mapas capaz de projetar todos os pontos da variedade para o espaço Euclidiano que ao mesmo tempo possuem inversas contínuas e suaves. O termo localmente aqui significa <em>na vizinhança de algum ponto</em>.</p>
+<p>A chave aqui está na curvatura desse espaço, podemos entender uma variedade como um espaço topológico que ao olhado de perto (dando um zoom) não veremos curvatura, será um plano.</p>
+<p>Só nos falta agora a definição de variedade diferenciável. Seja <span class="math notranslate nohighlight">\(M \subset \mathbb{R}^{n}\)</span>, <span class="math notranslate nohighlight">\(M\)</span> é uma variedade diferenciável de dimensão <span class="math notranslate nohighlight">\(d\)</span> se para cada ponto <span class="math notranslate nohighlight">\(x \in M\)</span> existir uma vizinhança aberta <span class="math notranslate nohighlight">\(U\)</span> contendo <span class="math notranslate nohighlight">\(x\)</span> e um difeomorfismo <span class="math notranslate nohighlight">\(f:U \rightarrow V\)</span> onde <span class="math notranslate nohighlight">\(V \subset \mathbb{R}^{d}\)</span>. Essas vizinhanças são chamadas de <strong>patches</strong> coordenados e os difeomorfismos de cartas coordenadas (ou apenas sistemas de coordenadas, coordinate chart em inglês).</p>
+<p>Vamos a um exemplo: Pense em um círculo desenhado em um plano. O círculo é uma superfície de dimensão 1 <strong>merguhada</strong> (<strong>embedded</strong>) dentro do plano de duas dimensões, o <span class="math notranslate nohighlight">\(\mathbb{R}^{2}\)</span>. Cada um dos pontos desse círculo podem ser projetados no <span class="math notranslate nohighlight">\(\mathbb{R}^{2}\)</span> com as equações</p>
+<div class="math notranslate nohighlight">
+\[x = r \cdot cos(\theta),\ \ y = r \cdot sen(\theta),\]</div>
+<p>funções do ângulo <span class="math notranslate nohighlight">\(\theta\)</span> e do raio <span class="math notranslate nohighlight">\(r\)</span>. Para fazer a transformação inversa precisamos das equações</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}r = \sqrt{x^{2}+y^{2}},\ \ \theta = \left\{\begin{matrix}
+ arctan(y/x) &amp; se\ y&gt;0,\\ 
+ \pi &amp; se\ y=0,\ x&lt;0,  \\
+ \pi + arctan(y/x) &amp; se\ y&lt;0. \\  
+\end{matrix}\right.\end{split}\]</div>
+<p>Observe que temos três possíveis mapas de <span class="math notranslate nohighlight">\(\theta\)</span> para que possamos cobrir todo o círculo, três patches e três funções. Os mapas podem não ser suaves em algum ponto, mas há outro mapa suave nesse ponto. Assim cobrimos tudo e o círculo dotado dessas projeções, ou mapas diferenciáveis formam uma variedade de dimensão 1 mergulhada em um espaço Euclidiano de dimensão 2.</p>
+</div>
+<div class="section" id="objetivo-de-manifold-learning">
+<h2><span class="section-number">9.3. </span>Objetivo de Manifold Learning<a class="headerlink" href="#objetivo-de-manifold-learning" title="Permalink to this headline">¶</a></h2>
+<p>De posse desses conceitos podemos entender um conceito bem famoso em Ciência de Dados chamado de <strong>Hipótese da Variedade</strong>. Ela afirma que os dados observados(quaisquer que sejam) pertencem à uma variedade, ou seja, são pontos coletados desta superfície e com um número suficiente de pontos podemos recriar a variedade ou aprender suas propriedades. É isso que chamamos de <strong>Manifold Learning</strong>.</p>
+<p>Seja o dataset <span class="math notranslate nohighlight">\(X = \lbrace x_{1}, ..., x_{n}\rbrace \subset \mathbb{R}^{D}\)</span>, cada data point <span class="math notranslate nohighlight">\(x\)</span> é um vetor de dimensão <span class="math notranslate nohighlight">\(D\)</span> (as vezes chamado de vetor de features). Assumimos que os dados pertencem à uma variedade de dimensão <span class="math notranslate nohighlight">\(d\)</span> mergulhada em <span class="math notranslate nohighlight">\(\mathbb{R}^{D}\)</span>, onde <span class="math notranslate nohighlight">\(d &lt; D\)</span>.</p>
+<p>A tarefa que queremos realizar é: Dado que <span class="math notranslate nohighlight">\(X \subset \mathbb{R}^{D}\)</span> tal que <span class="math notranslate nohighlight">\(X \subset M\)</span>, encontre a estrutura da variedade <span class="math notranslate nohighlight">\(M\)</span>, isto é, a coleção de patches coordenados e cartas coordenadas.</p>
+<p>Os patches de um conjunto discreto são construídos encontrando os <span class="math notranslate nohighlight">\(k\)</span> vizinhos mais próximos (knn, k-nearest neighbors) de cada ponto <span class="math notranslate nohighlight">\(x \in X\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[N_{k}(x_{i}) = \lbrace x \in X \vert x\ \text{é um knn de } x_{i} \rbrace\]</div>
+<p>Dados os patches o objetivo é descobrir os difeomorfismos:</p>
+<div class="math notranslate nohighlight">
+\[f_{i}: N_{k}(x_{i}) \rightarrow U_{i} \subset \mathbb{R}^{k},\]</div>
+<p>ou seja, as funções que mapeiam <span class="math notranslate nohighlight">\(x\)</span> e seus vizinhos para vizinhanças mergulhadas no <span class="math notranslate nohighlight">\(\mathbb{R}^{k}\)</span>.</p>
+</div>
+<div class="section" id="e-agora">
+<h2><span class="section-number">9.4. </span>E agora?<a class="headerlink" href="#e-agora" title="Permalink to this headline">¶</a></h2>
+<p>Dado que tenhamos encontrado os difeomorfimos o que podemos fazer com eles?</p>
+<p>Bom, uma aplicação bem famosa é forçar que os difeomorfismos tenham dimensões pequenas, como 2 ou 3, para que a variedade possa ser visualizada. Essa é uma aplicação de Redução de Dimensionalidade (<a class="reference external" href="https://en.wikipedia.org/wiki/Dimensionality_reduction">Dimensionality Reduction</a>).</p>
+<p>Podemos ainda aplicar uma espécie de filtro que permita observar pedaços da variedade no formato de grafos e como ali se comportam o valor das features. Isso faz parte de uma área de estudo conhecida como Análise Topológica de Dados (<a class="reference external" href="https://en.wikipedia.org/wiki/Topological_data_analysis">Topolical Data Analysis</a>).</p>
+<p>Na minha humilde opinião as aplicações mais interessantes se encontram em aprender a estrutura da variedade de modo que possamos fazer amostragem (sampling) de sua pontos. As técnicas usadas para fazer isso são aquelas que usam modelos geradores como <a class="reference external" href="https://en.wikipedia.org/wiki/Generative_adversarial_network">Generative Adversarial Networks </a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Autoencoder#Variational_autoencoder_(VAE)">Variational Autoencoder</a> e <a class="reference external" href="http://akosiorek.github.io/ml/2018/04/03/norm_flows.html">normalizing-flows</a>.</p>
+<p>Sobre as técnicas de manifold learning especificamente pretendo apresentar aqui futuramente.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/math"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="counter-factual-model.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Counter Factual Model</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="information-theory.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Information Theory</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

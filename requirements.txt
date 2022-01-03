@@ -1,4 +1,0 @@
-# need an update
-jupyter-book
-matplotlib
-numpy

@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. Variational AutoEncoder &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. Beyond conventional machine learning" href="../reinforcement-learning/intro.html" />
+    <link rel="prev" title="10. Information Theory" href="information-theory.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   This is mostly for fun
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math and Machine Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eigen-decomposition.html">
+   2. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lagrange-multipliers.html">
+   3. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="method-of-kernels.html">
+   4. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+   5. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+   6. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="counter-factual-model.html">
+   7. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-manifold.html">
+   9. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="information-theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/math/variational-autoencoder.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/math/variational-autoencoder.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="variational-autoencoder">
+<h1><span class="section-number">11. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p>Variational AutoEncoders or VAE are a class of generative models based on latent variables. Suppose we have our multidimensional data <span class="math notranslate nohighlight">\(X\)</span> and we want to build a model from which we can sample data at least similar to <span class="math notranslate nohighlight">\(X\)</span>. We will make that with a multidimensional latent variable <span class="math notranslate nohighlight">\(Z\)</span> to create a map <span class="math notranslate nohighlight">\(f:Z \to X\)</span>.</p>
+<p>We need to model <span class="math notranslate nohighlight">\(p(X) = \int p(X \vert Z)dZ\)</span>, where <span class="math notranslate nohighlight">\(p(X,Z) = p(X \vert Z)p(Z)\)</span>.</p>
+<p>The ideia of VAE is to infer <span class="math notranslate nohighlight">\(p(Z)\)</span>, but at first <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span> is unknown. To deal with that let us use a method called Variational Inference (VI). It is very popular together with Markov Chain Monte Carlo (MCMC) methods.</p>
+<p>We treat this as an optimization problem, we model <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span> using some distribution and minimize the Kullback-Liebler (KL) divergence between our chosen distribution, let us call it <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span>, and <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span>. We have</p>
+<div class="math notranslate nohighlight">
+\[KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right] = \sum_{Z} q(Z \vert X) \log{\frac{q(Z \vert X)}{p(Z \vert X)}}  = -\sum_{Z} q(Z \vert X) \log{\frac{p(Z \vert X)}{q(Z \vert X)}}\]</div>
+<div class="math notranslate nohighlight">
+\[KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right] = \mathbb{E}_{Z} \left[\log{\frac{p(Z \vert X)}{q(Z \vert X)}}\right] = \mathbb{E}_{Z} \left[\log{q(Z \vert X)} - \log{p(Z \vert X)}  \right]\]</div>
+<p>and we use Bayes Theorem treating <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span> as a posterior: <span class="math notranslate nohighlight">\(p(Z \vert X) = \frac{p(X \vert Z)p(Z)}{p(X)}\)</span> rewriting the KL divergence</p>
+<div class="math notranslate nohighlight">
+\[KL[q(Z \vert X)\vert \vert p(Z \vert X)] = \mathbb{E}_{Z} \left[\log{q(Z \vert X)} - \log{p(X \vert Z)} -\log{p(Z)} + \log{p(X)}  \right]\]</div>
+<p>Since the expectation is over <span class="math notranslate nohighlight">\(Z\)</span> the term <span class="math notranslate nohighlight">\(\log{p(X)}\)</span> is constant and can be factored out. Looking closely we see another KL divergence inside the expectation</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}_{Z} \left[\log{q(Z \vert X)} - \log{p(Z)} \right] = KL \left[q(Z \vert X)\vert \vert p(Z) \right]\)</span>. Rearranging the equation we have the VAE objective function.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} = \log{p(X)} - KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right] = \mathbb{E}_{Z} \left[\log{p(X \vert Z)} \right] - KL \left[q(Z \vert X)\vert \vert p(Z) \right]\]</div>
+<p>Let us see the meaning of all these distributions:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> is a function which projects <span class="math notranslate nohighlight">\(X\)</span> into latent space.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(X \vert Z)\)</span> is a function which projects <span class="math notranslate nohighlight">\(Z\)</span> into features space.</p></li>
+</ul>
+<p>It is common to say that <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> encodes the information of <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(Z\)</span> and <span class="math notranslate nohighlight">\(p(X \vert Z)\)</span> do the opposite, decodes <span class="math notranslate nohighlight">\(Z\)</span> back to <span class="math notranslate nohighlight">\(X\)</span>. In the ideal case we want the following diagram to commute</p>
+<!-- <img src="../../images/vae_identity_diagram.png" style="float: left; margin-right: 10px;" /> -->
+<a class="reference internal image-reference" href="../../_images/vae_identity_diagram.png"><img alt="vae-diagram" class="align-center" src="../../_images/vae_identity_diagram.png" style="width: 500px;" /></a>
+<p>On summary, looking at <span class="math notranslate nohighlight">\(\mathcal{L} = \log{p(X)} - KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right]\)</span> we want to model <span class="math notranslate nohighlight">\(\log{p(X)}\)</span> setting an error <span class="math notranslate nohighlight">\(KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right]\)</span>, i.e., the VAE tries to find a lower bound to <span class="math notranslate nohighlight">\(\log{p(X)}\)</span>, which is intractable.</p>
+<p>The model can be found maximizing <span class="math notranslate nohighlight">\(\log{p(X \vert Z)}\)</span> and minimizing the difference between <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> and <span class="math notranslate nohighlight">\(p(Z)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[MAX_{X,Z} VAE = \mathbb{E} \left[\log{p(X \vert Z)} \right] - KL \left[q(Z \vert X) \vert \vert p(Z) \right]\]</div>
+<p>Remember that maximizing <span class="math notranslate nohighlight">\(\mathbb{E} \left[\log{p(X \vert Z)} \right]\)</span> is an estimation by maximum likelihood.</p>
+<p>There is only one question left. What kind of distribution should we use for <span class="math notranslate nohighlight">\(p(Z)\)</span>? We can try a something simple like a normal distribution with zero mean and variance one, <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>. Given <span class="math notranslate nohighlight">\(KL \left[q(Z \vert X) \vert \vert p(Z) \right]\)</span>, we want <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> to be as near as possible of <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>. The good part of the choice is that we have a closed form for the KL divergence. Let us represent the mean by <span class="math notranslate nohighlight">\(\mu(X)\)</span> and the variance by <span class="math notranslate nohighlight">\(\Sigma(X)\)</span>. The KL divergence is (we computed this in the Information Theory post)</p>
+<div class="math notranslate nohighlight">
+\[KL \left[\mathcal{N}(\mu(X),\Sigma(X)) \vert \vert \mathcal{N}(0,1) \right] = \frac{1}{2} \sum_{k}\left(\Sigma(X)+ \mu^{2}(X) -1 -\log{\Sigma(X)} \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the Gaussian dimension. You will see that in practice it is stable if we use <span class="math notranslate nohighlight">\(\Sigma(X)\)</span> as <span class="math notranslate nohighlight">\(\log{\Sigma(X)}\)</span> and finally we have</p>
+<div class="math notranslate nohighlight">
+\[KL \left[\mathcal{N}(\mu(X),\Sigma(X)) \vert \vert \mathcal{N}(0,1) \right] = \frac{1}{2} \sum_{k}\left(e^{\Sigma(X)}+ \mu^{2}(X) -1 -\Sigma(X) \right)\]</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/math"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="information-theory.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Information Theory</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../reinforcement-learning/intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Beyond conventional machine learning</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
