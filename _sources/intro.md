@@ -8,7 +8,9 @@ So, if you are here, have fun too.
 
 ## About me
 
-Short bio: My name is [Junior Antunes Koch](https://www.linkedin.com/in/juniorkoch/?locale=en_US). I am the Principal Data Scientist/Machine Learning Researcher at Elo7 (an Etsy company) with 3 years of experience developing AI solutions and training people. Before that I spent 5 years as a Professor of Theoretical Physics and Mathematics. In my 37 years I always had interest in how mathematics could be used to model all kinds of phenomena. Today I spend my free time studying new topics and love to share all this knowledge with everyone. I am very passionate about being able to create automated systems to solve complex problems.
+_Math, physics, life, universe and everything_
+
+**Short bio**: My name is [Junior Antunes Koch](https://www.linkedin.com/in/juniorkoch/?locale=en_US). I am the Principal Data Scientist/Machine Learning Researcher at Elo7 (an Etsy company) with 3 years of experience developing AI solutions and training people. Before that I spent 5 years as a Professor of Theoretical Physics and Mathematics. In my 37 years I always had interest in how mathematics could be used to model all kinds of phenomena. Today I spend my free time studying new topics and love to share all this knowledge with everyone. I am very passionate about being able to create automated systems to solve complex problems.
 
 Contact:
 - github: [onimaru](https://github.com/onimaru)  
