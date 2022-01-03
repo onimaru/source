@@ -25,6 +25,7 @@ parts:
   numbered: True
   chapters:
   - file: content/reinforcement-learning/intro
+  - file: content/reinforcement-learning/other/k-armed-bandits
 - caption: Differential Geometry
   numbered: True
   chapters:
