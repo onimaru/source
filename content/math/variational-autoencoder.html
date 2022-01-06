@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13. Variational AutoEncoder &#8212; Disorder Transform</title>
+    <title>7. Variational AutoEncoder &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. Beyond conventional machine learning" href="../reinforcement-learning/intro.html" />
-    <link rel="prev" title="12. Manifold Learning - Multidimensional Scaling" href="multidimensional-scaling.html" />
+    <link rel="prev" title="6. Manifold Learning - Multidimensional Scaling" href="multidimensional-scaling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,10 +100,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Math and Machine Learning
+  Math
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    1. Theoretical minimum
@@ -122,48 +122,60 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+   4. Simple example of maximum likelihood
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="eigen-decomposition.html">
-   4. Decomposição de matrizes
+   5. Decomposição de matrizes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lagrange-multipliers.html">
-   5. Multiplicadores de Lagrange
+   6. Multiplicadores de Lagrange
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="method-of-kernels.html">
-   6. Method of kernels
+   7. Method of kernels
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
-   7. Simple example of maximum likelihood
+  <a class="reference internal" href="laplace-approximation.html">
+   1. Laplace Approximation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="computing-hessian-and-jacobian.html">
-   8. Computing Hessian and Jacobian
+   2. Computing Hessian and Jacobian
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="counter-factual-model.html">
-   9. Counter Factual Model
+   3. Counter Factual Model
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="intro-manifold.html">
-   11. Introdução ao Manifold Learning
+   5. Introdução ao Manifold Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="multidimensional-scaling.html">
-   12. Manifold Learning - Multidimensional Scaling
+   6. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   13. Variational AutoEncoder
+   7. Variational AutoEncoder
   </a>
  </li>
 </ul>
@@ -323,7 +335,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="variational-autoencoder">
-<h1><span class="section-number">13. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <p>Variational AutoEncoders or VAE are a class of generative models based on latent variables. Suppose we have our multidimensional data <span class="math notranslate nohighlight">\(X\)</span> and we want to build a model from which we can sample data at least similar to <span class="math notranslate nohighlight">\(X\)</span>. We will make that with a multidimensional latent variable <span class="math notranslate nohighlight">\(Z\)</span> to create a map <span class="math notranslate nohighlight">\(f:Z \to X\)</span>.</p>
 <p>We need to model <span class="math notranslate nohighlight">\(p(X) = \int p(X \vert Z)dZ\)</span>, where <span class="math notranslate nohighlight">\(p(X,Z) = p(X \vert Z)p(Z)\)</span>.</p>
@@ -390,7 +402,7 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">12. </span>Manifold Learning - Multidimensional Scaling</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Manifold Learning - Multidimensional Scaling</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../reinforcement-learning/intro.html" title="next page">
