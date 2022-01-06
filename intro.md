@@ -1,4 +1,6 @@
-# This is mostly for fun
+# Disorder Transform
+
+## This is mostly for fun
 
 ```{note}
 1. As the title say this "book" is mostly for fun. In my free time I like to study new and old stuff and sometimes I put it on "paper", i.e., I write the theory and examples in my computer. In order to be more organized I put some content here so I can find it easily when needed. Maybe something here could be useful for someone else, but it is not the goal.  
