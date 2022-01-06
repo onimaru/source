@@ -6,16 +6,20 @@ root: intro
 options:
   numbered: true
 parts:
-- caption: Math and Machine Learning
+- caption: Math
   numbered: True
   chapters:
   - file: content/math/intro
   - file: content/math/probability-distributions
   - file: content/math/information-theory
+  - file: content/math/simple-example-of-maximum-likelihood
   - file: content/math/eigen-decomposition
   - file: content/math/lagrange-multipliers
   - file: content/math/method-of-kernels
-  - file: content/math/simple-example-of-maximum-likelihood
+- caption: Machine Learning
+  numbered: true
+  chapters:
+  - file: content/math/laplace-approximation
   - file: content/math/computing-hessian-and-jacobian
   - file: content/math/counter-factual-model
   - file: content/math/intro-manifold
