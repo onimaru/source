@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Disorder Transform</title>
+    <title>Expectation-Maximization Algorithm - k-Means &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -171,12 +171,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="active-learning-strategy.html">
-   7. O Problema
+   7. Active Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dataloader-example.html">
+   8. Dataloader example
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nn-universal-approximator.html">
-   9. Usando weight_decay do Adam
+   9. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1">
@@ -291,7 +296,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/machine-learning/k_means.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/machine-learning/k-means.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -311,7 +316,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/machine-learning/k_means.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/machine-learning/k-means.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -332,7 +337,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/onimaru/source/master?urlpath=tree/docs/content/machine-learning/k_means.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/onimaru/source/master?urlpath=tree/docs/content/machine-learning/k-means.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -349,14 +354,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -365,7 +362,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="tex2jax_ignore mathjax_ignore section" id="expectation-maximization-algorithm-k-means">
+<h1>Expectation-Maximization Algorithm - k-Means<a class="headerlink" href="#expectation-maximization-algorithm-k-means" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -404,7 +403,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/k_means_2_0.png" src="../../_images/k_means_2_0.png" />
+<img alt="../../_images/k-means_3_0.png" src="../../_images/k-means_3_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -435,7 +434,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/k_means_4_0.png" src="../../_images/k_means_4_0.png" />
+<img alt="../../_images/k-means_5_0.png" src="../../_images/k-means_5_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -445,7 +444,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/k_means_5_0.png" src="../../_images/k_means_5_0.png" />
+<img alt="../../_images/k-means_6_0.png" src="../../_images/k-means_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -455,7 +454,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/k_means_6_0.png" src="../../_images/k_means_6_0.png" />
+<img alt="../../_images/k-means_7_0.png" src="../../_images/k-means_7_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -525,28 +524,21 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1634.6685697808534
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1531.8335457063713
 </pre></div>
 </div>
-<img alt="../../_images/k_means_9_1.png" src="../../_images/k_means_9_1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1654.7415364583333
+<img alt="../../_images/k-means_10_1.png" src="../../_images/k-means_10_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1620.2835596707819
 </pre></div>
 </div>
-<img alt="../../_images/k_means_9_3.png" src="../../_images/k_means_9_3.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1707.6869605192
+<img alt="../../_images/k-means_10_3.png" src="../../_images/k-means_10_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1649.5818618725525
 </pre></div>
 </div>
-<img alt="../../_images/k_means_9_5.png" src="../../_images/k_means_9_5.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 1729.3303125000007
-</pre></div>
-</div>
-<img alt="../../_images/k_means_9_7.png" src="../../_images/k_means_9_7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 1734.2178000000004
-</pre></div>
-</div>
-<img alt="../../_images/k_means_9_9.png" src="../../_images/k_means_9_9.png" />
+<img alt="../../_images/k-means_10_5.png" src="../../_images/k-means_10_5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Convergence achieved
 </pre></div>
+</div>
 </div>
 </div>
 </div>

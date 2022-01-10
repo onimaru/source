@@ -22,7 +22,7 @@ df.to_csv("data/dataset.csv",index=False)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_30490/3807386560.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_33103/3807386560.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mdf[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m"data/dataset.csv"[0m[0;34m,[0m[0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m~/anaconda3/lib/python3.8/site-packages/pandas/core/generic.py[0m in [0;36mto_csv[0;34m(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)[0m
