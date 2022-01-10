@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expectation-Maximization Algorithm - k-Means &#8212; Disorder Transform</title>
+    <title>8. Expectation-Maximization Algorithm - k-Means &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,6 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9. Dataloader example" href="dataloader-example.html" />
+    <link rel="prev" title="7. Active Learning" href="active-learning-strategy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -143,7 +145,7 @@
   Machine Learning
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../math/laplace-approximation.html">
    1. Laplace Approximation
@@ -174,19 +176,24 @@
    7. Active Learning
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Expectation-Maximization Algorithm - k-Means
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dataloader-example.html">
-   8. Dataloader example
+   9. Dataloader example
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nn-universal-approximator.html">
-   9. Neural Network as an Universal Approximator
+   10. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../math/variational-autoencoder.html">
-   10. Variational AutoEncoder
+   11. Variational AutoEncoder
   </a>
  </li>
 </ul>
@@ -363,7 +370,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="expectation-maximization-algorithm-k-means">
-<h1>Expectation-Maximization Algorithm - k-Means<a class="headerlink" href="#expectation-maximization-algorithm-k-means" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Expectation-Maximization Algorithm - k-Means<a class="headerlink" href="#expectation-maximization-algorithm-k-means" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
@@ -524,18 +531,33 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1531.8335457063713
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 681.9562890462307
 </pre></div>
 </div>
 <img alt="../../_images/k-means_10_1.png" src="../../_images/k-means_10_1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1620.2835596707819
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 785.0478524470414
 </pre></div>
 </div>
 <img alt="../../_images/k-means_10_3.png" src="../../_images/k-means_10_3.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1649.5818618725525
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1050.7001600365797
 </pre></div>
 </div>
 <img alt="../../_images/k-means_10_5.png" src="../../_images/k-means_10_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 1396.7077159209157
+</pre></div>
+</div>
+<img alt="../../_images/k-means_10_7.png" src="../../_images/k-means_10_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1620.2835596707819
+</pre></div>
+</div>
+<img alt="../../_images/k-means_10_10.png" src="../../_images/k-means_10_10.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 1649.5818618725525
+</pre></div>
+</div>
+<img alt="../../_images/k-means_10_12.png" src="../../_images/k-means_10_12.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Convergence achieved
 </pre></div>
 </div>
@@ -567,7 +589,21 @@
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="active-learning-strategy.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Active Learning</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="dataloader-example.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Dataloader example</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
