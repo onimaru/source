@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Variational AutoEncoder &#8212; Disorder Transform</title>
+    <title>10. Variational AutoEncoder &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. Beyond conventional machine learning" href="../reinforcement-learning/intro.html" />
-    <link rel="prev" title="6. Manifold Learning - Multidimensional Scaling" href="multidimensional-scaling.html" />
+    <link rel="prev" title="9. Usando weight_decay do Adam" href="../machine-learning/nn-universal-approximator.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -173,9 +173,19 @@
    6. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
+   7. O Problema
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
+   9. Usando weight_decay do Adam
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Variational AutoEncoder
+   10. Variational AutoEncoder
   </a>
  </li>
 </ul>
@@ -335,7 +345,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="variational-autoencoder">
-<h1><span class="section-number">7. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <p>Variational AutoEncoders or VAE are a class of generative models based on latent variables. Suppose we have our multidimensional data <span class="math notranslate nohighlight">\(X\)</span> and we want to build a model from which we can sample data at least similar to <span class="math notranslate nohighlight">\(X\)</span>. We will make that with a multidimensional latent variable <span class="math notranslate nohighlight">\(Z\)</span> to create a map <span class="math notranslate nohighlight">\(f:Z \to X\)</span>.</p>
 <p>We need to model <span class="math notranslate nohighlight">\(p(X) = \int p(X \vert Z)dZ\)</span>, where <span class="math notranslate nohighlight">\(p(X,Z) = p(X \vert Z)p(Z)\)</span>.</p>
@@ -398,11 +408,11 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="multidimensional-scaling.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../machine-learning/nn-universal-approximator.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Manifold Learning - Multidimensional Scaling</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>Usando weight_decay do Adam</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../reinforcement-learning/intro.html" title="next page">
