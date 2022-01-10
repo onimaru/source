@@ -25,7 +25,7 @@ parts:
   - file: content/math/intro-manifold
   - file: content/math/multidimensional-scaling
   - file: content/machine-learning/active-learning-strategy
-  - file: content/machine-learning/k_kmeans
+  - file: content/machine-learning/k-kmeans
   - file: content/machine-learning/dataloader-example
   - file: content/machine-learning/nn-universal-approximator
   - file: content/math/variational-autoencoder
