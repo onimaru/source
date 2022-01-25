@@ -19,6 +19,7 @@ parts:
 - caption: Machine Learning
   numbered: true
   chapters:
+  - file: content/machine-learning/bias-variance
   - file: content/math/laplace-approximation
   - file: content/math/computing-hessian-and-jacobian
   - file: content/math/counter-factual-model
