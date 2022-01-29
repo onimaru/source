@@ -16,6 +16,7 @@ parts:
   - file: content/math/eigen-decomposition
   - file: content/math/lagrange-multipliers
   - file: content/math/method-of-kernels
+  - file: content/math/integer-programming-resource
 - caption: Machine Learning
   numbered: true
   chapters:
