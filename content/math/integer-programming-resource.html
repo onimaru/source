@@ -408,7 +408,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pulp</span>
-<span class="kn">from</span> <span class="nn">pulp</span> <span class="kn">import</span> <span class="n">LpProblem</span><span class="p">,</span> <span class="n">LpVariable</span><span class="p">,</span> <span class="n">lpSum</span><span class="p">,</span> <span class="n">LpMaximize</span>
+<span class="kn">from</span> <span class="nn">pulp</span> <span class="kn">import</span> <span class="n">LpProblem</span><span class="p">,</span> <span class="n">LpVariable</span><span class="p">,</span> <span class="n">lpSum</span><span class="p">,</span> <span class="n">LpMaximize</span><span class="p">,</span> <span class="n">LpStatus</span><span class="p">,</span> <span class="n">value</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">IPython</span>
@@ -611,7 +611,7 @@ min_plantonistas_week_s5              : andre_s5 + corbalan_s5 + denis_s5 + fabi
 Version: 2.9.0 
 Build Date: Feb 12 2015 
 
-command line - /home/ninja/anaconda3/lib/python3.8/site-packages/pulp/apis/../solverdir/cbc/linux/64/cbc /tmp/12142df1f24c475db205ec7c80838232-pulp.mps max branch printingOptions all solution /tmp/12142df1f24c475db205ec7c80838232-pulp.sol (default strategy 1)
+command line - /home/ninja/anaconda3/lib/python3.8/site-packages/pulp/apis/../solverdir/cbc/linux/64/cbc /tmp/b39122f249604545a2ed82cbe0b46454-pulp.mps max branch printingOptions all solution /tmp/b39122f249604545a2ed82cbe0b46454-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 85 COLUMNS
@@ -637,7 +637,10 @@ Gomory was tried 0 times and created 0 cuts of which 0 were active after adding 
 Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
 Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
 MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
 TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
 
 Result - Optimal solution found
@@ -667,15 +670,19 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_16672</span><span class="o">/</span><span class="mf">4128416988.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">LpStatus</span><span class="p">[</span><span class="n">prob</span><span class="o">.</span><span class="n">status</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Satisfação da galera = &quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">(</span><span class="n">prob</span><span class="o">.</span><span class="n">objective</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número de plantonistas em cada semana:&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">display</span><span class="p">(</span><span class="n">result_df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Status: Optimal
+Satisfação da galera =  47.0 
 
-<span class="ne">NameError</span>: name &#39;LpStatus&#39; is not defined
+Número de plantonistas em cada semana:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semana_0                 2
+Semana_1                 2
+Semana_2                 2
+Semana_3                 2
+Semana_4                 2
+Total_do_plantonista    10
+dtype: int64
 </pre></div>
 </div>
 </div>
@@ -689,6 +696,136 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Disponibilidade inicial dos plantonistas:
+</pre></div>
+</div>
+<div class="output text_html"><div><div id=465aaa48-a3d5-44c9-b317-63bbfd893198 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('465aaa48-a3d5-44c9-b317-63bbfd893198').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Semana_0</th>
+      <th>Semana_1</th>
+      <th>Semana_2</th>
+      <th>Semana_3</th>
+      <th>Semana_4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>andre</th>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>kiyota</th>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>fabio</th>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>natalia</th>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>junior</th>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>manu</th>
+      <td>5</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>sarda</th>
+      <td>4</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>corbalan</th>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>leo</th>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>nefs</th>
+      <td>2</td>
+      <td>4</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>victor</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>denis</th>
+      <td>5</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>juliane</th>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>izumi</th>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,12 +841,28 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecionados na Semana_0: manu e denis
+Selecionados na Semana_1: nefs e izumi
+Selecionados na Semana_2: sarda e leo
+Selecionados na Semana_3: junior e izumi
+Selecionados na Semana_4: natalia e leo
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plantonistas não selecionados: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Total_do_plantonista&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plantonistas selecionados 1x : </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Total_do_plantonista&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plantonistas selecionados 2x : </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Total_do_plantonista&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plantonistas não selecionados: andre, kiyota, fabio, corbalan, victor, juliane
+Plantonistas selecionados 1x : natalia, junior, manu, sarda, nefs, denis
+Plantonistas selecionados 2x : leo, izumi
 </pre></div>
 </div>
 </div>
@@ -720,6 +873,37 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><div id=ea4fe563-33a2-48bf-a889-89ae0d7dff3a style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('ea4fe563-33a2-48bf-a889-89ae0d7dff3a').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Semana_0</th>
+      <th>Semana_1</th>
+      <th>Semana_2</th>
+      <th>Semana_3</th>
+      <th>Semana_4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>andre</th>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>izumi</th>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -727,11 +911,58 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><div id=a9b92a33-3d47-401a-8252-ae115dd606fc style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('a9b92a33-3d47-401a-8252-ae115dd606fc').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Semana_0</th>
+      <th>Semana_1</th>
+      <th>Semana_2</th>
+      <th>Semana_3</th>
+      <th>Semana_4</th>
+      <th>Total_do_plantonista</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>andre</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>izumi</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Semanas mais desejadas&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">disponibilidades</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semanas mais desejadas
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semana_3    55
+Semana_4    47
+Semana_1    31
+Semana_0    29
+Semana_2    25
+dtype: int64
 </pre></div>
 </div>
 </div>
@@ -745,6 +976,136 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calendário final:
+</pre></div>
+</div>
+<div class="output text_html"><div><div id=719c6a7c-cd03-479f-a5d7-237f71f1cee6 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('719c6a7c-cd03-479f-a5d7-237f71f1cee6').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Semana_0</th>
+      <th>Semana_1</th>
+      <th>Semana_2</th>
+      <th>Semana_3</th>
+      <th>Semana_4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>andre</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>kiyota</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>fabio</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>natalia</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SELECIONADO</td>
+    </tr>
+    <tr>
+      <th>junior</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SELECIONADO</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>manu</th>
+      <td>SELECIONADO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sarda</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SELECIONADO</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>corbalan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>leo</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SELECIONADO</td>
+      <td>0</td>
+      <td>SELECIONADO</td>
+    </tr>
+    <tr>
+      <th>nefs</th>
+      <td>0</td>
+      <td>SELECIONADO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>victor</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>denis</th>
+      <td>SELECIONADO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>juliane</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>izumi</th>
+      <td>0</td>
+      <td>SELECIONADO</td>
+      <td>0</td>
+      <td>SELECIONADO</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table></div></div></div>
 </div>
 </div>
 </div>
