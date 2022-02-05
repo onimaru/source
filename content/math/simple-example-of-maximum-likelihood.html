@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Simple example of maximum likelihood &#8212; Disorder Transform</title>
+    <title>4. Maximum Likelihood Estimation &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -121,7 +123,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Simple example of maximum likelihood
+   4. Maximum Likelihood Estimation
   </a>
  </li>
  <li class="toctree-l1">
@@ -377,9 +379,21 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#usando-a-regra-de-bayes-para-descobrir-um-parametro">
-   4.1. Usando a regra de Bayes para descobrir um parâmetro
+  <a class="reference internal nav-link" href="#maximum-likelihood-estimation-for-bernoulli-distribution">
+   4.1. Maximum Likelihood Estimation for Bernoulli distribution
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-example-of-maximum-likelihood-by-brute-force">
+   4.2. Simple example of maximum likelihood by brute force
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-a-regra-de-bayes-para-descobrir-um-parametro">
+     4.2.1. Usando a regra de Bayes para descobrir um parâmetro
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -392,8 +406,41 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="simple-example-of-maximum-likelihood">
-<h1><span class="section-number">4. </span>Simple example of maximum likelihood<a class="headerlink" href="#simple-example-of-maximum-likelihood" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="maximum-likelihood-estimation">
+<h1><span class="section-number">4. </span>Maximum Likelihood Estimation<a class="headerlink" href="#maximum-likelihood-estimation" title="Permalink to this headline">¶</a></h1>
+<p>This a procedure or a method to find the parameters which maximize the likelihood. Let <span class="math notranslate nohighlight">\(\theta\)</span> be a parameter of a distribution that generates <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(p(x | \theta)\)</span>. This is the likelihood is the Bayes rule:</p>
+<div class="math notranslate nohighlight">
+\[p(\theta | x) = \frac{p(x | \theta) p(\theta)}{p(x)}\]</div>
+<p>So, we want to know what is the value os <span class="math notranslate nohighlight">\(\theta\)</span> which gives the maximum value of the likelihood for our observed data <span class="math notranslate nohighlight">\(x\)</span>. The likelihood function is:</p>
+<div class="math notranslate nohighlight">
+\[L(\theta,X) = p(X | \theta) = \prod_{i=1}^{N} p(x_{i} | \theta).\]</div>
+<p>The log-likelihood is:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}(\theta,X) = \ln{L}(\theta,X) = \sum_{i=1}^{N} \ln{p(x_{i} | \theta)}\]</div>
+<p>and we want:</p>
+<div class="math notranslate nohighlight">
+\[\theta_{ml} = argmax_{\theta} L(\theta,X).\]</div>
+<p>For known distributions it is possible to find closed forms for the estimator. When that is the case we can find the critical point setting</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \mathcal{L}(\theta,X)}{\partial \theta} = 0\]</div>
+<p>and solve it for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Let us try an example.</p>
+<div class="section" id="maximum-likelihood-estimation-for-bernoulli-distribution">
+<h2><span class="section-number">4.1. </span>Maximum Likelihood Estimation for Bernoulli distribution<a class="headerlink" href="#maximum-likelihood-estimation-for-bernoulli-distribution" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(Bernoulli(x | \theta) = p(x | \theta) = \theta^{x}(1-\theta)^{1-x}\)</span> where <span class="math notranslate nohighlight">\(x \in \lbrace 0,1 \rbrace\)</span></p>
+<div class="math notranslate nohighlight">
+\[L(\theta,X) = \prod_{i=1}^{N}\theta^{x_{i}}(1-\theta)^{1-x_{i}}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}(\theta,X) = \sum_{i=1}^{N}\ln{\theta^{x_{i}}} + \sum_{i=1}^{N}(1-\theta)^{1-x_{i}} = \ln{\theta}\sum_{i=1}^{N}x_{i} + \ln{(1-\theta)}\sum_{i=1}^{N}1-x_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \mathcal{L}(\theta,X)}{\partial \theta} = \frac{1}{\theta}\sum_{i=1}^{N}x_{i} - \frac{1}{1-\theta}\sum_{i=1}^{N}(1-x_{i})=0\]</div>
+<p>Solving it we have</p>
+<div class="math notranslate nohighlight">
+\[\theta_{ml} = \frac{1}{N}\sum_{i=1}^{N}x_{i}\]</div>
+<p>This is the maximum likelihood estimator of the Bernoulli distribution parameter <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</div>
+<div class="section" id="simple-example-of-maximum-likelihood-by-brute-force">
+<h2><span class="section-number">4.2. </span>Simple example of maximum likelihood by brute force<a class="headerlink" href="#simple-example-of-maximum-likelihood-by-brute-force" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -438,7 +485,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/simple-example-of-maximum-likelihood_3_0.png" src="../../_images/simple-example-of-maximum-likelihood_3_0.png" />
+<img alt="../../_images/simple-example-of-maximum-likelihood_4_0.png" src="../../_images/simple-example-of-maximum-likelihood_4_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -456,11 +503,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/simple-example-of-maximum-likelihood_4_0.png" src="../../_images/simple-example-of-maximum-likelihood_4_0.png" />
+<img alt="../../_images/simple-example-of-maximum-likelihood_5_0.png" src="../../_images/simple-example-of-maximum-likelihood_5_0.png" />
 </div>
 </div>
 <div class="section" id="usando-a-regra-de-bayes-para-descobrir-um-parametro">
-<h2><span class="section-number">4.1. </span>Usando a regra de Bayes para descobrir um parâmetro<a class="headerlink" href="#usando-a-regra-de-bayes-para-descobrir-um-parametro" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">4.2.1. </span>Usando a regra de Bayes para descobrir um parâmetro<a class="headerlink" href="#usando-a-regra-de-bayes-para-descobrir-um-parametro" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">px</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -488,8 +535,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.17539485937843133 0.7987806560427156
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.13920907676860883 0.8016567098802472
 </pre></div>
+</div>
 </div>
 </div>
 </div>
