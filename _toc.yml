@@ -18,7 +18,7 @@ parts:
   - file: content/math/method-of-kernels
   - file: content/math/integer-programming-resource
 - caption: Machine Learning
-  numbered: true
+  numbered: True
   chapters:
   - file: content/machine-learning/bias-variance
   - file: content/math/laplace-approximation
@@ -31,6 +31,10 @@ parts:
   - file: content/machine-learning/dataloader-example
   - file: content/machine-learning/nn-universal-approximator
   - file: content/math/variational-autoencoder
+- caption: Ranking Problems
+  numbered: True
+  chapters:
+  - file: content/ranking/how-to-ltr
 - caption: Reinforcement Learning
   numbered: True
   chapters:
