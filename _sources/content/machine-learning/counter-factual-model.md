@@ -1,3 +1,4 @@
+(counter-factual-model)=
 # Counter Factual Model
 ---
 

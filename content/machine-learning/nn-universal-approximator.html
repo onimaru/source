@@ -403,7 +403,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="neural-network-as-an-universal-approximator">
-<h1><span class="section-number">11. </span>Neural Network as an Universal Approximator<a class="headerlink" href="#neural-network-as-an-universal-approximator" title="Permalink to this headline">¶</a></h1>
+<span id="neural-network-universal-approximator"></span><h1><span class="section-number">11. </span>Neural Network as an Universal Approximator<a class="headerlink" href="#neural-network-as-an-universal-approximator" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -465,7 +465,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f16000aad30&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcbcc374c70&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/nn-universal-approximator_4_1.png" src="../../_images/nn-universal-approximator_4_1.png" />
@@ -591,14 +591,14 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_33285</span><span class="o">/</span><span class="mf">329273499.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_6859</span><span class="o">/</span><span class="mf">329273499.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">model_1</span>    <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">model_5</span>    <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">models</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">model_20</span>   <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">models</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">model_30</span>   <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">models</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">model_50</span>   <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">models</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="nn">/tmp/ipykernel_33285/587583672.py</span> in <span class="ni">train_model</span><span class="nt">(model, optimizer)</span>
+<span class="nn">/tmp/ipykernel_6859/587583672.py</span> in <span class="ni">train_model</span><span class="nt">(model, optimizer)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>             <span class="n">loss</span> <span class="o">=</span> <span class="n">mse_loss</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>             <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">10</span>             <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
@@ -619,19 +619,19 @@
 <span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">decorate_context</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">30</span> 
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/optim/adam.py</span> in <span class="ni">step</span><span class="nt">(self, closure)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>                     <span class="n">state_steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s1">&#39;step&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span> 
-<span class="ne">--&gt; </span><span class="mi">133</span>             <span class="n">F</span><span class="o">.</span><span class="n">adam</span><span class="p">(</span><span class="n">params_with_grad</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>                    <span class="n">grads</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>                    <span class="n">exp_avgs</span><span class="p">,</span>
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/autograd/grad_mode.py</span> in <span class="ni">__exit__</span><span class="nt">(self, exc_type, exc_value, traceback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> 
+<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">traceback</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">129</span>         <span class="n">torch</span><span class="o">.</span><span class="n">set_grad_enabled</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prev</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span> 
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/optim/_functional.py</span> in <span class="ni">adam</span><span class="nt">(params, grads, exp_avgs, exp_avg_sqs, max_exp_avg_sqs, state_steps, amsgrad, beta1, beta2, lr, weight_decay, eps)</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span>             <span class="n">denom</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_exp_avg_sqs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">bias_correction2</span><span class="p">))</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">94</span>             <span class="n">denom</span> <span class="o">=</span> <span class="p">(</span><span class="n">exp_avg_sq</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">bias_correction2</span><span class="p">))</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> 
-<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">step_size</span> <span class="o">=</span> <span class="n">lr</span> <span class="o">/</span> <span class="n">bias_correction1</span>
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/autograd/grad_mode.py</span> in <span class="ni">__init__</span><span class="nt">(self, mode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">213</span><span class="s2">     def __init__(self, mode: bool) -&gt; None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span><span class="s2">         self.prev = torch.is_grad_enabled()</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span><span class="s2">         torch._C._set_grad_enabled(mode)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

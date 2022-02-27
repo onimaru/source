@@ -1,3 +1,4 @@
+(multidimensional-scaling)=
 # Manifold Learning - Multidimensional Scaling
 
 Seguindo com o assunto de Manifold Learning vamos ver como funciona a técnica chamada **Isometric map**, mas um dos passos dela é uma técnica chamada **[Multidimensional Scaling (MDS)](https://en.wikipedia.org/wiki/Multidimensional_scaling)**, por isso primeiro vamos ver como MDS funciona.

@@ -1,3 +1,4 @@
+(manifold-learning)=
 # Introdução ao Manifold Learning
 
 ## Geometria dos dados

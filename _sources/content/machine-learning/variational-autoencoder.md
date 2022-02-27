@@ -1,3 +1,4 @@
+(variational-autoencoder)=
 # Variational AutoEncoder
 ---
 
