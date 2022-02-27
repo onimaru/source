@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12. Variational AutoEncoder &#8212; Disorder Transform</title>
+    <title>7. Manifold Learning - Multidimensional Scaling &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. How to Learn to Rank" href="../ranking/how-to-ltr.html" />
-    <link rel="prev" title="11. Neural Network as an Universal Approximator" href="../machine-learning/nn-universal-approximator.html" />
+    <link rel="next" title="8. Active Learning" href="active-learning-strategy.html" />
+    <link rel="prev" title="6. Introdução ao Manifold Learning" href="intro-manifold.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -105,44 +105,42 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="../math/intro.html">
    1. Theoretical minimum
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="probability-distributions.html">
+  <a class="reference internal" href="../math/probability-distributions.html">
    2. Distribuições de probabilidade
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="information-theory.html">
+  <a class="reference internal" href="../math/information-theory.html">
    3. Entropia e informação mútua
-   <a class="anchor" id="3">
-   </a>
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="simple-example-of-maximum-likelihood.html">
+  <a class="reference internal" href="../math/simple-example-of-maximum-likelihood.html">
    4. Maximum Likelihood Estimation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="eigen-decomposition.html">
+  <a class="reference internal" href="../math/eigen-decomposition.html">
    5. Decomposição de matrizes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lagrange-multipliers.html">
+  <a class="reference internal" href="../math/lagrange-multipliers.html">
    6. Multiplicadores de Lagrange
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="method-of-kernels.html">
+  <a class="reference internal" href="../math/method-of-kernels.html">
    7. Method of kernels
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="integer-programming-resource.html">
+  <a class="reference internal" href="../math/integer-programming-resource.html">
    8. Integer Programming
   </a>
  </li>
@@ -154,7 +152,7 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../machine-learning/bias-variance.html">
+  <a class="reference internal" href="bias-variance.html">
    1. Bias and Variance
   </a>
  </li>
@@ -178,33 +176,33 @@
    6. Introdução ao Manifold Learning
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="multidimensional-scaling.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    7. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
+  <a class="reference internal" href="active-learning-strategy.html">
    8. Active Learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../machine-learning/k-means.html">
+  <a class="reference internal" href="k-means.html">
    9. Expectation-Maximization Algorithm - k-Means
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../machine-learning/dataloader-example.html">
+  <a class="reference internal" href="dataloader-example.html">
    10. Dataloader example
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
+  <a class="reference internal" href="nn-universal-approximator.html">
    11. Neural Network as an Universal Approximator
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="variational-autoencoder.html">
    12. Variational AutoEncoder
   </a>
  </li>
@@ -327,7 +325,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/math/variational-autoencoder.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/machine-learning/multidimensional-scaling.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -347,7 +345,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/math/variational-autoencoder.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/machine-learning/multidimensional-scaling.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -368,6 +366,31 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matriz-de-distancia">
+   7.1. Matriz de distância
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decomposicao-espectral">
+   7.2. Decomposição espectral
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplo">
+     7.2.1. Exemplo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -376,43 +399,50 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="variational-autoencoder">
-<h1><span class="section-number">12. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<p>Variational AutoEncoders or VAE are a class of generative models based on latent variables. Suppose we have our multidimensional data <span class="math notranslate nohighlight">\(X\)</span> and we want to build a model from which we can sample data at least similar to <span class="math notranslate nohighlight">\(X\)</span>. We will make that with a multidimensional latent variable <span class="math notranslate nohighlight">\(Z\)</span> to create a map <span class="math notranslate nohighlight">\(f:Z \to X\)</span>.</p>
-<p>We need to model <span class="math notranslate nohighlight">\(p(X) = \int p(X \vert Z)dZ\)</span>, where <span class="math notranslate nohighlight">\(p(X,Z) = p(X \vert Z)p(Z)\)</span>.</p>
-<p>The ideia of VAE is to infer <span class="math notranslate nohighlight">\(p(Z)\)</span>, but at first <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span> is unknown. To deal with that let us use a method called Variational Inference (VI). It is very popular together with Markov Chain Monte Carlo (MCMC) methods.</p>
-<p>We treat this as an optimization problem, we model <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span> using some distribution and minimize the Kullback-Liebler (KL) divergence between our chosen distribution, let us call it <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span>, and <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span>. We have</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="manifold-learning-multidimensional-scaling">
+<h1><span class="section-number">7. </span>Manifold Learning - Multidimensional Scaling<a class="headerlink" href="#manifold-learning-multidimensional-scaling" title="Permalink to this headline">¶</a></h1>
+<p>Seguindo com o assunto de Manifold Learning vamos ver como funciona a técnica chamada <strong>Isometric map</strong>, mas um dos passos dela é uma técnica chamada <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling">Multidimensional Scaling (MDS)</a></strong>, por isso primeiro vamos ver como MDS funciona.</p>
+<div class="section" id="matriz-de-distancia">
+<h2><span class="section-number">7.1. </span>Matriz de distância<a class="headerlink" href="#matriz-de-distancia" title="Permalink to this headline">¶</a></h2>
+<p>Dado um dataset <span class="math notranslate nohighlight">\(X\)</span> com <span class="math notranslate nohighlight">\(n\)</span> observações e <span class="math notranslate nohighlight">\(D\)</span> dimensões, precisamos de uma matriz de distância <span class="math notranslate nohighlight">\(\mathcal{d} \in \mathbb{R}^{n \times n}\)</span>, ou seja, uma matriz em que cada elemento <span class="math notranslate nohighlight">\(d_{ij}\)</span> representa um tipo de distância da observação <span class="math notranslate nohighlight">\(x_{i}\)</span> até a observação <span class="math notranslate nohighlight">\(x_{j}\)</span>, desse modo, <span class="math notranslate nohighlight">\(d_{ii}\)</span> (os elementos da diagonal principal) são sempre iguais a zero. A distância escolhida em princípio pode ser qualquer uma, mas é usual utilizar a distância euclidiana:</p>
 <div class="math notranslate nohighlight">
-\[KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right] = \sum_{Z} q(Z \vert X) \log{\frac{q(Z \vert X)}{p(Z \vert X)}}  = -\sum_{Z} q(Z \vert X) \log{\frac{p(Z \vert X)}{q(Z \vert X)}}\]</div>
+\[\mathcal{D}_{ij} = \vert \vert x_{i} - x_{j} \vert \vert^{2}\]</div>
+<p>Assim, devemos encontrar uma representação <span class="math notranslate nohighlight">\(\hat{X}\)</span> de dimensão <span class="math notranslate nohighlight">\(d\)</span> dos dados tal que a matriz de distância <span class="math notranslate nohighlight">\(\hat{\mathcal{D}}\)</span> seja solução de</p>
 <div class="math notranslate nohighlight">
-\[KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right] = \mathbb{E}_{Z} \left[\log{\frac{p(Z \vert X)}{q(Z \vert X)}}\right] = \mathbb{E}_{Z} \left[\log{q(Z \vert X)} - \log{p(Z \vert X)}  \right]\]</div>
-<p>and we use Bayes Theorem treating <span class="math notranslate nohighlight">\(p(Z \vert X)\)</span> as a posterior: <span class="math notranslate nohighlight">\(p(Z \vert X) = \frac{p(X \vert Z)p(Z)}{p(X)}\)</span> rewriting the KL divergence</p>
+\[min\ \sum_{i}\sum_{j} \left( \mathcal{D}_{ij} - \hat{\mathcal{D}}_{ij}  \right)^{2}\]</div>
+<p><strong>Novamente</strong>: nosso objetivo é encontrar uma representação dos dados de dimensão diferente de <span class="math notranslate nohighlight">\(D\)</span>, geralmente menor, e que mantenha as distâncias relativas entre os pares de pontos o mais próximas possíveis das originais.</p>
+<p>Se a distância for euclidiana podemos usar o produto interno de <span class="math notranslate nohighlight">\(X\)</span> com sua transposta, <span class="math notranslate nohighlight">\(X^{T}\)</span> para produzir:</p>
 <div class="math notranslate nohighlight">
-\[KL[q(Z \vert X)\vert \vert p(Z \vert X)] = \mathbb{E}_{Z} \left[\log{q(Z \vert X)} - \log{p(X \vert Z)} -\log{p(Z)} + \log{p(X)}  \right]\]</div>
-<p>Since the expectation is over <span class="math notranslate nohighlight">\(Z\)</span> the term <span class="math notranslate nohighlight">\(\log{p(X)}\)</span> is constant and can be factored out. Looking closely we see another KL divergence inside the expectation</p>
-<p><span class="math notranslate nohighlight">\(\mathbb{E}_{Z} \left[\log{q(Z \vert X)} - \log{p(Z)} \right] = KL \left[q(Z \vert X)\vert \vert p(Z) \right]\)</span>. Rearranging the equation we have the VAE objective function.</p>
+\[ X^{T}X = -\frac{1}{2}J \cdot \mathcal{D} \cdot J\]</div>
+<p>onde <span class="math notranslate nohighlight">\(J_{n} = \mathbb{I}_{n}- \frac{1}{n}\mathbb{O}_{n}\)</span> é a <a class="reference external" href="https://en.wikipedia.org/wiki/Centering_matrix">matriz centralizadora</a> e <span class="math notranslate nohighlight">\(\mathbb{O}_{n}\)</span> é a matriz <span class="math notranslate nohighlight">\(n \times n\)</span> com todos os elementos 1. Essa transformação de <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> no produto interno de uma matriz com sua transposta é as vezes chamada de <em>Gram matrix</em> e é válida para qualquer matriz simétrica não negativa com zeros na diagonal.</p>
+<p>Isso serve apenas para dizer que podemos fazer uma decomposição de <span class="math notranslate nohighlight">\(X^{T}X\)</span> em autovetores e usá-los em uma nova representação. No caso de redução de dimensionalidade, como em outras técnicas, escolhemos os <span class="math notranslate nohighlight">\(k\)</span> autovetores com maior módulo.</p>
+</div>
+<div class="section" id="decomposicao-espectral">
+<h2><span class="section-number">7.2. </span>Decomposição espectral<a class="headerlink" href="#decomposicao-espectral" title="Permalink to this headline">¶</a></h2>
+<p>Fazemos agora um procedimento típico, encontrar:</p>
 <div class="math notranslate nohighlight">
-\[\mathcal{L} = \log{p(X)} - KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right] = \mathbb{E}_{Z} \left[\log{p(X \vert Z)} \right] - KL \left[q(Z \vert X)\vert \vert p(Z) \right]\]</div>
-<p>Let us see the meaning of all these distributions:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> is a function which projects <span class="math notranslate nohighlight">\(X\)</span> into latent space.</p></li>
-<li><p><span class="math notranslate nohighlight">\(p(X \vert Z)\)</span> is a function which projects <span class="math notranslate nohighlight">\(Z\)</span> into features space.</p></li>
-</ul>
-<p>It is common to say that <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> encodes the information of <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(Z\)</span> and <span class="math notranslate nohighlight">\(p(X \vert Z)\)</span> do the opposite, decodes <span class="math notranslate nohighlight">\(Z\)</span> back to <span class="math notranslate nohighlight">\(X\)</span>. In the ideal case we want the following diagram to commute</p>
-<!-- <img src="../../images/vae_identity_diagram.png" style="float: left; margin-right: 10px;" /> -->
-<a class="reference internal image-reference" href="../../_images/vae_identity_diagram.png"><img alt="vae-diagram" class="align-center" src="../../_images/vae_identity_diagram.png" style="width: 500px;" /></a>
-<p>On summary, looking at <span class="math notranslate nohighlight">\(\mathcal{L} = \log{p(X)} - KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right]\)</span> we want to model <span class="math notranslate nohighlight">\(\log{p(X)}\)</span> setting an error <span class="math notranslate nohighlight">\(KL \left[q(Z \vert X)\vert \vert p(Z \vert X) \right]\)</span>, i.e., the VAE tries to find a lower bound to <span class="math notranslate nohighlight">\(\log{p(X)}\)</span>, which is intractable.</p>
-<p>The model can be found maximizing <span class="math notranslate nohighlight">\(\log{p(X \vert Z)}\)</span> and minimizing the difference between <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> and <span class="math notranslate nohighlight">\(p(Z)\)</span>,</p>
+\[ X^{T}X = U \Lambda U^{T}\]</div>
+<p>em que <span class="math notranslate nohighlight">\(\Lambda\)</span> é a matriz diagonal de autovalores e <span class="math notranslate nohighlight">\(U\)</span> é a matriz <span class="math notranslate nohighlight">\(n \times n\)</span> cuja <span class="math notranslate nohighlight">\(i\)</span>-ésima coluna é o <span class="math notranslate nohighlight">\(u_{i}\)</span> autovetor de <span class="math notranslate nohighlight">\(X^{T}X\)</span>. O objetivo se torna minimizar</p>
 <div class="math notranslate nohighlight">
-\[MAX_{X,Z} VAE = \mathbb{E} \left[\log{p(X \vert Z)} \right] - KL \left[q(Z \vert X) \vert \vert p(Z) \right]\]</div>
-<p>Remember that maximizing <span class="math notranslate nohighlight">\(\mathbb{E} \left[\log{p(X \vert Z)} \right]\)</span> is an estimation by maximum likelihood.</p>
-<p>There is only one question left. What kind of distribution should we use for <span class="math notranslate nohighlight">\(p(Z)\)</span>? We can try a something simple like a normal distribution with zero mean and variance one, <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>. Given <span class="math notranslate nohighlight">\(KL \left[q(Z \vert X) \vert \vert p(Z) \right]\)</span>, we want <span class="math notranslate nohighlight">\(q(Z \vert X)\)</span> to be as near as possible of <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>. The good part of the choice is that we have a closed form for the KL divergence. Let us represent the mean by <span class="math notranslate nohighlight">\(\mu(X)\)</span> and the variance by <span class="math notranslate nohighlight">\(\Sigma(X)\)</span>. The KL divergence is (we computed this in the Information Theory post)</p>
-<div class="math notranslate nohighlight">
-\[KL \left[\mathcal{N}(\mu(X),\Sigma(X)) \vert \vert \mathcal{N}(0,1) \right] = \frac{1}{2} \sum_{k}\left(\Sigma(X)+ \mu^{2}(X) -1 -\log{\Sigma(X)} \right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(k\)</span> is the Gaussian dimension. You will see that in practice it is stable if we use <span class="math notranslate nohighlight">\(\Sigma(X)\)</span> as <span class="math notranslate nohighlight">\(\log{\Sigma(X)}\)</span> and finally we have</p>
-<div class="math notranslate nohighlight">
-\[KL \left[\mathcal{N}(\mu(X),\Sigma(X)) \vert \vert \mathcal{N}(0,1) \right] = \frac{1}{2} \sum_{k}\left(e^{\Sigma(X)}+ \mu^{2}(X) -1 -\Sigma(X) \right)\]</div>
+\[\mathcal{L} = \vert \vert U \Lambda U^{T} - \hat{X}^{T}X \vert \vert = \vert \vert X^{T}X - \hat{X}^{T}X \vert \vert\]</div>
+<p>que é resolvida por <span class="math notranslate nohighlight">\(\hat{X} = U \Lambda^{1/2}\)</span>. Se quisermos uma representação <span class="math notranslate nohighlight">\(k\)</span>-dimensional escolhemos os <span class="math notranslate nohighlight">\(k\)</span> maiores valores de <span class="math notranslate nohighlight">\(\Lambda\)</span>, os autovalores, e construímos a nova representação (o embedding) calculando os autovetores correspondentes. Os vetores de <span class="math notranslate nohighlight">\(\hat{X}\)</span> podem ser usados para projetar os vetores originais do dataset na nova representação.</p>
+<div class="section" id="exemplo">
+<h3><span class="section-number">7.2.1. </span>Exemplo<a class="headerlink" href="#exemplo" title="Permalink to this headline">¶</a></h3>
+<p>Vejamos um exemplo simples, vamos gerar um dataset com valores quaisquer com <span class="math notranslate nohighlight">\(3\)</span> dimensões e vamos usar os princípios vistos acima para reduzir para <span class="math notranslate nohighlight">\(k=2\)</span> dimensões. Para facilitar o cálculo dos autovalores e autovetores faremos com o Tensorflow:</p>
+<!-- <img src="../assets/img/mds_01.png" style="float: left; margin-right: 10px;" /> -->
+<a class="reference internal image-reference" href="../../_images/mds_01.png"><img alt="mds_01" class="align-center" src="../../_images/mds_01.png" style="width: 500px;" /></a>
+<p>Chamamos o método <em>linalg.eigh</em> que recebe a matriz <span class="math notranslate nohighlight">\(T\)</span> e retorna um array com os autovalores em ordem crescente e a matriz de autovetores, <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<!-- <p><img src="../assets/img/mds_02.png" style="float: left; margin-right: 10px;" /></p><br>   -->
+<a class="reference internal image-reference" href="../../_images/mds_02.png"><img alt="mds_02" class="align-center" src="../../_images/mds_02.png" style="width: 500px;" /></a>
+<p>Note que para <span class="math notranslate nohighlight">\(k=2\)</span> vamos usar apenas os <span class="math notranslate nohighlight">\(2\)</span> maiores valores de <em>eigenvals</em>. Podemos calcular a matriz erro <span class="math notranslate nohighlight">\(T - U \Lambda U^{T}\)</span>, cujos valores devem ser próximos de zero.</p>
+<!-- <img src="../assets/img/mds_03.png" style="float: left; margin-right: 10px;" /> -->
+<a class="reference internal image-reference" href="../../_images/mds_03.png"><img alt="mds_03" class="align-center" src="../../_images/mds_03.png" style="width: 500px;" /></a>
+<p>Agora calculamos os autovetores de <span class="math notranslate nohighlight">\(k=2\)</span> e projetamos <span class="math notranslate nohighlight">\(X\)</span> nessas direções:</p>
+<!-- <img src="../assets/img/mds_04.png" style="float: left; margin-right: 10px;" /> -->
+<a class="reference internal image-reference" href="../../_images/mds_04.png"><img alt="mds_04" class="align-center" src="../../_images/mds_04.png" style="width: 500px;" /></a>
+<p>Feito isso estamos prontos para compreender a técnica chamada Isometric map. Se você conhece a técnica Principal Component Analysis (PCA) deve ter percebido alguma similaridades. Há várias técnicas que utulizam essas matrizes de distâncias ou algum outro tipo de métrica, como a covariância. O ponto importante é que PCA é uma técnica linear e portanto está limitada aos casos em que as observações pertencem a uma variedade sem curvatura, já as técnicas de Manifold Learning podem ser vistas como uma generalização não-linear de PCA.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -428,7 +458,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/math"
+            path: "./content/machine-learning"
         },
         predefinedOutput: true
     }
@@ -440,17 +470,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../machine-learning/nn-universal-approximator.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="intro-manifold.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">11. </span>Neural Network as an Universal Approximator</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Introdução ao Manifold Learning</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../ranking/how-to-ltr.html" title="next page">
+    <a class='right-next' id="next-link" href="active-learning-strategy.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>How to Learn to Rank</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Active Learning</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

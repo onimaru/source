@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9. Expectation-Maximization Algorithm - k-Means" href="k-means.html" />
-    <link rel="prev" title="7. Manifold Learning - Multidimensional Scaling" href="../math/multidimensional-scaling.html" />
+    <link rel="prev" title="7. Manifold Learning - Multidimensional Scaling" href="multidimensional-scaling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -115,8 +115,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../math/information-theory.html">
    3. Entropia e informação mútua
-   <a class="anchor" id="3">
-   </a>
   </a>
  </li>
  <li class="toctree-l1">
@@ -157,27 +155,27 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../math/laplace-approximation.html">
+  <a class="reference internal" href="laplace-approximation.html">
    2. Laplace Approximation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../math/computing-hessian-and-jacobian.html">
+  <a class="reference internal" href="computing-hessian-and-jacobian.html">
    3. Computing Hessian and Jacobian
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../math/counter-factual-model.html">
+  <a class="reference internal" href="counter-factual-model.html">
    4. Counter Factual Model
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../math/intro-manifold.html">
+  <a class="reference internal" href="intro-manifold.html">
    6. Introdução ao Manifold Learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../math/multidimensional-scaling.html">
+  <a class="reference internal" href="multidimensional-scaling.html">
    7. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
@@ -202,7 +200,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../math/variational-autoencoder.html">
+  <a class="reference internal" href="variational-autoencoder.html">
    12. Variational AutoEncoder
   </a>
  </li>
@@ -422,7 +420,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="active-learning">
-<h1><span class="section-number">8. </span>Active Learning<a class="headerlink" href="#active-learning" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">8. </span>Active Learning<a class="headerlink" href="#active-learning" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
@@ -641,14 +639,14 @@ Entretanto, o mundo real te preparou uma supresa: o seu dataset além de ter um 
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_32869</span><span class="o">/</span><span class="mf">780990959.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13445</span><span class="o">/</span><span class="mf">780990959.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">exp_1</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exp 2: ignorância&quot;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">exp_2</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;ignorance&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exp 3: entropia + ignorância&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">exp_3</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;priorisation&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_32869/3591885175.py</span> in <span class="ni">run_experiment</span><span class="nt">(strategy, runs, df, show)</span>
+<span class="nn">/tmp/ipykernel_13445/3591885175.py</span> in <span class="ni">run_experiment</span><span class="nt">(strategy, runs, df, show)</span>
 <span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">60</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entropy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">61</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;ignorance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;m_label&quot;</span><span class="p">])</span>
@@ -663,46 +661,20 @@ Entretanto, o mundo real te preparou uma supresa: o seu dataset além de ter um 
 <span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="n">intra_clust_dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">intra_clust_dists</span><span class="p">)</span>
 
 <span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/metrics/pairwise.py</span> in <span class="ni">pairwise_distances_chunked</span><span class="nt">(X, Y, reduce_func, metric, n_jobs, working_memory, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1710</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1711</span>             <span class="n">X_chunk</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">sl</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">1712</span>         <span class="n">D_chunk</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">X_chunk</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1713</span>         <span class="k">if</span> <span class="p">(</span><span class="n">X</span> <span class="ow">is</span> <span class="n">Y</span> <span class="ow">or</span> <span class="n">Y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">PAIRWISE_DISTANCE_FUNCTIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1714</span>             <span class="n">metric</span><span class="p">,</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1719</span>         <span class="k">if</span> <span class="n">reduce_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1720</span>             <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">D_chunk</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">1721</span>             <span class="n">D_chunk</span> <span class="o">=</span> <span class="n">reduce_func</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">,</span> <span class="n">sl</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1722</span>             <span class="n">_check_chunk_size</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1723</span>         <span class="k">yield</span> <span class="n">D_chunk</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/metrics/pairwise.py</span> in <span class="ni">pairwise_distances</span><span class="nt">(X, Y, metric, n_jobs, force_all_finite, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1882</span>         <span class="n">func</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">cdist</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1883</span> 
-<span class="ne">-&gt; </span><span class="mi">1884</span>     <span class="k">return</span> <span class="n">_parallel_pairwise</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">n_jobs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1885</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1886</span> 
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/metrics/cluster/_unsupervised.py</span> in <span class="ni">_silhouette_reduce</span><span class="nt">(D_chunk, start, labels, label_freqs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="n">clust_dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">label_freqs</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">D_chunk</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">)):</span>
+<span class="ne">--&gt; </span><span class="mi">138</span>         <span class="n">clust_dists</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>             <span class="n">labels</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">D_chunk</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">minlength</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">label_freqs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span>         <span class="p">)</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/metrics/pairwise.py</span> in <span class="ni">_parallel_pairwise</span><span class="nt">(X, Y, func, n_jobs, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1423</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1424</span>     <span class="k">if</span> <span class="n">effective_n_jobs</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1425</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1426</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1427</span>     <span class="c1"># enforce a threading backend to prevent data communication overhead</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/metrics/pairwise.py</span> in <span class="ni">euclidean_distances</span><span class="nt">(X, Y, Y_norm_squared, squared, X_norm_squared)</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span> 
-<span class="ne">--&gt; </span><span class="mi">327</span>     <span class="k">return</span> <span class="n">_euclidean_distances</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">X_norm_squared</span><span class="p">,</span> <span class="n">Y_norm_squared</span><span class="p">,</span> <span class="n">squared</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span> 
-<span class="g g-Whitespace">    </span><span class="mi">329</span> 
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/metrics/pairwise.py</span> in <span class="ni">_euclidean_distances</span><span class="nt">(X, Y, X_norm_squared, Y_norm_squared, squared)</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">367</span>         <span class="c1"># if dtype is already float64, no need to chunk and upcast</span>
-<span class="ne">--&gt; </span><span class="mi">368</span>         <span class="n">distances</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">safe_sparse_dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">369</span>         <span class="n">distances</span> <span class="o">+=</span> <span class="n">XX</span>
-<span class="g g-Whitespace">    </span><span class="mi">370</span>         <span class="n">distances</span> <span class="o">+=</span> <span class="n">YY</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/utils/extmath.py</span> in <span class="ni">safe_sparse_dot</span><span class="nt">(a, b, dense_output)</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span>             <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">153</span>         <span class="n">ret</span> <span class="o">=</span> <span class="n">a</span> <span class="o">@</span> <span class="n">b</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> 
-<span class="g g-Whitespace">    </span><span class="mi">155</span>     <span class="k">if</span> <span class="p">(</span>
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">bincount</span><span class="nt">(*args, **kwargs)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -891,7 +863,7 @@ Wall time: 48min 49s
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../math/multidimensional-scaling.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="multidimensional-scaling.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>

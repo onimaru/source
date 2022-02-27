@@ -8,6 +8,15 @@ So, if you are here, have fun too.
 2. Part of the content here is in Portuguese, but I plan to slowing changing everything to English.
 ```
 
+## Table of contents
+
+1. {ref}`About me<about-me>`
+2. {ref}`Math <math-theoretical-minimum>`
+3. {ref}`Machine Learning <active-learning>`
+4. {ref}`Ranking Problems <ranking-problems>`
+5. {ref}`Reinforcement Learning <reinforcement-learning>`
+
+(about-me)=
 ## About me
 
 _Math, physics, life, universe and everything_

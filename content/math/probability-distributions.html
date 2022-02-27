@@ -117,8 +117,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="information-theory.html">
    3. Entropia e informação mútua
-   <a class="anchor" id="3">
-   </a>
   </a>
  </li>
  <li class="toctree-l1">
@@ -159,27 +157,27 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="laplace-approximation.html">
+  <a class="reference internal" href="../machine-learning/laplace-approximation.html">
    2. Laplace Approximation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+  <a class="reference internal" href="../machine-learning/computing-hessian-and-jacobian.html">
    3. Computing Hessian and Jacobian
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="counter-factual-model.html">
+  <a class="reference internal" href="../machine-learning/counter-factual-model.html">
    4. Counter Factual Model
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="intro-manifold.html">
+  <a class="reference internal" href="../machine-learning/intro-manifold.html">
    6. Introdução ao Manifold Learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="multidimensional-scaling.html">
+  <a class="reference internal" href="../machine-learning/multidimensional-scaling.html">
    7. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
@@ -204,7 +202,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="variational-autoencoder.html">
+  <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
    12. Variational AutoEncoder
   </a>
  </li>
@@ -445,7 +443,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="distribuicoes-de-probabilidade">
-<h1><span class="section-number">2. </span>Distribuições de probabilidade<a class="headerlink" href="#distribuicoes-de-probabilidade" title="Permalink to this headline">¶</a></h1>
+<span id="probability-distributions"></span><h1><span class="section-number">2. </span>Distribuições de probabilidade<a class="headerlink" href="#distribuicoes-de-probabilidade" title="Permalink to this headline">¶</a></h1>
 <p>Glossário:</p>
 <ul class="simple">
 <li><p><strong>Função de distribuição cumulativa (Cumulative distribution function - <code class="docutils literal notranslate"><span class="pre">CDF</span></code></strong>): é a funcão <span class="math notranslate nohighlight">\(F: \mathbb{R} \rightarrow \left[ 0,1 \right]\)</span> definida por</p></li>
@@ -703,8 +701,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 8,  5,  6,  3, 13,  5,  7,  6,  6,  8,  2,  1,  6,  2,  6,  3,  1,
-        6,  7, 10,  5,  6,  2,  9,  5,  5,  8,  2,  3,  2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5,  4,  6, 10,  9,  5,  6, 10,  5,  6,  4,  5,  2,  3,  4,  6,  4,
+        7,  3,  5,  6,  1,  3,  9,  6,  6,  6,  5,  5,  9])
 </pre></div>
 </div>
 </div>
@@ -716,7 +714,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.266666666666667, 7.795555555555556)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.5, 4.783333333333333)
 </pre></div>
 </div>
 </div>
@@ -804,16 +802,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 0, 0],
-       [0, 1, 0, 0],
-       [1, 0, 0, 0],
-       [1, 0, 0, 0],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 0, 0, 0],
        [1, 0, 0, 0],
        [0, 0, 0, 1],
+       [0, 0, 1, 0],
+       [1, 0, 0, 0],
+       [0, 0, 1, 0],
+       [0, 0, 1, 0],
        [0, 1, 0, 0],
-       [0, 0, 0, 1],
        [0, 1, 0, 0],
-       [0, 0, 0, 1]])
+       [0, 1, 0, 0]])
 </pre></div>
 </div>
 </div>
@@ -932,13 +930,13 @@ Scipy       : 0.08504999999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.380371  , 0.24901216, 0.37061684],
-       [0.30893739, 0.60208979, 0.08897282],
-       [0.22637106, 0.376493  , 0.39713594],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.12993039, 0.76234658, 0.10772302],
+       [0.28780527, 0.58229036, 0.12990437],
+       [0.40766182, 0.58942015, 0.00291802],
        ...,
-       [0.06667833, 0.32391028, 0.60941138],
-       [0.10335078, 0.74046579, 0.15618343],
-       [0.39580766, 0.2595336 , 0.34465874]])
+       [0.4851392 , 0.18641205, 0.32844875],
+       [0.67505684, 0.08094484, 0.24399832],
+       [0.3943339 , 0.1650425 , 0.4406236 ]])
 </pre></div>
 </div>
 </div>
@@ -950,7 +948,7 @@ Scipy       : 0.08504999999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.31641204, 0.34156334, 0.34202462])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.3352346 , 0.32801922, 0.33674617])
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1004,7 @@ Scipy       : 0.08504999999999999
     <a class='right-next' id="next-link" href="information-theory.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Entropia e informação mútua <a class="anchor" id="3"></a></p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Entropia e informação mútua</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
