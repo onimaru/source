@@ -21,16 +21,16 @@ parts:
   numbered: True
   chapters:
   - file: content/machine-learning/bias-variance
-  - file: content/math/laplace-approximation
-  - file: content/math/computing-hessian-and-jacobian
-  - file: content/math/counter-factual-model
-  - file: content/math/intro-manifold
-  - file: content/math/multidimensional-scaling
+  - file: content/machine-learning/laplace-approximation
+  - file: content/machine-learning/computing-hessian-and-jacobian
+  - file: content/machine-learning/counter-factual-model
+  - file: content/machine-learning/intro-manifold
+  - file: content/machine-learning/multidimensional-scaling
   - file: content/machine-learning/active-learning-strategy
   - file: content/machine-learning/k-means
   - file: content/machine-learning/dataloader-example
   - file: content/machine-learning/nn-universal-approximator
-  - file: content/math/variational-autoencoder
+  - file: content/machine-learning/variational-autoencoder
 - caption: Ranking Problems
   numbered: True
   chapters:
