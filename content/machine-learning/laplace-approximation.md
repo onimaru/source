@@ -1,3 +1,4 @@
+(laplace-approximation)=
 # Laplace Approximation
 
 This is a framework to find an Gaussian approximation to a probability density. Since it is Gaussian it is defined over continuous variables.
