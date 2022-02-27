@@ -12,7 +12,7 @@ So, if you are here, have fun too.
 
 1. {ref}`About me<about-me>`
 2. {ref}`Math <math-theoretical-minimum>`
-3. {ref}`Machine Learning <active-learning>`
+3. {ref}`Machine Learning <what-is-machine-learning>`
 4. {ref}`Ranking Problems <ranking-problems>`
 5. {ref}`Reinforcement Learning <reinforcement-learning>`
 
