@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -53,7 +54,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. Beyond conventional machine learning" href="../reinforcement-learning/intro.html" />
+    <link rel="next" title="2. Ranknet" href="ranknet.html" />
     <link rel="prev" title="13. Variational AutoEncoder" href="../machine-learning/variational-autoencoder.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -223,6 +224,16 @@
    1. How to Learn to Rank
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ranknet.html">
+   2. Ranknet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ranknet-teacher-student.html">
+   3. Ranknet - Teacher-Student strategy
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -287,6 +298,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../extra/symbol-index.html">
    Lista de símbolos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets/ranking-teams.html">
+   Ranking dataset - Teams
   </a>
  </li>
 </ul>
@@ -559,7 +582,7 @@
 </div>
 <div class="section" id="lambdas">
 <h2><span class="section-number">1.3. </span>Lambdas<a class="headerlink" href="#lambdas" title="Permalink to this headline">¶</a></h2>
-<p>This is used to “correct” the predict score of the items.</p>
+<p>This is used to “correct” the predict score of the items. In the next section we will see how to get in it from the log-likelihood.</p>
 <div class="math notranslate nohighlight">
 \[\lambda_{ij} = \frac{-\alpha}{1+e^{\alpha(s_{i}-s_{j})}}\]</div>
 <p>If we are making listwise comparisons another expression may be used:</p>
@@ -739,10 +762,10 @@
             <p class="prev-next-title"><span class="section-number">13. </span>Variational AutoEncoder</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../reinforcement-learning/intro.html" title="next page">
+    <a class='right-next' id="next-link" href="ranknet.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Beyond conventional machine learning</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Ranknet</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

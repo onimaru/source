@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -221,6 +222,16 @@
    1. How to Learn to Rank
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet.html">
+   2. Ranknet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet-teacher-student.html">
+   3. Ranknet - Teacher-Student strategy
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -285,6 +296,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../extra/symbol-index.html">
    Lista de símbolos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets/ranking-teams.html">
+   Ranking dataset - Teams
   </a>
  </li>
 </ul>
@@ -644,19 +667,65 @@ Entretanto, o mundo real te preparou uma supresa: o seu dataset além de ter um 
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_6184</span><span class="o">/</span><span class="mf">780990959.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_27747</span><span class="o">/</span><span class="mf">780990959.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">exp_1</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exp 2: ignorância&quot;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">exp_2</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;ignorance&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exp 3: entropia + ignorância&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">exp_3</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;priorisation&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_6184/3591885175.py</span> in <span class="ni">run_experiment</span><span class="nt">(strategy, runs, df, show)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">!=-</span><span class="mi">1</span><span class="p">][</span><span class="n">cols</span><span class="p">],</span><span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">!=-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">])</span>
+<span class="nn">/tmp/ipykernel_27747/3591885175.py</span> in <span class="ni">run_experiment</span><span class="nt">(strategy, runs, df, show)</span>
 <span class="g g-Whitespace">     </span><span class="mi">58</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;m_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entropy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">60</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entropy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">61</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;ignorance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;m_label&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="n">entropy_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4355</span>         <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+<span class="g g-Whitespace">   </span><span class="mi">4356</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">4357</span><span class="s2">         return SeriesApply(self, func, convert_dtype, args, kwargs).apply()</span>
+<span class="g g-Whitespace">   </span><span class="mi">4358</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">4359</span><span class="s2">     def _reduce(</span>
+
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span><span class="s2">             return self.apply_str()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1042</span><span class="s2"> </span>
+<span class="ne">-&gt; </span><span class="mi">1043</span><span class="s2">         return self.apply_standard()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1045</span><span class="s2">     def agg(self):</span>
+
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span><span class="s2">                 # List[Union[Callable[..., Any], str]]]]]&quot;; expected</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="s2">                 # &quot;Callable[[Any], Any]&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1098</span><span class="s2">                 mapped = lib.map_infer(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1099</span><span class="s2">                     values,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="s2">                     f,  # type: ignore[arg-type]</span>
+
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
+
+<span class="nn">/tmp/ipykernel_27747/3591885175.py</span> in <span class="ni">entropy</span><span class="nt">(arr)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span><span class="s2">     arr = np.array(arr)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="s2">     epsilon = 0.000001</span>
+<span class="ne">---&gt; </span><span class="mi">44</span><span class="s2">     return np.sum(-arr*np.log(arr+epsilon))</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span><span class="s2"> def run_experiment(strategy=&quot;random&quot;,runs=100,df=df,show=False):</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">sum</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">~/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2257</span><span class="s2">         return res</span>
+<span class="g g-Whitespace">   </span><span class="mi">2258</span><span class="s2"> </span>
+<span class="ne">-&gt; </span><span class="mi">2259</span><span class="s2">     return _wrapreduction(a, np.add, &#39;sum&#39;, axis, dtype, out, keepdims=keepdims,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2260</span><span class="s2">                           initial=initial, where=where)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2261</span><span class="s2"> </span>
+
+<span class="nn">~/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span><span class="s2">                 return reduction(axis=axis, out=out, **passkwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">86</span><span class="s2">     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span><span class="s2"> </span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

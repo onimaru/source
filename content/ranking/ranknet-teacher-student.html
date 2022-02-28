@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista de símbolos &#8212; Disorder Transform</title>
+    <title>3. Ranknet - Teacher-Student strategy &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Ranking dataset - Teams" href="../datasets/ranking-teams.html" />
-    <link rel="prev" title="Definições" href="definitions.html" />
+    <link rel="next" title="1. Beyond conventional machine learning" href="../reinforcement-learning/intro.html" />
+    <link rel="prev" title="2. Ranknet" href="ranknet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -218,19 +218,19 @@
   Ranking Problems
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ranking/how-to-ltr.html">
+  <a class="reference internal" href="how-to-ltr.html">
    1. How to Learn to Rank
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../ranking/ranknet.html">
+  <a class="reference internal" href="ranknet.html">
    2. Ranknet
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ranking/ranknet-teacher-student.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    3. Ranknet - Teacher-Student strategy
   </a>
  </li>
@@ -289,14 +289,14 @@
   Extra content
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="definitions.html">
+  <a class="reference internal" href="../extra/definitions.html">
    Definições
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
    Lista de símbolos
   </a>
  </li>
@@ -353,7 +353,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/extra/symbol-index.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/ranking/ranknet-teacher-student.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -373,7 +373,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/extra/symbol-index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/ranking/ranknet-teacher-student.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -394,6 +394,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-teacher-student-algorithm-for-the-ranknet">
+   3.1. The Teacher-Student algorithm for the Ranknet
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -402,17 +415,103 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lista-de-simbolos">
-<h1>Lista de símbolos<a class="headerlink" href="#lista-de-simbolos" title="Permalink to this headline">¶</a></h1>
-<p><span class="math notranslate nohighlight">\(\emptyset\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(\mathbb{N}\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(\mathbb{R}\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(\subseteq\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(\exists\)</span>, <span class="math notranslate nohighlight">\(\nexists\)</span> e <span class="math notranslate nohighlight">\(\exists!\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(\forall\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(:=\)</span> ou <span class="math notranslate nohighlight">\(\overset{\underset{\mathrm{def}}{}}{=}\)</span>: …</p>
-<p><span class="math notranslate nohighlight">\(\mathcal{P}(A)\)</span>: …</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="ranknet-teacher-student-strategy">
+<h1><span class="section-number">3. </span>Ranknet - Teacher-Student strategy<a class="headerlink" href="#ranknet-teacher-student-strategy" title="Permalink to this headline">¶</a></h1>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{D} = \{(\mathbf{x}_{i},y_{i}) | i \in \{1,2,...,N\}, \mathbf{x}_{i} \in \mathbf{X} \subset \mathbb{R}^{m} \text{ and } y_{i} \in \mathbb{R}^{1} \}\)</span> be a dataset with <span class="math notranslate nohighlight">\(m\)</span> features, 1 label and <span class="math notranslate nohighlight">\(N\)</span> obervations.</p>
+<p>Let us split <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> in terms of features:
+<span class="math notranslate nohighlight">\(\mathbf{x}_{i,s} \in \mathbf{X}_{s}\)</span> is n-dimensional and <span class="math notranslate nohighlight">\(\mathbf{x}_{i,t} \in \mathbf{X}_{t}\)</span> is m-dimensional, where <span class="math notranslate nohighlight">\(n&lt;m\)</span> such that <span class="math notranslate nohighlight">\(\mathbf{X}_{s} \subset \mathbf{X}_{t}\)</span>. Actually <span class="math notranslate nohighlight">\(\mathbf{X}_{t}\)</span> may be <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> itself. Thus <span class="math notranslate nohighlight">\(\mathbf{X}_{s}\)</span>, which we will call <strong>Student set</strong>, is a partition of the dataset, i.e., a matrix containing all the observations but not all the features available in <span class="math notranslate nohighlight">\(\mathbf{X}_{t}\)</span>, called <strong>Teacher set</strong>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\mathbf{X}_{t}\)</span> is larger it has more information than <span class="math notranslate nohighlight">\(\mathbf{X}_{s}\)</span>. We face the following problem: we could train a model with <span class="math notranslate nohighlight">\(\mathbf{X}_{t}\)</span>, but it is too complex and expensive to put it on production. Maybe the prediction time must be very small and using the set of all features is an impeditive. Thus, if we could train a less complex model with less features the prediction time would be smaller.</p>
+<p>We could also achieve that using a dimensionality reduction model, but there is another options like the one we will see here, the <strong>Teacher-Student method</strong> of training.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This just one method for training a model and can be used in practically all applications, not only in ranking problems.</p>
+</div>
+<p>Assuming we are solving a ranking problem, the label represents some kind of relevance. In this example we will assume that a label can have two values, <span class="math notranslate nohighlight">\(\{0,1\}\)</span>. So the definition above is changed to <span class="math notranslate nohighlight">\(y_{i} \in \{0,1\}\)</span>, where <span class="math notranslate nohighlight">\(1\)</span> means more relevance than <span class="math notranslate nohighlight">\(0\)</span>. In future examples we will see other kinds of relevance.</p>
+<p>As mentioned before, we need two models: teacher model (TM) and student model (SM). In this formulation these models can be any regression models you like.</p>
+<p>To train a Ranknet one needs in each iteration to sample a pair of observations, one more relevant than the other. We will refer to them as:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}_{i,s,r}\)</span>: features vector of observation <span class="math notranslate nohighlight">\(i\)</span> from the Student set which has relevance <span class="math notranslate nohighlight">\(r\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}_{i,t,r}\)</span>: features vector of observation <span class="math notranslate nohighlight">\(i\)</span> from the Teacher set which has relevance <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+</ul>
+<p>In each sampling iteration we always need <span class="math notranslate nohighlight">\(\left( \mathbf{x}_{i,s,1},\mathbf{x}_{j,s,0} \right)\)</span> for the SM and <span class="math notranslate nohighlight">\(\left( \mathbf{x}_{i,t,1},\mathbf{x}_{j,t,0} \right)\)</span> for the TM. Notice that we are using only two observations here, <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>. The models output for these vectors are the scores, denoted as:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s_{i,s}\)</span>: the score assigned to observation <span class="math notranslate nohighlight">\(i\)</span> by the Student model;</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_{i,j}\)</span>: the score assigned to observation <span class="math notranslate nohighlight">\(i\)</span> by the Teacher model.</p></li>
+</ul>
+<div class="section" id="the-teacher-student-algorithm-for-the-ranknet">
+<h2><span class="section-number">3.1. </span>The Teacher-Student algorithm for the Ranknet<a class="headerlink" href="#the-teacher-student-algorithm-for-the-ranknet" title="Permalink to this headline">¶</a></h2>
+<p>In order to use this method we need the following algorithm:</p>
+<div class="proof algorithm admonition" id="ranknet-teacher-student">
+<p class="admonition-title"><span class="caption-number">Algorithm 3.1 </span> (Ranknet Teacher-Student)</p>
+<div class="algorithm-content section" id="proof-content">
+<p><strong>Init</strong> TM and ST models.</p>
+<p>Repeat for T epochs:</p>
+<ul class="simple">
+<li><p>Sample <span class="math notranslate nohighlight">\(\mathbf{x}_{i,s,1},\mathbf{x}_{j,s,0},\mathbf{x}_{i,t,1},\mathbf{x}_{j,t,0} \sim \mathcal{D}\)</span></p>
+<ul>
+<li><p>Train and update TM:</p>
+<ul>
+<li><p>Compute scores</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(s_{i,t} = TM(\mathbf{x}_{i,t,1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_{j,t} = TM(\mathbf{x}_{j,t,0})\)</span></p></li>
+</ul>
+</li>
+<li><p>Compute likelihood, <span class="math notranslate nohighlight">\(\sigma(s_{i,t},s_{j,t})\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(prob = sigmoid(s_{i,t},s_{j,t})\)</span></p></li>
+</ul>
+</li>
+<li><p>Compute loss:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_{teacher} \left( prob,1 \right)\)</span></p></li>
+</ul>
+</li>
+<li><p>Update TM:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\theta_{t} \leftarrow \theta_{t} + \gamma_{t} \lambda_{ij}\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>For try in num_tries (it can be 1):</p>
+<ul>
+<li><p>Train and update SM to predict the same scores as TM:</p>
+<ul>
+<li><p>Compute TM scores</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(s_{i,t} = TM(\mathbf{x}_{i,t,1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_{j,t} = TM(\mathbf{x}_{j,t,0})\)</span></p></li>
+</ul>
+</li>
+<li><p>Compute SM scores</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(s_{i,s} = SM(\mathbf{x}_{i,s,1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_{j,s} = SM(\mathbf{x}_{j,s,0})\)</span></p></li>
+</ul>
+</li>
+<li><p>Compute two losses:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_{student,i} \left( s_{i,s},s_{i,t} \right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_{student,j} \left( s_{j,s},s_{j,t} \right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_{student} = \mathcal{L}_{student,i} + \mathcal{L}_{student,j}\)</span></p></li>
+</ul>
+</li>
+<li><p>Update SM:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\theta_{s} \leftarrow \theta_{s} + \gamma_{s} \nabla \mathcal{L}_{student}\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><p>The prediction quality of the student will not be as good as the one from the teacher, but it could be a small price to pay for using a simpler model. If the SM score are not converging to similar value as those of TM the <code class="docutils literal notranslate"><span class="pre">num_tries</span></code> parameter can be adjusted to let the student <em>“study”</em> more. There is no mistery about the SM loss functions, we can use any like mean squared error.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -428,7 +527,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/extra"
+            path: "./content/ranking"
         },
         predefinedOutput: true
     }
@@ -440,17 +539,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="definitions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ranknet.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Definições</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Ranknet</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../datasets/ranking-teams.html" title="next page">
+    <a class='right-next' id="next-link" href="../reinforcement-learning/intro.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ranking dataset - Teams</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Beyond conventional machine learning</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

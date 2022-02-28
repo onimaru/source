@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -221,6 +222,16 @@
    1. How to Learn to Rank
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet.html">
+   2. Ranknet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet-teacher-student.html">
+   3. Ranknet - Teacher-Student strategy
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -285,6 +296,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../extra/symbol-index.html">
    Lista de símbolos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets/ranking-teams.html">
+   Ranking dataset - Teams
   </a>
  </li>
 </ul>
@@ -626,7 +649,7 @@ min_plantonistas_week_s5              : andre_s5 + corbalan_s5 + denis_s5 + fabi
 Version: 2.9.0 
 Build Date: Feb 12 2015 
 
-command line - /home/ninja/anaconda3/lib/python3.8/site-packages/pulp/apis/../solverdir/cbc/linux/64/cbc /tmp/1fc72ae76da14d4d8ed2f20eb346f1a9-pulp.mps max branch printingOptions all solution /tmp/1fc72ae76da14d4d8ed2f20eb346f1a9-pulp.sol (default strategy 1)
+command line - /home/ninja/anaconda3/lib/python3.8/site-packages/pulp/apis/../solverdir/cbc/linux/64/cbc /tmp/06f076af024f4ad282856518dcb0104f-pulp.mps max branch printingOptions all solution /tmp/06f076af024f4ad282856518dcb0104f-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 85 COLUMNS
@@ -660,11 +683,11 @@ Result - Optimal solution found
 Objective value:                47.00000000
 Enumerated nodes:               0
 Total iterations:               0
-Time (CPU seconds):             0.01
-Time (Wallclock seconds):       0.01
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
 
 Option for printingOptions changed from normal to all
-Total time (CPU seconds):       0.01   (Wallclock seconds):       0.02
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </pre></div>
 </div>
 </div>
@@ -712,7 +735,7 @@ dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Disponibilidade inicial dos plantonistas:
 </pre></div>
 </div>
-<div class="output text_html"><div><div id=cf0ae786-89e2-4114-8ba7-852bf038cb9a style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('cf0ae786-89e2-4114-8ba7-852bf038cb9a').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div class="output text_html"><div><div id=76efcdf4-7b5a-4d0c-a058-aa20c5eef6c5 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('76efcdf4-7b5a-4d0c-a058-aa20c5eef6c5').style.display = 'flex' </script> <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -886,7 +909,7 @@ Plantonistas selecionados 2x : leo, izumi
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div><div id=1d6e858c-36b3-4d53-8355-d16842048fb9 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('1d6e858c-36b3-4d53-8355-d16842048fb9').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div class="output text_html"><div><div id=02969dfc-74dd-4bbb-8281-3a30a7f93a67 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('02969dfc-74dd-4bbb-8281-3a30a7f93a67').style.display = 'flex' </script> <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -924,7 +947,7 @@ Plantonistas selecionados 2x : leo, izumi
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div><div id=7bdea93a-f46f-4998-8e33-2782b1035604 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('7bdea93a-f46f-4998-8e33-2782b1035604').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div class="output text_html"><div><div id=0499f363-65c0-4567-b0fe-ab84e7628dfe style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('0499f363-65c0-4567-b0fe-ab84e7628dfe').style.display = 'flex' </script> <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -992,7 +1015,7 @@ dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calendário final:
 </pre></div>
 </div>
-<div class="output text_html"><div><div id=c48b75ce-76c8-4b56-b791-4aafe69964dc style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('c48b75ce-76c8-4b56-b791-4aafe69964dc').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div class="output text_html"><div><div id=1cd47110-9751-4c66-be9f-e855077ee5cc style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('1cd47110-9751-4c66-be9f-e855077ee5cc').style.display = 'flex' </script> <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>

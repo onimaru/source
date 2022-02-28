@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Ranknet &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Ranknet - Teacher-Student strategy" href="ranknet-teacher-student.html" />
+    <link rel="prev" title="1. How to Learn to Rank" href="how-to-ltr.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Disorder Transform
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/probability-distributions.html">
+   2. Distribuições de probabilidade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/information-theory.html">
+   3. Entropia e informação mútua
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/simple-example-of-maximum-likelihood.html">
+   4. Maximum Likelihood Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/eigen-decomposition.html">
+   5. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/lagrange-multipliers.html">
+   6. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/method-of-kernels.html">
+   7. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/integer-programming-resource.html">
+   8. Integer Programming
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/bias-variance.html">
+   1. Bias and Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/understanding-regularization.html">
+   2. Understanding regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/laplace-approximation.html">
+   3. Laplace Approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/computing-hessian-and-jacobian.html">
+   4. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/counter-factual-model.html">
+   5. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/intro-manifold.html">
+   7. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/multidimensional-scaling.html">
+   8. Manifold Learning - Multidimensional Scaling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
+   9. Active Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/k-means.html">
+   10. Expectation-Maximization Algorithm - k-Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/dataloader-example.html">
+   11. Dataloader example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
+   12. Neural Network as an Universal Approximator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
+   13. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ranking Problems
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="how-to-ltr.html">
+   1. How to Learn to Rank
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Ranknet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ranknet-teacher-student.html">
+   3. Ranknet - Teacher-Student strategy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/other/k-armed-bandits.html">
+   2. The Multi-Armed Bandits: Exploitation vs Exploration
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets/ranking-teams.html">
+   Ranking dataset - Teams
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/ranking/ranknet.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/ranking/ranknet.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ranknet-algorithm">
+   2.1. Ranknet algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-and-training-the-ranknet">
+   2.2. Building and training the ranknet
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="ranknet">
+<span id="id1"></span><h1><span class="section-number">2. </span>Ranknet<a class="headerlink" href="#ranknet" title="Permalink to this headline">¶</a></h1>
+<p>The algorithm called Ranknet is a way to train a neural network to assign a score to an observation in almost the same way we did manually in the previous section.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{D} = \{(\mathbf{x}_{i},y_{i}) | i \in \{1,2,...,N\}, \mathbf{x}_{i} \in \mathbf{X} \subset \mathbb{R}^{m} \text{ and } y_{i} \in \mathbb{R}^{1} \}\)</span> be a dataset with <span class="math notranslate nohighlight">\(m\)</span> features, 1 label and <span class="math notranslate nohighlight">\(N\)</span> obervations.</p>
+<p>Assuming we are solving a ranking problem, the label represents some kind of relevance. In this example we will assume that a label can have two values, <span class="math notranslate nohighlight">\(\{0,1\}\)</span>. So the definition above is changed to <span class="math notranslate nohighlight">\(y_{i} \in \{0,1\}\)</span>, where <span class="math notranslate nohighlight">\(1\)</span> means more relevance than <span class="math notranslate nohighlight">\(0\)</span>. In future examples we will see other kinds of relevance.</p>
+<p>To train a Ranknet one needs in each iteration to sample a pair of observations, <strong>one more relevant than the other</strong>. We will refer to them as:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}_{i,r}\)</span>: features vector of observation <span class="math notranslate nohighlight">\(i\)</span> which has relevance <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+</ul>
+<p>Since we know the relevance of an observation in sampling stage, we will refer to a relevant observation as <span class="math notranslate nohighlight">\(\mathbf{x}_{i,1}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}_{i,0}\)</span> to the non-relevant one.</p>
+<p>If you do not like the indices you can think the relevance being the label, such that <span class="math notranslate nohighlight">\(\mathbf{x}_{i,r}\)</span> becomes the pair <span class="math notranslate nohighlight">\(\left( \mathbf{x}_{i},y_{i} \right)\)</span>. It does not matter the way we identify the relevance of an observation, just remember, again, to sample two of them <strong>one more relevant than the other</strong>.</p>
+<p>Basically our model will be a map <span class="math notranslate nohighlight">\(f: \mathbf{X} \to \mathbb{R}^{1}\)</span>, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[f(\mathbf{x}_{i,r};\theta) = s_{i},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> are the set of parameters we want the model to learn. After that we use the same procedure as before: compute likelihood for each pairs, use the log-likelihood as an error and use the <span class="math notranslate nohighlight">\(\lambda{ij}\)</span> to update the model.</p>
+<div class="section" id="ranknet-algorithm">
+<h2><span class="section-number">2.1. </span>Ranknet algorithm<a class="headerlink" href="#ranknet-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>The algorithm to train our neural network is the following:</p>
+<div class="proof algorithm admonition" id="ranknet-">
+<p class="admonition-title"><span class="caption-number">Algorithm 2.1 </span> (Ranknet algorithm)</p>
+<div class="algorithm-content section" id="proof-content">
+<p><strong>Init</strong> weights <span class="math notranslate nohighlight">\(\theta\)</span> for model <span class="math notranslate nohighlight">\(f\)</span></p>
+<p>Repeat for T epochs:</p>
+<ul class="simple">
+<li><p>Sample <span class="math notranslate nohighlight">\(\mathbf{x}_{i,1},\mathbf{x}_{j,0} \sim \mathcal{D}\)</span></p>
+<ul>
+<li><p>Train and update <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<ul>
+<li><p>Compute scores</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(s_{i,1} = f(\mathbf{x}_{i,1};\theta)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_{j,0} = f(\mathbf{x}_{j,0};\theta)\)</span></p></li>
+</ul>
+</li>
+<li><p>Compute likelihood, <span class="math notranslate nohighlight">\(\sigma(s_{i,1},s_{j,0})\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(prob = sigmoid(s_{i,1},s_{j,0})\)</span></p></li>
+</ul>
+</li>
+<li><p>Compute loss:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L} \left( prob,1 \right)\)</span></p></li>
+</ul>
+</li>
+<li><p>Update <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\theta \leftarrow \theta + \gamma \lambda_{ij}\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><p>The parameter <span class="math notranslate nohighlight">\(\gamma\)</span> is the learning rate used to adjust the updating.</p>
+</div>
+<div class="section" id="building-and-training-the-ranknet">
+<h2><span class="section-number">2.2. </span>Building and training the ranknet<a class="headerlink" href="#building-and-training-the-ranknet" title="Permalink to this headline">¶</a></h2>
+<p>To train out model we will use the <a class="reference internal" href="../datasets/ranking-teams.html#ranking-dataset-teams"><span class="std std-ref">ranking teams dateset</span></a> defined in the datasets section.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">lr_scheduler</span>
+
+<span class="n">ngpu</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ngpu</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loader function</span>
+<span class="k">class</span> <span class="nc">CustomDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">idx</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span>
+
+<span class="k">def</span> <span class="nf">create_loader</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">workers</span><span class="p">,</span><span class="n">batch_size</span><span class="p">):</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">CustomDataset</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> 
+                        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                        <span class="n">num_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loader</span>
+
+<span class="c1"># neural network architecture</span>
+<span class="k">class</span> <span class="nc">Net</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span><span class="n">hidden_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span><span class="n">output_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">ngpu</span><span class="o">=</span><span class="n">ngpu</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Net</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span> <span class="o">=</span> <span class="n">input_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span> <span class="o">=</span> <span class="n">output_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">//</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="o">//</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)(</span><span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)(</span><span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden2</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)(</span><span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden3</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># initialize weights</span>
+<span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">:</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_normal_</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
+    
+<span class="c1"># function to define model</span>
+<span class="k">def</span> <span class="nf">define_model</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">hidden_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span><span class="n">output_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">ngpu</span><span class="o">=</span><span class="n">ngpu</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Net</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span><span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;cuda&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ngpu</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ngpu</span><span class="p">)))</span>
+        <span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">decoder</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ngpu</span><span class="p">)))</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">init_weights</span><span class="p">)</span>
+
+    <span class="n">learning_rate</span><span class="p">,</span> <span class="n">beta1</span><span class="p">,</span> <span class="n">beta2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.999</span><span class="p">]</span>
+    <span class="n">eps</span><span class="p">,</span><span class="n">weight_decay</span><span class="p">,</span><span class="n">amsgrad</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-8</span><span class="p">,</span><span class="mf">1e-3</span><span class="p">,</span><span class="kc">False</span><span class="p">]</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+                               <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+                               <span class="n">betas</span><span class="o">=</span><span class="p">(</span><span class="n">beta1</span><span class="p">,</span><span class="n">beta2</span><span class="p">),</span>
+                               <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span>
+                               <span class="n">weight_decay</span><span class="o">=</span><span class="n">weight_decay</span><span class="p">,</span>
+                               <span class="n">amsgrad</span><span class="o">=</span><span class="n">amsgrad</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span><span class="p">,</span><span class="n">optimizer</span>
+
+<span class="c1"># function to split observations of X in (X_relevant,X_irrelevant)</span>
+<span class="k">def</span> <span class="nf">build_data_batch</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">rel_data</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,:</span><span class="n">input_dim</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">irel_data</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="n">input_dim</span><span class="p">:]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rel_data</span><span class="p">,</span><span class="n">irel_data</span>
+
+<span class="k">def</span> <span class="nf">ones_tensor</span><span class="p">(</span><span class="n">data_size</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">data_size</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># training function</span>
+<span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">optimizer</span><span class="p">,</span><span class="n">loader</span><span class="p">,</span><span class="n">scheduler</span><span class="p">,</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="n">loss_his</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">loss_func</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">epochs</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">loss_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">X_train</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loader</span><span class="p">):</span>
+            <span class="n">rel_train</span><span class="p">,</span><span class="n">irel_train</span> <span class="o">=</span> <span class="n">build_data_batch</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+            <span class="n">ones</span> <span class="o">=</span> <span class="n">ones_tensor</span><span class="p">(</span><span class="n">rel_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">probs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">rel_train</span><span class="p">)</span><span class="o">-</span><span class="n">model</span><span class="p">(</span><span class="n">irel_train</span><span class="p">))</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span><span class="n">ones</span><span class="p">)</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">loss_his</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">epoch</span><span class="o">%</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">| Train loss: </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span><span class="p">,</span><span class="n">loss_his</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">team_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/ranking-teams-simulated.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">workers</span>      <span class="o">=</span> <span class="mi">12</span>
+<span class="n">batch_size</span>   <span class="o">=</span> <span class="mi">13</span>
+<span class="n">input_dim</span><span class="p">,</span><span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;data/ranking-teams.npy&quot;</span><span class="p">)</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">create_loader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span><span class="n">workers</span><span class="p">,</span><span class="n">batch_size</span><span class="p">)</span>
+
+<span class="n">model</span><span class="p">,</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">define_model</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span><span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">,</span><span class="n">ngpu</span><span class="p">)</span>
+<span class="n">lambda1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">epoch</span><span class="p">:</span> <span class="mf">0.95</span> <span class="o">**</span> <span class="n">epoch</span>
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">lr_scheduler</span><span class="o">.</span><span class="n">LambdaLR</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span><span class="n">lr_lambda</span><span class="o">=</span><span class="p">[</span><span class="n">lambda1</span><span class="p">],</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="p">,</span><span class="n">loss_his</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">optimizer</span><span class="p">,</span><span class="n">train_loader</span><span class="p">,</span><span class="n">scheduler</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_ranknet_scores</span><span class="p">(</span><span class="n">team_df</span><span class="p">,</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">team_df</span><span class="p">[[</span><span class="s2">&quot;att&quot;</span><span class="p">,</span><span class="s2">&quot;def&quot;</span><span class="p">,</span><span class="s2">&quot;sta&quot;</span><span class="p">,</span><span class="s2">&quot;coa&quot;</span><span class="p">,</span><span class="s2">&quot;int&quot;</span><span class="p">,</span><span class="s2">&quot;cre&quot;</span><span class="p">,</span><span class="s2">&quot;luc&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">team_df</span><span class="p">),</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">team_df</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_ranknet_scores</span><span class="p">(</span><span class="n">team_df</span><span class="p">,</span><span class="n">model</span><span class="p">)</span>
+<span class="n">team_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">team_df</span><span class="p">[[</span><span class="s2">&quot;potencial&quot;</span><span class="p">,</span><span class="s2">&quot;pontos&quot;</span><span class="p">,</span><span class="s2">&quot;score&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
+<span class="n">corr</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">r</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">dcg</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">max_dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ndcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+
+<span class="n">ndcg_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;potential&quot;</span><span class="p">,</span><span class="s2">&quot;points&quot;</span><span class="p">,</span><span class="s2">&quot;score&quot;</span><span class="p">,</span><span class="s2">&quot;att&quot;</span><span class="p">,</span><span class="s2">&quot;def&quot;</span><span class="p">,</span><span class="s2">&quot;sta&quot;</span><span class="p">,</span><span class="s2">&quot;coa&quot;</span><span class="p">,</span><span class="s2">&quot;int&quot;</span><span class="p">,</span><span class="s2">&quot;cre&quot;</span><span class="p">,</span><span class="s2">&quot;luc&quot;</span><span class="p">]:</span>
+    <span class="n">ndcg_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">col</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">team_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">col</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s2">&quot;potential&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">26</span><span class="p">]])</span>
+
+<span class="n">ndcg_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ndcg_list</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;feat&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ndcg_</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">26</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ndcg_df</span><span class="p">[</span><span class="n">ndcg_df</span><span class="p">[</span><span class="s2">&quot;feat&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;potential&quot;</span><span class="p">,</span><span class="s2">&quot;points&quot;</span><span class="p">,</span><span class="s2">&quot;score&quot;</span><span class="p">])]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ndcg_df</span><span class="p">[</span><span class="n">ndcg_df</span><span class="p">[</span><span class="s2">&quot;feat&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;att&quot;</span><span class="p">,</span><span class="s2">&quot;def&quot;</span><span class="p">,</span><span class="s2">&quot;sta&quot;</span><span class="p">,</span><span class="s2">&quot;coa&quot;</span><span class="p">,</span><span class="s2">&quot;int&quot;</span><span class="p">,</span><span class="s2">&quot;cre&quot;</span><span class="p">,</span><span class="s2">&quot;luc&quot;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/ranking"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="how-to-ltr.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>How to Learn to Rank</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ranknet-teacher-student.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Ranknet - Teacher-Student strategy</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
