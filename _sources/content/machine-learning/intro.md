@@ -2,6 +2,7 @@
 # What is machine learning?
 
 - {ref}`Bias and Variance<bias-variance>`
+- {ref}`Understanding regularization<understanding-regularization>`
 - {ref}`Laplace approximation<laplace-approximation>`
 - {ref}`Computing Hessian and Jacobian<computing-hessian-jacobian>`
 - {ref}`Counter factual model<counter-factual-model>`

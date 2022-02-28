@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12. Variational AutoEncoder &#8212; Disorder Transform</title>
+    <title>13. Variational AutoEncoder &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. How to Learn to Rank" href="../ranking/how-to-ltr.html" />
-    <link rel="prev" title="11. Neural Network as an Universal Approximator" href="nn-universal-approximator.html" />
+    <link rel="prev" title="12. Neural Network as an Universal Approximator" href="nn-universal-approximator.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -157,53 +157,58 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="understanding-regularization.html">
+   2. Understanding regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="laplace-approximation.html">
-   2. Laplace Approximation
+   3. Laplace Approximation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="computing-hessian-and-jacobian.html">
-   3. Computing Hessian and Jacobian
+   4. Computing Hessian and Jacobian
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="counter-factual-model.html">
-   4. Counter Factual Model
+   5. Counter Factual Model
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="intro-manifold.html">
-   6. Introdução ao Manifold Learning
+   7. Introdução ao Manifold Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="multidimensional-scaling.html">
-   7. Manifold Learning - Multidimensional Scaling
+   8. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="active-learning-strategy.html">
-   8. Active Learning
+   9. Active Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="k-means.html">
-   9. Expectation-Maximization Algorithm - k-Means
+   10. Expectation-Maximization Algorithm - k-Means
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dataloader-example.html">
-   10. Dataloader example
+   11. Dataloader example
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nn-universal-approximator.html">
-   11. Neural Network as an Universal Approximator
+   12. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   12. Variational AutoEncoder
+   13. Variational AutoEncoder
   </a>
  </li>
 </ul>
@@ -375,7 +380,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="variational-autoencoder">
-<span id="id1"></span><h1><span class="section-number">12. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">13. </span>Variational AutoEncoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <p>Variational AutoEncoders or VAE are a class of generative models based on latent variables. Suppose we have our multidimensional data <span class="math notranslate nohighlight">\(X\)</span> and we want to build a model from which we can sample data at least similar to <span class="math notranslate nohighlight">\(X\)</span>. We will make that with a multidimensional latent variable <span class="math notranslate nohighlight">\(Z\)</span> to create a map <span class="math notranslate nohighlight">\(f:Z \to X\)</span>.</p>
 <p>We need to model <span class="math notranslate nohighlight">\(p(X) = \int p(X \vert Z)dZ\)</span>, where <span class="math notranslate nohighlight">\(p(X,Z) = p(X \vert Z)p(Z)\)</span>.</p>
@@ -442,7 +447,7 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">11. </span>Neural Network as an Universal Approximator</p>
+            <p class="prev-next-title"><span class="section-number">12. </span>Neural Network as an Universal Approximator</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../ranking/how-to-ltr.html" title="next page">

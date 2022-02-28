@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Manifold Learning - Multidimensional Scaling &#8212; Disorder Transform</title>
+    <title>8. Manifold Learning - Multidimensional Scaling &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Active Learning" href="active-learning-strategy.html" />
-    <link rel="prev" title="6. Introdução ao Manifold Learning" href="intro-manifold.html" />
+    <link rel="next" title="9. Active Learning" href="active-learning-strategy.html" />
+    <link rel="prev" title="7. Introdução ao Manifold Learning" href="intro-manifold.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -157,53 +157,58 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="understanding-regularization.html">
+   2. Understanding regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="laplace-approximation.html">
-   2. Laplace Approximation
+   3. Laplace Approximation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="computing-hessian-and-jacobian.html">
-   3. Computing Hessian and Jacobian
+   4. Computing Hessian and Jacobian
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="counter-factual-model.html">
-   4. Counter Factual Model
+   5. Counter Factual Model
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="intro-manifold.html">
-   6. Introdução ao Manifold Learning
+   7. Introdução ao Manifold Learning
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Manifold Learning - Multidimensional Scaling
+   8. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="active-learning-strategy.html">
-   8. Active Learning
+   9. Active Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="k-means.html">
-   9. Expectation-Maximization Algorithm - k-Means
+   10. Expectation-Maximization Algorithm - k-Means
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dataloader-example.html">
-   10. Dataloader example
+   11. Dataloader example
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nn-universal-approximator.html">
-   11. Neural Network as an Universal Approximator
+   12. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="variational-autoencoder.html">
-   12. Variational AutoEncoder
+   13. Variational AutoEncoder
   </a>
  </li>
 </ul>
@@ -373,17 +378,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matriz-de-distancia">
-   7.1. Matriz de distância
+   8.1. Matriz de distância
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decomposicao-espectral">
-   7.2. Decomposição espectral
+   8.2. Decomposição espectral
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exemplo">
-     7.2.1. Exemplo
+     8.2.1. Exemplo
     </a>
    </li>
   </ul>
@@ -400,10 +405,10 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="manifold-learning-multidimensional-scaling">
-<span id="multidimensional-scaling"></span><h1><span class="section-number">7. </span>Manifold Learning - Multidimensional Scaling<a class="headerlink" href="#manifold-learning-multidimensional-scaling" title="Permalink to this headline">¶</a></h1>
+<span id="multidimensional-scaling"></span><h1><span class="section-number">8. </span>Manifold Learning - Multidimensional Scaling<a class="headerlink" href="#manifold-learning-multidimensional-scaling" title="Permalink to this headline">¶</a></h1>
 <p>Seguindo com o assunto de Manifold Learning vamos ver como funciona a técnica chamada <strong>Isometric map</strong>, mas um dos passos dela é uma técnica chamada <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling">Multidimensional Scaling (MDS)</a></strong>, por isso primeiro vamos ver como MDS funciona.</p>
 <div class="section" id="matriz-de-distancia">
-<h2><span class="section-number">7.1. </span>Matriz de distância<a class="headerlink" href="#matriz-de-distancia" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Matriz de distância<a class="headerlink" href="#matriz-de-distancia" title="Permalink to this headline">¶</a></h2>
 <p>Dado um dataset <span class="math notranslate nohighlight">\(X\)</span> com <span class="math notranslate nohighlight">\(n\)</span> observações e <span class="math notranslate nohighlight">\(D\)</span> dimensões, precisamos de uma matriz de distância <span class="math notranslate nohighlight">\(\mathcal{d} \in \mathbb{R}^{n \times n}\)</span>, ou seja, uma matriz em que cada elemento <span class="math notranslate nohighlight">\(d_{ij}\)</span> representa um tipo de distância da observação <span class="math notranslate nohighlight">\(x_{i}\)</span> até a observação <span class="math notranslate nohighlight">\(x_{j}\)</span>, desse modo, <span class="math notranslate nohighlight">\(d_{ii}\)</span> (os elementos da diagonal principal) são sempre iguais a zero. A distância escolhida em princípio pode ser qualquer uma, mas é usual utilizar a distância euclidiana:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{D}_{ij} = \vert \vert x_{i} - x_{j} \vert \vert^{2}\]</div>
@@ -418,7 +423,7 @@
 <p>Isso serve apenas para dizer que podemos fazer uma decomposição de <span class="math notranslate nohighlight">\(X^{T}X\)</span> em autovetores e usá-los em uma nova representação. No caso de redução de dimensionalidade, como em outras técnicas, escolhemos os <span class="math notranslate nohighlight">\(k\)</span> autovetores com maior módulo.</p>
 </div>
 <div class="section" id="decomposicao-espectral">
-<h2><span class="section-number">7.2. </span>Decomposição espectral<a class="headerlink" href="#decomposicao-espectral" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Decomposição espectral<a class="headerlink" href="#decomposicao-espectral" title="Permalink to this headline">¶</a></h2>
 <p>Fazemos agora um procedimento típico, encontrar:</p>
 <div class="math notranslate nohighlight">
 \[ X^{T}X = U \Lambda U^{T}\]</div>
@@ -427,7 +432,7 @@
 \[\mathcal{L} = \vert \vert U \Lambda U^{T} - \hat{X}^{T}X \vert \vert = \vert \vert X^{T}X - \hat{X}^{T}X \vert \vert\]</div>
 <p>que é resolvida por <span class="math notranslate nohighlight">\(\hat{X} = U \Lambda^{1/2}\)</span>. Se quisermos uma representação <span class="math notranslate nohighlight">\(k\)</span>-dimensional escolhemos os <span class="math notranslate nohighlight">\(k\)</span> maiores valores de <span class="math notranslate nohighlight">\(\Lambda\)</span>, os autovalores, e construímos a nova representação (o embedding) calculando os autovetores correspondentes. Os vetores de <span class="math notranslate nohighlight">\(\hat{X}\)</span> podem ser usados para projetar os vetores originais do dataset na nova representação.</p>
 <div class="section" id="exemplo">
-<h3><span class="section-number">7.2.1. </span>Exemplo<a class="headerlink" href="#exemplo" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.2.1. </span>Exemplo<a class="headerlink" href="#exemplo" title="Permalink to this headline">¶</a></h3>
 <p>Vejamos um exemplo simples, vamos gerar um dataset com valores quaisquer com <span class="math notranslate nohighlight">\(3\)</span> dimensões e vamos usar os princípios vistos acima para reduzir para <span class="math notranslate nohighlight">\(k=2\)</span> dimensões. Para facilitar o cálculo dos autovalores e autovetores faremos com o Tensorflow:</p>
 <!-- <img src="../assets/img/mds_01.png" style="float: left; margin-right: 10px;" /> -->
 <a class="reference internal image-reference" href="../../_images/mds_01.png"><img alt="mds_01" class="align-center" src="../../_images/mds_01.png" style="width: 500px;" /></a>
@@ -474,13 +479,13 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Introdução ao Manifold Learning</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Introdução ao Manifold Learning</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="active-learning-strategy.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Active Learning</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Active Learning</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
