@@ -21,6 +21,7 @@ parts:
   numbered: True
   chapters:
   - file: content/machine-learning/bias-variance
+  - file: content/machine-learning/understanding-regularization
   - file: content/machine-learning/laplace-approximation
   - file: content/machine-learning/computing-hessian-and-jacobian
   - file: content/machine-learning/counter-factual-model
