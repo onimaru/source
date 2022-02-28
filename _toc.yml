@@ -36,6 +36,8 @@ parts:
   numbered: True
   chapters:
   - file: content/ranking/how-to-ltr
+  - file: content/ranking/ranknet
+  - file: content/ranking/ranknet-teacher-student
 - caption: Reinforcement Learning
   numbered: True
   chapters:
@@ -53,3 +55,6 @@ parts:
   chapters:
   - file: content/extra/definitions
   - file: content/extra/symbol-index
+- caption: Datasets
+  chapters: 
+  - file: content/datasets/ranking-teams
