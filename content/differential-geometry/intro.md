@@ -1,3 +1,4 @@
+(differential-geometry)=
 # Problems and solutions in differential geometry
 
 ```{note}
