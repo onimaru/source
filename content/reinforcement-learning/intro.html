@@ -54,7 +54,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. The Multi-Armed Bandits: Exploitation vs Exploration" href="other/k-armed-bandits.html" />
+    <link rel="next" title="2. The Multi-Armed Bandits: Exploitation vs Exploration" href="other/k-armed-bandits.html" />
     <link rel="prev" title="3. Ranknet - Teacher-Student strategy" href="../ranking/ranknet-teacher-student.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -248,7 +248,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="other/k-armed-bandits.html">
-   3. The Multi-Armed Bandits: Exploitation vs Exploration
+   2. The Multi-Armed Bandits: Exploitation vs Exploration
   </a>
  </li>
 </ul>
@@ -399,64 +399,52 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   1. Beyond conventional machine learning
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#processos-de-decisao-de-markov-finitos-finite-mdps">
+   1.1. Processos de Decisao de Markov Finitos (finite MDPs)
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processos-de-decisao-de-markov-finitos-finite-mdps">
-   2. Processos de Decisao de Markov Finitos (finite MDPs)
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-interface-agente-ambiente">
+   1.2. A interface Agente-Ambiente
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mdps">
-     2.1. MDPs
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retornos-e-episodios">
+   1.3. Retornos e episódios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#politicas-e-funcoes-de-valor">
+   1.4. Políticas e funções de valor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#policies-deterministicas">
+   1.5. Policies determinísticas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#policies-estocasticas">
+   1.6. Policies estocásticas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#policies-categoricas">
+     1.6.1. Policies categóricas
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-interface-agente-ambiente">
-     2.2. A interface Agente-Ambiente
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#retornos-e-episodios">
-     2.3. Retornos e episódios
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#politicas-e-funcoes-de-valor">
-     2.4. Políticas e funções de valor
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#policies-deterministicas">
-     2.5. Policies determinísticas
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#policies-estocasticas">
-     2.6. Policies estocásticas
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#policies-categoricas">
-       2.6.1. Policies categóricas
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#policies-gaussianas-diagonais">
-       2.6.2. Policies gaussianas diagonais
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trajetorias">
-     2.7. Trajetórias
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#policies-gaussianas-diagonais">
+     1.6.2. Policies gaussianas diagonais
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trajetorias">
+   1.7. Trajetórias
+  </a>
  </li>
 </ul>
 
@@ -472,15 +460,12 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="beyond-conventional-machine-learning">
 <span id="reinforcement-learning"></span><h1><span class="section-number">1. </span>Beyond conventional machine learning<a class="headerlink" href="#beyond-conventional-machine-learning" title="Permalink to this headline">¶</a></h1>
 <p>🏗️</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="processos-de-decisao-de-markov-finitos-finite-mdps">
-<h1><span class="section-number">2. </span>Processos de Decisao de Markov Finitos (finite MDPs)<a class="headerlink" href="#processos-de-decisao-de-markov-finitos-finite-mdps" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="mdps">
-<h2><span class="section-number">2.1. </span>MDPs<a class="headerlink" href="#mdps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="processos-de-decisao-de-markov-finitos-finite-mdps">
+<h2><span class="section-number">1.1. </span>Processos de Decisao de Markov Finitos (finite MDPs)<a class="headerlink" href="#processos-de-decisao-de-markov-finitos-finite-mdps" title="Permalink to this headline">¶</a></h2>
 <p>MDPs são a formalização clássica da tomada de decisão sequential, onde ações influenciam não só as recompensas imediatas, mas também  situações subsequentes, ou estados, e recompensas futuras.</p>
 </div>
 <div class="section" id="a-interface-agente-ambiente">
-<h2><span class="section-number">2.2. </span>A interface Agente-Ambiente<a class="headerlink" href="#a-interface-agente-ambiente" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>A interface Agente-Ambiente<a class="headerlink" href="#a-interface-agente-ambiente" title="Permalink to this headline">¶</a></h2>
 <p>Aquele que aprende e é o tomador de decisões é chamado de agente (agent). a coisa com a qual ele interage, composta de tudo aquilo fora do agente, é chamado de ambiente (environment).</p>
 <p>A figura abaixo mostra a forma da interação entre os dois.</p>
 <p><strong>Inserir imagem</strong></p>
@@ -502,7 +487,7 @@ $<span class="math notranslate nohighlight">\(r(s,a,s^{'}) = \mathbb{E}\left[ R_
 <p>Em resumo o MDP é um framework abstrato e flexível que pode ser aplicado a problemas variados de diversas maneiras.</p>
 </div>
 <div class="section" id="retornos-e-episodios">
-<h2><span class="section-number">2.3. </span>Retornos e episódios<a class="headerlink" href="#retornos-e-episodios" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Retornos e episódios<a class="headerlink" href="#retornos-e-episodios" title="Permalink to this headline">¶</a></h2>
 <p>Em geral se quer que o agente maximize uma quantidade chamada retorno esperado (expectede return), <span class="math notranslate nohighlight">\(G_{t}\)</span>, que é definida como alguma função da sequência de recompensas que pode ser apenas uma soma
 $<span class="math notranslate nohighlight">\(G_{t} = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T},\)</span><span class="math notranslate nohighlight">\(
 onde \)</span>T$ é o passo final.</p>
@@ -518,7 +503,7 @@ Assim o retorno descontado pode também ser usado em tarefas episódicas. Indo m
 Assim \)</span>T<span class="math notranslate nohighlight">\( pode ser infinito ou \)</span>\gamma =1$, mas ão ambos.</p>
 </div>
 <div class="section" id="politicas-e-funcoes-de-valor">
-<h2><span class="section-number">2.4. </span>Políticas e funções de valor<a class="headerlink" href="#politicas-e-funcoes-de-valor" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Políticas e funções de valor<a class="headerlink" href="#politicas-e-funcoes-de-valor" title="Permalink to this headline">¶</a></h2>
 <p>Em vários algoritmos precisamos de funções para estimar o valor de um estado ou do par estado-ação. Seu papel é fornecer informação sobre o quanto a entrada é valiosa para o agente. Essa funções de valor são definidas de modo a respeitar algum padrão de comportamento, chamado de política (policy).</p>
 <p>Formalmente uma política é um mapeamento de estados para probabilidades de selecionar cada possível ação. Se um agente segue uma política <span class="math notranslate nohighlight">\(\pi\)</span> no tempo <span class="math notranslate nohighlight">\(t\)</span>, então <span class="math notranslate nohighlight">\(\pi(a \vert s)\)</span> é a probabilidade de <span class="math notranslate nohighlight">\(A_{t}=a\)</span> se <span class="math notranslate nohighlight">\(S_{t}=s\)</span>.</p>
 <p>Denotamos a função de valor de um estado sob a política <span class="math notranslate nohighlight">\(\pi\)</span> como <span class="math notranslate nohighlight">\(v_{\pi}(s)\)</span>. Essa é o retorno esperado se inicia-se em <span class="math notranslate nohighlight">\(s\)</span> seguindo a política <span class="math notranslate nohighlight">\(\pi\)</span> após isso:
@@ -539,7 +524,7 @@ $<span class="math notranslate nohighlight">\(q_{\pi}(s,a) = \mathbb{E}_{\pi} \l
 <p>O símbolo <span class="math notranslate nohighlight">\(\theta\)</span> representa os parâmetros das policies, usualmente são pesos de uma rede neural.</p>
 </div>
 <div class="section" id="policies-deterministicas">
-<h2><span class="section-number">2.5. </span>Policies determinísticas<a class="headerlink" href="#policies-deterministicas" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5. </span>Policies determinísticas<a class="headerlink" href="#policies-deterministicas" title="Permalink to this headline">¶</a></h2>
 <p>Exemplo: uma rede neural com duas camadas de tamanho 64 e ativação <code class="docutils literal notranslate"><span class="pre">tanh</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pi_net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
               <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">obs_dim</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>
@@ -557,7 +542,7 @@ $<span class="math notranslate nohighlight">\(q_{\pi}(s,a) = \mathbb{E}_{\pi} \l
 </div>
 </div>
 <div class="section" id="policies-estocasticas">
-<h2><span class="section-number">2.6. </span>Policies estocásticas<a class="headerlink" href="#policies-estocasticas" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6. </span>Policies estocásticas<a class="headerlink" href="#policies-estocasticas" title="Permalink to this headline">¶</a></h2>
 <p>Os tipos mais comuns são policies categoricas (para espaços de ação discretos) e gaussianas diagonais (para espaços de ação contínuos).</p>
 <p>Dois cálculos são importantes para usar e treinar policies estocásticas:</p>
 <ul class="simple">
@@ -565,14 +550,14 @@ $<span class="math notranslate nohighlight">\(q_{\pi}(s,a) = \mathbb{E}_{\pi} \l
 <li><p>calcular log likelihoods de ações particulares, <span class="math notranslate nohighlight">\(\log{\pi_{\theta}(a \vert s)}\)</span>.</p></li>
 </ul>
 <div class="section" id="policies-categoricas">
-<h3><span class="section-number">2.6.1. </span>Policies categóricas<a class="headerlink" href="#policies-categoricas" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.1. </span>Policies categóricas<a class="headerlink" href="#policies-categoricas" title="Permalink to this headline">¶</a></h3>
 <p><em>Sampling</em>: dadas as probabilidades para cada ação, frameworks como PyTorch e Tensorflow possuem ferramentas para fazer a amostragem.</p>
 <p><em>Log-Likelihood</em>: Denotando a última camada de probabilidades como <span class="math notranslate nohighlight">\(P_{\theta}(s)\)</span>. É um vetor com tantas entradas quantas forem as ações, então as ações podem ser tratadas como índices desse vetor. A log likelihood para uma ação <code class="docutils literal notranslate"><span class="pre">a</span></code> pode ser obtida indexando o vetor:</p>
 <div class="math notranslate nohighlight">
 \[\log{\pi_{\theta}(a \vert s_{t})} = \log{P_{\theta}(s)}_{a}\]</div>
 </div>
 <div class="section" id="policies-gaussianas-diagonais">
-<h3><span class="section-number">2.6.2. </span>Policies gaussianas diagonais<a class="headerlink" href="#policies-gaussianas-diagonais" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.2. </span>Policies gaussianas diagonais<a class="headerlink" href="#policies-gaussianas-diagonais" title="Permalink to this headline">¶</a></h3>
 <p>Uma distribuição gaussiana multivariada é descrita por um vetor médio, <span class="math notranslate nohighlight">\(\mu\)</span>, e uma matriz de covariância, <span class="math notranslate nohighlight">\(\Sigma\)</span>. No caso da distribuição diagonal a matriz de covariância tem apenas entradas na diagonal principal.</p>
 <p>Uma policy desse tipo tem uma rede neural que mapeia observações para ações médias, <span class="math notranslate nohighlight">\(\mu_{\theta}(s)\)</span>. A variância usualmente é transformada no log dos desvios padrões que, por sua vez, pode ser um parâmetro específico ou ser tb mapeada por uma rede neural.</p>
 <p><em>Sampling</em>: Dados o vetor médio, o desvio padrão e um vetor <span class="math notranslate nohighlight">\(z\)</span> de ruído de uma esfera gaussiana, <span class="math notranslate nohighlight">\(z \sum \mathbb{N}(0,I)\)</span>, a amostragem de uma ação pode ser calculada com:</p>
@@ -584,7 +569,7 @@ $<span class="math notranslate nohighlight">\(q_{\pi}(s,a) = \mathbb{E}_{\pi} \l
 </div>
 </div>
 <div class="section" id="trajetorias">
-<h2><span class="section-number">2.7. </span>Trajetórias<a class="headerlink" href="#trajetorias" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7. </span>Trajetórias<a class="headerlink" href="#trajetorias" title="Permalink to this headline">¶</a></h2>
 <p>Uma trajetória, <span class="math notranslate nohighlight">\(\tau\)</span>, é uma sequência de estados e ações:</p>
 <div class="math notranslate nohighlight">
 \[\tau = (s_{0},a_{0},s_{1},a_{1},...)\]</div>
@@ -630,7 +615,7 @@ $<span class="math notranslate nohighlight">\(q_{\pi}(s,a) = \mathbb{E}_{\pi} \l
     <a class='right-next' id="next-link" href="other/k-armed-bandits.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>The Multi-Armed Bandits: Exploitation vs Exploration</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>The Multi-Armed Bandits: Exploitation vs Exploration</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
