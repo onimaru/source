@@ -15,7 +15,7 @@ This just one method for training a model and can be used in practically all app
 
 Assuming we are solving a ranking problem, the label represents some kind of relevance. In this example we will assume that a label can have two values, $\{0,1\}$. So the definition above is changed to $y_{i} \in \{0,1\}$, where $1$ means more relevance than $0$. In future examples we will see other kinds of relevance. 
 
-As mentioned before, we need two models: teacher model (TM) and student model (SM). In this formulation these models can be any regression models you like.
+As mentioned before, we need two models: teacher model (TM) and student model (SM). In this formulation these models can be any gradient based regression models you like.
 
 To train a Ranknet one needs in each iteration to sample a pair of observations, one more relevant than the other. We will refer to them as:
 
@@ -52,7 +52,7 @@ Repeat for T epochs:
             - $\mathcal{L}_{teacher} \left( prob,1 \right)$
 
         - Update TM:
-            - $\theta_{t} \leftarrow \theta_{t} + \gamma_{t} \lambda_{ij}$ 
+            - $\theta_{t} \leftarrow \theta_{t} - \gamma_{t} \nabla \mathcal{L}_{teacher}$ 
 
     - For try in num_tries (it can be 1):  
 
@@ -72,7 +72,7 @@ Repeat for T epochs:
                 - $\mathcal{L}_{student} = \mathcal{L}_{student,i} + \mathcal{L}_{student,j}$
             
             - Update SM:
-                - $\theta_{s} \leftarrow \theta_{s} + \gamma_{s} \nabla \mathcal{L}_{student}$
+                - $\theta_{s} \leftarrow \theta_{s} - \gamma_{s} \nabla \mathcal{L}_{student}$
 ```
 
 The prediction quality of the student will not be as good as the one from the teacher, but it could be a small price to pay for using a simpler model. If the SM score are not converging to similar value as those of TM the `num_tries` parameter can be adjusted to let the student _"study"_ more. There is no mistery about the SM loss functions, we can use any like mean squared error.

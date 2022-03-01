@@ -400,13 +400,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-lambdas">
+   2.1. The lambdas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ranknet-algorithm">
-   2.1. Ranknet algorithm
+   2.2. Ranknet algorithm
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#building-and-training-the-ranknet">
-   2.2. Building and training the ranknet
+   2.3. Building and training the ranknet
   </a>
  </li>
 </ul>
@@ -434,9 +439,46 @@
 <p>Basically our model will be a map <span class="math notranslate nohighlight">\(f: \mathbf{X} \to \mathbb{R}^{1}\)</span>, i.e.,</p>
 <div class="math notranslate nohighlight">
 \[f(\mathbf{x}_{i,r};\theta) = s_{i},\]</div>
-<p>where <span class="math notranslate nohighlight">\(\theta\)</span> are the set of parameters we want the model to learn. After that we use the same procedure as before: compute likelihood for each pairs, use the log-likelihood as an error and use the <span class="math notranslate nohighlight">\(\lambda{ij}\)</span> to update the model.</p>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> are the set of parameters we want the model to learn. After that we use the same procedure as before: compute likelihood for each pairs, use the log-likelihood as an error and use the <span class="math notranslate nohighlight">\(\lambda{ij}\)</span> to update the model. However, we still need to understand the lambdas.</p>
+<div class="section" id="the-lambdas">
+<h2><span class="section-number">2.1. </span>The lambdas<a class="headerlink" href="#the-lambdas" title="Permalink to this headline">¶</a></h2>
+<p>We need to understand how to optimize our model. Our main resource is <a class="reference external" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf">this nice paper</a> by Christopher J.C. Burgers from Microsoft. So let us begin from the likelihood we already know, using a sigmoid function with parameters <span class="math notranslate nohighlight">\(\alpha\)</span> (the paper uses <span class="math notranslate nohighlight">\(\sigma\)</span> which could cause confusion, since usually people uses this symbol to the sigmoid function), such that the probability of item <span class="math notranslate nohighlight">\(i\)</span> should be ranked higher than item <span class="math notranslate nohighlight">\(j\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{ij} = \sigma(s_{i},s_{j}) = \frac{1}{1 + e^{-\alpha(s_{i}-s_{j})}}\]</div>
+<p>The model, <span class="math notranslate nohighlight">\(f\)</span>, outputs the scores, <span class="math notranslate nohighlight">\(s_{i}\)</span> and <span class="math notranslate nohighlight">\(s_{j}\)</span> and the probability is computed with these outputs. Since this is a probability we can use cross-entropy as the loss function:</p>
+<div class="math notranslate nohighlight">
+\[L = -P_{ij}\log{(\sigma_{ij})} - (1-P_{ij})\log{(1-\sigma_{ij})}\]</div>
+<p>The quantity <span class="math notranslate nohighlight">\(P_{ij}\)</span> is the true probability of item <span class="math notranslate nohighlight">\(i\)</span> being ranked higher than item <span class="math notranslate nohighlight">\(j\)</span>. Since in our modeling we are considering the first item always more relevant than the second, <span class="math notranslate nohighlight">\(P_{ij}\)</span> is always <span class="math notranslate nohighlight">\(1\)</span> and then we have simply the log-likelihood:</p>
+<div class="math notranslate nohighlight">
+\[L = - \log{\left(1 + e^{-\alpha(s_{i}-s_{j})} \right)}.\]</div>
+<p>This is the quantity we want to minimize during training and by using a gradient descent method we need the derivative of the loss w.r.t. the model parameters, <span class="math notranslate nohighlight">\(\theta\)</span> to update them:</p>
+<div class="math notranslate nohighlight">
+\[\theta_{k} = \theta_{k} - \gamma  \nabla_{\theta_{k}}L.\]</div>
+<p>However, <span class="math notranslate nohighlight">\(L\)</span> is explicitly a function of the scores of two different observations, not of <span class="math notranslate nohighlight">\(\theta_{k}\)</span>. Remember the loss is a functional of our model, usually represented as <span class="math notranslate nohighlight">\(L\left[f(\cdot ; \theta_{k}) \right]\)</span>. Thus, we need to do the derivative of <span class="math notranslate nohighlight">\(L\)</span> w.r.t. <span class="math notranslate nohighlight">\(\theta_{k}\)</span> using the chain rule:</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{\theta_{k}} L =  \frac{\partial L}{\partial \theta_{k}} = \frac{\partial L}{\partial f} \frac{\partial f}{\partial \theta_{k}}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(s_{i} = f(\mathbf{x}_{i}; \theta_{k})\)</span> we should write it considering both terms <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{\theta_{k}} L = \frac{\partial L}{\partial s_{i}} \frac{\partial s_{i}}{\partial \theta_{k}} + \frac{\partial L}{\partial s_{j}} \frac{\partial s_{j}}{\partial \theta_{k}}\]</div>
+<p>The derivatives <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial s_{i}}\)</span> and <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial s_{j}}\)</span> are easy to compute:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial s_{i}} = \frac{-\alpha}{1+e^{-\alpha(s_{i}-s_{j})}}e^{-\alpha(s_{i}-s_{j})} = \frac{-\alpha}{1+e^{\alpha(s_{i}-s_{j})}},\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial s_{j}} = \frac{\alpha}{1+e^{\alpha(s_{i}-s_{j})}}.\]</div>
+<p>They have the same intensity and oposite sign, <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial s_{i}} = - \frac{\partial L}{\partial s_{j}}\)</span>. We can now rewrite <span class="math notranslate nohighlight">\(\nabla_{\theta_{k}} L\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\nabla_{\theta_{k}} L &amp;= \frac{-\alpha}{1+e^{\alpha(s_{i}-s_{j})}} \left(\frac{\partial s_{i}}{\partial \theta_{k}} - \frac{\partial s_{j}}{\partial \theta_{k}} \right)\\
+    &amp;= \lambda_{ij}\left(\frac{\partial s_{i}}{\partial \theta_{k}} - \frac{\partial s_{j}}{\partial \theta_{k}} \right)
+\end{align}\end{split}\]</div>
+<p>Now we see that the lambdas are also functionals of the model and they control the intensity of the update in <span class="math notranslate nohighlight">\(\theta_{k}\)</span>. To complete the story we write the gradient descent full update as:</p>
+<div class="math notranslate nohighlight">
+\[\theta_{k} = \theta_{k} - \gamma  \lambda_{ij}\left(\frac{\partial s_{i}}{\partial \theta_{k}} - \frac{\partial s_{j}}{\partial \theta_{k}} \right).\]</div>
+<p>These calculations are just to understand how the technique works, in practice if we use the cross-entropy loss function with an autograd framework like Tensorflow and Pytorch, it will automatically compute the lambdas for us.</p>
+</div>
 <div class="section" id="ranknet-algorithm">
-<h2><span class="section-number">2.1. </span>Ranknet algorithm<a class="headerlink" href="#ranknet-algorithm" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Ranknet algorithm<a class="headerlink" href="#ranknet-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>The algorithm to train our neural network is the following:</p>
 <div class="proof algorithm admonition" id="ranknet-">
 <p class="admonition-title"><span class="caption-number">Algorithm 2.1 </span> (Ranknet algorithm)</p>
@@ -461,12 +503,12 @@
 </li>
 <li><p>Compute loss:</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{L} \left( prob,1 \right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(L \left( prob,1 \right)\)</span></p></li>
 </ul>
 </li>
 <li><p>Update <span class="math notranslate nohighlight">\(f\)</span>:</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(\theta \leftarrow \theta + \gamma \lambda_{ij}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta \leftarrow \theta - \gamma \nabla_{\theta_{k}}L\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -478,7 +520,7 @@
 </div><p>The parameter <span class="math notranslate nohighlight">\(\gamma\)</span> is the learning rate used to adjust the updating.</p>
 </div>
 <div class="section" id="building-and-training-the-ranknet">
-<h2><span class="section-number">2.2. </span>Building and training the ranknet<a class="headerlink" href="#building-and-training-the-ranknet" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Building and training the ranknet<a class="headerlink" href="#building-and-training-the-ranknet" title="Permalink to this headline">¶</a></h2>
 <p>To train out model we will use the <a class="reference internal" href="../datasets/ranking-teams.html#ranking-dataset-teams"><span class="std std-ref">ranking teams dateset</span></a> defined in the datasets section.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>

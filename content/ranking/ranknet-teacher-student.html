@@ -427,7 +427,7 @@
 <p>This just one method for training a model and can be used in practically all applications, not only in ranking problems.</p>
 </div>
 <p>Assuming we are solving a ranking problem, the label represents some kind of relevance. In this example we will assume that a label can have two values, <span class="math notranslate nohighlight">\(\{0,1\}\)</span>. So the definition above is changed to <span class="math notranslate nohighlight">\(y_{i} \in \{0,1\}\)</span>, where <span class="math notranslate nohighlight">\(1\)</span> means more relevance than <span class="math notranslate nohighlight">\(0\)</span>. In future examples we will see other kinds of relevance.</p>
-<p>As mentioned before, we need two models: teacher model (TM) and student model (SM). In this formulation these models can be any regression models you like.</p>
+<p>As mentioned before, we need two models: teacher model (TM) and student model (SM). In this formulation these models can be any gradient based regression models you like.</p>
 <p>To train a Ranknet one needs in each iteration to sample a pair of observations, one more relevant than the other. We will refer to them as:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{x}_{i,s,r}\)</span>: features vector of observation <span class="math notranslate nohighlight">\(i\)</span> from the Student set which has relevance <span class="math notranslate nohighlight">\(r\)</span>;</p></li>
@@ -469,7 +469,7 @@
 </li>
 <li><p>Update TM:</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(\theta_{t} \leftarrow \theta_{t} + \gamma_{t} \lambda_{ij}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta_{t} \leftarrow \theta_{t} - \gamma_{t} \nabla \mathcal{L}_{teacher}\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -499,7 +499,7 @@
 </li>
 <li><p>Update SM:</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(\theta_{s} \leftarrow \theta_{s} + \gamma_{s} \nabla \mathcal{L}_{student}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta_{s} \leftarrow \theta_{s} - \gamma_{s} \nabla \mathcal{L}_{student}\)</span></p></li>
 </ul>
 </li>
 </ul>
