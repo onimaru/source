@@ -4,9 +4,7 @@
 🏗️
 
 
-# Processos de Decisao de Markov Finitos (finite MDPs)
-
-## MDPs
+## Processos de Decisao de Markov Finitos (finite MDPs)
 
 MDPs são a formalização clássica da tomada de decisão sequential, onde ações influenciam não só as recompensas imediatas, mas também  situações subsequentes, ou estados, e recompensas futuras.
 
