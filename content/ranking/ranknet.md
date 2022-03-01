@@ -19,7 +19,53 @@ Basically our model will be a map $f: \mathbf{X} \to \mathbb{R}^{1}$, i.e.,
 
 $$f(\mathbf{x}_{i,r};\theta) = s_{i},$$
 
-where $\theta$ are the set of parameters we want the model to learn. After that we use the same procedure as before: compute likelihood for each pairs, use the log-likelihood as an error and use the $\lambda{ij}$ to update the model.
+where $\theta$ are the set of parameters we want the model to learn. After that we use the same procedure as before: compute likelihood for each pairs, use the log-likelihood as an error and use the $\lambda{ij}$ to update the model. However, we still need to understand the lambdas.
+
+## The lambdas
+
+We need to understand how to optimize our model. Our main resource is [this nice paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf) by Christopher J.C. Burgers from Microsoft. So let us begin from the likelihood we already know, using a sigmoid function with parameters $\alpha$ (the paper uses $\sigma$ which could cause confusion, since usually people uses this symbol to the sigmoid function), such that the probability of item $i$ should be ranked higher than item $j$ is given by:
+
+$$\sigma_{ij} = \sigma(s_{i},s_{j}) = \frac{1}{1 + e^{-\alpha(s_{i}-s_{j})}}$$
+
+The model, $f$, outputs the scores, $s_{i}$ and $s_{j}$ and the probability is computed with these outputs. Since this is a probability we can use cross-entropy as the loss function:
+
+$$L = -P_{ij}\log{(\sigma_{ij})} - (1-P_{ij})\log{(1-\sigma_{ij})}$$
+
+The quantity $P_{ij}$ is the true probability of item $i$ being ranked higher than item $j$. Since in our modeling we are considering the first item always more relevant than the second, $P_{ij}$ is always $1$ and then we have simply the log-likelihood:
+
+$$L = - \log{\left(1 + e^{-\alpha(s_{i}-s_{j})} \right)}.$$
+
+This is the quantity we want to minimize during training and by using a gradient descent method we need the derivative of the loss w.r.t. the model parameters, $\theta$ to update them:
+
+$$\theta_{k} = \theta_{k} - \gamma  \nabla_{\theta_{k}}L.$$
+
+However, $L$ is explicitly a function of the scores of two different observations, not of $\theta_{k}$. Remember the loss is a functional of our model, usually represented as $L\left[f(\cdot ; \theta_{k}) \right]$. Thus, we need to do the derivative of $L$ w.r.t. $\theta_{k}$ using the chain rule:
+
+$$\nabla_{\theta_{k}} L =  \frac{\partial L}{\partial \theta_{k}} = \frac{\partial L}{\partial f} \frac{\partial f}{\partial \theta_{k}}$$
+
+Since $s_{i} = f(\mathbf{x}_{i}; \theta_{k})$ we should write it considering both terms $i$ and $j$:
+
+$$\nabla_{\theta_{k}} L = \frac{\partial L}{\partial s_{i}} \frac{\partial s_{i}}{\partial \theta_{k}} + \frac{\partial L}{\partial s_{j}} \frac{\partial s_{j}}{\partial \theta_{k}}$$
+
+The derivatives $\frac{\partial L}{\partial s_{i}}$ and $\frac{\partial L}{\partial s_{j}}$ are easy to compute:
+
+$$\frac{\partial L}{\partial s_{i}} = \frac{-\alpha}{1+e^{-\alpha(s_{i}-s_{j})}}e^{-\alpha(s_{i}-s_{j})} = \frac{-\alpha}{1+e^{\alpha(s_{i}-s_{j})}},$$
+
+$$\frac{\partial L}{\partial s_{j}} = \frac{\alpha}{1+e^{\alpha(s_{i}-s_{j})}}.$$
+
+They have the same intensity and oposite sign, $\frac{\partial L}{\partial s_{i}} = - \frac{\partial L}{\partial s_{j}}$. We can now rewrite $\nabla_{\theta_{k}} L$:
+
+$$
+\begin{align}
+\nabla_{\theta_{k}} L &= \frac{-\alpha}{1+e^{\alpha(s_{i}-s_{j})}} \left(\frac{\partial s_{i}}{\partial \theta_{k}} - \frac{\partial s_{j}}{\partial \theta_{k}} \right)\\
+    &= \lambda_{ij}\left(\frac{\partial s_{i}}{\partial \theta_{k}} - \frac{\partial s_{j}}{\partial \theta_{k}} \right)
+\end{align}$$
+
+Now we see that the lambdas are also functionals of the model and they control the intensity of the update in $\theta_{k}$. To complete the story we write the gradient descent full update as:
+
+$$\theta_{k} = \theta_{k} - \gamma  \lambda_{ij}\left(\frac{\partial s_{i}}{\partial \theta_{k}} - \frac{\partial s_{j}}{\partial \theta_{k}} \right).$$
+
+These calculations are just to understand how the technique works, in practice if we use the cross-entropy loss function with an autograd framework like Tensorflow and Pytorch, it will automatically compute the lambdas for us.
 
 ## Ranknet algorithm
 
@@ -39,9 +85,9 @@ Repeat for T epochs:
         - Compute likelihood, $\sigma(s_{i,1},s_{j,0})$  
             - $prob = sigmoid(s_{i,1},s_{j,0})$  
         - Compute loss:
-            - $\mathcal{L} \left( prob,1 \right)$
+            - $L \left( prob,1 \right)$
         - Update $f$:
-            - $\theta \leftarrow \theta + \gamma \lambda_{ij}$ 
+            - $\theta \leftarrow \theta - \gamma \nabla_{\theta_{k}}L$ 
 ```
 
 The parameter $\gamma$ is the learning rate used to adjust the updating.
