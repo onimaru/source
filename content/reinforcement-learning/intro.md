@@ -17,17 +17,28 @@ A figura abaixo mostra a forma da interação entre os dois.
 **Inserir imagem**
 
 Os dois interagem a cada sequência de passos de um tempo discreto, $t$. A cada passo $t$ o agente recebe uma representação do estado do ambiente, $S_{t}\in \mathcal{S}$, e baseado nisso seleciona uma ação $A_{t}\in \mathcal{A}(s)$. No passo de tempo seguinte o agente, como consequência de sua ação, recebe um valor numérico como recompensa, $R_{t+1}\in \mathcal{R} \subset \mathbb{R}$, e se encontra em um novo estado, $S_{t+1}$. O MDP e o agente juntos dão assim origem a uma sequência ou trajetória como esta:
+
 $$S_{0},A_{0},R_{1},S_{1},A_{1},R_{2},S_{2},A_{2},R_{3},...$$
+
 Em um MDP finito os conjuntos $\mathcal{S},\mathcal{A}$ e $\mathcal{R}$ têm número de elementos finitos. Nesse caso, as variáveis aleatórias $R_{t}$ e $S_{t}$ têm definidas distribuições de probabilidade discretas dependente somente do estado e da ação anteriores. Assim:
+
 $$p(s^{'},r \vert s,a) = P \lbrace S_{t}=s^{'},R_{t}=r \vert S_{t-1}=s,A_{t-1}=a \rbrace,\ \forall s^{'},s \in \mathcal{S}, r \in \mathcal{R}\ \text{e } a \in \mathcal{A}.$$
+
 Perceba que como $p$ é uma probabilidade:
+
 $$\sum_{s^{'}} \sum_{r} p(s^{'},r \vert s,a) = 1,\ \forall s \in \mathcal{S} \text{ e } a \in \mathcal{A}.$$
+
 Em um MDP a probabilidades dadas por $p$ caracterizam completamente a dinâmica do ambiente e através dela podemos obter outras quantidades como:
 - Probabilidades de transição de estado, $p:\mathcal{S} \times \mathcal{S} \times \mathcal{A} \rightarrow [0,1]$
+
 $$p(s^{'} \vert s,a) = P \lbrace S_{t}=s^{'}\vert S_{t-1}=s,A_{t-1}=a \rbrace = \sum_{r}p(s^{'},r \vert s,a)$$
+
 - Recompensa esperada para o par estado-ação, $r:\mathcal{S} \times \mathcal{A} \rightarrow \mathbb{R}$
+
 $$r(s,a) = \mathbb{E}\left[ R_{t} \vert S_{t-1}=s,A_{t-1}=a \right] = \sum_{r} r \sum_{s^{'}} p(s^{'},r \vert s,a)$$
+
 - Recompensa esperada para a tripla estado-ação-estado seguinte, $r:\mathcal{S} \times \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{R}$
+
 $$r(s,a,s^{'}) = \mathbb{E}\left[ R_{t} \vert S_{t-1}=s,A_{t-1}=a, S_{t}=s^{'} \right] = \sum_{r} r \frac{p(s^{'},r \vert s,a)}{p(s^{'} \vert s,a)}.$$
 
 Em resumo o MDP é um framework abstrato e flexível que pode ser aplicado a problemas variados de diversas maneiras.
@@ -65,6 +76,7 @@ $$v_{\pi}(s) = \sum_{a} \pi(a \vert s) \sum_{s^{'},r} p(s^{'},r \vert s,a)\left[
 que é chamada de equação de Bellman para $v_{\pi}$.
 
 De modo similar, o valor de tomar a ação $a$ em um estado $s$, seguindo a política $\pi$, $q_{\pi}(s,a)$, é:
+
 $$q_{\pi}(s,a) = \mathbb{E}_{\pi} \left[ G_{t} \vert S_{t}=s,A_{t}=a \right] = \mathbb{E}_{\pi} \left[ \sum_{k=0}^{\infty} \gamma^{k} R_{t+k+1} \vert S_{t}, A_{t}=a \right],\ \forall s \in \mathcal{S}.$$
 
 Usualmente $v_{\pi}(s)$ é chamada de função de valor de estado e $q_{\pi}(s,a)$ de função de valor de estado-ação. Essas quantidades podem ser estimadas através da experiência do agente.
