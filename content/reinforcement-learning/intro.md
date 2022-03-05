@@ -47,20 +47,32 @@ Em resumo o MDP é um framework abstrato e flexível que pode ser aplicado a pro
 
 
 Em geral se quer que o agente maximize uma quantidade chamada retorno esperado (expectede return), $G_{t}$, que é definida como alguma função da sequência de recompensas que pode ser apenas uma soma
+
 $$G_{t} = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T},$$
+
 onde $T$ é o passo final.
 
 No caso de uma tarefa não episódica, tarefa contínua, precisamos de um conceito adicional, o retorno descontado:
+
 $$G_{t} = R_{t+1}+\gamma R_{t+2}+ \gamma^{2} R_{t+3}+... = \sum_{k=0}^{\infty} \gamma^{k}R_{t+k+1},$$
+
 onde $\gamma$ é um parâmetro, $0 \le \gamma \le 1$, chamado taxa de desconto.
 
 Podemos obter uma relação útil com
-$$G_{t} = R_{t+1}+\gamma R_{t+2}+ \gamma^{2} R_{t+3}+...$$
-$$G_{t} = R_{t+1}+\gamma \left( R_{t+2}+ \gamma R_{t+3}+... \right)$$
-$$G_{t} = R_{t+1}+\gamma G_{t+1}$$
+
+$$
+\begin{align}
+G_{t} &= R_{t+1}+\gamma R_{t+2}+ \gamma^{2} R_{t+3}+...\\
+      &= R_{t+1}+\gamma \left( R_{t+2}+ \gamma R_{t+3}+... \right)\\
+      &= R_{t+1}+\gamma G_{t+1}
+\end{align}
+$$
+
 Assim o retorno descontado pode também ser usado em tarefas episódicas. Indo mais além podem definir:
+
 $$G_{t} = \sum_{k=t+1}^{T}\gamma^{k-t-1} R_{k}$$
-Assim $T$ pode ser infinito ou $\gamma =1$, mas ão ambos.
+
+Assim $T$ pode ser infinito ou $\gamma =1$, mas não ambos.
 
 ## Políticas e funções de valor
 
@@ -70,9 +82,13 @@ Em vários algoritmos precisamos de funções para estimar o valor de um estado 
 Formalmente uma política é um mapeamento de estados para probabilidades de selecionar cada possível ação. Se um agente segue uma política $\pi$ no tempo $t$, então $\pi(a \vert s)$ é a probabilidade de $A_{t}=a$ se $S_{t}=s$.
 
 Denotamos a função de valor de um estado sob a política $\pi$ como $v_{\pi}(s)$. Essa é o retorno esperado se inicia-se em $s$ seguindo a política $\pi$ após isso:
+
 $$v_{\pi}(s) = \mathbb{E}_{\pi} \left[ G_{t} \vert S_{t}=s \right] = \mathbb{E}_{\pi} \left[ \sum_{k=0}^{\infty} \gamma^{k} R_{t+k+1} \vert S_{t} \right],\ \forall s \in \mathcal{S}.$$
+
 Desta maneira o valor do estado final é sempre zero. Utilizando umas das relações acima podemos escrever:
+
 $$v_{\pi}(s) = \sum_{a} \pi(a \vert s) \sum_{s^{'},r} p(s^{'},r \vert s,a)\left[r + \gamma v_{\pi}(s^{'}) \right]$$
+
 que é chamada de equação de Bellman para $v_{\pi}$.
 
 De modo similar, o valor de tomar a ação $a$ em um estado $s$, seguindo a política $\pi$, $q_{\pi}(s,a)$, é:
