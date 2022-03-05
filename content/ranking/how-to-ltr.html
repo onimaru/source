@@ -131,18 +131,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../math/gradient-descent.html">
+   6. Gradiente descendente/ascendente
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../math/lagrange-multipliers.html">
-   6. Multiplicadores de Lagrange
+   7. Multiplicadores de Lagrange
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../math/method-of-kernels.html">
-   7. Method of kernels
+   8. Method of kernels
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../math/integer-programming-resource.html">
-   8. Integer Programming
+   9. Integer Programming
   </a>
  </li>
 </ul>
@@ -247,7 +252,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../reinforcement-learning/other/k-armed-bandits.html">
+  <a class="reference internal" href="../reinforcement-learning/k-armed-bandits.html">
    2. The Multi-Armed Bandits: Exploitation vs Exploration
   </a>
  </li>
@@ -460,7 +465,8 @@
 </div>
 <div class="section" id="sigmoid-function">
 <h2><span class="section-number">1.1. </span>Sigmoid function<a class="headerlink" href="#sigmoid-function" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="../../_images/sigmoid.gif"><img alt="sigmoid" class="align-center" src="../../_images/sigmoid.gif" style="width: 300px;" /></a>
+<div class="math notranslate nohighlight">
+\[\sigma = \frac{1}{1+e^{-\alpha \left(s_{i}-s_{j} \right)}}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">sj</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
@@ -521,7 +527,8 @@
 <div class="section" id="log-likelihood-error">
 <h2><span class="section-number">1.2. </span>Log-Likelihood Error<a class="headerlink" href="#log-likelihood-error" title="Permalink to this headline">¶</a></h2>
 <p>Using the log-likelihood as a risk of the assumption <em>“item <span class="math notranslate nohighlight">\(i\)</span> is more relevant than item <span class="math notranslate nohighlight">\(j\)</span>”</em>.</p>
-<a class="reference internal image-reference" href="../../_images/log_sigmoid.gif"><img alt="log_sigmoid" class="align-center" src="../../_images/log_sigmoid.gif" style="width: 400px;" /></a>
+<div class="math notranslate nohighlight">
+\[-\log{(\sigma)} = \log{ \left[ 1 + e^{-\alpha \left(s_{i}-s_{j} \right)} \right]}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loss_func_</span><span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">sj</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>

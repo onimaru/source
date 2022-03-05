@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Method of kernels &#8212; Disorder Transform</title>
+    <title>8. Method of kernels &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Integer Programming" href="integer-programming-resource.html" />
-    <link rel="prev" title="6. Multiplicadores de Lagrange" href="lagrange-multipliers.html" />
+    <link rel="next" title="9. Integer Programming" href="integer-programming-resource.html" />
+    <link rel="prev" title="7. Multiplicadores de Lagrange" href="lagrange-multipliers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -131,18 +131,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="gradient-descent.html">
+   6. Gradiente descendente/ascendente
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lagrange-multipliers.html">
-   6. Multiplicadores de Lagrange
+   7. Multiplicadores de Lagrange
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Method of kernels
+   8. Method of kernels
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="integer-programming-resource.html">
-   8. Integer Programming
+   9. Integer Programming
   </a>
  </li>
 </ul>
@@ -247,7 +252,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../reinforcement-learning/other/k-armed-bandits.html">
+  <a class="reference internal" href="../reinforcement-learning/k-armed-bandits.html">
    2. The Multi-Armed Bandits: Exploitation vs Exploration
   </a>
  </li>
@@ -418,27 +423,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kernel-linear">
-   7.1. Kernel linear
+   8.1. Kernel linear
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kernel-polinomial-de-grau-2">
-   7.2. Kernel polinomial de grau 2
+   8.2. Kernel polinomial de grau 2
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kernel-exponencial-do-kernel-linear">
-   7.3. Kernel exponencial do kernel linear
+   8.3. Kernel exponencial do kernel linear
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kernel-customizado-1-distancia-euclidiana">
-   7.4. Kernel customizado 1 - distância euclidiana
+   8.4. Kernel customizado 1 - distância euclidiana
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kernel-gaussiano">
-   7.5. Kernel gaussiano
+   8.5. Kernel gaussiano
   </a>
  </li>
 </ul>
@@ -453,7 +458,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="method-of-kernels">
-<span id="id1"></span><h1><span class="section-number">7. </span>Method of kernels<a class="headerlink" href="#method-of-kernels" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">8. </span>Method of kernels<a class="headerlink" href="#method-of-kernels" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -537,7 +542,7 @@
 </div>
 </div>
 <div class="section" id="kernel-linear">
-<h2><span class="section-number">7.1. </span>Kernel linear<a class="headerlink" href="#kernel-linear" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Kernel linear<a class="headerlink" href="#kernel-linear" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform_X</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -570,7 +575,7 @@
 </div>
 </div>
 <div class="section" id="kernel-polinomial-de-grau-2">
-<h2><span class="section-number">7.2. </span>Kernel polinomial de grau 2<a class="headerlink" href="#kernel-polinomial-de-grau-2" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Kernel polinomial de grau 2<a class="headerlink" href="#kernel-polinomial-de-grau-2" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform_X</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -603,7 +608,7 @@
 </div>
 </div>
 <div class="section" id="kernel-exponencial-do-kernel-linear">
-<h2><span class="section-number">7.3. </span>Kernel exponencial do kernel linear<a class="headerlink" href="#kernel-exponencial-do-kernel-linear" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Kernel exponencial do kernel linear<a class="headerlink" href="#kernel-exponencial-do-kernel-linear" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform_X</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -642,7 +647,7 @@
 </div>
 </div>
 <div class="section" id="kernel-customizado-1-distancia-euclidiana">
-<h2><span class="section-number">7.4. </span>Kernel customizado 1 - distância euclidiana<a class="headerlink" href="#kernel-customizado-1-distancia-euclidiana" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Kernel customizado 1 - distância euclidiana<a class="headerlink" href="#kernel-customizado-1-distancia-euclidiana" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform_X</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -684,7 +689,7 @@
 </div>
 </div>
 <div class="section" id="kernel-gaussiano">
-<h2><span class="section-number">7.5. </span>Kernel gaussiano<a class="headerlink" href="#kernel-gaussiano" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Kernel gaussiano<a class="headerlink" href="#kernel-gaussiano" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform_X</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -756,13 +761,13 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Multiplicadores de Lagrange</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Multiplicadores de Lagrange</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="integer-programming-resource.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Integer Programming</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Integer Programming</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

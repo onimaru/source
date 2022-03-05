@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Integer Programming &#8212; Disorder Transform</title>
+    <title>9. Integer Programming &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. Bias and Variance" href="../machine-learning/bias-variance.html" />
-    <link rel="prev" title="7. Method of kernels" href="method-of-kernels.html" />
+    <link rel="prev" title="8. Method of kernels" href="method-of-kernels.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -129,18 +129,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="gradient-descent.html">
+   6. Gradiente descendente/ascendente
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lagrange-multipliers.html">
-   6. Multiplicadores de Lagrange
+   7. Multiplicadores de Lagrange
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="method-of-kernels.html">
-   7. Method of kernels
+   8. Method of kernels
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. Integer Programming
+   9. Integer Programming
   </a>
  </li>
 </ul>
@@ -245,7 +250,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../reinforcement-learning/other/k-armed-bandits.html">
+  <a class="reference internal" href="../reinforcement-learning/k-armed-bandits.html">
    2. The Multi-Armed Bandits: Exploitation vs Exploration
   </a>
  </li>
@@ -416,17 +421,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lista-de-restricoes">
-   8.1. Lista de restrições
+   9.1. Lista de restrições
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#solucao-e-resultados">
-   8.2. Solução e resultados
+   9.2. Solução e resultados
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#logs">
-   8.3. logs
+   9.3. logs
   </a>
  </li>
 </ul>
@@ -441,7 +446,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="integer-programming">
-<span id="id1"></span><h1><span class="section-number">8. </span>Integer Programming<a class="headerlink" href="#integer-programming" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">9. </span>Integer Programming<a class="headerlink" href="#integer-programming" title="Permalink to this headline">¶</a></h1>
 <p>This is an example of solving a integer resource allocation problem with <code class="docutils literal notranslate"><span class="pre">pulp</span></code> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,7 +536,7 @@
 </div>
 </div>
 <div class="section" id="lista-de-restricoes">
-<h2><span class="section-number">8.1. </span>Lista de restrições<a class="headerlink" href="#lista-de-restricoes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Lista de restrições<a class="headerlink" href="#lista-de-restricoes" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">prob</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -626,7 +631,7 @@ min_plantonistas_week_s5              : andre_s5 + corbalan_s5 + denis_s5 + fabi
 </div>
 </div>
 <div class="section" id="solucao-e-resultados">
-<h2><span class="section-number">8.2. </span>Solução e resultados<a class="headerlink" href="#solucao-e-resultados" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Solução e resultados<a class="headerlink" href="#solucao-e-resultados" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># chama o solver</span>
@@ -694,7 +699,7 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </div>
 </div>
 <div class="section" id="logs">
-<h2><span class="section-number">8.3. </span>logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3. </span>logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">LpStatus</span><span class="p">[</span><span class="n">prob</span><span class="o">.</span><span class="n">status</span><span class="p">])</span>
@@ -1174,7 +1179,7 @@ dtype: int64
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Method of kernels</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Method of kernels</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../machine-learning/bias-variance.html" title="next page">
