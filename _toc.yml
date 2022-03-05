@@ -14,6 +14,7 @@ parts:
   - file: content/math/information-theory
   - file: content/math/simple-example-of-maximum-likelihood
   - file: content/math/eigen-decomposition
+  - file: content/math/gradient-descent
   - file: content/math/lagrange-multipliers
   - file: content/math/method-of-kernels
   - file: content/math/integer-programming-resource
@@ -42,7 +43,7 @@ parts:
   numbered: True
   chapters:
   - file: content/reinforcement-learning/intro
-  - file: content/reinforcement-learning/other/k-armed-bandits
+  - file: content/reinforcement-learning/k-armed-bandits
 - caption: Differential Geometry
   numbered: True
   chapters:
