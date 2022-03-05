@@ -1,5 +1,5 @@
 (gradient-descent)=
-# Gradiente descendente/ascendente
+# Gradiente descendente
 
 Dada uma função $f(x)$, queremos aproximá-la usando uma função com parâmetros $w$, digamos $g(x;w)$. Queremos saber quais são os valores dos parâmetros que minimizam alguma forma de diferença entre as duas funções.
 
