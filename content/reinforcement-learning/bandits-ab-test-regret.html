@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. AB test and the regret &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. The Multi-Armed Bandits: Exploitation vs Exploration" href="k-armed-bandits.html" />
+    <link rel="prev" title="1. Beyond conventional machine learning" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Disorder Transform
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/probability-distributions.html">
+   2. Distribuições de probabilidade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/information-theory.html">
+   3. Entropia e informação mútua
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/simple-example-of-maximum-likelihood.html">
+   4. Maximum Likelihood Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/eigen-decomposition.html">
+   5. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/gradient-descent.html">
+   6. Gradiente descendente
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/lagrange-multipliers.html">
+   7. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/method-of-kernels.html">
+   8. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/integer-programming-resource.html">
+   9. Integer Programming
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/bias-variance.html">
+   1. Bias and Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/understanding-regularization.html">
+   2. Understanding regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/laplace-approximation.html">
+   3. Laplace Approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/computing-hessian-and-jacobian.html">
+   4. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/counter-factual-model.html">
+   5. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/intro-manifold.html">
+   7. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/multidimensional-scaling.html">
+   8. Manifold Learning - Multidimensional Scaling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
+   9. Active Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/k-means.html">
+   10. Expectation-Maximization Algorithm - k-Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/dataloader-example.html">
+   11. Dataloader example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
+   12. Neural Network as an Universal Approximator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
+   13. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ranking Problems
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/how-to-ltr.html">
+   1. How to Learn to Rank
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet.html">
+   2. Ranknet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet-teacher-student.html">
+   3. Ranknet - Teacher-Student strategy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. AB test and the regret
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="k-armed-bandits.html">
+   3. The Multi-Armed Bandits: Exploitation vs Exploration
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets/ranking-teams.html">
+   Ranking dataset - Teams
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/reinforcement-learning/bandits-ab-test-regret.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/reinforcement-learning/bandits-ab-test-regret.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multi-armed-bandits">
+   2.1. Multi-Armed Bandits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-different-agents">
+   2.2. Testing different agents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-success-rate-estimates">
+     2.2.1. Checking success rate estimates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exposure">
+     2.2.2. Exposure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regret">
+     2.2.3. Regret
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="ab-test-and-the-regret">
+<span id="bandits-ab-test-regret"></span><h1><span class="section-number">2. </span>AB test and the regret<a class="headerlink" href="#ab-test-and-the-regret" title="Permalink to this headline">¶</a></h1>
+<p>Let us suppose we developed two additional models that act in retrieving good products in our search engine. Let us call these models A and B and we also have our current model, C. Let us also suppose there is a metric of success for each time a user is exposed to a model, let us say a click. This is not the best reward signal we could use, but it is simple enough to our example.</p>
+<p>How can we compare these models to use the best one?</p>
+<ul class="simple">
+<li><p>The most common way is to make an AB test, only two models at the same time;</p></li>
+<li><p>A multiple AB test, i.e., more than two models at the same time;</p></li>
+</ul>
+<p>It does not matter which strategy we use. The models can be randomly exposed to user and after some time the decision is made in favor of one of them. Let us say we tested the models for a month and model A was victorious with the following numbers:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>#sucess</p></th>
+<th class="head"><p>#failures</p></th>
+<th class="head"><p>exposure</p></th>
+<th class="head"><p>success fraction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>65000</p></td>
+<td><p>435000</p></td>
+<td><p>500000</p></td>
+<td><p>0.130</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>50000</p></td>
+<td><p>400000</p></td>
+<td><p>450000</p></td>
+<td><p>0.111</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>45000</p></td>
+<td><p>505000</p></td>
+<td><p>550000</p></td>
+<td><p>0.082</p></td>
+</tr>
+</tbody>
+</table>
+<p>There is nothing wrong in doing this kind of experiment to choose the best model, but we can point out some “flaws”:</p>
+<ul class="simple">
+<li><p>During this month one million users were exposed to other models rather the best one. If this population was exposed to model A we could have about 130000 successes rather than 95000. This difference (130000 - 95000 = 35000) is called regret.</p></li>
+<li><p>The population exposed to models during this month can change its behavior in the future. This means that if we test the same models in the future, the result could be different.</p></li>
+</ul>
+<p>If we could have a method to better decide which model expose to a user each time, i.e., not randomly, the regret could be minimized and the models could the tested for much longer periods or we could just let more than one in production all the time.</p>
+<p>The so called Multi-Armed Bandits is a simple reinforcement learning strategy that has these benefeats.</p>
+<div class="section" id="multi-armed-bandits">
+<h2><span class="section-number">2.1. </span>Multi-Armed Bandits<a class="headerlink" href="#multi-armed-bandits" title="Permalink to this headline">¶</a></h2>
+<p>The idea is simple:</p>
+<ol class="simple">
+<li><p>At time <span class="math notranslate nohighlight">\(t\)</span> a user request arrives at the agent;</p></li>
+<li><p>The agent decides which of the following models will be exposed to the user;</p></li>
+<li><p>The model is exposed;</p></li>
+<li><p>The results of the exposition are collected.</p></li>
+<li><p>At time <span class="math notranslate nohighlight">\(t+1\)</span> another request arrives and the steps 1, 2, 3 and 4 are repeated.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/agent-abc-test.png"><img alt="agent-abc-test" class="align-center" src="../../_images/agent-abc-test.png" style="width: 500px;" /></a>
+<p>We may design the system not to making the decision in each request, but maybe every interval <span class="math notranslate nohighlight">\(T\)</span> (a minute, an hour, a day). If <span class="math notranslate nohighlight">\(T\)</span> is too big (depends on the problem) we are probably using the wrong solution, go to the simple AB test. The ideal case is a decision made in each request, but a decision proccess every 5 minutes may not hurt the performance.</p>
+<p>The second step is the key to solve the problem and it is simple: the agent chooses the model based on the amount of successes and exposures it had previously, i.e., the agent acts choosing a model, so it needs a way to compute the a value for each action. Let us define some quantities:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_{t}\)</span> - Reward received at time <span class="math notranslate nohighlight">\(t\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_{t}\)</span> - Action at time <span class="math notranslate nohighlight">\(t\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> - Number of possible actions;</p></li>
+<li><p><span class="math notranslate nohighlight">\(N(a)\)</span> - The number of times action <span class="math notranslate nohighlight">\(a\)</span> was chosen previously to time <span class="math notranslate nohighlight">\(t\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_{t}(a)\)</span> - Estimated value of action at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+</ul>
+<p>The number of models is the same of <span class="math notranslate nohighlight">\(k\)</span>. For each action <span class="math notranslate nohighlight">\(a \in \{a_{1}, a_{2}, ...,a_{k}\}\)</span> we can compute its expected reward:</p>
+<div class="math notranslate nohighlight">
+\[Q_{t}(a) = \frac{1}{N(a)} \sum_{i=1}^{N(a)}R_{i}(a)\]</div>
+<p>The agent then chooses the model which correspond to the action with highest value <span class="math notranslate nohighlight">\(q\)</span>. This quantity can be computed in a more interesting way:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+Q_{t+1}(a) &amp;= \frac{1}{N(a)} \left(R_{t}(a) + \sum_{i=1}^{N(a)-1}R_{i}(a) \right) \\
+ &amp;= \frac{1}{N(a)} \left(R_{t}(a) + (N(a)-1)\frac{1}{N(a)-1} \sum_{i=1}^{N(a)-1}R_{i}(a) \right) \\
+ &amp;= \frac{1}{N(a)} \left(R_{t}(a) + (N(a)-1)Q_{t}(a) \right) \\
+ &amp;= Q_{t}(a) + \frac{1}{N(a)} \left( R_{t}(a) - Q_{t}(a) \right)
+\end{align}
+\end{split}\]</div>
+<p>It makes sense since this is basically the same as parameter update to find it “real” value:</p>
+<div class="math notranslate nohighlight">
+\[new\_estimate = old\_estimate + step\_size (target - old\_estimate)\]</div>
+<p>Often the quantity <span class="math notranslate nohighlight">\(target - old\_estimate\)</span> is called the estimate error. If the error goes to zero it means the estimation converged.</p>
+<p>We also do not want the agent to always use the same model, it is important to let the agent explore other possibilities a little bit.</p>
+<p>The basic algorithm from the Sutton, Barto book <span id="id1">[<a class="reference internal" href="../differential-geometry/intro.html#id4">SB18</a>]</span> is:</p>
+<a class="reference internal image-reference" href="../../_images/simple-bandit-algorithm.png"><img alt="simple-bandit-algorithm" class="align-center" src="../../_images/simple-bandit-algorithm.png" style="width: 600px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">Env</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">action_probabilities</span><span class="p">,</span>
+                 <span class="n">success_reward</span><span class="p">,</span>
+                 <span class="n">failure_reward</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_probabilities</span> <span class="o">=</span> <span class="n">action_probabilities</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">success_reward</span> <span class="o">=</span> <span class="n">success_reward</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failure_reward</span> <span class="o">=</span> <span class="n">failure_reward</span>
+    
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">action</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_probabilities</span><span class="p">[</span><span class="n">action</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">success_reward</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">failure_reward</span>
+    
+<span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">action_space_size</span><span class="p">,</span><span class="n">exploration_factor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_space_size</span> <span class="o">=</span> <span class="n">action_space_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="n">exploration_factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_space_size</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_space_size</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_state</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regret</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_space_size</span><span class="p">))}</span>
+        
+    <span class="k">def</span> <span class="nf">update_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">action</span><span class="p">,</span><span class="n">reward</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">[</span><span class="n">action</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">reward</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_state</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start_state</span> <span class="o">=</span> <span class="kc">False</span>
+            
+        
+    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">random_action</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random_action</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_action</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_state</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_action</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_action</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">random_action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_space_size</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">compute_regret</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">best_action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span>
+        <span class="n">models_regret</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">best_action</span><span class="p">]</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models_regret</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regret</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+<span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span><span class="n">env</span><span class="p">,</span><span class="n">epochs</span><span class="p">,</span><span class="n">random_action</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">random_action</span><span class="p">)</span>
+        <span class="n">reward</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="n">agent</span><span class="o">.</span><span class="n">update_agent</span><span class="p">(</span><span class="n">action</span><span class="p">,</span><span class="n">reward</span><span class="p">)</span>
+    <span class="n">agent</span><span class="o">.</span><span class="n">compute_regret</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">agent</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing-different-agents">
+<h2><span class="section-number">2.2. </span>Testing different agents<a class="headerlink" href="#testing-different-agents" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#params</span>
+<span class="n">true_models_probs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.55</span><span class="p">,</span><span class="mf">0.545</span><span class="p">,</span><span class="mf">0.53</span><span class="p">]</span>
+<span class="n">actition_state_size</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">50000</span>
+
+<span class="c1"># instantiate environment</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">(</span><span class="n">true_models_probs</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># agents</span>
+<span class="n">models_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;model_A&quot;</span><span class="p">,</span><span class="s2">&quot;model_B&quot;</span><span class="p">,</span><span class="s2">&quot;model_C&quot;</span><span class="p">]</span>
+<span class="c1"># random agent or AB test</span>
+<span class="n">random_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">actition_state_size</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="c1"># greedy agent</span>
+<span class="n">greedy_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">actition_state_size</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="c1"># ner greedy agent</span>
+<span class="n">near_greedy_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">actition_state_size</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># train agents</span>
+<span class="n">random_agent</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="n">random_agent</span><span class="p">,</span><span class="n">env</span><span class="p">,</span><span class="n">epochs</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">greedy_agent</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="n">greedy_agent</span><span class="p">,</span><span class="n">env</span><span class="p">,</span><span class="n">epochs</span><span class="p">)</span>
+<span class="n">near_greedy_agent</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="n">near_greedy_agent</span><span class="p">,</span><span class="n">env</span><span class="p">,</span><span class="n">epochs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="checking-success-rate-estimates">
+<h3><span class="section-number">2.2.1. </span>Checking success rate estimates<a class="headerlink" href="#checking-success-rate-estimates" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">models_names</span><span class="p">,</span><span class="n">random_agent</span><span class="o">.</span><span class="n">Q</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_A</span><span class="p">:</span> <span class="mf">0.5552</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_B</span><span class="p">:</span> <span class="mf">0.5464</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_C</span><span class="p">:</span> <span class="mf">0.5307</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">models_names</span><span class="p">,</span><span class="n">greedy_agent</span><span class="o">.</span><span class="n">Q</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_A</span><span class="p">:</span> <span class="mf">0.4286</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_B</span><span class="p">:</span> <span class="mf">0.5449</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_C</span><span class="p">:</span> <span class="mf">0.4286</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">models_names</span><span class="p">,</span><span class="n">near_greedy_agent</span><span class="o">.</span><span class="n">Q</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_A</span><span class="p">:</span> <span class="mf">0.5498</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_B</span><span class="p">:</span> <span class="mf">0.5445</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_C</span><span class="p">:</span> <span class="mf">0.5308</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exposure">
+<h3><span class="section-number">2.2.2. </span>Exposure<a class="headerlink" href="#exposure" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">models_names</span><span class="p">,</span><span class="n">random_agent</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_A</span><span class="p">:</span> <span class="mi">16627</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_B</span><span class="p">:</span> <span class="mi">16764</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_C</span><span class="p">:</span> <span class="mi">16609</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">models_names</span><span class="p">,</span><span class="n">greedy_agent</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_A</span><span class="p">:</span> <span class="mi">7</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_B</span><span class="p">:</span> <span class="mi">49986</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_C</span><span class="p">:</span> <span class="mi">7</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">models_names</span><span class="p">,</span><span class="n">near_greedy_agent</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_A</span><span class="p">:</span> <span class="mi">43995</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_B</span><span class="p">:</span> <span class="mi">2158</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model_C</span><span class="p">:</span> <span class="mi">3847</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="regret">
+<h3><span class="section-number">2.2.3. </span>Regret<a class="headerlink" href="#regret" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">random_agent</span><span class="o">.</span><span class="n">regret</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">147.05984242491286</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">407.0067360317007</span><span class="p">}</span>
+<span class="mi">1</span>
+<span class="n">greedy_agent</span><span class="o">.</span><span class="n">regret</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">0.8143880286480285</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">0.8143880286480285</span><span class="p">}</span>
+<span class="mi">1</span>
+<span class="n">near_greedy_agent</span><span class="o">.</span><span class="n">regret</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">11.544380043177398</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">73.21604727809085</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/reinforcement-learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Beyond conventional machine learning</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="k-armed-bandits.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>The Multi-Armed Bandits: Exploitation vs Exploration</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By onimaru<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
