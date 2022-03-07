@@ -43,6 +43,7 @@ parts:
   numbered: True
   chapters:
   - file: content/reinforcement-learning/intro
+  - file: content/reinforcement-learning/bandits-ab-test-regret
   - file: content/reinforcement-learning/k-armed-bandits
 - caption: Differential Geometry
   numbered: True
