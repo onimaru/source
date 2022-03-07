@@ -5,7 +5,13 @@ Let $\mathcal{D} = \{(\mathbf{x}_{i},y_{i}) | i \in \{1,2,...,N\}, \mathbf{x}_{i
 Let us split $\mathcal{D}$ in terms of features: 
 $\mathbf{x}_{i,s} \in \mathbf{X}_{s}$ is n-dimensional and $\mathbf{x}_{i,t} \in \mathbf{X}_{t}$ is m-dimensional, where $n<m$ such that $\mathbf{X}_{s} \subset \mathbf{X}_{t}$. Actually $\mathbf{X}_{t}$ may be $\mathcal{D}$ itself. Thus $\mathbf{X}_{s}$, which we will call **Student set**, is a partition of the dataset, i.e., a matrix containing all the observations but not all the features available in $\mathbf{X}_{t}$, called **Teacher set**.
 
-Since $\mathbf{X}_{t}$ is larger it has more information than $\mathbf{X}_{s}$. We face the following problem: we could train a model with $\mathbf{X}_{t}$, but it is too complex and expensive to put it on production. Maybe the prediction time must be very small and using the set of all features is an impeditive. Thus, if we could train a less complex model with less features the prediction time would be smaller.
+Since $\mathbf{X}_{t}$ is larger it has more information than $\mathbf{X}_{s}$. We face the following problem:
+
+```{prf:proposition}
+:label: teacher-student-problem
+
+We could train a model with $\mathbf{X}_{t}$, but it is too complex and expensive to put it on production. Maybe the prediction time must be very small and using the set of all features is an impeditive. Thus, if we could train a less complex model with less features the prediction time would be smaller.
+```
 
 We could also achieve that using a dimensionality reduction model, but there is another options like the one we will see here, the **Teacher-Student method** of training.
 
