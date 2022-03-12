@@ -16,7 +16,13 @@ We could train a model with $\mathbf{X}_{t}$, but it is too complex and expensiv
 We could also achieve that using a dimensionality reduction model, but there is another options like the one we will see here, the **Teacher-Student method** of training.
 
 ```{note}
-This just one method for training a model and can be used in practically all applications, not only in ranking problems.
+This is just one method for training a model and can be used in practically all applications, not only in ranking problems. We can see the approach with the following diagram:
+
+```{image} ../../images/teacher-student-diagram.png
+:alt: teacher-student-diagram
+:width: 800px
+:align: center
+
 ```
 
 Assuming we are solving a ranking problem, the label represents some kind of relevance. In this example we will assume that a label can have two values, $\{0,1\}$. So the definition above is changed to $y_{i} \in \{0,1\}$, where $1$ means more relevance than $0$. In future examples we will see other kinds of relevance. 
