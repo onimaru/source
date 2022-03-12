@@ -16,13 +16,25 @@ We could train a model with $\mathbf{X}_{t}$, but it is too complex and expensiv
 We could also achieve that using a dimensionality reduction model, but there is another options like the one we will see here, the **Teacher-Student method** of training.
 
 ```{note}
-This is just one method for training a model and can be used in practically all applications, not only in ranking problems. We can see the approach with the following diagram:
+This is just one method for training a model and can be used in practically all applications, not only in ranking problems. There are two main approaches as we can see in the following diagrams:
+```
 
-```{image} ../../images/teacher-student-diagram.png
-:alt: teacher-student-diagram
-:width: 800px
+```{note}
+**Method 1:**
+
+```{image} ../../images/teacher-student-method-01.png
+:alt: teacher-student-method-01
+:width: 600px
 :align: center
+```
 
+```{note}
+**Method 2:**
+
+```{image} ../../images/teacher-student-method-02.png
+:alt: teacher-student-method-02
+:width: 600px
+:align: center
 ```
 
 Assuming we are solving a ranking problem, the label represents some kind of relevance. In this example we will assume that a label can have two values, $\{0,1\}$. So the definition above is changed to $y_{i} \in \{0,1\}$, where $1$ means more relevance than $0$. In future examples we will see other kinds of relevance. 
@@ -42,7 +54,7 @@ In each sampling iteration we always need $\left( \mathbf{x}_{i,s,1},\mathbf{x}_
 
 ## The Teacher-Student algorithm for the Ranknet
 
-In order to use this method we need the following algorithm:
+In order to use **method 1** we need the following algorithm:
 
 ```{prf:algorithm} Ranknet Teacher-Student
 :label: ranknet-teacher-student
