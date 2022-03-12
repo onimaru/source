@@ -439,7 +439,8 @@
 </div><p>We could also achieve that using a dimensionality reduction model, but there is another options like the one we will see here, the <strong>Teacher-Student method</strong> of training.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This just one method for training a model and can be used in practically all applications, not only in ranking problems.</p>
+<p>This is just one method for training a model and can be used in practically all applications, not only in ranking problems. We can see the approach with the following diagram:</p>
+<a class="reference internal image-reference" href="../../_images/teacher-student-diagram.png"><img alt="teacher-student-diagram" class="align-center" src="../../_images/teacher-student-diagram.png" style="width: 800px;" /></a>
 </div>
 <p>Assuming we are solving a ranking problem, the label represents some kind of relevance. In this example we will assume that a label can have two values, <span class="math notranslate nohighlight">\(\{0,1\}\)</span>. So the definition above is changed to <span class="math notranslate nohighlight">\(y_{i} \in \{0,1\}\)</span>, where <span class="math notranslate nohighlight">\(1\)</span> means more relevance than <span class="math notranslate nohighlight">\(0\)</span>. In future examples we will see other kinds of relevance.</p>
 <p>As mentioned before, we need two models: teacher model (TM) and student model (SM). In this formulation these models can be any gradient based regression models you like.</p>
