@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>9. Active Learning &#8212; Disorder Transform</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -55,10 +55,7 @@
     <link rel="next" title="10. Expectation-Maximization Algorithm - k-Means" href="k-means.html" />
     <link rel="prev" title="8. Manifold Learning - Multidimensional Scaling" href="multidimensional-scaling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -75,10 +72,6 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
@@ -88,7 +81,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -97,7 +90,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Math
  </span>
@@ -149,7 +142,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Machine Learning
  </span>
@@ -216,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Ranking Problems
  </span>
@@ -238,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Reinforcement Learning
  </span>
@@ -260,7 +253,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Differential Geometry
  </span>
@@ -292,7 +285,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Extra content
  </span>
@@ -309,7 +302,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Datasets
  </span>
@@ -422,7 +415,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#o-problema">
@@ -457,7 +450,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="active-learning">
+  <div class="section" id="active-learning">
 <span id="id1"></span><h1><span class="section-number">9. </span>Active Learning<a class="headerlink" href="#active-learning" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -677,65 +670,61 @@ Entretanto, o mundo real te preparou uma supresa: o seu dataset além de ter um 
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_27747</span><span class="o">/</span><span class="mf">780990959.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_236648</span><span class="o">/</span><span class="mf">780990959.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">exp_1</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exp 2: ignorância&quot;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">exp_2</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;ignorance&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exp 3: entropia + ignorância&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">exp_3</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;priorisation&quot;</span><span class="p">,</span><span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_27747/3591885175.py</span> in <span class="ni">run_experiment</span><span class="nt">(strategy, runs, df, show)</span>
+<span class="nn">/tmp/ipykernel_236648/3591885175.py</span> in <span class="ni">run_experiment</span><span class="nt">(strategy, runs, df, show)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">!=-</span><span class="mi">1</span><span class="p">][</span><span class="n">cols</span><span class="p">],</span><span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">!=-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">])</span>
 <span class="g g-Whitespace">     </span><span class="mi">58</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;m_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">60</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entropy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">59</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entropy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;probabilities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">61</span>         <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;ignorance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;m_label&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="n">entropy_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4355</span>         <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
-<span class="g g-Whitespace">   </span><span class="mi">4356</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">4357</span><span class="s2">         return SeriesApply(self, func, convert_dtype, args, kwargs).apply()</span>
-<span class="g g-Whitespace">   </span><span class="mi">4358</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">4359</span><span class="s2">     def _reduce(</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/lightgbm/sklearn.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X, raw_score, start_iteration, num_iteration, pred_leaf, pred_contrib, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">918</span>                       <span class="n">pred_leaf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pred_contrib</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span>         <span class="sd">&quot;&quot;&quot;Docstring is set after definition, using a template.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">920</span>         <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">raw_score</span><span class="p">,</span> <span class="n">start_iteration</span><span class="p">,</span> <span class="n">num_iteration</span><span class="p">,</span> <span class="n">pred_leaf</span><span class="p">,</span> <span class="n">pred_contrib</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">921</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_objective</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">raw_score</span> <span class="ow">or</span> <span class="n">pred_leaf</span> <span class="ow">or</span> <span class="n">pred_contrib</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">922</span>             <span class="n">_log_warning</span><span class="p">(</span><span class="s2">&quot;Cannot compute class probabilities or labels &quot;</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span><span class="s2">             return self.apply_str()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span><span class="s2"> </span>
-<span class="ne">-&gt; </span><span class="mi">1043</span><span class="s2">         return self.apply_standard()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1044</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1045</span><span class="s2">     def agg(self):</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/lightgbm/sklearn.py</span> in <span class="ni">predict</span><span class="nt">(self, X, raw_score, start_iteration, num_iteration, pred_leaf, pred_contrib, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>                              <span class="s2">&quot;input n_features is </span><span class="si">%s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>                              <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_features</span><span class="p">,</span> <span class="n">n_features</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">726</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Booster</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">raw_score</span><span class="o">=</span><span class="n">raw_score</span><span class="p">,</span> <span class="n">start_iteration</span><span class="o">=</span><span class="n">start_iteration</span><span class="p">,</span> <span class="n">num_iteration</span><span class="o">=</span><span class="n">num_iteration</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>                                      <span class="n">pred_leaf</span><span class="o">=</span><span class="n">pred_leaf</span><span class="p">,</span> <span class="n">pred_contrib</span><span class="o">=</span><span class="n">pred_contrib</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span> 
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1096</span><span class="s2">                 # List[Union[Callable[..., Any], str]]]]]&quot;; expected</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="s2">                 # &quot;Callable[[Any], Any]&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1098</span><span class="s2">                 mapped = lib.map_infer(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1099</span><span class="s2">                     values,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="s2">                     f,  # type: ignore[arg-type]</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/lightgbm/basic.py</span> in <span class="ni">predict</span><span class="nt">(self, data, start_iteration, num_iteration, raw_score, pred_leaf, pred_contrib, data_has_header, is_reshape, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3140</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3141</span>                 <span class="n">num_iteration</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="ne">-&gt; </span><span class="mi">3142</span>         <span class="k">return</span> <span class="n">predictor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start_iteration</span><span class="p">,</span> <span class="n">num_iteration</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3143</span>                                  <span class="n">raw_score</span><span class="p">,</span> <span class="n">pred_leaf</span><span class="p">,</span> <span class="n">pred_contrib</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3144</span>                                  <span class="n">data_has_header</span><span class="p">,</span> <span class="n">is_reshape</span><span class="p">)</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/lightgbm/basic.py</span> in <span class="ni">predict</span><span class="nt">(self, data, start_iteration, num_iteration, raw_score, pred_leaf, pred_contrib, data_has_header, is_reshape)</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>             <span class="n">preds</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pred_for_csc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start_iteration</span><span class="p">,</span> <span class="n">num_iteration</span><span class="p">,</span> <span class="n">predict_type</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">728</span>             <span class="n">preds</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pred_for_np2d</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start_iteration</span><span class="p">,</span> <span class="n">num_iteration</span><span class="p">,</span> <span class="n">predict_type</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>             <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">/tmp/ipykernel_27747/3591885175.py</span> in <span class="ni">entropy</span><span class="nt">(arr)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span><span class="s2">     arr = np.array(arr)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="s2">     epsilon = 0.000001</span>
-<span class="ne">---&gt; </span><span class="mi">44</span><span class="s2">     return np.sum(-arr*np.log(arr+epsilon))</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span><span class="s2"> def run_experiment(strategy=&quot;random&quot;,runs=100,df=df,show=False):</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/lightgbm/basic.py</span> in <span class="ni">__pred_for_np2d</span><span class="nt">(self, mat, start_iteration, num_iteration, predict_type)</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="k">return</span> <span class="n">preds</span><span class="p">,</span> <span class="n">nrow</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">819</span>             <span class="k">return</span> <span class="n">inner_predict</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">start_iteration</span><span class="p">,</span> <span class="n">num_iteration</span><span class="p">,</span> <span class="n">predict_type</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">820</span> 
+<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">__create_sparse_native</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">,</span> <span class="n">out_shape</span><span class="p">,</span> <span class="n">out_ptr_indptr</span><span class="p">,</span> <span class="n">out_ptr_indices</span><span class="p">,</span> <span class="n">out_ptr_data</span><span class="p">,</span>
 
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">sum</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2257</span><span class="s2">         return res</span>
-<span class="g g-Whitespace">   </span><span class="mi">2258</span><span class="s2"> </span>
-<span class="ne">-&gt; </span><span class="mi">2259</span><span class="s2">     return _wrapreduction(a, np.add, &#39;sum&#39;, axis, dtype, out, keepdims=keepdims,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2260</span><span class="s2">                           initial=initial, where=where)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2261</span><span class="s2"> </span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span><span class="s2">                 return reduction(axis=axis, out=out, **passkwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">86</span><span class="s2">     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span><span class="s2"> </span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/lightgbm/basic.py</span> in <span class="ni">inner_predict</span><span class="nt">(mat, start_iteration, num_iteration, predict_type, preds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Wrong length of pre-allocated predict array&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span>             <span class="n">out_num_preds</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int64</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">789</span>             <span class="n">_safe_call</span><span class="p">(</span><span class="n">_LIB</span><span class="o">.</span><span class="n">LGBM_BoosterPredictForMat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>                 <span class="n">ptr_data</span><span class="p">,</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -922,27 +911,16 @@ Wall time: 48min 49s
               </div>
               
         
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="multidimensional-scaling.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>Manifold Learning - Multidimensional Scaling</p>
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="multidimensional-scaling.html" title="previous page"><span class="section-number">8. </span>Manifold Learning - Multidimensional Scaling</a>
+    <a class='right-next' id="next-link" href="k-means.html" title="next page"><span class="section-number">10. </span>Expectation-Maximization Algorithm - k-Means</a>
+
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="k-means.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Expectation-Maximization Algorithm - k-Means</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -958,7 +936,8 @@ Wall time: 48min 49s
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

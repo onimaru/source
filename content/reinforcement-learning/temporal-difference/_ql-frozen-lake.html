@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Q-Learning &#8212; Disorder Transform</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -32,33 +32,30 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -75,10 +72,6 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
       <img src="../../../_static/logo.png" class="logo" alt="logo">
       
       
@@ -88,7 +81,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -97,7 +90,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Math
  </span>
@@ -149,7 +142,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Machine Learning
  </span>
@@ -216,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Ranking Problems
  </span>
@@ -238,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Reinforcement Learning
  </span>
@@ -260,7 +253,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Differential Geometry
  </span>
@@ -292,7 +285,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Extra content
  </span>
@@ -309,7 +302,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Datasets
  </span>
@@ -422,7 +415,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reward-and-reward-per-episode">
@@ -479,7 +472,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="q-learning">
+  <div class="section" id="q-learning">
 <h1>Q-Learning<a class="headerlink" href="#q-learning" title="Permalink to this headline">¶</a></h1>
 <p>This is classified as an Reinforcement Learning method which is based on learning due experimentation by the agent. There is no policy, it will be “discovered” by the agent as it “observes” the environment. In other words no model is needed in Q-Learning.</p>
 <p>The subject to experimentation is called <em>agent</em>, it can ocupy a set of <em>states</em> and make a set os <em>actions</em>. When the agent make an action the states is changed and a reward is provided to it. With each transition a function (Q) measures the quality of the action based on the rewards. The agent then creates some kind of memory stored in the <em>Q</em> matrix. Every time the state is changed, i.e. when the agent explore with an action, is called an episode so the quality depends on the state and action in each episode. A typical <em>Q</em> function is like this:</p>
@@ -628,7 +621,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">spec</span><span class="nt">(self, path)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">spec</span><span class="nt">(self, path)</span>
 <span class="g g-Whitespace">    </span><span class="mi">157</span>         <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">158</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_specs</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">159</span>         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -638,24 +631,24 @@
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">DeprecatedEnv</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_29190</span><span class="o">/</span><span class="mf">582203357.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_237892</span><span class="o">/</span><span class="mf">582203357.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;FrozenLake-v0&#39;</span><span class="p">)</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">make</span><span class="nt">(id, **kwargs)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">make</span><span class="nt">(id, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">233</span> 
 <span class="g g-Whitespace">    </span><span class="mi">234</span> <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">235</span>     <span class="k">return</span> <span class="n">registry</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">236</span> 
 <span class="g g-Whitespace">    </span><span class="mi">237</span> 
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">make</span><span class="nt">(self, path, **kwargs)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">make</span><span class="nt">(self, path, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">127</span>             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Making new env: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">128</span>         <span class="n">spec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="n">env</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">130</span>         <span class="k">return</span> <span class="n">env</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">spec</span><span class="nt">(self, path)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/gym/envs/registration.py</span> in <span class="ni">spec</span><span class="nt">(self, path)</span>
 <span class="g g-Whitespace">    </span><span class="mi">183</span>             <span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">184</span>             <span class="k">if</span> <span class="n">matching_envs</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">185</span>                 <span class="k">raise</span> <span class="n">error</span><span class="o">.</span><span class="n">DeprecatedEnv</span><span class="p">(</span>
@@ -905,13 +898,14 @@ Wall time: 3min 49s
               </div>
               
         
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-</div>
+        <div class='prev-next-bottom'>
+            
+
+        </div>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -927,7 +921,8 @@ Wall time: 3min 49s
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

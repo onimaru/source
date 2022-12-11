@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What is machine learning? &#8212; Disorder Transform</title>
+    <title>Algebra and the Einstein Summation Convention &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -147,62 +149,62 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="bias-variance.html">
+  <a class="reference internal" href="../machine-learning/bias-variance.html">
    1. Bias and Variance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="understanding-regularization.html">
+  <a class="reference internal" href="../machine-learning/understanding-regularization.html">
    2. Understanding regularization
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="laplace-approximation.html">
+  <a class="reference internal" href="../machine-learning/laplace-approximation.html">
    3. Laplace Approximation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+  <a class="reference internal" href="../machine-learning/computing-hessian-and-jacobian.html">
    4. Computing Hessian and Jacobian
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="counter-factual-model.html">
+  <a class="reference internal" href="../machine-learning/counter-factual-model.html">
    5. Counter Factual Model
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="intro-manifold.html">
+  <a class="reference internal" href="../machine-learning/intro-manifold.html">
    7. Introdução ao Manifold Learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="multidimensional-scaling.html">
+  <a class="reference internal" href="../machine-learning/multidimensional-scaling.html">
    8. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="active-learning-strategy.html">
+  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
    9. Active Learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="k-means.html">
+  <a class="reference internal" href="../machine-learning/k-means.html">
    10. Expectation-Maximization Algorithm - k-Means
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dataloader-example.html">
+  <a class="reference internal" href="../machine-learning/dataloader-example.html">
    11. Dataloader example
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="nn-universal-approximator.html">
+  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
    12. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="variational-autoencoder.html">
+  <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
    13. Variational AutoEncoder
   </a>
  </li>
@@ -290,12 +292,12 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../extra/definitions.html">
+  <a class="reference internal" href="definitions.html">
    Definições
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../extra/symbol-index.html">
+  <a class="reference internal" href="symbol-index.html">
    Lista de símbolos
   </a>
  </li>
@@ -352,7 +354,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/machine-learning/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/extra/_algebra-einstein-convention.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -372,7 +374,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/machine-learning/intro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/extra/_algebra-einstein-convention.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -393,6 +395,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#einstein-summation-convention">
+   Einstein Summation Convention
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -401,22 +416,26 @@
         
               <div>
                 
-  <div class="section" id="what-is-machine-learning">
-<span id="id1"></span><h1>What is machine learning?<a class="headerlink" href="#what-is-machine-learning" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="bias-variance.html#bias-variance"><span class="std std-ref">Bias and Variance</span></a></p></li>
-<li><p><a class="reference internal" href="understanding-regularization.html#understanding-regularization"><span class="std std-ref">Understanding regularization</span></a></p></li>
-<li><p><a class="reference internal" href="laplace-approximation.html#laplace-approximation"><span class="std std-ref">Laplace approximation</span></a></p></li>
-<li><p><a class="reference internal" href="computing-hessian-and-jacobian.html#computing-hessian-jacobian"><span class="std std-ref">Computing Hessian and Jacobian</span></a></p></li>
-<li><p><a class="reference internal" href="counter-factual-model.html#counter-factual-model"><span class="std std-ref">Counter factual model</span></a></p></li>
-<li><p><a class="reference internal" href="intro-manifold.html#manifold-learning"><span class="std std-ref">Intro do Manifold Learning</span></a></p></li>
-<li><p><a class="reference internal" href="multidimensional-scaling.html#multidimensional-scaling"><span class="std std-ref">Manifold Learning - Multidimensional Scaling</span></a></p></li>
-<li><p><a class="reference internal" href="active-learning-strategy.html#active-learning"><span class="std std-ref">Active learning</span></a></p></li>
-<li><p><a class="reference internal" href="k-means.html#em-algorithm-kmeans"><span class="std std-ref">Expectation maximization algorithm - k-means</span></a></p></li>
-<li><p><a class="reference internal" href="dataloader-example.html#data-loader-example"><span class="std std-ref">Data loader example</span></a></p></li>
-<li><p><a class="reference internal" href="nn-universal-approximator.html#neural-network-universal-approximator"><span class="std std-ref">Neural Network as an Universal Approximator</span></a></p></li>
-<li><p><a class="reference internal" href="variational-autoencoder.html#variational-autoencoder"><span class="std std-ref">Variational Autoencoder</span></a></p></li>
-</ul>
+  <div class="section" id="algebra-and-the-einstein-summation-convention">
+<span id="algebra-einstein-convention"></span><h1>Algebra and the Einstein Summation Convention<a class="headerlink" href="#algebra-and-the-einstein-summation-convention" title="Permalink to this headline">¶</a></h1>
+<p>Here we will define important concepts and quantities with an elegant notation. This notation can be used in conventional linear algebra, tensor algebra and so on. It is a very useful tool to understand better a lot of quantities and operations between vectors, matrices and tensors.</p>
+<div class="section" id="einstein-summation-convention">
+<h2>Einstein Summation Convention<a class="headerlink" href="#einstein-summation-convention" title="Permalink to this headline">¶</a></h2>
+<p>The convention is very simple, it summarizes equations in which indexes are summed. Notice we may have indexes bellow or above a letter. For example:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=0}^{2} x_{i}y^{i} = x_{0}y^{0} + x_{1}y^{1} + x_{2}y^{2}\]</div>
+<p>That kind of equation can be very long to write when operations are made. The Einstein summation convention hides the summation symbol and we agree that repeated symbols are being summed. The above equation can be written as:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=0}^{2} x_{i}y^{i} = x_{i}y^{i}\]</div>
+<p>Let us see other examples:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i} A^{li}x_{i}y^{j}z_{k} = A^{li}x_{i}y^{j}z_{k}\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_{i}\sum_{j} A^{li}x_{i}y^{j}z_{k} = A^{li}x_{i}y^{j}z_{k}\]</div>
+<p>Let us define a conventional column vector as <span class="math notranslate nohighlight">\(\boldtext{v} = v^{i}e_{i}\)</span>, where <span class="math notranslate nohighlight">\(e_{i}\)</span> are the base vectors defined <a class="reference internal" href="definitions.html#definitions"><span class="std std-ref">here</span></a>. For simplicity we hide the base representation and write the vector simply as <span class="math notranslate nohighlight">\(v^{i}\)</span>. Since there is no repeated indexes this expression mean we are refering to all components of the vector. For example: if <span class="math notranslate nohighlight">\(\boldtext{v} \in \mathbb{R}^{3}\)</span> we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}v^{i} = \begin{pmatrix} v^{0} \\ v^{1} \\ v^{2} \end{pmatrix}\end{split}\]</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -432,7 +451,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/machine-learning"
+            path: "./content/extra"
         },
         predefinedOutput: true
     }

@@ -7,9 +7,10 @@ This section is dedicated for mathematics, mainly in the scope of machine learni
 
 - {ref}`Probability distributions<probability-distributions>`
 - {ref}`Entropy and mutual information<entropy-mutual-information>`
-- {ref}`Maximum likelihhod estimation<maximum-likelihood-estimation>`
-- {ref}`Matrix decomposition<matriz-decomposition>`
+- {ref}`Maximum likelihood estimation<maximum-likelihood-estimation>`
+- {ref}`Matrix decomposition<matrix-decomposition>`
 - {ref}`Gradient descent<gradient-descent>`
+- {ref}`More on Gradients<more-gradient>`
 - {ref}`Lagrange Multipliers<lagrange-multipliers>`
 - {ref}`Method of Kernels<method-of-kernels>`
 - {ref}`Integer Programming<integer-programming>`

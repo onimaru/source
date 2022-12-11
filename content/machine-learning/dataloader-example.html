@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>11. Dataloader example &#8212; Disorder Transform</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -55,10 +55,7 @@
     <link rel="next" title="12. Neural Network as an Universal Approximator" href="nn-universal-approximator.html" />
     <link rel="prev" title="10. Expectation-Maximization Algorithm - k-Means" href="k-means.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -75,10 +72,6 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
@@ -88,7 +81,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -97,7 +90,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Math
  </span>
@@ -149,7 +142,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Machine Learning
  </span>
@@ -216,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Ranking Problems
  </span>
@@ -238,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Reinforcement Learning
  </span>
@@ -260,7 +253,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Differential Geometry
  </span>
@@ -292,7 +285,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Extra content
  </span>
@@ -309,7 +302,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Datasets
  </span>
@@ -427,7 +420,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="dataloader-example">
+  <div class="section" id="dataloader-example">
 <span id="data-loader-example"></span><h1><span class="section-number">11. </span>Dataloader example<a class="headerlink" href="#dataloader-example" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -459,31 +452,31 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_28069</span><span class="o">/</span><span class="mf">3807386560.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_237081</span><span class="o">/</span><span class="mf">3807386560.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/dataset.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3464</span>         <span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3465</span> 
 <span class="ne">-&gt; </span><span class="mi">3466</span>         <span class="k">return</span> <span class="n">DataFrameRenderer</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">3467</span>             <span class="n">path_or_buf</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">3468</span>             <span class="n">line_terminator</span><span class="o">=</span><span class="n">line_terminator</span><span class="p">,</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/io/formats/format.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/pandas/io/formats/format.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1103</span>             <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1104</span>         <span class="p">)</span>
 <span class="ne">-&gt; </span><span class="mi">1105</span>         <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1106</span> 
 <span class="g g-Whitespace">   </span><span class="mi">1107</span>         <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/io/formats/csvs.py</span> in <span class="ni">save</span><span class="nt">(self)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/pandas/io/formats/csvs.py</span> in <span class="ni">save</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">235</span>         <span class="s2">&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">236</span><span class="s2">         # apply compression and byte/text conversion</span>
 <span class="ne">--&gt; </span><span class="mi">237</span><span class="s2">         with get_handle(</span>
 <span class="g g-Whitespace">    </span><span class="mi">238</span><span class="s2">             self.filepath_or_buffer,</span>
 <span class="g g-Whitespace">    </span><span class="mi">239</span><span class="s2">             self.mode,</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="nn">~/anaconda3/envs/gym/lib/python3.8/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
 <span class="g g-Whitespace">    </span><span class="mi">700</span><span class="s2">         if ioargs.encoding and &quot;b&quot; not in ioargs.mode:</span>
 <span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2">             # Encoding</span>
 <span class="ne">--&gt; </span><span class="mi">702</span><span class="s2">             handle = open(</span>
@@ -734,27 +727,16 @@
               </div>
               
         
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="k-means.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">10. </span>Expectation-Maximization Algorithm - k-Means</p>
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="k-means.html" title="previous page"><span class="section-number">10. </span>Expectation-Maximization Algorithm - k-Means</a>
+    <a class='right-next' id="next-link" href="nn-universal-approximator.html" title="next page"><span class="section-number">12. </span>Neural Network as an Universal Approximator</a>
+
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="nn-universal-approximator.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Neural Network as an Universal Approximator</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -770,7 +752,8 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>
