@@ -78,7 +78,7 @@ $$\phi(a_{1} v_{1} + a_{2} v_{2} ) = a_{1} \phi(v_{1} ) + a_{2} \phi(v_{2} ), \f
 
 **Automorﬁsmo**: um isomorﬁsmo de um espaço vetorial sobre si mesmo é chamado de automorﬁsmo, ou seja, é um endomorﬁsmo que admite inversa.
 
-**Imagem**: o subconjunto $\phi(V) \subset W$ é dito ser a imagem de $\phi$, $Im phi$.
+**Imagem**: o subconjunto $\phi(V) \subset W$ é dito ser a imagem de $\phi$, $Im \phi$.
 
 **Kernel**: o kernel do mapa $\phi : V → W$, denotado como $ker(\phi)$, é o conjunto $\lbrace v \in V \vert \phi(v) = 0 \rbrace$, onde $0$ é o
 elemento neutro de $W$.
