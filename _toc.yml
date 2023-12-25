@@ -31,7 +31,6 @@ parts:
   - file: content/machine-learning/multidimensional-scaling
   - file: content/machine-learning/active-learning-strategy
   - file: content/machine-learning/k-means
-  - file: content/machine-learning/dataloader-example
   - file: content/machine-learning/nn-universal-approximator
   - file: content/machine-learning/variational-autoencoder
 - caption: Ranking Problems
