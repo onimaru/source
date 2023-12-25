@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10. Integer Programming &#8212; Disorder Transform</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,19 +32,22 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -55,7 +58,10 @@
     <link rel="next" title="1. Bias and Variance" href="../machine-learning/bias-variance.html" />
     <link rel="prev" title="9. Method of kernels" href="method-of-kernels.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -72,6 +78,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
@@ -81,7 +91,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -90,7 +100,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Math
  </span>
@@ -147,7 +157,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Machine Learning
  </span>
@@ -199,22 +209,17 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../machine-learning/dataloader-example.html">
-   11. Dataloader example
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
-   12. Neural Network as an Universal Approximator
+   11. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
-   13. Variational AutoEncoder
+   12. Variational AutoEncoder
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Ranking Problems
  </span>
@@ -236,7 +241,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Reinforcement Learning
  </span>
@@ -258,7 +263,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Differential Geometry
  </span>
@@ -290,7 +295,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Extra content
  </span>
@@ -307,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Datasets
  </span>
@@ -364,7 +369,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -415,12 +420,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lista-de-restricoes">
@@ -445,10 +450,43 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Integer Programming</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lista-de-restricoes">
+   10.1. Lista de restrições
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucao-e-resultados">
+   10.2. Solução e resultados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logs">
+   10.3. logs
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="integer-programming">
+  <div class="tex2jax_ignore mathjax_ignore section" id="integer-programming">
 <span id="id1"></span><h1><span class="section-number">10. </span>Integer Programming<a class="headerlink" href="#integer-programming" title="Permalink to this headline">¶</a></h1>
 <p>This is an example of solving a integer resource allocation problem with <code class="docutils literal notranslate"><span class="pre">pulp</span></code> library.</p>
 <div class="cell docutils container">
@@ -467,9 +505,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4
-1.3.4
-7.30.1
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pulp</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">pulp</span> <span class="kn">import</span> <span class="n">LpProblem</span><span class="p">,</span> <span class="n">LpVariable</span><span class="p">,</span> <span class="n">lpSum</span><span class="p">,</span> <span class="n">LpMaximize</span><span class="p">,</span> <span class="n">LpStatus</span><span class="p">,</span> <span class="n">value</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pulp&#39;
 </pre></div>
 </div>
 </div>
@@ -543,91 +586,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">prob</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="si">:</span><span class="s2">&lt;38</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max_per_plantonista_andre             : andre_s1 + andre_s2 + andre_s3 + andre_s4 + andre_s5 &lt;= 2
-max_per_plantonista_kiyota            : kiyota_s1 + kiyota_s2 + kiyota_s3 + kiyota_s4 + kiyota_s5 &lt;= 2
-max_per_plantonista_fabio             : fabio_s1 + fabio_s2 + fabio_s3 + fabio_s4 + fabio_s5 &lt;= 2
-max_per_plantonista_natalia           : natalia_s1 + natalia_s2 + natalia_s3 + natalia_s4 + natalia_s5 &lt;= 2
-max_per_plantonista_junior            : junior_s1 + junior_s2 + junior_s3 + junior_s4 + junior_s5 &lt;= 2
-max_per_plantonista_manu              : manu_s1 + manu_s2 + manu_s3 + manu_s4 + manu_s5 &lt;= 2
-max_per_plantonista_sarda             : sarda_s1 + sarda_s2 + sarda_s3 + sarda_s4 + sarda_s5 &lt;= 2
-max_per_plantonista_corbalan          : corbalan_s1 + corbalan_s2 + corbalan_s3 + corbalan_s4 + corbalan_s5 &lt;= 2
-max_per_plantonista_leo               : leo_s1 + leo_s2 + leo_s3 + leo_s4 + leo_s5 &lt;= 2
-max_per_plantonista_nefs              : nefs_s1 + nefs_s2 + nefs_s3 + nefs_s4 + nefs_s5 &lt;= 2
-max_per_plantonista_victor            : victor_s1 + victor_s2 + victor_s3 + victor_s4 + victor_s5 &lt;= 2
-max_per_plantonista_denis             : denis_s1 + denis_s2 + denis_s3 + denis_s4 + denis_s5 &lt;= 2
-max_per_plantonista_juliane           : juliane_s1 + juliane_s2 + juliane_s3 + juliane_s4 + juliane_s5 &lt;= 2
-max_per_plantonista_izumi             : izumi_s1 + izumi_s2 + izumi_s3 + izumi_s4 + izumi_s5 &lt;= 2
-non_sequence_week_plantonista_andre_seq1: andre_s1 + andre_s2 &lt;= 1
-non_sequence_week_plantonista_andre_seq2: andre_s2 + andre_s3 &lt;= 1
-non_sequence_week_plantonista_andre_seq3: andre_s3 + andre_s4 &lt;= 1
-non_sequence_week_plantonista_andre_seq4: andre_s4 + andre_s5 &lt;= 1
-non_sequence_week_plantonista_kiyota_seq1: kiyota_s1 + kiyota_s2 &lt;= 1
-non_sequence_week_plantonista_kiyota_seq2: kiyota_s2 + kiyota_s3 &lt;= 1
-non_sequence_week_plantonista_kiyota_seq3: kiyota_s3 + kiyota_s4 &lt;= 1
-non_sequence_week_plantonista_kiyota_seq4: kiyota_s4 + kiyota_s5 &lt;= 1
-non_sequence_week_plantonista_fabio_seq1: fabio_s1 + fabio_s2 &lt;= 1
-non_sequence_week_plantonista_fabio_seq2: fabio_s2 + fabio_s3 &lt;= 1
-non_sequence_week_plantonista_fabio_seq3: fabio_s3 + fabio_s4 &lt;= 1
-non_sequence_week_plantonista_fabio_seq4: fabio_s4 + fabio_s5 &lt;= 1
-non_sequence_week_plantonista_natalia_seq1: natalia_s1 + natalia_s2 &lt;= 1
-non_sequence_week_plantonista_natalia_seq2: natalia_s2 + natalia_s3 &lt;= 1
-non_sequence_week_plantonista_natalia_seq3: natalia_s3 + natalia_s4 &lt;= 1
-non_sequence_week_plantonista_natalia_seq4: natalia_s4 + natalia_s5 &lt;= 1
-non_sequence_week_plantonista_junior_seq1: junior_s1 + junior_s2 &lt;= 1
-non_sequence_week_plantonista_junior_seq2: junior_s2 + junior_s3 &lt;= 1
-non_sequence_week_plantonista_junior_seq3: junior_s3 + junior_s4 &lt;= 1
-non_sequence_week_plantonista_junior_seq4: junior_s4 + junior_s5 &lt;= 1
-non_sequence_week_plantonista_manu_seq1: manu_s1 + manu_s2 &lt;= 1
-non_sequence_week_plantonista_manu_seq2: manu_s2 + manu_s3 &lt;= 1
-non_sequence_week_plantonista_manu_seq3: manu_s3 + manu_s4 &lt;= 1
-non_sequence_week_plantonista_manu_seq4: manu_s4 + manu_s5 &lt;= 1
-non_sequence_week_plantonista_sarda_seq1: sarda_s1 + sarda_s2 &lt;= 1
-non_sequence_week_plantonista_sarda_seq2: sarda_s2 + sarda_s3 &lt;= 1
-non_sequence_week_plantonista_sarda_seq3: sarda_s3 + sarda_s4 &lt;= 1
-non_sequence_week_plantonista_sarda_seq4: sarda_s4 + sarda_s5 &lt;= 1
-non_sequence_week_plantonista_corbalan_seq1: corbalan_s1 + corbalan_s2 &lt;= 1
-non_sequence_week_plantonista_corbalan_seq2: corbalan_s2 + corbalan_s3 &lt;= 1
-non_sequence_week_plantonista_corbalan_seq3: corbalan_s3 + corbalan_s4 &lt;= 1
-non_sequence_week_plantonista_corbalan_seq4: corbalan_s4 + corbalan_s5 &lt;= 1
-non_sequence_week_plantonista_leo_seq1: leo_s1 + leo_s2 &lt;= 1
-non_sequence_week_plantonista_leo_seq2: leo_s2 + leo_s3 &lt;= 1
-non_sequence_week_plantonista_leo_seq3: leo_s3 + leo_s4 &lt;= 1
-non_sequence_week_plantonista_leo_seq4: leo_s4 + leo_s5 &lt;= 1
-non_sequence_week_plantonista_nefs_seq1: nefs_s1 + nefs_s2 &lt;= 1
-non_sequence_week_plantonista_nefs_seq2: nefs_s2 + nefs_s3 &lt;= 1
-non_sequence_week_plantonista_nefs_seq3: nefs_s3 + nefs_s4 &lt;= 1
-non_sequence_week_plantonista_nefs_seq4: nefs_s4 + nefs_s5 &lt;= 1
-non_sequence_week_plantonista_victor_seq1: victor_s1 + victor_s2 &lt;= 1
-non_sequence_week_plantonista_victor_seq2: victor_s2 + victor_s3 &lt;= 1
-non_sequence_week_plantonista_victor_seq3: victor_s3 + victor_s4 &lt;= 1
-non_sequence_week_plantonista_victor_seq4: victor_s4 + victor_s5 &lt;= 1
-non_sequence_week_plantonista_denis_seq1: denis_s1 + denis_s2 &lt;= 1
-non_sequence_week_plantonista_denis_seq2: denis_s2 + denis_s3 &lt;= 1
-non_sequence_week_plantonista_denis_seq3: denis_s3 + denis_s4 &lt;= 1
-non_sequence_week_plantonista_denis_seq4: denis_s4 + denis_s5 &lt;= 1
-non_sequence_week_plantonista_juliane_seq1: juliane_s1 + juliane_s2 &lt;= 1
-non_sequence_week_plantonista_juliane_seq2: juliane_s2 + juliane_s3 &lt;= 1
-non_sequence_week_plantonista_juliane_seq3: juliane_s3 + juliane_s4 &lt;= 1
-non_sequence_week_plantonista_juliane_seq4: juliane_s4 + juliane_s5 &lt;= 1
-non_sequence_week_plantonista_izumi_seq1: izumi_s1 + izumi_s2 &lt;= 1
-non_sequence_week_plantonista_izumi_seq2: izumi_s2 + izumi_s3 &lt;= 1
-non_sequence_week_plantonista_izumi_seq3: izumi_s3 + izumi_s4 &lt;= 1
-non_sequence_week_plantonista_izumi_seq4: izumi_s4 + izumi_s5 &lt;= 1
-max_plantonistas_week_s1              : andre_s1 + corbalan_s1 + denis_s1 + fabio_s1 + izumi_s1 + juliane_s1 + junior_s1 + kiyota_s1 + leo_s1 + manu_s1 + natalia_s1 + nefs_s1 + sarda_s1 + victor_s1 &lt;= 2
-max_plantonistas_week_s2              : andre_s2 + corbalan_s2 + denis_s2 + fabio_s2 + izumi_s2 + juliane_s2 + junior_s2 + kiyota_s2 + leo_s2 + manu_s2 + natalia_s2 + nefs_s2 + sarda_s2 + victor_s2 &lt;= 2
-max_plantonistas_week_s3              : andre_s3 + corbalan_s3 + denis_s3 + fabio_s3 + izumi_s3 + juliane_s3 + junior_s3 + kiyota_s3 + leo_s3 + manu_s3 + natalia_s3 + nefs_s3 + sarda_s3 + victor_s3 &lt;= 2
-max_plantonistas_week_s4              : andre_s4 + corbalan_s4 + denis_s4 + fabio_s4 + izumi_s4 + juliane_s4 + junior_s4 + kiyota_s4 + leo_s4 + manu_s4 + natalia_s4 + nefs_s4 + sarda_s4 + victor_s4 &lt;= 2
-max_plantonistas_week_s5              : andre_s5 + corbalan_s5 + denis_s5 + fabio_s5 + izumi_s5 + juliane_s5 + junior_s5 + kiyota_s5 + leo_s5 + manu_s5 + natalia_s5 + nefs_s5 + sarda_s5 + victor_s5 &lt;= 2
-min_plantonistas_week_s1              : andre_s1 + corbalan_s1 + denis_s1 + fabio_s1 + izumi_s1 + juliane_s1 + junior_s1 + kiyota_s1 + leo_s1 + manu_s1 + natalia_s1 + nefs_s1 + sarda_s1 + victor_s1 &gt;= 1
-min_plantonistas_week_s2              : andre_s2 + corbalan_s2 + denis_s2 + fabio_s2 + izumi_s2 + juliane_s2 + junior_s2 + kiyota_s2 + leo_s2 + manu_s2 + natalia_s2 + nefs_s2 + sarda_s2 + victor_s2 &gt;= 1
-min_plantonistas_week_s3              : andre_s3 + corbalan_s3 + denis_s3 + fabio_s3 + izumi_s3 + juliane_s3 + junior_s3 + kiyota_s3 + leo_s3 + manu_s3 + natalia_s3 + nefs_s3 + sarda_s3 + victor_s3 &gt;= 1
-min_plantonistas_week_s4              : andre_s4 + corbalan_s4 + denis_s4 + fabio_s4 + izumi_s4 + juliane_s4 + junior_s4 + kiyota_s4 + leo_s4 + manu_s4 + natalia_s4 + nefs_s4 + sarda_s4 + victor_s4 &gt;= 1
-min_plantonistas_week_s5              : andre_s5 + corbalan_s5 + denis_s5 + fabio_s5 + izumi_s5 + juliane_s5 + junior_s5 + kiyota_s5 + leo_s5 + manu_s5 + natalia_s5 + nefs_s5 + sarda_s5 + victor_s5 &gt;= 1
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="si">:</span><span class="s2">&lt;38</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -652,53 +611,6 @@ min_plantonistas_week_s5              : andre_s5 + corbalan_s5 + denis_s5 + fabi
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to the CBC MILP Solver 
-Version: 2.9.0 
-Build Date: Feb 12 2015 
-
-command line - /home/ninja/anaconda3/envs/gym/lib/python3.8/site-packages/pulp/apis/../solverdir/cbc/linux/64/cbc /tmp/184803b0c7b44566a82919a849bc0595-pulp.mps max branch printingOptions all solution /tmp/184803b0c7b44566a82919a849bc0595-pulp.sol (default strategy 1)
-At line 2 NAME          MODEL
-At line 3 ROWS
-At line 85 COLUMNS
-At line 609 RHS
-At line 690 BOUNDS
-At line 761 ENDATA
-Problem MODEL has 80 rows, 70 columns and 322 elements
-Coin0008I MODEL read with 0 errors
-Continuous objective value is 47 - 0.00 seconds
-Cgl0004I processed model has 75 rows, 70 columns (70 integer (70 of which binary)) and 252 elements
-Cutoff increment increased from 1e-05 to 0.9999
-Cbc0038I Initial state - 0 integers unsatisfied sum - 0
-Cbc0038I Solution found of -47
-Cbc0038I Before mini branch and bound, 70 integers at bound fixed and 0 continuous
-Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
-Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -47 - took 0.00 seconds
-Cbc0012I Integer solution of -47 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
-Cbc0001I Search completed - best objective -47, took 0 iterations and 0 nodes (0.00 seconds)
-Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
-Cuts at root node changed objective from -47 to -47
-Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
-
-Result - Optimal solution found
-
-Objective value:                47.00000000
-Enumerated nodes:               0
-Total iterations:               0
-Time (CPU seconds):             0.00
-Time (Wallclock seconds):       0.00
-
-Option for printingOptions changed from normal to all
-Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="logs">
@@ -712,23 +624,6 @@ Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Status: Optimal
-Satisfação da galera =  47.0 
-
-Número de plantonistas em cada semana:
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semana_0                 2
-Semana_1                 2
-Semana_2                 2
-Semana_3                 2
-Semana_4                 2
-Total_do_plantonista    10
-dtype: int64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,136 +634,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Disponibilidade inicial dos plantonistas:
-</pre></div>
-</div>
-<div class="output text_html"><div><div id=c06ee677-c074-4d9b-9be8-031acfb327cf style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('c06ee677-c074-4d9b-9be8-031acfb327cf').style.display = 'flex' </script> <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Semana_0</th>
-      <th>Semana_1</th>
-      <th>Semana_2</th>
-      <th>Semana_3</th>
-      <th>Semana_4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>andre</th>
-      <td>0</td>
-      <td>2</td>
-      <td>3</td>
-      <td>5</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>kiyota</th>
-      <td>3</td>
-      <td>1</td>
-      <td>0</td>
-      <td>4</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>fabio</th>
-      <td>3</td>
-      <td>2</td>
-      <td>1</td>
-      <td>4</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>natalia</th>
-      <td>0</td>
-      <td>2</td>
-      <td>0</td>
-      <td>4</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>junior</th>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>5</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>manu</th>
-      <td>5</td>
-      <td>3</td>
-      <td>1</td>
-      <td>4</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>sarda</th>
-      <td>4</td>
-      <td>2</td>
-      <td>5</td>
-      <td>1</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>corbalan</th>
-      <td>1</td>
-      <td>3</td>
-      <td>0</td>
-      <td>5</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>leo</th>
-      <td>1</td>
-      <td>2</td>
-      <td>4</td>
-      <td>3</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>nefs</th>
-      <td>2</td>
-      <td>4</td>
-      <td>1</td>
-      <td>5</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>victor</th>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>denis</th>
-      <td>5</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>juliane</th>
-      <td>0</td>
-      <td>3</td>
-      <td>1</td>
-      <td>5</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>izumi</th>
-      <td>0</td>
-      <td>4</td>
-      <td>2</td>
-      <td>5</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -884,28 +649,12 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecionados na Semana_0: manu e denis
-Selecionados na Semana_1: nefs e izumi
-Selecionados na Semana_2: sarda e leo
-Selecionados na Semana_3: junior e izumi
-Selecionados na Semana_4: natalia e leo
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plantonistas não selecionados: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Total_do_plantonista&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plantonistas selecionados 1x : </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Total_do_plantonista&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plantonistas selecionados 2x : </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Total_do_plantonista&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plantonistas não selecionados: andre, kiyota, fabio, corbalan, victor, juliane
-Plantonistas selecionados 1x : natalia, junior, manu, sarda, nefs, denis
-Plantonistas selecionados 2x : leo, izumi
 </pre></div>
 </div>
 </div>
@@ -916,37 +665,6 @@ Plantonistas selecionados 2x : leo, izumi
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><div id=a64bf03b-54cb-4039-bb44-213664fe4756 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('a64bf03b-54cb-4039-bb44-213664fe4756').style.display = 'flex' </script> <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Semana_0</th>
-      <th>Semana_1</th>
-      <th>Semana_2</th>
-      <th>Semana_3</th>
-      <th>Semana_4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>andre</th>
-      <td>0</td>
-      <td>2</td>
-      <td>3</td>
-      <td>5</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>izumi</th>
-      <td>0</td>
-      <td>4</td>
-      <td>2</td>
-      <td>5</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -954,58 +672,11 @@ Plantonistas selecionados 2x : leo, izumi
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><div id=96aafcdb-36ea-4a6b-bbba-58952c942dc0 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('96aafcdb-36ea-4a6b-bbba-58952c942dc0').style.display = 'flex' </script> <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Semana_0</th>
-      <th>Semana_1</th>
-      <th>Semana_2</th>
-      <th>Semana_3</th>
-      <th>Semana_4</th>
-      <th>Total_do_plantonista</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>andre</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>izumi</th>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Semanas mais desejadas&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">disponibilidades</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semanas mais desejadas
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semana_3    55
-Semana_4    47
-Semana_1    31
-Semana_0    29
-Semana_2    25
-dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1019,136 +690,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calendário final:
-</pre></div>
-</div>
-<div class="output text_html"><div><div id=bf3fc8a3-f059-42d4-9753-1dc64fa56c08 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');">See Full Dataframe in Mito</div> <script> if (window.commands.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('bf3fc8a3-f059-42d4-9753-1dc64fa56c08').style.display = 'flex' </script> <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Semana_0</th>
-      <th>Semana_1</th>
-      <th>Semana_2</th>
-      <th>Semana_3</th>
-      <th>Semana_4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>andre</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>kiyota</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>fabio</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>natalia</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>SELECIONADO</td>
-    </tr>
-    <tr>
-      <th>junior</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>SELECIONADO</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>manu</th>
-      <td>SELECIONADO</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>sarda</th>
-      <td>0</td>
-      <td>0</td>
-      <td>SELECIONADO</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>corbalan</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>leo</th>
-      <td>0</td>
-      <td>0</td>
-      <td>SELECIONADO</td>
-      <td>0</td>
-      <td>SELECIONADO</td>
-    </tr>
-    <tr>
-      <th>nefs</th>
-      <td>0</td>
-      <td>SELECIONADO</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>victor</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>denis</th>
-      <td>SELECIONADO</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>juliane</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>izumi</th>
-      <td>0</td>
-      <td>SELECIONADO</td>
-      <td>0</td>
-      <td>SELECIONADO</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table></div></div></div>
 </div>
 </div>
 </div>
@@ -1175,34 +716,42 @@ dtype: int64
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="method-of-kernels.html" title="previous page"><span class="section-number">9. </span>Method of kernels</a>
-    <a class='right-next' id="next-link" href="../machine-learning/bias-variance.html" title="next page"><span class="section-number">1. </span>Bias and Variance</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="method-of-kernels.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>Method of kernels</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="../machine-learning/bias-variance.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Bias and Variance</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By onimaru<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      By onimaru<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

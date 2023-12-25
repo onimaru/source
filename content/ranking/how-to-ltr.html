@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1. How to Learn to Rank &#8212; Disorder Transform</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,32 +32,38 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Ranknet" href="ranknet.html" />
-    <link rel="prev" title="13. Variational AutoEncoder" href="../machine-learning/variational-autoencoder.html" />
+    <link rel="prev" title="12. Variational AutoEncoder" href="../machine-learning/variational-autoencoder.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,6 +80,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
@@ -83,7 +93,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -92,7 +102,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Math
  </span>
@@ -149,7 +159,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Machine Learning
  </span>
@@ -201,22 +211,17 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../machine-learning/dataloader-example.html">
-   11. Dataloader example
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
-   12. Neural Network as an Universal Approximator
+   11. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
-   13. Variational AutoEncoder
+   12. Variational AutoEncoder
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Ranking Problems
  </span>
@@ -238,7 +243,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Reinforcement Learning
  </span>
@@ -260,7 +265,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Differential Geometry
  </span>
@@ -292,7 +297,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Extra content
  </span>
@@ -309,7 +314,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Datasets
  </span>
@@ -361,12 +366,12 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/ranking/how-to-ltr.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/ranking/how-to-ltr.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -397,32 +402,15 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/onimaru/source/master?urlpath=tree/docs/content/ranking/how-to-ltr.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sigmoid-function">
@@ -452,27 +440,59 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>How to Learn to Rank</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sigmoid-function">
+   1.1. Sigmoid function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log-likelihood-error">
+   1.2. Log-Likelihood Error
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lambdas">
+   1.3. Lambdas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ndcg">
+   1.4. nDCG
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="how-to-learn-to-rank">
+  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-learn-to-rank">
 <span id="how-to-ltr"></span><h1><span class="section-number">1. </span>How to Learn to Rank<a class="headerlink" href="#how-to-learn-to-rank" title="Permalink to this headline">¶</a></h1>
 <p>Pairwise comparison: <span class="math notranslate nohighlight">\(s_{i}\)</span> and <span class="math notranslate nohighlight">\(s_{j}\)</span> are some kind of score measure of items <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>. The sigmoid function can be used to give us a probability of item <span class="math notranslate nohighlight">\(i\)</span> be more relevant than item <span class="math notranslate nohighlight">\(j\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="sigmoid-function">
 <h2><span class="section-number">1.1. </span>Sigmoid function<a class="headerlink" href="#sigmoid-function" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\sigma = \frac{1}{1+e^{-\alpha \left(s_{i}-s_{j} \right)}}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">sj</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">sj</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="n">delta_s</span> <span class="o">=</span> <span class="n">si</span><span class="o">-</span><span class="n">sj</span>
     <span class="k">return</span> <span class="n">_sigmoid</span><span class="p">(</span><span class="n">delta_s</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
 
@@ -480,11 +500,7 @@
     <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">delta_s</span><span class="p">)))</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sigmoid and alphas&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]:</span>
@@ -496,14 +512,8 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/how-to-ltr_4_0.png" src="../../_images/how-to-ltr_4_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<a class="reference internal image-reference" href="../../_images/how-to-ltr-01.png"><img alt="how-to-ltr-01" class="align-center" src="../../_images/how-to-ltr-01.png" style="width: 600px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sigmoid&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
@@ -521,20 +531,14 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/how-to-ltr_5_0.png" src="../../_images/how-to-ltr_5_0.png" />
-</div>
-</div>
+<a class="reference internal image-reference" href="../../_images/how-to-ltr-02.png"><img alt="how-to-ltr-02" class="align-center" src="../../_images/how-to-ltr-02.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="log-likelihood-error">
 <h2><span class="section-number">1.2. </span>Log-Likelihood Error<a class="headerlink" href="#log-likelihood-error" title="Permalink to this headline">¶</a></h2>
 <p>Using the log-likelihood as a risk of the assumption <em>“item <span class="math notranslate nohighlight">\(i\)</span> is more relevant than item <span class="math notranslate nohighlight">\(j\)</span>”</em>.</p>
 <div class="math notranslate nohighlight">
 \[-\log{(\sigma)} = \log{ \left[ 1 + e^{-\alpha \left(s_{i}-s_{j} \right)} \right]}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loss_func_</span><span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">sj</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loss_func_</span><span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">sj</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="n">delta_s</span> <span class="o">=</span> <span class="n">si</span><span class="o">-</span><span class="n">sj</span>
     <span class="k">return</span> <span class="n">_loss_func</span><span class="p">(</span><span class="n">delta_s</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
     
@@ -542,11 +546,7 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">delta_s</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Log-loss and the alphas&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]:</span>
@@ -558,14 +558,8 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/how-to-ltr_8_0.png" src="../../_images/how-to-ltr_8_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<a class="reference internal image-reference" href="../../_images/how-to-ltr-03.png"><img alt="how-to-ltr-03" class="align-center" src="../../_images/how-to-ltr-03.png" style="width: 600px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Log-Likelihood or Log-loss&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
@@ -584,11 +578,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/how-to-ltr_9_0.png" src="../../_images/how-to-ltr_9_0.png" />
-</div>
-</div>
+<a class="reference internal image-reference" href="../../_images/how-to-ltr-04.png"><img alt="how-to-ltr-04" class="align-center" src="../../_images/how-to-ltr-04.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="lambdas">
 <h2><span class="section-number">1.3. </span>Lambdas<a class="headerlink" href="#lambdas" title="Permalink to this headline">¶</a></h2>
@@ -599,9 +589,7 @@
 <div class="math notranslate nohighlight">
 \[\lambda_{ij} = \frac{-\alpha}{1+e^{\alpha(s_{i}-s_{j})}}\Delta_{rel}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta_{rel}\)</span> is some listwise comparison metric, like nDCG.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_lambda_ij</span><span class="p">(</span><span class="n">delta_s</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_lambda_ij</span><span class="p">(</span><span class="n">delta_s</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">delta_s</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">delta_s</span><span class="p">)))</span>
 
 <span class="k">def</span> <span class="nf">lambda_ij</span><span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">sj</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
@@ -609,11 +597,7 @@
     <span class="k">return</span> <span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">delta_s</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">delta_s</span><span class="p">)))</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lambda and the alphas&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">28</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]:</span>
@@ -625,14 +609,8 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/how-to-ltr_13_0.png" src="../../_images/how-to-ltr_13_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<a class="reference internal image-reference" href="../../_images/how-to-ltr-05.png"><img alt="how-to-ltr-05" class="align-center" src="../../_images/how-to-ltr-05.png" style="width: 600px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lambda&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">28</span><span class="p">)</span>
@@ -651,18 +629,12 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/how-to-ltr_14_0.png" src="../../_images/how-to-ltr_14_0.png" />
-</div>
-</div>
+<a class="reference internal image-reference" href="../../_images/how-to-ltr-06.png"><img alt="how-to-ltr-06" class="align-center" src="../../_images/how-to-ltr-06.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="ndcg">
 <h2><span class="section-number">1.4. </span>nDCG<a class="headerlink" href="#ndcg" title="Permalink to this headline">¶</a></h2>
 <p>DCG stands for <code class="docutils literal notranslate"><span class="pre">discounted</span> <span class="pre">cumulative</span> <span class="pre">gain</span></code> and nDCG is its normalized form.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">r</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
@@ -679,63 +651,21 @@
     <span class="k">return</span> <span class="n">dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rel_list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">rel_list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mf">1.4306765580733931</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5616063116448506</span><span class="p">)</span>
+
+<span class="nb">abs</span><span class="p">(</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">-</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">0.02706248872493333</span>
+
+<span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mf">0.5585075862632192</span><span class="p">,</span> <span class="mf">0.5855700749881525</span><span class="p">,</span> <span class="mf">2.5616063116448506</span><span class="p">)</span>
+
+<span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mf">0.7991748853900112</span><span class="p">,</span> <span class="mf">0.8159313210935148</span><span class="p">,</span> <span class="mf">2.5616063116448506</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">dcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.4306765580733931, 1.5, 2.5616063116448506)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">-</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02706248872493333
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5585075862632192, 0.5855700749881525, 2.5616063116448506)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">ndcg_k</span><span class="p">(</span><span class="n">rel_list2</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">max_dcg_k</span><span class="p">(</span><span class="n">rel_list1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7991748853900112, 0.8159313210935148, 2.5616063116448506)
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -762,34 +692,42 @@
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../machine-learning/variational-autoencoder.html" title="previous page"><span class="section-number">13. </span>Variational AutoEncoder</a>
-    <a class='right-next' id="next-link" href="ranknet.html" title="next page"><span class="section-number">2. </span>Ranknet</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../machine-learning/variational-autoencoder.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">12. </span>Variational AutoEncoder</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="ranknet.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Ranknet</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By onimaru<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      By onimaru<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

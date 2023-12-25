@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cálculo Tensoarial &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Disorder Transform
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/probability-distributions.html">
+   2. Distribuições de probabilidade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/information-theory.html">
+   3. Entropia e informação mútua
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/simple-example-of-maximum-likelihood.html">
+   4. Maximum Likelihood Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/eigen-decomposition.html">
+   5. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/gradient-descent.html">
+   6. Gradiente descendente
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/more-gradient.html">
+   7. More on Gradients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/lagrange-multipliers.html">
+   8. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/method-of-kernels.html">
+   9. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/integer-programming-resource.html">
+   10. Integer Programming
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/bias-variance.html">
+   1. Bias and Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/understanding-regularization.html">
+   2. Understanding regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/laplace-approximation.html">
+   3. Laplace Approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/computing-hessian-and-jacobian.html">
+   4. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/counter-factual-model.html">
+   5. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/intro-manifold.html">
+   7. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/multidimensional-scaling.html">
+   8. Manifold Learning - Multidimensional Scaling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
+   9. Active Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/k-means.html">
+   10. Expectation-Maximization Algorithm - k-Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
+   11. Neural Network as an Universal Approximator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
+   12. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ranking Problems
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/how-to-ltr.html">
+   1. How to Learn to Rank
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet.html">
+   2. Ranknet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet-teacher-student.html">
+   3. Ranknet - Teacher-Student strategy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/bandits-ab-test-regret.html">
+   2. AB test and the regret
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/k-armed-bandits.html">
+   3. The Multi-Armed Bandits: Exploitation vs Exploration
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets/ranking-teams.html">
+   Ranking dataset - Teams
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/differential-geometry/tensor-calculus.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/differential-geometry/tensor-calculus.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Cálculo Tensoarial</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="calculo-tensoarial">
+<span id="tensor-calculus"></span><h1>Cálculo Tensoarial<a class="headerlink" href="#calculo-tensoarial" title="Permalink to this headline">¶</a></h1>
+<p>1 - Usando os axiomas de espaços vetoriais, mostre que é possível definir um espaço vetorial <span class="math notranslate nohighlight">\(V(2,\mathbb{R})\)</span>. Deixe claro quais são os elementos nulo, unitário e inverso.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>Solução</strong>:<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Definimos os vetores, <span class="math notranslate nohighlight">\(\textbf{u},\textbf{v},\textbf{w},\textbf{0} \in V(2,\mathbb{R})\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\textbf{u} &amp;= u^{1}e_{1}+u^{2}e_{2} = (u^{1}, u^{2})\\
+\textbf{v} &amp;= v^{1}e_{1}+v^{2}e_{2} = (v^{1}, v^{2})\\
+\textbf{w} &amp;= w^{1}e_{1}+w^{2}e_{2} = (w^{1}, w^{2})\\
+\end{align*}\end{split}\]</div>
+<p class="card-text">onde <span class="math notranslate nohighlight">\(e_{1}\)</span> e <span class="math notranslate nohighlight">\(e_{2}\)</span> são as bases de <span class="math notranslate nohighlight">\(V(2,\mathbb{R})\)</span> e <span class="math notranslate nohighlight">\(u^{1},u^{2}v^{1},v^{2}w^{1},w^{2},0,1\)</span> são escalares pertencentes ao corpo dos reais. Agora mostramos que esses vetores o obedecem os axiomas de formação de um espaço vetorial.</p>
+<p class="card-text">(i) -</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\textbf{u} + \textbf{v} &amp;= \textbf{v} + \textbf{u}\\
+(u^{1}+v^{1},u^{2}+v^{2}) &amp;= (v^{1}+u^{1},v^{2}+u^{2})
+\end{align*}\end{split}\]</div>
+<p class="card-text">Como os escalares são reais, sua soma é comutativa.</p>
+<p class="card-text">(ii) -</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+(\textbf{u} + \textbf{v}) + \textbf{w} &amp;= \textbf{u} + (\textbf{v} + \textbf{w})\\
+(u^{1}+v^{1},u^{2}+v^{2}) + (w^{1},w^{2}) &amp;= (u^{1},u^{2}) + (v^{1}+w^{1},v^{2}+w^{2})\\
+(u^{1}+v^{1}+w^{1},u^{2}+v^{2}+w^{2}) &amp;= (u^{1}+v^{1}+w^{1},u^{1}+v^{2}+w^{2})\\
+\end{align*}\end{split}\]</div>
+<p class="card-text">Novamente a comutatividade da soma dos reais garante a associatividade da soma vetorial.</p>
+<p class="card-text">(iii) - seja o elemento nulo: <span class="math notranslate nohighlight">\(\textbf{0} = 0e_{1}+0e_{2} = (0, 0)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\textbf{0} + \textbf{u} &amp;= (0,0) + (u^{1},u^{2})\\
+ &amp;= (0+u^{1},0+u^{2}) \\
+ &amp;= (u^{1},u^{2})\\
+ &amp;= \textbf{u}
+\end{align*}\end{split}\]</div>
+<p class="card-text">(iv) -</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\textbf{u} + (-\textbf{u}) &amp;= (u^{1},u^{2}) + (-u^{1},-u^{2})\\
+ &amp;= (u^{1}-u^{1},u^{2}-u^{2})\\
+ &amp;= (0,0)\\
+ &amp;= \textbf{0}
+\end{align*}\end{split}\]</div>
+<p class="card-text">(v) - seja <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+a(\textbf{u}+\textbf{v}) &amp;= a\textbf{u}+ a\textbf{v}\\
+a(u^{1}+v^{1},u^{2}+v^{2}) &amp;=(au^{1},au^{2}) + (av^{1},av^{2})\\
+(a(u^{1}+v^{1}),a(u^{2}+v^{2})) &amp;= (au^{1}+av^{1},au^{2}+av^{2})\\
+(au^{1}+av^{1},au^{2}+av^{2}) &amp;= (au^{1}+av^{1},au^{2}+av^{2})
+\end{align*}\end{split}\]</div>
+<p class="card-text">(vi) - sejam <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+(a+b)\textbf{u} &amp;= a\textbf{u}+ b\textbf{u}\\
+ &amp;= a(u^{1},u^{2}) + b(u^{1},u^{2})\\
+ &amp;=(au^{1},au^{2}) + (bu^{1},bu^{2})\\
+ &amp;= (au^{1}+bu^{1},au^{2}+bu^{2})\\
+ &amp;= ((a+b)u^{1},(a+b)u^{2})\\
+ &amp;= (a+b)\textbf{u}
+\end{align*}\end{split}\]</div>
+<p class="card-text">(vii) - sejam <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+(ab)\textbf{u} &amp;= a(b\textbf{u})\\
+ &amp;= a(bu^{1},bu^{2})\\
+ &amp;=(abu^{1},abu^{2})\\
+ &amp;= (ab)(u^{1},u^{2})\\
+ &amp;= (ab)\textbf{u}
+\end{align*}\end{split}\]</div>
+<p class="card-text">Como o produto <span class="math notranslate nohighlight">\(ab\)</span> é apenas um novo escalar <span class="math notranslate nohighlight">\(c \in \mathbb{R}\)</span>, não importa a ordem de atuação dos escalares.</p>
+<p class="card-text">(viii) - seja <span class="math notranslate nohighlight">\(1 \in \mathbb{R}\)</span> o elemento unitário de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+1\textbf{u} &amp;= 1(u^{1},u^{2})\\
+ &amp;= (1u^{1},1u^{2}) \\
+ &amp;= (u^{1},u^{2})\\
+ &amp;= \textbf{u}
+\end{align*}\end{split}\]</div>
+</div>
+</details><br/></div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/differential-geometry"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By onimaru<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

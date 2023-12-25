@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bayesian Methods in Machine Learning &#8212; Disorder Transform</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Disorder Transform</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Disorder Transform
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Math
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/intro.html">
+   1. Theoretical minimum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/probability-distributions.html">
+   2. Distribuições de probabilidade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/information-theory.html">
+   3. Entropia e informação mútua
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/simple-example-of-maximum-likelihood.html">
+   4. Maximum Likelihood Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/eigen-decomposition.html">
+   5. Decomposição de matrizes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/gradient-descent.html">
+   6. Gradiente descendente
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/more-gradient.html">
+   7. More on Gradients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/lagrange-multipliers.html">
+   8. Multiplicadores de Lagrange
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/method-of-kernels.html">
+   9. Method of kernels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../math/integer-programming-resource.html">
+   10. Integer Programming
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/bias-variance.html">
+   1. Bias and Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/understanding-regularization.html">
+   2. Understanding regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/laplace-approximation.html">
+   3. Laplace Approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/computing-hessian-and-jacobian.html">
+   4. Computing Hessian and Jacobian
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/counter-factual-model.html">
+   5. Counter Factual Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/intro-manifold.html">
+   7. Introdução ao Manifold Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/multidimensional-scaling.html">
+   8. Manifold Learning - Multidimensional Scaling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
+   9. Active Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/k-means.html">
+   10. Expectation-Maximization Algorithm - k-Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
+   11. Neural Network as an Universal Approximator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
+   12. Variational AutoEncoder
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ranking Problems
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/how-to-ltr.html">
+   1. How to Learn to Rank
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet.html">
+   2. Ranknet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ranking/ranknet-teacher-student.html">
+   3. Ranknet - Teacher-Student strategy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reinforcement Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/intro.html">
+   1. Beyond conventional machine learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/bandits-ab-test-regret.html">
+   2. AB test and the regret
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reinforcement-learning/k-armed-bandits.html">
+   3. The Multi-Armed Bandits: Exploitation vs Exploration
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Differential Geometry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/intro.html">
+   1. Problems and solutions in differential geometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/maps.html">
+   2. Mapas, Curvas, superfícies e Variedades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+   3. Espaços Vetoriais
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/algebras.html">
+   4. Álgebras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+   5. Campos Tensoriais Métricos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/definitions.html">
+   Definições
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/symbol-index.html">
+   Lista de símbolos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets/ranking-teams.html">
+   Ranking dataset - Teams
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/bayesian-methods-in-ml/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/onimaru/source"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/bayesian-methods-in-ml/intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variational-inference">
+   Variational Inference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mcmc">
+   MCMC
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Bayesian Methods in Machine Learning</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variational-inference">
+   Variational Inference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mcmc">
+   MCMC
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="bayesian-methods-in-machine-learning">
+<span id="bayesian-methods-in-ml"></span><h1>Bayesian Methods in Machine Learning<a class="headerlink" href="#bayesian-methods-in-machine-learning" title="Permalink to this headline">¶</a></h1>
+<p>Here is a common situation in machine learning problems: we have our dataset, <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>, and want, for example, a model with the ability to generate data as if they were real (usually conditional to something) or a model that works like the probality density function. There are many techniques to do such things and we will approach some here like:</p>
+<ul class="simple">
+<li><p>Energy-based models</p></li>
+<li><p>Variational autoencoder</p></li>
+<li><p>Generative adversarial networks</p></li>
+</ul>
+<p>All of them begin with the same idea, the Bayes’ theorem:</p>
+<div class="math notranslate nohighlight">
+\[p(h \vert x) = \frac{p(h, x)}{p(x)} = \frac{p(x \vert h)p(h)}{p(x)},\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the observed data (<span class="math notranslate nohighlight">\(x \sim p(x)\)</span>), <span class="math notranslate nohighlight">\(h\)</span> is called parameter (it may be a latent or other observed variable) (<span class="math notranslate nohighlight">\(h \sim p(h)\)</span>) and the probability density functions <span class="math notranslate nohighlight">\(p(h)\)</span>, <span class="math notranslate nohighlight">\(p(x \vert h)\)</span>, <span class="math notranslate nohighlight">\(p(h \vert x)\)</span> and <span class="math notranslate nohighlight">\(p(x)\)</span> are respectively called prior, likelihood posterior and evidence. The random variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(h\)</span> can be discrete or continuous and for the later <span class="math notranslate nohighlight">\(p(x) = \int p(x, h)dh = \int p(x \vert h)p(h)dh\)</span>.</p>
+<p>We need to focus in what is our goal here. There is a problem to solve and maybe we have some knowledge about the behavior of the data or the mechanism generating they. If that is the case, we can begin with some assumptions about what could be the density functions. However, it is very common that <span class="math notranslate nohighlight">\(p(x)\)</span> is intractible, i.e., there is no closed form to compute the integral. In this case we could try to approximate the value of the integral.<br />
+There are two main approaches to compute the approximation: Variational Inference (VI) and Markov Chain Monte Carlo (MCMC). Basically MCMC is asymptotically exact (law of large numbers), but is computationally expensive. VI on the other hand is faster, main option for large datasets, but there is no guarantee that it would lead to the correct approximation.</p>
+<div class="section" id="variational-inference">
+<h2>Variational Inference<a class="headerlink" href="#variational-inference" title="Permalink to this headline">¶</a></h2>
+<p>In VI, to find an approximation to <span class="math notranslate nohighlight">\(p(h \vert x)\)</span> a candidate distribution, <span class="math notranslate nohighlight">\(q(h)\)</span> is set to be this approximation. In order to find the candidate, an optimization framework is used, i.e., <span class="math notranslate nohighlight">\(q(h)\)</span> will the one who minimizes some goal function with respect to <span class="math notranslate nohighlight">\(p(h \vert x)\)</span>. The main choice for the goal is Kullback-Liebler divergence (KL divergence):</p>
+<div class="math notranslate nohighlight">
+\[q^{*}(h) = argmin_{q} KL[q(h)\vert \vert p(h \vert x)] = argmin_{q} \int q(h)\log{\left[\frac{q(h)}{p(h \vert x)} \right]}dh.\]</div>
+<p>Rearranging the integral we have:</p>
+<div class="math notranslate nohighlight">
+\[KL[q(h)\vert \vert p(h \vert x)] = \mathbb{E}_{q} \left[\log{q(h)}\right] - \mathbb{E}_{q}\left[\log{p(x,h)}\right] + \log{p(x)}.\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\log{p(x)}\)</span> is independent of <span class="math notranslate nohighlight">\(q(h)\)</span>, it is a constant and therefore not needed during optimization. This is important because, as said early, <span class="math notranslate nohighlight">\(p(x)\)</span> can be intractable, without it the problem is easier. The first two terms in the r.h.s. of the above equation has a special name, ELBO (Evidence Lower Bound),</p>
+<div class="math notranslate nohighlight">
+\[ELBO(q) = \mathbb{E}_{q}\left[\log{p(x,h)}\right] - \mathbb{E}_{q} \left[\log{q(h)}\right]\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[\log{p(x)} = ELBO(q) + KL[q(h)\vert \vert p(h \vert x)].\]</div>
+<p>Remember that our solution is to use an approximation because it is difficult or impossible to compute <span class="math notranslate nohighlight">\(p(x)\)</span>. The KL divergence is algo intectable, but we can compute the <span class="math notranslate nohighlight">\(ELBO(q)\)</span> term. Since the KL divergence is positive definite, maximizing (note that the signs were changed in the last equation) the <span class="math notranslate nohighlight">\(ELBO(q)\)</span> only is a guarantee that <span class="math notranslate nohighlight">\(p(x)\)</span> (or <span class="math notranslate nohighlight">\(\log{p(x)}\)</span>) is being maximized.</p>
+<p>That explains the name ELBO, it is a lower limit to the evidence, <span class="math notranslate nohighlight">\(p(x)\)</span>. If <span class="math notranslate nohighlight">\(KL[q(h)\vert \vert p(h \vert x)] = 0\)</span>, then the appoximation is exact. It is common to say that minimizing <span class="math notranslate nohighlight">\(KL[q(h)\vert \vert p(h \vert x)]\)</span> is equivalent to maximizing the <span class="math notranslate nohighlight">\(ELBO(q)\)</span>.</p>
+<p>Therefore, you can use this optimization approach to find a approximation for the <span class="math notranslate nohighlight">\(p(h \vert x)\)</span>, but this was just to define the objective function, the approximate <span class="math notranslate nohighlight">\(q(h)\)</span> still must be chosen from a family of distributions (like, mean-field or exponential) as well as the optimization method.</p>
+<p>The Variational Autoencoder (VAE) uses this approach with slightly modifications, instead of <span class="math notranslate nohighlight">\(q(h)\)</span> it uses <span class="math notranslate nohighlight">\(q(h \vert x)\)</span> as a neural network and the KL divergence is set as <span class="math notranslate nohighlight">\(KL[q(h \vert x)\vert \vert \mathcal{N}(0,1)]\)</span>. There are other differences like the use of the reparametrization trick, but will see more details in the appropriate section.</p>
+</div>
+<div class="section" id="mcmc">
+<h2>MCMC<a class="headerlink" href="#mcmc" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[KL[q(h \vert x)\vert \vert p(h \vert x)] = \mathbb{E}_{q} \left[\log{q(h \vert x)}\right] - \mathbb{E}_{q}\left[\log{p(x,h)}\right] -\mathbb{E}_{q}\left[\log{p(h)}\right] + \log{p(x)}.\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/bayesian-methods-in-ml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By onimaru<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
