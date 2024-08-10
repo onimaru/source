@@ -8,7 +8,6 @@ O conjunto $Y$ é chamado de **alcance** (range) do mapa, o conjunto $X$ é cham
 
 **Um-a-um** ou **injetivo**: um mapa é chamado de um-a-um (1-1) se para cada $y \in Y$ existe somente um $x \in X$ tal que para $x, x' \in X, x \ne x' \Longrightarrow f(x) \ne f(x')$.
 
-
 **Sobrejetivo**: um mapa é chamado de sobrejetivo (onto) se para cada $y \in Y$ existe pelo menos um $x \in X$. É comum
 dizer apenas ”$\phi$ é um mapa de $X$ sobre $Y$.”
 
@@ -26,7 +25,7 @@ dizer apenas ”$\phi$ é um mapa de $X$ sobre $Y$.”
 $\rho : X \rightarrow E$, então dizemos que o diagrama representando estes mapeamentos comutam.
 
 **Mapa de inclusão**: dado um subconjunto $A \subset X$, o mapa $i : A \rightarrow X$ deﬁnido como $i(a) = a\ \forall a \in A$ é
-chamado de mapa de inclusão, também denotado como $i : A \xhookrightarrow{} X$.
+chamado de mapa de inclusão, também denotado como $i : A \hookrightarrow X$.
 
 **Mapa identidade**: dado o mapa de inclusão, se $A = X$ o mapa é chamado de mapa identidade (ou mapa de identidade), $id_{X} : X \rightarrow X$.
 
@@ -36,7 +35,7 @@ chamado de mapa de inclusão, também denotado como $i : A \xhookrightarrow{} X$
 
 **Mapa de projeção**: é um mapa n-ário $pr_{i} : X_{1} \times X_{2} \times ... \times X_{n} \rightarrow X_{i}$ , deﬁnido como $pr_{i} : (x_{1}, ..., x_{n}) \rightarrow x_{i}$.
 
-**Mapa característico**: dado um subconjunto $A \subset X$, um mapa $\chi_{A} : X \rightarrow {0, 1}$ é dito característico de $A$, deﬁnido como $\chi_{A} (x) = 0$ se $x \notin A$ e $\chi_{A} (x) = 1$ se $x \in A$.
+**Mapa característico**: dado um subconjunto $A \subset X$, um mapa $\chi_{A} : X \rightarrow \{0, 1\}$ é dito característico de $A$, deﬁnido como $\chi_{A} (x) = 0$ se $x \notin A$ e $\chi_{A} (x) = 1$ se $x \in A$.
 
 ## Espaços Vetoriais
 
@@ -147,6 +146,63 @@ são chamados de constantes de estrutura da álgebra com respeito a base {$E_{i}
 
 **Produto tensorial antissimétrico**: para as mesmas deﬁnições anteriores outra álgebra possível é
 $(u_{1} \otimes v_{1} )(u_{2} \otimes v_{2} ) = (−1)^{q_{1} q_{2}} u_{1} u_{2} \otimes v_{1} v_{2}$, chamada produto tensorial antissimétrico.
+
+## Espaços Topológicos
+
+**Espaço topológico**: dado um conjunto $X$ e uma família $\mathcal{T}=(U_{i} | i \in I)$ de subconjuntos de $X$, o par $(X, \mathcal{T})$ é um espaço topológico se $\mathcal{T}$ satisfizer as seguintes condições:
+
+1. $\emptyset,X \in \mathcal{T}$;
+2. uma união arbitrária de subconjuntos de $X$ está em $\mathcal{T}$;
+3. uma interseção finita de subconjuntos de $X$ está em $\mathcal{T}$.
+
+**Topologia discreta e indiscreta**: se $X$ é um conjunto e $\mathcal{T}$ é a família de todos os subconjuntos de $X$, $\mathcal{T}$ é chamada de topologia discreta. Se $\mathcal{T}=(\emptyset,X)$, é chamada de topologia indiscreta.
+
+**Topologia padrão**: se $X$ é a reta real, $\mathbb{R}$, todos os intervalos abertos $(a,b)$, onde $a,b \in \mathbb{R}$, e suas uniões definem uma topologia chamada de topologia padrão ou usual da reta real.
+
+**Métrica**: uma métrica é um mapa $d: X \times X \rightarrow \mathbb{R}$ tal que
+
+1. $d(x,y) = d(y,x)$;
+2. $d(x,y) \ge 0$, não se aplica a uma superfície Riemanniana;
+3. $d(x,y) + d(y,z) \ge d(x,z)$,
+
+para todos $x,y,z \in \mathbb{R}$.
+
+**Topologia métrica**: se um conjunto $X$ é dotado de uma métrica, $X$ é um espaço topológico cujos conjuntos abertos são "discos abertos", $U_{\epsilon} = \lbrace y \in X | d(x,y) < \epsilon \rbrace$ e todas as suas uniões. $\mathcal{T}$ é chamada de topologia métrica e $(X, \mathcal{T})$ é um espaço métrico.
+
+**Topologia relativa**: dado um espaço topológico $(X, \mathcal{T})$ e seja $A$ qualquer subconjunto de $X$. Então, $\mathcal{T} = \lbrace U_{i} \rbrace$ induz uma topologia relativa em $A$ por $\mathcal{T'} = \lbrace U_{i} \cap A | U_{i} \in \mathcal{T} \rbrace$.
+
+**Aplicação contínua ou mapa contínuo**: sejam $X$ e $Y$ dois espaços topológicos. Uma função $\phi: X \rightarrow Y$ é contínua se $\phi^{-1}(U) \subset X$ para $U \subset X$.
+
+**Vizinhança**: dado o espaço topológico $(X, \mathcal{T})$, $N$ é uma vizinhança de $x \in X$ se $N$ for um subconjunto de $X$ e $N$ contiver pelo menos um conjunto aberto tal que $x \in U_{i}$. Se $N$ é aberto em $\mathcal{T}$, é uma vizinhança aberta.
+
+**Espaço de Hausdorff**: dado o espaço topológico $(X, \mathcal{T})$, se para $x, x' \in X$ $\exists$ uma vizinhança $U_{x}$ e $U_{x'}$ tal que $U_{x} \cap U_{x'} = \emptyset$, $(X, \mathcal{T})$ é um espaço de Hausdorff. Qualquer espaço métrico é de Hausdorff.
+
+**Conjunto fechado**: dado o espaço topológico $(X, \mathcal{T})$, um subconjunto $A$ de $X$ é fechado se seu complemento em $X$ for um conjunto aberto; $X-A \in \mathcal{T}$.
+
+**Fecho**: é o menor conjunto fechado que contém $A$, denotado como $\overline{A}$.
+
+**Interior**: é o maior subconjunto aberto de $A$, denotado como $A^{\circ}$.
+
+**Fronteira**: a fronteira $b(A)$ de $A$ é o complemento de $A^{\circ}$ em $A$: $b(A) = A - A^{\circ}$. Seja $A$ um conjunto aberto, então $A \cap b(A) = \emptyset$.
+
+**Cobertura**: dado o espaço topológico $(X, \mathcal{T})$, uma família de subconjuntos de $X$, $\lbrace A_{i} \rbrace$ é dita cobrir $X$ se $\underset{i \in I}{\bigcup} A_{i} = X$. Se todos os $A_{i}$ são abertos em $\mathcal{T}$, então $\lbrace A_{i} \rbrace$ é uma cobertura aberta de $X$.
+
+**Compacidade**: considere um conjunto $X$ e todas as coberturas possíveis de $X$. $X$ é compacto se, para toda cobertura aberta $\lbrace U_{i} | i \in I \rbrace$, $\exists$ um subconjunto finito $J$ de $I$ tal que $\lbrace U_{j} | j \in J \rbrace$ também cobre $X$. Um subconjunto de $\mathbb{R}$ é compacto se e somente se for fechado e limitado.
+
+**Conexo**: dado o espaço topológico $(X, \mathcal{T})$ e dois subconjuntos de $X$, $X_{1}, X_{2} \subset X$ tal que $X_{1} \cap X_{2} = \emptyset$. Se $X$ não pode ser escrito como $X = X_{1} \cup X_{2}$, então ele é conexo, caso contrário, é desconexo.
+
+**Conexo por arcos**: um espaço topológico é conexo por arcos se, para quaisquer pontos, $\exists$ uma aplicação contínua $\phi: [0,1] \rightarrow X$ tal que $\phi(0) = X$ e $\phi(1) = Y$.
+
+**Simplesmente conexo**: um laço em um espaço topológico $X$ é uma aplicação contínua $\phi: [0,1] \rightarrow X$ tal que $\phi(0) = \phi(1)$. Se qualquer laço em $X$ pode ser continuamente encolhido até um ponto, $X$ é simplesmente conexo.
+
+**Homeomorfismo 1**: sejam $X_{1}$ e $X_{2}$ dois espaços topológicos. Um mapa $\phi: X_{1} \rightarrow X_{2}$ é um homeomorfismo se for contínuo e tiver um inverso $\phi^{-1}: X_{2} \rightarrow X_{1}$, que também é contínuo. Se $\exists$ um homeomorfismo entre $X_{1}$ e $X_{2}$, diz-se que $X_{1}$ é homeomorfo a $X_{2}$.
+
+**Homeomorfismo 2**: $X_{1}$ é homeomorfo a $X_{2}$ se $\exists$ os mapas $\phi: X_{1} \rightarrow X_{2}$ e $\psi: X_{2} \rightarrow X_{1}$ tais que $\phi \circ \psi = id_{X_{2}}$ e $\psi \circ \phi = id_{X_{1}}$.
+
+**Invariantes topológicos**: são quantidades que são conservadas sob homeomorfismo. Exemplos incluem o número de componentes conexas do espaço, uma estrutura algébrica como um grupo ou anel construído a partir do espaço, ou propriedades como conexidade, compacidade ou a propriedade de Hausdorff. Se um conjunto completo de invariantes topológicos for conhecido, uma classe de equivalência pode ser especificada. Se dois espaços topológicos tiverem invariantes topológicos diferentes, eles não podem ser homeomorfos entre si.
+
+**Tipo de homotopia**: é uma classe de equivalência mais grosseira do que o homeomorfismo, as funções contínuas $\phi$ e $\psi$ não precisam ter inversos.
+
 
 ## Variedades diferenciaveis
 
