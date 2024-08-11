@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Laplace Approximation &#8212; Disorder Transform</title>
+    <title>5. Topologia &#8212; Disorder Transform</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Computing Hessian and Jacobian" href="computing-hessian-and-jacobian.html" />
-    <link rel="prev" title="2. Understanding regularization" href="understanding-regularization.html" />
+    <link rel="next" title="6. Campos Tensoriais Métricos" href="metric-tensor-fields.html" />
+    <link rel="prev" title="4. Álgebras" href="algebras.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -164,59 +164,59 @@
   Machine Learning
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="bias-variance.html">
+  <a class="reference internal" href="../machine-learning/bias-variance.html">
    1. Bias and Variance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="understanding-regularization.html">
+  <a class="reference internal" href="../machine-learning/understanding-regularization.html">
    2. Understanding regularization
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine-learning/laplace-approximation.html">
    3. Laplace Approximation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="computing-hessian-and-jacobian.html">
+  <a class="reference internal" href="../machine-learning/computing-hessian-and-jacobian.html">
    4. Computing Hessian and Jacobian
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="counter-factual-model.html">
+  <a class="reference internal" href="../machine-learning/counter-factual-model.html">
    5. Counter Factual Model
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="intro-manifold.html">
+  <a class="reference internal" href="../machine-learning/intro-manifold.html">
    7. Introdução ao Manifold Learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="multidimensional-scaling.html">
+  <a class="reference internal" href="../machine-learning/multidimensional-scaling.html">
    8. Manifold Learning - Multidimensional Scaling
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="active-learning-strategy.html">
+  <a class="reference internal" href="../machine-learning/active-learning-strategy.html">
    9. Active Learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="k-means.html">
+  <a class="reference internal" href="../machine-learning/k-means.html">
    10. Expectation-Maximization Algorithm - k-Means
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="nn-universal-approximator.html">
+  <a class="reference internal" href="../machine-learning/nn-universal-approximator.html">
    11. Neural Network as an Universal Approximator
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="variational-autoencoder.html">
+  <a class="reference internal" href="../machine-learning/variational-autoencoder.html">
    12. Variational AutoEncoder
   </a>
  </li>
@@ -270,34 +270,34 @@
   Differential Geometry
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../differential-geometry/intro.html">
+  <a class="reference internal" href="intro.html">
    1. Problems and solutions in differential geometry
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../differential-geometry/maps.html">
+  <a class="reference internal" href="maps.html">
    2. Mapas, Curvas, superfícies e Variedades
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../differential-geometry/vector-spaces.html">
+  <a class="reference internal" href="vector-spaces.html">
    3. Espaços Vetoriais
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../differential-geometry/algebras.html">
+  <a class="reference internal" href="algebras.html">
    4. Álgebras
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../differential-geometry/topology.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    5. Topologia
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../differential-geometry/metric-tensor-fields.html">
+  <a class="reference internal" href="metric-tensor-fields.html">
    6. Campos Tensoriais Métricos
   </a>
  </li>
@@ -371,7 +371,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/machine-learning/laplace-approximation.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/differential-geometry/topology.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -391,7 +391,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/machine-learning/laplace-approximation.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/onimaru/source/issues/new?title=Issue%20on%20page%20%2Fcontent/differential-geometry/topology.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -412,29 +412,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-do-we-need-that">
-   3.1. Why do we need that?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#developing-laplace-approximation">
-   3.2. Developing Laplace Approximation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-use-it">
-   3.3. How to use it
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -442,85 +419,74 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Laplace Approximation</h1>
+                <h1>Topologia</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-do-we-need-that">
-   3.1. Why do we need that?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#developing-laplace-approximation">
-   3.2. Developing Laplace Approximation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-use-it">
-   3.3. How to use it
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="laplace-approximation">
-<span id="id1"></span><h1><span class="section-number">3. </span>Laplace Approximation<a class="headerlink" href="#laplace-approximation" title="Permalink to this headline">¶</a></h1>
-<p>This is a framework to find an Gaussian approximation to a probability density. Since it is Gaussian it is defined over continuous variables.</p>
-<p><strong>Summary</strong>: it is actually really simple. We need to find de <code class="docutils literal notranslate"><span class="pre">mode</span></code> of a probability density and create a Gaussian density distribution centered at this point. We will also need to find the curvature, or the precision, in the same point.</p>
-<div class="section" id="why-do-we-need-that">
-<h2><span class="section-number">3.1. </span>Why do we need that?<a class="headerlink" href="#why-do-we-need-that" title="Permalink to this headline">¶</a></h2>
-<p>Most of the time we are dealing with complicated probability distributions for which, for example, we do not have an easy way to sample or compute expectations. In cases like that may be worth it to use an approximation with an easy to handle probability distribution.</p>
-<p>We can go beyond that. As we will see, La place Approximation can be used to transform a common neural network in a bayesian neural network. This will give us expectation and uncertainty.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="topologia">
+<span id="topology"></span><h1><span class="section-number">5. </span>Topologia<a class="headerlink" href="#topologia" title="Permalink to this headline">¶</a></h1>
+<p>1 - A distância de Minskowski, que é uma generalização de muitas métricas famosas, é também conhecida como distância <span class="math notranslate nohighlight">\(L^{p}\)</span> e pode ser definida como:</p>
+<div class="math notranslate nohighlight">
+\[d(x,y)= \left( \sum_{i=1}^{n} |x_{i}-y_{i}|^{p} \right)^{\frac{1}{p}},\]</div>
+<p>onde <span class="math notranslate nohighlight">\(x,y \in \mathbb{R}^{n}\)</span> e <span class="math notranslate nohighlight">\(p\)</span> é um inteiro. Para <span class="math notranslate nohighlight">\(p\)</span> igual a <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span> e <span class="math notranslate nohighlight">\(\infty\)</span>, essa distância se reduz à distâncias Manhattan (<span class="math notranslate nohighlight">\(L^{1}\)</span>), Euclidiana (<span class="math notranslate nohighlight">\(L^{2}\)</span>) e Chebyshev (<span class="math notranslate nohighlight">\(L^{\infty}\)</span>), respectivamente. Mostre que para <span class="math notranslate nohighlight">\(p=0.5\)</span> a distância de Minkowski não é uma métrica (isso é válido para qualquer <span class="math notranslate nohighlight">\(p&lt;1\)</span>).</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>Solução</strong>:<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Sejam os pontos do <span class="math notranslate nohighlight">\(\mathbb{R}^{2}\)</span>: <span class="math notranslate nohighlight">\(x=(0,0)\)</span>, <span class="math notranslate nohighlight">\(y=(0,1)\)</span> e <span class="math notranslate nohighlight">\(z=(1,1)\)</span>. Para <span class="math notranslate nohighlight">\(p=0.5\)</span> temos</p>
+<div class="math notranslate nohighlight">
+\[L^{\frac{1}{2}} \equiv d(x,y) = \left( \sum_{i=1}^{2} |x_{i}-y_{i}|^{\frac{1}{2}} \right)^{2}.\]</div>
+<p class="card-text">Verificando a desigualdade triangular, <span class="math notranslate nohighlight">\(d(x,z) \le d(x,y) + d(y,z)\)</span>, temos uma violação:</p>
+<div class="math notranslate nohighlight">
+\[4 \le 1 + 1.\]</div>
+<p class="card-text">Logo, a distância <span class="math notranslate nohighlight">\(L^{\frac{1}{2}}\)</span> não é uma métrica.</p>
 </div>
-<div class="section" id="developing-laplace-approximation">
-<h2><span class="section-number">3.2. </span>Developing Laplace Approximation<a class="headerlink" href="#developing-laplace-approximation" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we have an unknown probability distribution over a one dimensional random variable <span class="math notranslate nohighlight">\(z\)</span>:</p>
+</details><br/>
+<p>2 - Seja <span class="math notranslate nohighlight">\(A\)</span> qualquer conjunto. Mostre que a métrica discreta</p>
 <div class="math notranslate nohighlight">
-\[p(z) = \frac{f(z)}{Z}\]</div>
-<p>where <span class="math notranslate nohighlight">\(Z = \int f(z)dz\)</span>. We want to find and Gaussian approximation <span class="math notranslate nohighlight">\(q(z)\)</span> centered at the mode of <span class="math notranslate nohighlight">\(p(z)\)</span>. The mode is the point <span class="math notranslate nohighlight">\(z_{0}\)</span> in which <span class="math notranslate nohighlight">\(\frac{df}{dz}\vert_{z=z_{0}}\)</span>, it is independent of the normalization factor <span class="math notranslate nohighlight">\(Z\)</span>.</p>
-<p>Since we are making an approximation let us expand <span class="math notranslate nohighlight">\(f(z)\)</span> or <span class="math notranslate nohighlight">\(\ln{f(z)}\)</span> around <span class="math notranslate nohighlight">\(z_{0}\)</span>:</p>
+\[\begin{split} d(x,y) = \left\{\begin{matrix}
+ 0,&amp; \text{se } x = y  \\
+ 1,&amp; \text{se } x \ne y \\
+\end{matrix}\right.\end{split}\]</div>
+<p>é uma métrica em <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>Solução</strong>:<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Sejam <span class="math notranslate nohighlight">\(x,y,z \in A\)</span>. Como <span class="math notranslate nohighlight">\(x=y\)</span> implica em <span class="math notranslate nohighlight">\(y=x\)</span>, a simetria é verdadeira, <span class="math notranslate nohighlight">\(d(x,y)=d(y,x)\)</span>. Como <span class="math notranslate nohighlight">\(d\)</span> só pode assumir os valores <span class="math notranslate nohighlight">\(0\)</span> ou <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(d(x,y) \ge 0\)</span>. Para a desigualdade triangular temos a seguintes possibilidades:</p>
 <div class="math notranslate nohighlight">
-\[\ln{f(z)} = \sum_{n=0}^{\infty}\frac{(\ln{f(z)})^{(n)}}{n!}\vert_{z=z_{0}}(z-z_{0})^{n}\]</div>
-<p>Expanding it until second order we have:</p>
-<div class="math notranslate nohighlight">
-\[\ln{f(z)} \approx \left.\ln{f(z)}\right|_{z=z_{0}} + \left.\frac{1}{f(z)}\frac{df(z)}{dz}\right|_{z=z_{0}}(z-z_{0}) + \left.\left(\frac{-1}{f(z)^{2}} \left(\frac{df(z)}{dz} \right)^{2} + \frac{1}{f(z)} \frac{d^{2}f(z)}{dz^{2}} \right) \right|_{z=z_{0}} \frac{(z-z_{0})^{2}}{2!}\]</div>
-<p>We know that <span class="math notranslate nohighlight">\(\frac{df}{dz}\vert_{z=z_{0}}\)</span>, which simplifies the equation</p>
-<div class="math notranslate nohighlight">
-\[\ln{f(z)} \approx \ln{f(z_{0})} + \left.\frac{d^{2}}{dz}\ln{f(z)}\right|_{z=z_{0}} \frac{(z-z_{0})^{2}}{2!}\]</div>
-<p>Now we exponentiate everything to get</p>
-<div class="math notranslate nohighlight">
-\[f(z) \approx f(z_{0}) e^{\left(\frac{-A}{2} (z-z_{0})^{2} \right)}\]</div>
-<p>where <span class="math notranslate nohighlight">\(A = \left.\frac{d^{2}}{dz}\ln{f(z)}\right|_{z=z_{0}}\)</span>. Note that we used</p>
-<div class="math notranslate nohighlight">
-\[\frac{d^{2}}{dz}\ln{f(z)} = \left(\frac{-1}{f(z)^{2}} \left(\frac{df(z)}{dz} \right)^{2} + \frac{1}{f(z)} \frac{d^{2}f(z)}{dz^{2}} \right).\]</div>
-<p>Comparing the result with the Gaussian distribution one can see that <span class="math notranslate nohighlight">\(f(z_{0}) = \sqrt{\frac{A}{2 \pi}}\)</span> and <span class="math notranslate nohighlight">\(A &gt; 0\)</span>. We conclude that <span class="math notranslate nohighlight">\(A\)</span> is the precision <span class="math notranslate nohighlight">\(A = \frac{1}{\sigma^{2}}\)</span>.</p>
-<p>So <span class="math notranslate nohighlight">\(A\)</span> is the curvature of a Gaussian at <span class="math notranslate nohighlight">\(z_{0}\)</span>. If the curvature goes to infinity, the standard deviation goes to zero, resulting in the Dirac distribution.</p>
-<p>It will be more clear if we extend this to a multidimensional random variable, where <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> is the random variable vector and our constraint is <span class="math notranslate nohighlight">\(\nabla f(\mathbf{z})=0\)</span> at point <span class="math notranslate nohighlight">\(\mathbf{z}_{0}\)</span>. The final equation is almost the same, but now we have a quadratic form:</p>
-<div class="math notranslate nohighlight">
-\[\ln{f(z)} \approx \ln{f(z_{0})} - \frac{1}{2}(\mathbf{z}-\mathbf{z}_{0})^{\top}A (\mathbf{z}-\mathbf{z}_{0})\]</div>
-<p>Since <span class="math notranslate nohighlight">\(f\)</span> receives a multidimensional vector and returns a number (a scalar field), its gradient is a vector field and when we compute the second derivative (the Jacobian of the gradient) we are actually computing the Hessian matrix. In conclusion, <span class="math notranslate nohighlight">\(A\)</span> is the Hessian matrix at point <span class="math notranslate nohighlight">\(\mathbf{z}_{0}\)</span>, the curvature matrix.</p>
-<p>Finally, our approximation is</p>
-<div class="math notranslate nohighlight">
-\[q(\mathbf{z}) = \frac{\left| A \right|^{\frac{1}{2}}}{\left(2 \pi \right)^{\frac{n}{2}}} exp \left( - \frac{1}{2}(\mathbf{z}-\mathbf{z}_{0})^{\top}A (\mathbf{z}-\mathbf{z}_{0})\right) = \mathcal{N}(\mathbf{z} | \mathbf{z}_{0}, A^{-1}),\]</div>
-<p>where <span class="math notranslate nohighlight">\(\left| A \right|\)</span> is the determinant of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+\[\begin{split}\begin{matrix}
+ x \ne y \ne z \implies 1 \le 1+1;\\
+ x \ne y = z \implies 1 \le 1+0;\\
+ x = z \ne z \implies 0 \le 1+1\\
+ x = y = z \implies 0 \le 0+0.
+\end{matrix}\end{split}\]</div>
+<p class="card-text">Logo, a métrica discreta é uma métrica.</p>
 </div>
-<div class="section" id="how-to-use-it">
-<h2><span class="section-number">3.3. </span>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
-<p>We know an expression for <span class="math notranslate nohighlight">\(q(\mathbf{z})\)</span>. To apply the Laplace Approximation we just need to find de mode <span class="math notranslate nohighlight">\(\mathbf{z}_{0}\)</span> with any numeric optimization algorithm and then use some algorithm tocompute the Hessian at this point.</p>
-</div>
+</details><br/>
+<p>3 - A distância de Hausdorff é uma medida que quantifica quão longe dois subconjuntos de um espaço métrico estão um do outro. Mais formalmente, dada a métrica <span class="math notranslate nohighlight">\( d \)</span> em um espaço métrico <span class="math notranslate nohighlight">\((X, d)\)</span> e dois subconjuntos <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> de <span class="math notranslate nohighlight">\(X\)</span>, a distância de Hausdorff <span class="math notranslate nohighlight">\(d_{H}(A, B)\)</span> é definida como:</p>
+<div class="math notranslate nohighlight">
+\[
+d_{H}(A, B) = \max \left\{ \sup_{a \in A} \inf_{b \in B} d(a, b), \sup_{b \in B} \inf_{a \in A} d(b, a) \right\},
+\]</div>
+<p>onde</p>
+<div class="math notranslate nohighlight">
+\[\sup_{a \in A} \inf_{b \in B} d(a, b)\]</div>
+<p>significa que para cada ponto <span class="math notranslate nohighlight">\( a \)</span> em <span class="math notranslate nohighlight">\(A\)</span>, calculamos a menor distância até qualquer ponto em <span class="math notranslate nohighlight">\(B\)</span> (isto é, a distância de <span class="math notranslate nohighlight">\(a\)</span> ao ponto de <span class="math notranslate nohighlight">\(B\)</span> mais próximo). Em seguida, tomamos o maior valor dessas menores distâncias para todos os pontos de <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>A distância de Hausdorff <span class="math notranslate nohighlight">\(d_{H}(A, B)\)</span> é, portanto, o máximo entre essas duas quantidades. Ela representa a maior “distância mínima” que você deve percorrer para cobrir completamente um dos conjuntos a partir do outro. Se a distância de Hausdorff entre <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> é pequena, isso significa que os conjuntos <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> estão próximos um do outro em termos de sua posição no espaço métrico.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -536,7 +502,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/machine-learning"
+            path: "./content/differential-geometry"
         },
         predefinedOutput: true
     }
@@ -548,17 +514,17 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="understanding-regularization.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="algebras.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2. </span>Understanding regularization</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Álgebras</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="computing-hessian-and-jacobian.html" title="next page">
+    <a class='right-next' id="next-link" href="metric-tensor-fields.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Computing Hessian and Jacobian</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Campos Tensoriais Métricos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
