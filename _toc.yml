@@ -52,6 +52,7 @@ parts:
   - file: content/differential-geometry/maps
   - file: content/differential-geometry/vector-spaces
   - file: content/differential-geometry/algebras
+  - file: content/differential-geometry/topology
   - file: content/differential-geometry/metric-tensor-fields
 - caption: Extra content
   chapters:

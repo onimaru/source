@@ -8,7 +8,8 @@ Conteúdo em constante evolução.
 1. {ref}`Mapas, Curvas, superfícies e Variedades <maps-manifolds>`
 2. {ref}`Espaços Vetoriais <vector-spaces>`
 3. {ref}`Álgebras <algebras>`
-4. {ref}`Campos Tensoriais Métricos <metric-tensor-fields>`
+4. {ref}`Topologia <topology>`
+5. {ref}`Campos Tensoriais Métricos <metric-tensor-fields>`
 
 Este material não é feito em inglês devido a falta de conteúdo deste tipo em português.
 
