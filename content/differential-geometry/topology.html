@@ -487,6 +487,26 @@ d_{H}(A, B) = \max \left\{ \sup_{a \in A} \inf_{b \in B} d(a, b), \sup_{b \in B}
 \[\sup_{a \in A} \inf_{b \in B} d(a, b)\]</div>
 <p>significa que para cada ponto <span class="math notranslate nohighlight">\( a \)</span> em <span class="math notranslate nohighlight">\(A\)</span>, calculamos a menor distância até qualquer ponto em <span class="math notranslate nohighlight">\(B\)</span> (isto é, a distância de <span class="math notranslate nohighlight">\(a\)</span> ao ponto de <span class="math notranslate nohighlight">\(B\)</span> mais próximo). Em seguida, tomamos o maior valor dessas menores distâncias para todos os pontos de <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>A distância de Hausdorff <span class="math notranslate nohighlight">\(d_{H}(A, B)\)</span> é, portanto, o máximo entre essas duas quantidades. Ela representa a maior “distância mínima” que você deve percorrer para cobrir completamente um dos conjuntos a partir do outro. Se a distância de Hausdorff entre <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> é pequena, isso significa que os conjuntos <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> estão próximos um do outro em termos de sua posição no espaço métrico.</p>
+<br/>
+<p>4 - A distância de Wasserstein, também conhecida como Métrica de Transporte Ótimo ou Métrica de Earth Mover, é uma medida da diferença entre duas distribuições de probabilidade. Seja <span class="math notranslate nohighlight">\(\mu\)</span> e <span class="math notranslate nohighlight">\(\nu\)</span> duas distribuições de probabilidade definidas sobre um espaço métrico <span class="math notranslate nohighlight">\((X, d)\)</span>. A distância de Wasserstein de ordem <span class="math notranslate nohighlight">\(p\)</span>, denotada por <span class="math notranslate nohighlight">\(W_p(\mu, \nu)\)</span>, é definida como:</p>
+<div class="math notranslate nohighlight">
+\[
+W_p(\mu, \nu) = \left( \inf_{\gamma \in \Gamma(\mu, \nu)} \int_{X \times X} d(x, y)^p \, d\gamma(x, y) \right)^{1/p}
+\]</div>
+<p>Aqui:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(d(x, y)\)</span> é a distância entre os pontos <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> no espaço métrico <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma(\mu, \nu)\)</span> é o conjunto de todas as medidas de acoplamento <span class="math notranslate nohighlight">\(\gamma\)</span> entre <span class="math notranslate nohighlight">\(\mu\)</span> e <span class="math notranslate nohighlight">\(\nu\)</span>, ou seja, o conjunto de distribuições conjuntas <span class="math notranslate nohighlight">\(\gamma(x, y)\)</span> sobre <span class="math notranslate nohighlight">\(X \times X\)</span> cujas marginais são <span class="math notranslate nohighlight">\(\mu\)</span> e <span class="math notranslate nohighlight">\(\nu\)</span>. Isso significa que:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\int_X \gamma(x, y) \, dy = \mu(x) \quad \text{e} \quad \int_X \gamma(x, y) \, dx = \nu(y)
+\]</div>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(p \geq 1\)</span> é um parâmetro que determina a ordem da métrica de Wasserstein.</p></li>
+</ol>
+<p>A interpretação intuitiva da distância de Wasserstein é a seguinte: ela representa o “custo mínimo” necessário para transformar uma distribuição <span class="math notranslate nohighlight">\(\mu\)</span> na distribuição <span class="math notranslate nohighlight">\(\nu\)</span>, onde o “custo” de mover a “massa” de <span class="math notranslate nohighlight">\(x\)</span> para <span class="math notranslate nohighlight">\(y\)</span> é proporcional a <span class="math notranslate nohighlight">\(d(x, y)^p\)</span>.</p>
+<p>Um caso especial importante é a distância de Wasserstein de ordem 1, <span class="math notranslate nohighlight">\(W_1(\mu, \nu)\)</span>, que é frequentemente utilizada em várias aplicações práticas.</p>
 </div>
 
     <script type="text/x-thebe-config">
